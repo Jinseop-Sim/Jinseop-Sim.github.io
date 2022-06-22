@@ -1,7 +1,13 @@
 ---
 layout: post
+toc: true
+title: "Hi, This is my first Post"
+categories: test
+tags: [markdown]
+author:
+  - Jinseop Sim
 ---
 
 # Hi This is my first post
-## 안녕하세요, 제 역사적인 첫 글입니다.
-### It's Historical!
+## It's my historical first post
+### It's phenomenon!
