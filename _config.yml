@@ -1,7 +1,7 @@
 title: Sinabro grow.
 description: Hi, I'm gradually growing up Noob developer.
 author: Jinseop-Sim
-avatar: /logo.png
+avatar: /qwd.jpg
 email: jjanggu1565@gmail.com
 
 plugins:
@@ -29,7 +29,7 @@ exclude:
 
 # Jekyll SEO Tag (Optional)
 # =========================
-logo: logo.png
+logo: qwd.jpg
 social:
   name: Jinseop Sim
   links:
