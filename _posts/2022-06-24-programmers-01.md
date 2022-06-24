@@ -1,16 +1,16 @@
----
+ï»¿---
 layout: post
-title: "ÇÁ·Î±×·¡¸Ó½º Level 2 - ÀüÈ­¹øÈ£ ¸ñ·Ï"
+title: "í”„ë¡œê·¸ë˜ë¨¸ìŠ¤ Level 2 - ì „í™”ë²ˆí˜¸ ëª©ë¡"
 categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
 ---
 
-### ÇÁ·Î±×·¡¸Ó½º Level 2 - ÀüÈ­¹øÈ£ ¸ñ·Ï.
+### í”„ë¡œê·¸ë˜ë¨¸ìŠ¤ Level 2 - ì „í™”ë²ˆí˜¸ ëª©ë¡.
 
-³ª´Â ¸ÕÀú, Á¤·ÄÀ» ÇÑ µÚ¿¡ ÀÎÁ¢ ¹øÈ£¿¡ °ãÄ¡´Â Á¢µÎ»ç°¡ ÀÖ´ÂÁö
-È®ÀÎÇÏ´Â ¹æ½ÄÀ¸·Î ¹®Á¦¸¦ Ç®¾ú´Ù.
+ë‚˜ëŠ” ë¨¼ì €, ì •ë ¬ì„ í•œ ë’¤ì— ì¸ì ‘ ë²ˆí˜¸ì— ê²¹ì¹˜ëŠ” ì ‘ë‘ì‚¬ê°€ ìˆëŠ”ì§€
+í™•ì¸í•˜ëŠ” ë°©ì‹ìœ¼ë¡œ ë¬¸ì œë¥¼ í’€ì—ˆë‹¤.
 
 {% highlight cpp %}
 #include <string>
@@ -26,7 +26,7 @@ bool solution(vector<string> phone_book) {
     for (int i = 1; i < phone_book.size(); i++) {
         if (phone_book[i - 1][0] != phone_book[i][0]) continue;
         if (phone_book[i].find(phone_book[i - 1]) != string::npos) {
-            // find method¸¦ »ç¿ëÇØ¼­, npos°¡ ¾Æ´Ï¸é Á¢µÎ»ç°¡ Á¸Àç.
+            // find methodë¥¼ ì‚¬ìš©í•´ì„œ, nposê°€ ì•„ë‹ˆë©´ ì ‘ë‘ì‚¬ê°€ ì¡´ì¬.
             answer = false; 
             break;
         }
@@ -36,10 +36,10 @@ bool solution(vector<string> phone_book) {
 }
 {% endhighlight %}
 
-### ´Ù¸¥ Ç®ÀÌ - Hash map
+### ë‹¤ë¥¸ í’€ì´ - Hash map
 
-¹®Á¦¸¦ Ç¬ µÚ ÀÎÅÍ³İÀ» Ã£¾Æº¸´Ï, ´Ù¸¥ Ç®ÀÌ°¡ ÀÖ¾ú´Ù.
-ÈçÈ÷ Hash mapÀ¸·Î »ç¿ëÇÏ´Â Unorderd mapÀ» ÀÌ¿ëÇÑ Ç®ÀÌ¿´´Ù.
+ë¬¸ì œë¥¼ í‘¼ ë’¤ ì¸í„°ë„·ì„ ì°¾ì•„ë³´ë‹ˆ, ë‹¤ë¥¸ í’€ì´ê°€ ìˆì—ˆë‹¤.
+í”íˆ Hash mapìœ¼ë¡œ ì‚¬ìš©í•˜ëŠ” Unorderd mapì„ ì´ìš©í•œ í’€ì´ì˜€ë‹¤.
 
 {% highlight cpp %}
 #include <string>
@@ -49,17 +49,17 @@ bool solution(vector<string> phone_book) {
 using namespace std;
 
 bool solution(vector<string> phone_book) {
-    unordered_map<string, int> hash_map; // Hash map ¼±¾ğ
+    unordered_map<string, int> hash_map; // Hash map ì„ ì–¸
 
     for (int i = 0; i < phone_book.size(); i++)
         hash_map[phone_book[i]] = 1;
-        // ÀüÈ­¹øÈ£µéÀ» ¸ğµÎ Hash map¿¡ ÀúÀå.
+        // ì „í™”ë²ˆí˜¸ë“¤ì„ ëª¨ë‘ Hash mapì— ì €ì¥.
 
     for (int i = 0; i < phone_book.size(); i++) {
         for (int j = 0; j < phone_book[i].size()-1; j++) {
             string number = phone_book[i].substr(0, j + 1);
-            // ÀüÈ­¹øÈ£ºÎÀÇ Substring µé°ú Hash mapÀ» ºñ±³ÇÑ´Ù.
-            // Hash map¿¡ Á¸ÀçÇÏ¸é, Á¢µÎ»ç°¡ °ãÄ¡´Â °ÍÀÌ¹Ç·Î False.
+            // ì „í™”ë²ˆí˜¸ë¶€ì˜ Substring ë“¤ê³¼ Hash mapì„ ë¹„êµí•œë‹¤.
+            // Hash mapì— ì¡´ì¬í•˜ë©´, ì ‘ë‘ì‚¬ê°€ ê²¹ì¹˜ëŠ” ê²ƒì´ë¯€ë¡œ False.
             if (hash_map[number]) return false;
         }
     }
