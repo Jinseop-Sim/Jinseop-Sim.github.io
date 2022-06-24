@@ -1,16 +1,18 @@
----
+ï»¿---
 layout: post
-title: "ÇÁ·Î±×·¡¸Ó½º Level 3 - ¼øÀ§"
+title: "í”„ë¡œê·¸ë˜ë¨¸ìŠ¤ Level 3 - ìˆœìœ„"
 categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
 ---
 
-### ÇÁ·Î±×·¡¸Ó½º Level 3 : ¼øÀ§
+### í”„ë¡œê·¸ë˜ë¨¸ìŠ¤ Level 3 : ìˆœìœ„
 
-µµÀúÈ÷ Ç® ¹æ¹ıÀÌ »ı°¢³ªÁö ¾Ê¾Æ¼­, ÀÎÅÍ³İ¿¡ Ã£¾Æº¸´Ï  
-Floyd Warshall ¾Ë°í¸®ÁòÀ» ÀÌ¿ëÇØ¼­ Çª´Â ¹®Á¦¿´´Ù.  
+ë„ì €íˆ í’€ ë°©ë²•ì´ ìƒê°ë‚˜ì§€ ì•Šì•„ì„œ, ì¸í„°ë„·ì— ì°¾ì•„ë³´ë‹ˆ  
+Floyd Warshall ì•Œê³ ë¦¬ì¦˜ì„ ì´ìš©í•´ì„œ í‘¸ëŠ” ë¬¸ì œì˜€ë‹¤.  
+
+(ë‚´ìš© ì¶”ê°€ ì˜ˆì •)
 
 {% highlight cpp %}
 #include <string>
@@ -23,7 +25,7 @@ int solution(int n, vector<vector<int>> results) {
     
     for(int i = 0; i<results.size(); i++) info[results[i][0]][results[i][1]] = 1;
     
-    for(int i = 1; i<=n; i++){ // Floyid Warshall ¾Ë°í¸®Áò ±¸Çö
+    for(int i = 1; i<=n; i++){ // Floyid Warshall ì•Œê³ ë¦¬ì¦˜ êµ¬í˜„
         for(int j = 1; j<=n; j++){
             for(int k =1; k<=n; k++){
                 if(info[j][i] == 1 && info[i][k]) info[j][k] = 1;
