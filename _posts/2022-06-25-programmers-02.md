@@ -7,12 +7,16 @@ author:
   - Jinseop Sim
 ---
 
-### 프로그래머스 Level 3 : 순위
+## 프로그래머스 Level 3 : 순위
+
+node간의 [승자, 패자] 결과가 주어졌을 때  
+순위를 매길 수 있는 node의 수를 출력하는 문제였다.  
 
 도저히 풀 방법이 생각나지 않아서, 인터넷에 찾아보니  
 Floyd Warshall 알고리즘을 이용해서 푸는 문제였다.  
 
-(내용 추가 예정.)
+Floyd Warshall 알고리즘을 이용해서
+내용 추가 예정.
 
 {% highlight cpp %}
 #include <string>
