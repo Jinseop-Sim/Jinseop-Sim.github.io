@@ -9,7 +9,7 @@ author:
 
 ### 프로그래머스 Level 2 - 전화번호 목록.
 
-나는 먼저, 정렬을 한 뒤에 인접 번호에 겹치는 접두사가 있는지
+나는 먼저, 정렬을 한 뒤에 인접 번호에 겹치는 접두사가 있는지  
 확인하는 방식으로 문제를 풀었다.
 
 {% highlight cpp %}
@@ -38,10 +38,10 @@ bool solution(vector<string> phone_book) {
 
 ### 다른 풀이 - Hash map
 
-문제를 푼 뒤 인터넷을 찾아보니, 다른 풀이가 있었다.
+문제를 푼 뒤 인터넷을 찾아보니, 다른 풀이가 있었다.  
 흔히 Hash map으로 사용하는 Unorderd map을 이용한 풀이였다.
 
-Unordered map은 일반적인 Map, Set과 다르게 정렬이 되지 않는다.
+Unordered map은 일반적인 Map, Set과 다르게 정렬이 되지 않는다.  
 그래서 다음과 같은 시간 복잡도를 가진다.
 - Map, Set : O(log N)
 - Unordered Map : O(1)
