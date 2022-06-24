@@ -12,7 +12,7 @@ author:
 도저히 풀 방법이 생각나지 않아서, 인터넷에 찾아보니  
 Floyd Warshall 알고리즘을 이용해서 푸는 문제였다.  
 
-(내용 추가 예정)
+(내용 추가 예정.)
 
 {% highlight cpp %}
 #include <string>
