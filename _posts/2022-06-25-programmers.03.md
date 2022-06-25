@@ -1,19 +1,19 @@
----
+ï»¿---
 layout: post
-title: "ÇÁ·Î±×·¡¸Ó½º Level 3 - ´Ù´Ü°è Ä©¼Ö ÆÇ¸Å"
+title: "í”„ë¡œê·¸ë˜ë¨¸ìŠ¤ Level 3 - ë‹¤ë‹¨ê³„ ì¹«ì†” íŒë§¤"
 categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
 ---
 
-## ÇÁ·Î±×·¡¸Ó½º Level 3 : ´Ù´Ü°è Ä©¼Ö ÆÇ¸Å
+## í”„ë¡œê·¸ë˜ë¨¸ìŠ¤ Level 3 : ë‹¤ë‹¨ê³„ ì¹«ì†” íŒë§¤
 
-¹®Á¦´Â ¾Æ·¡¿Í °°´Ù.  
+ë¬¸ì œëŠ” ì•„ë˜ì™€ ê°™ë‹¤.  
 
-### 1Â÷ ½Ãµµ : Adjacent List
-Ã³À½¿¡ ºÃÀ» ¶§, Tree ±¸Á¶¸¦ ¸¸µé¾î¾ß ÇÏ´Â ¹®Á¦¿´±â ¶§¹®¿¡  
-ÀÎÁ¢ ¸®½ºÆ®·Î ±¸ÇöÀ» ÇØ¼­ DFS¸¦ ÀÌ¿ëÇØ Ç®·Á°í ½Ãµµ¸¦ Çß¾ú´Ù.  
+### 1ì°¨ ì‹œë„ : Adjacent List
+ì²˜ìŒì— ë´¤ì„ ë•Œ, Tree êµ¬ì¡°ë¥¼ ë§Œë“¤ì–´ì•¼ í•˜ëŠ” ë¬¸ì œì˜€ê¸° ë•Œë¬¸ì—  
+ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ë¡œ êµ¬í˜„ì„ í•´ì„œ DFSë¥¼ ì´ìš©í•´ í’€ë ¤ê³  ì‹œë„ë¥¼ í–ˆì—ˆë‹¤.  
 
 {% highlight cpp %}
 
@@ -41,14 +41,14 @@ void init_list(vector<string> enroll, vector<string> referral, vector<string> se
 
 {% endhighlight %}  
 
-ÇÏÁö¸¸, ÀÎÁ¢ ¸®½ºÆ®·Î ±¸ÇöÀ» ÇØ¼­ DFS¸¦ µ¹·Á °è»êÀ» ÇÏ±â¿£  
-³Ê¹«³ªµµ ¸¹Àº ÇÔ¼ö¿Í Á¶°ÇµéÀ» ÇÊ¿ä·Î ÇØ¼­ ½Ã°£ÃÊ°ú°¡ ³¯ °Í °°¾Ò´Ù.  
+í•˜ì§€ë§Œ, ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ë¡œ êµ¬í˜„ì„ í•´ì„œ DFSë¥¼ ëŒë ¤ ê³„ì‚°ì„ í•˜ê¸°ì—”  
+ë„ˆë¬´ë‚˜ë„ ë§ì€ í•¨ìˆ˜ì™€ ì¡°ê±´ë“¤ì„ í•„ìš”ë¡œ í•´ì„œ ì‹œê°„ì´ˆê³¼ê°€ ë‚  ê²ƒ ê°™ì•˜ë‹¤.  
 
-±×·¡¼­ ±¸±ÛÀÇ ÈûÀ» »ìÂ¦ ºô·Áº¸´Ï, ´Ùµé Hash mapÀ» ÀÌ¿ëÇßÀ½À» ¾Ë ¼ö ÀÖ¾ú´Ù.  
-ÀÌ ¹®Á¦´Â Á¤¼ö·Î node ÀÌ¸§À» Á¤ÇÏÁö ¾Ê°í StringÀ¸·Î Á¤ÇÏ°í ÀÖ±â ¶§¹®¿¡,  
-È®½ÇÈ÷ Hash mapÀ» ÀÌ¿ëÇÏ¸é ºü¸£°Ô ÇØ°áÀÌ °¡´ÉÇÒ °ÍÀÌ´Ù.  
+ê·¸ë˜ì„œ êµ¬ê¸€ì˜ í˜ì„ ì‚´ì§ ë¹Œë ¤ë³´ë‹ˆ, ë‹¤ë“¤ Hash mapì„ ì´ìš©í–ˆìŒì„ ì•Œ ìˆ˜ ìˆì—ˆë‹¤.  
+ì´ ë¬¸ì œëŠ” ì •ìˆ˜ë¡œ node ì´ë¦„ì„ ì •í•˜ì§€ ì•Šê³  Stringìœ¼ë¡œ ì •í•˜ê³  ìˆê¸° ë•Œë¬¸ì—,  
+í™•ì‹¤íˆ Hash mapì„ ì´ìš©í•˜ë©´ ë¹ ë¥´ê²Œ í•´ê²°ì´ ê°€ëŠ¥í•  ê²ƒì´ë‹¤.  
 
-### 2Â÷ ½Ãµµ : Hash map
+### 2ì°¨ ì‹œë„ : Hash map
 
 {% highlight cpp %}
 
@@ -58,19 +58,19 @@ void init_list(vector<string> enroll, vector<string> referral, vector<string> se
 using namespace std;
 
 
-unordered_map<string, string> pedigree; // <º»ÀÎ, ÃßÃµÀÎ> °ü°è¸¦ ÀúÀå
-unordered_map<string, int> revenue; // <º»ÀÎ, ¼Òµæ> °ü°è¸¦ ÀúÀå
+unordered_map<string, string> pedigree; // <ë³¸ì¸, ì¶”ì²œì¸> ê´€ê³„ë¥¼ ì €ì¥
+unordered_map<string, int> revenue; // <ë³¸ì¸, ì†Œë“> ê´€ê³„ë¥¼ ì €ì¥
 
 void calc_revenue(string name, int profit) {
     if (name == "minho") return;
-    // ÃßÃµÀÎÀÌ Center¿Í °°À¸¸é Á¾·á.
+    // ì¶”ì²œì¸ì´ Centerì™€ ê°™ìœ¼ë©´ ì¢…ë£Œ.
 
-    int commission = profit * 0.1; // »ó³³±İ
+    int commission = profit * 0.1; // ìƒë‚©ê¸ˆ
     revenue[name] += profit - commission; 
-    if (commission < 1) return; // °è»êÇÑ °ªÀÌ 1 ÀÌÇÏ¸é »ó³³ÇÏÁö ¾Ê´Â´Ù.
+    if (commission < 1) return; // ê³„ì‚°í•œ ê°’ì´ 1 ì´í•˜ë©´ ìƒë‚©í•˜ì§€ ì•ŠëŠ”ë‹¤.
 
     calc_revenue(pedigree[name], commission);
-    // ºÎ¸ğ·Î ÂßÂß Å¸°í ¿Ã¶ó°¡µµ·Ï Àç±Í.
+    // ë¶€ëª¨ë¡œ ì­‰ì­‰ íƒ€ê³  ì˜¬ë¼ê°€ë„ë¡ ì¬ê·€.
 }
 
 vector<int> solution(vector<string> enroll, vector<string> referral, vector<string> seller, vector<int> amount) {
@@ -79,7 +79,7 @@ vector<int> solution(vector<string> enroll, vector<string> referral, vector<stri
     for (int i = 0; i < referral.size(); i++) {
         if (referral[i] == "-") pedigree[enroll[i]] = "minho";
         else pedigree[enroll[i]] = referral[i];
-    } // ÃßÃµÀÎ ÀúÀå.
+    } // ì¶”ì²œì¸ ì €ì¥.
 
     for (int i = 0; i < seller.size(); i++)
         calc_revenue(seller[i], amount[i] * 100);
@@ -92,5 +92,5 @@ vector<int> solution(vector<string> enroll, vector<string> referral, vector<stri
 
 {% endhighlight %}
 
-Hash mapÀÇ »õ·Î¿î ¿ëµµ¸¦ ¾Ë ¼ö ÀÖ´Â ¹®Á¦¿´´Ù.  
-Graph(Tree) ¹®Á¦¸¦ Çª´Â ¹æ½Ä¿¡ ´ëÇØ¼­ Á¤¸®¸¦ ÇØ¾ßÇÒ °Í °°´Ù.
+Hash mapì˜ ìƒˆë¡œìš´ ìš©ë„ë¥¼ ì•Œ ìˆ˜ ìˆëŠ” ë¬¸ì œì˜€ë‹¤.  
+Graph(Tree) ë¬¸ì œë¥¼ í‘¸ëŠ” ë°©ì‹ì— ëŒ€í•´ì„œ ì •ë¦¬ë¥¼ í•´ì•¼í•  ê²ƒ ê°™ë‹¤.
