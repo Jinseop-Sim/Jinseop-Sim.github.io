@@ -13,10 +13,10 @@ toc: true
 >Tree와 Graph를 어떤 방식으로 구현할 수 있는 지 정리해보자.  
 
 ## Tree 구조의 구현
-### - Binary Tree
+### Binary Tree
 #### 배열 이용해서 구현하기  
 
-이진 트리는 특성 상 Depth가 $$n$$일때 $$2^(n-1)$$의 노드를 가진다.  
+이진 트리는 특성 상 Depth가 $$n$$일때 $$2^{n-1}$$의 노드를 가진다.  
 이런 특성을 이용해서 우리는 단순 배열을 통해 이진 트리 구현이 가능하다.   
 
 배열을 이용해서 구현하는 경우에는 완전 이진트리이거나,  
@@ -89,7 +89,52 @@ int main() {
 그래서 보통은 아래와 같이 포인터를 이용한다.  
 
 {% highlight cpp %}
+#include <iostream>
+using namespace std;
 
+struct Node{ // Tree 구조를 만들기 위한 구조체
+	int data;
+	Node* left;
+	Node* right;
+};
+
+Node* make_bst(Node* node, int data) {
+	if (node == NULL) { // 해당 node가 비었으면
+		node = new Node(); // 새 구조체를 할당해서
+		node->data = data; // data를 집어 넣고
+		node->left = node->right = NULL; // 자식 노드도 만들어준다.
+	}
+	else if (data <= node->data) // node가 비어있지 않으면
+		node->left = make_bst(node->left, data);
+		// 해당 data가 현재 node보다 작을 시 왼쪽으로 진입
+	else
+		node->right = make_bst(node->right, data);
+		// 클 시에는 오른쪽 노드로 진입
+	return node;
+	// 마지막에 return 되는 것은 root이다.
+}
+
+void postorder(Node* node) {
+	if (node->left != NULL) // 좌측 node가 존재하면 진입
+		postorder(node->left);
+	if (node->right != NULL) // 우측 node가 존재하면 진입
+		postorder(node->right);
+	cout << node->data << '\n'; 
+	// 자식 node가 더 이상 없으면 출력
+}
+
+int main() {
+	Node* root = NULL;
+	int num = 0;
+
+	while (cin >> num) {
+		if (num == EOF) break;
+		root = make_bst(root, num);
+	}
+	
+	postorder(root);
+	return 0;
+}
 {% endhighlight %}
 
 ## Graph 구조의 구현
