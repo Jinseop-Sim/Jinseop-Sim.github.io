@@ -6,13 +6,14 @@ tags: [cpp]
 author:
   - Jinseop Sim
 math: true
+toc: true
 ---
 
-알고리즘 문제를 풀다보면 우리는 Graph나 Tree를 이용하는 경우를 자주 만나게 된다.  
-Tree와 Graph를 어떤 방식으로 구현할 수 있는 지 정리해보자.  
+>알고리즘 문제를 풀다보면 우리는 Graph나 Tree를 이용하는 경우를 자주 만나게 된다.  
+>Tree와 Graph를 어떤 방식으로 구현할 수 있는 지 정리해보자.  
 
 ## Tree 구조의 구현
-### Binary Tree
+### - Binary Tree
 #### 배열 이용해서 구현하기  
 
 이진 트리는 특성 상 Depth가 $$n$$일때 $$2^(n-1)$$의 노드를 가진다.  
