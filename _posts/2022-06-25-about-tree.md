@@ -1,6 +1,6 @@
----
+ï»¿---
 layout: post
-title: "Tree¿Í GraphÀÇ ±¸Çö"
+title: "Treeì™€ Graphì˜ êµ¬í˜„"
 categories: Algorithm
 tags: [cpp]
 author:
@@ -8,26 +8,26 @@ author:
 math: true
 ---
 
-¾Ë°í¸®Áò ¹®Á¦¸¦ Ç®´Ùº¸¸é ¿ì¸®´Â Graph³ª Tree¸¦ ÀÌ¿ëÇÏ´Â °æ¿ì¸¦ ÀÚÁÖ ¸¸³ª°Ô µÈ´Ù.  
-Tree¿Í Graph¸¦ ¾î¶² ¹æ½ÄÀ¸·Î ±¸ÇöÇÒ ¼ö ÀÖ´Â Áö Á¤¸®ÇØº¸ÀÚ.  
+ì•Œê³ ë¦¬ì¦˜ ë¬¸ì œë¥¼ í’€ë‹¤ë³´ë©´ ìš°ë¦¬ëŠ” Graphë‚˜ Treeë¥¼ ì´ìš©í•˜ëŠ” ê²½ìš°ë¥¼ ìžì£¼ ë§Œë‚˜ê²Œ ëœë‹¤.  
+Treeì™€ Graphë¥¼ ì–´ë–¤ ë°©ì‹ìœ¼ë¡œ êµ¬í˜„í•  ìˆ˜ ìžˆëŠ” ì§€ ì •ë¦¬í•´ë³´ìž.  
 
-## Tree ±¸Á¶ÀÇ ±¸Çö
+## Tree êµ¬ì¡°ì˜ êµ¬í˜„
 ### Binary Tree
-#### ¹è¿­ ÀÌ¿ëÇØ¼­ ±¸ÇöÇÏ±â  
+#### ë°°ì—´ ì´ìš©í•´ì„œ êµ¬í˜„í•˜ê¸°  
 
-ÀÌÁø Æ®¸®´Â Æ¯¼º »ó Depth°¡ $$n$$ÀÏ¶§ $$2^(n-1)$$ÀÇ ³ëµå¸¦ °¡Áø´Ù.  
-ÀÌ·± Æ¯¼ºÀ» ÀÌ¿ëÇØ¼­ ¿ì¸®´Â ´Ü¼ø ¹è¿­À» ÅëÇØ ÀÌÁø Æ®¸® ±¸ÇöÀÌ °¡´ÉÇÏ´Ù.   
+ì´ì§„ íŠ¸ë¦¬ëŠ” íŠ¹ì„± ìƒ Depthê°€ $$n$$ì¼ë•Œ $$2^(n-1)$$ì˜ ë…¸ë“œë¥¼ ê°€ì§„ë‹¤.  
+ì´ëŸ° íŠ¹ì„±ì„ ì´ìš©í•´ì„œ ìš°ë¦¬ëŠ” ë‹¨ìˆœ ë°°ì—´ì„ í†µí•´ ì´ì§„ íŠ¸ë¦¬ êµ¬í˜„ì´ ê°€ëŠ¥í•˜ë‹¤.   
 
-¹è¿­À» ÀÌ¿ëÇØ¼­ ±¸ÇöÇÏ´Â °æ¿ì¿¡´Â ¿ÏÀü ÀÌÁøÆ®¸®ÀÌ°Å³ª,  
-Æ÷È­ ÀÌÁøÆ®¸®ÀÇ °æ¿ì¿¡ ³¶ºñµÇ´Â °ø°£ÀÌ ¾ø¾î¼­ À¯¿ëÇÏ´Ù!  
+ë°°ì—´ì„ ì´ìš©í•´ì„œ êµ¬í˜„í•˜ëŠ” ê²½ìš°ì—ëŠ” ì™„ì „ ì´ì§„íŠ¸ë¦¬ì´ê±°ë‚˜,  
+í¬í™” ì´ì§„íŠ¸ë¦¬ì˜ ê²½ìš°ì— ë‚­ë¹„ë˜ëŠ” ê³µê°„ì´ ì—†ì–´ì„œ ìœ ìš©í•˜ë‹¤!  
 
-- Example : ¹éÁØ 5639 - ÀÌÁø Å½»ö Æ®¸®
+- Example : ë°±ì¤€ 5639 - ì´ì§„ íƒìƒ‰ íŠ¸ë¦¬
 
-ÀÌÁø Å½»ö Æ®¸®´Â ¸ðµç ¼­ºêÆ®¸®¿¡ ´ëÇØ Ç×»ó ¾Æ·¡ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â Æ®¸®ÀÌ´Ù.  
-- ÁÂÃø ³ëµå°¡ ºÎ¸ðº¸´Ù ÀÛÀ» °Í.  
-- ¿ìÃø ³ëµå°¡ ºÎ¸ðº¸´Ù Å¬ °Í.  
+ì´ì§„ íƒìƒ‰ íŠ¸ë¦¬ëŠ” ëª¨ë“  ì„œë¸ŒíŠ¸ë¦¬ì— ëŒ€í•´ í•­ìƒ ì•„ëž˜ ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” íŠ¸ë¦¬ì´ë‹¤.  
+- ì¢Œì¸¡ ë…¸ë“œê°€ ë¶€ëª¨ë³´ë‹¤ ìž‘ì„ ê²ƒ.  
+- ìš°ì¸¡ ë…¸ë“œê°€ ë¶€ëª¨ë³´ë‹¤ í´ ê²ƒ.  
 
-¾Æ·¡¿Í °°ÀÌ ´Ü¼ø ¹è¿­À» ÀÌ¿ëÇØ¼­ ÀÌÁø Å½»ö Æ®¸®¸¦ ±¸ÇöÇÒ ¼ö ÀÖ´Ù.  
+ì•„ëž˜ì™€ ê°™ì´ ë‹¨ìˆœ ë°°ì—´ì„ ì´ìš©í•´ì„œ ì´ì§„ íƒìƒ‰ íŠ¸ë¦¬ë¥¼ êµ¬í˜„í•  ìˆ˜ ìžˆë‹¤.  
 
 {% highlight cpp %}
 #include <iostream>
@@ -38,22 +38,22 @@ int bst[MAX] = { 0, };
 bool is_root = true;
 
 void make_bst(int pos, int num) {
-	if (is_root) { // Root node¸¦ ÀÔ·Â ¹Þ´Â °æ¿ì
+	if (is_root) { // Root nodeë¥¼ ìž…ë ¥ ë°›ëŠ” ê²½ìš°
 		bst[pos] = num;
 		is_root = false;
 	}
 	else {
-		if (bst[pos] > num) { // ºÎ¸ðº¸´Ù ÀÛÀº °æ¿ì
+		if (bst[pos] > num) { // ë¶€ëª¨ë³´ë‹¤ ìž‘ì€ ê²½ìš°
 			if (bst[pos * 2] == 0) bst[pos * 2] = num;
-			// ÁÂÃø ³ëµå°¡ ºñ¾úÀ¸¸é ÀÔÀå.
+			// ì¢Œì¸¡ ë…¸ë“œê°€ ë¹„ì—ˆìœ¼ë©´ ìž…ìž¥.
 			else make_bst(pos * 2, num);
-			// ÁÂÃø ³ëµå°¡ ºñÁö ¾Ê¾ÒÀ¸¸é ±× ³ëµå¿¡ ´ëÇØ Àç±Í Å½»ö
+			// ì¢Œì¸¡ ë…¸ë“œê°€ ë¹„ì§€ ì•Šì•˜ìœ¼ë©´ ê·¸ ë…¸ë“œì— ëŒ€í•´ ìž¬ê·€ íƒìƒ‰
 		}
-		else { // ºÎ¸ðº¸´Ù Å« °æ¿ì
+		else { // ë¶€ëª¨ë³´ë‹¤ í° ê²½ìš°
 			if (bst[pos * 2 + 1] == 0) bst[pos * 2 + 1] = num;
-			// ¿ìÃø ³ëµå°¡ ºñ¾úÀ¸¸é ÀÔÀå.
+			// ìš°ì¸¡ ë…¸ë“œê°€ ë¹„ì—ˆìœ¼ë©´ ìž…ìž¥.
 			else make_bst(pos * 2 + 1, num);
-			// ¿ìÃø ³ëµå°¡ ºñÁö ¾Ê¾ÒÀ¸¸é ±× ³ëµå¿¡ ´ëÇØ Àç±Í Å½»ö
+			// ìš°ì¸¡ ë…¸ë“œê°€ ë¹„ì§€ ì•Šì•˜ìœ¼ë©´ ê·¸ ë…¸ë“œì— ëŒ€í•´ ìž¬ê·€ íƒìƒ‰
 		}
 	}
 }
@@ -79,18 +79,18 @@ int main() {
 }
 {% endhighlight %}
 
-ÇÏÁö¸¸ ÀÌ·¸°Ô ±¸ÇöÀ» ÇÏ´Â °æ¿ì¿£ TreeÀÇ ±íÀÌ°¡ ¾î´À Á¤µµ µÉÁö ¸ð¸£±â ¶§¹®¿¡,  
-¹è¿­ÀÇ ±æÀÌ¸¦ ¿ì¸®°¡ Á÷Á¢ ¼³Á¤ÇÏ±â°¡ ¸Å¿ì ±î´Ù·Î¿ì¸ç  
-½Ã°£µµ ¸¹ÀÌ Àâ¾Æ ¸Ô°Ô µÈ´Ù.  
+í•˜ì§€ë§Œ ì´ë ‡ê²Œ êµ¬í˜„ì„ í•˜ëŠ” ê²½ìš°ì—” Treeì˜ ê¹Šì´ê°€ ì–´ëŠ ì •ë„ ë ì§€ ëª¨ë¥´ê¸° ë•Œë¬¸ì—,  
+ë°°ì—´ì˜ ê¸¸ì´ë¥¼ ìš°ë¦¬ê°€ ì§ì ‘ ì„¤ì •í•˜ê¸°ê°€ ë§¤ìš° ê¹Œë‹¤ë¡œìš°ë©°  
+ì‹œê°„ë„ ë§Žì´ ìž¡ì•„ ë¨¹ê²Œ ëœë‹¤.  
 
-#### Æ÷ÀÎÅÍ ÀÌ¿ëÇØ¼­ ±¸ÇöÇÏ±â
+#### í¬ì¸í„° ì´ìš©í•´ì„œ êµ¬í˜„í•˜ê¸°
 
-±×·¡¼­ º¸ÅëÀº ¾Æ·¡¿Í °°ÀÌ Æ÷ÀÎÅÍ¸¦ ÀÌ¿ëÇÑ´Ù.  
+ê·¸ëž˜ì„œ ë³´í†µì€ ì•„ëž˜ì™€ ê°™ì´ í¬ì¸í„°ë¥¼ ì´ìš©í•œë‹¤.  
 
 {% highlight cpp %}
 
 {% endhighlight %}
 
-## Graph ±¸Á¶ÀÇ ±¸Çö
+## Graph êµ¬ì¡°ì˜ êµ¬í˜„
 ### Direct Graph
 
