@@ -10,6 +10,7 @@ author:
 ## 프로그래머스 Level 3 : 다단계 칫솔 판매
 
 문제는 아래와 같다.  
+![image](https://user-images.githubusercontent.com/71700079/175772560-88fb9646-3860-4d9f-9671-a03039316eb7.png)  
 
 ### 1차 시도 : Adjacent List
 처음에 봤을 때, Tree 구조를 만들어야 하는 문제였기 때문에  
