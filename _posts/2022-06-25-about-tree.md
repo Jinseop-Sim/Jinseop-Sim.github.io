@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "Tree와 Graph의 구현"
+title: "Graph : Tree Structure"
 categories: Algorithm
 tags: [cpp]
 author:
@@ -134,6 +134,3 @@ int main() {
 	return 0;
 }
 {% endhighlight %}
-
-## Graph 구조의 구현
-### Direct Graph
