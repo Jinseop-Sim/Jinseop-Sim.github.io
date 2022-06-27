@@ -10,6 +10,7 @@ author:
 ## 프로그래머스 Level 2 : 조이스틱
 
 생각보다 많이 까다로운 Greedy 문제였다.  
+![image](https://user-images.githubusercontent.com/71700079/175919129-c4f347bb-1d46-4640-bab9-2dd9336c91e8.png)  
 
 ### 1차 시도 (48점)  
 
