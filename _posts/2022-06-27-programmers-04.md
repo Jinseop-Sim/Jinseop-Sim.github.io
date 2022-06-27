@@ -78,6 +78,16 @@ int main() {
 도저히 생각이 나지 않아 다른 사람들의 힘을 빌렸다.  
 세상엔 참 똑똑한 사람이 많은 것 같다.  
 
+커서를 옮겨서 이름을 바꿀 때, 최소가 되는 경우는  
+생각해보면 3가지 밖에 존재하지 않는다.  
+
+1. 한 방향으로만 훑어서 바꾸는 경우
+  - ex) 'JEROEN'
+2. 시작점 -> i -> 시작점 -> index 순서로 훑는 경우
+  - ex) 'ABAAAAAAABABA'
+3. 시작점 -> index -> 시작점 i 순서로 훑는 경우
+  - ex) 'ABABAAAAAAABA'
+
 {% highlight cpp %}
 #include <string>
 using namespace std;
@@ -93,17 +103,21 @@ int solution(string name) {
     int turn = name.size()-1; // 커서가 한 쪽 방향으로만 가는 경우
     
     for(int i = 0; i<name.size(); i++){
+		if(name[i] == 'A') continue; // A인 자리는 검사할 필요 없음
         answer += up_down(name[i]);
         int index = i+1; // 다음 바꿀 index
         while(index < name.size() && name[index] == 'A')
-            index++;
+            index++; // A가 아닌 다음 문자 찾기
         
         int a = i; // 원점 ~ 현재 index
         int b = name.size() - index; // 배열 끝 ~ 다음 바꿀 index
         turn = min(turn, min(2*a+b, a+2*b));
+		// (a + a) + b : 시작점 -> i -> 시작점 -> index
+		// (b + b) + a : 시작점 -> index -> 시작점 -> i
     }
     
-    answer += turn;
+    if(answer != 0) answer += turn; // A로만 구성된 name일 때,
+									// turn을 더해주지 않도록.
 	return answer;
 }
 {% endhighlight %}
