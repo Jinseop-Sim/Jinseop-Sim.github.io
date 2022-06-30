@@ -9,7 +9,8 @@ author:
 
 ## 프로그래머스 Level 2 : 예상 대진표
 
-![image](https://user-images.githubusercontent.com/71700079/176624176-598f8ac0-0dc6-4892-99e6-6220e62724f1.png)  
+![image](https://user-images.githubusercontent.com/71700079/176624176-598f8ac0-0dc6-4892-99e6-6220e62724f1.png)    
+
 처음엔 간단한 이진탐색 문제라고 생각하고 접근했다.  
 
 ### 1차 시도 : 이진 탐색
