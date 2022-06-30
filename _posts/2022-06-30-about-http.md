@@ -63,8 +63,10 @@ Spring Boot에 대해 배우기 이전에,
   - Web browser로 요청을 넣으면, HTML뿐만 아니라 CSS, 추가 이미지 등 수많은 자원이 동시에 다운로드 된다.
 - 현재는 Persistent Connection으로 문제를 해결했다.
 
-#### HTTP Message
-[사진 첨부]
+#### HTTP Message  
+
+![화면 캡처 2022-06-30 203900](https://user-images.githubusercontent.com/71700079/176688505-4b919ec6-b2cc-4075-a51b-5cb6bc6b8b2c.png)  
+
 - Start Line
   - Request Line : method request-target HTTP-version
     - Method : 서버가 수행해야 할 동작 지정
