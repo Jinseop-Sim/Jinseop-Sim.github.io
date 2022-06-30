@@ -81,3 +81,66 @@ Spring Boot에 대해 배우기 이전에,
 - Body
   - 실제 전송할 Data가 담긴다.
   - Byte 형태로 저장 가능한 모든 정보가 담김!
+
+### HTTP Method
+#### API는 어떻게 만들어질까?
+- API URI 설계
+  - 회원 목록 조회 /read-member-list
+  - 회원 조회 /read-member-by-id
+  - 회원 등록 /create-member
+  - 회원 수정 /update-member
+  - 회원 삭제 /delete-member
+
+위 설계 방식은 과연 좋은 설계인가? 그렇지 않다!
+
+- Resource의 의미는 무엇일까?
+  - 회원에 대한 동작이 Resource가 아니다.
+  - 회원 그 자체가 Resource가 된다.
+  - 그에 맞춰서 Resource 중저  URI를 설계 해보자.
+
+- Resource 중점의 URI 설계
+  - 회원 목록 조회 /members
+  - 회원 조회 /members/{id}
+  - 회원 등록 /members/{id}
+  - 회원 수정 /members/{id}
+  - 회원 삭제 /members/{id}
+
+이렇게 설계를 하면 조회, 등록, 수정, 삭제를 어떻게 구분할 것인가?
+그럼 Resource(명사)와 행위(동사)를 분리하자!
+
+#### HTTP Method의 종류
+- GET : Resource 조회
+  - 전달하고자 하는 Data를 Query Parameter(String)으로 전달.
+  - Body로도 전달 가능하지만, 지원하는 곳이 많이 없다.
+- POST : 요청 Data 처리. 주로 등록하는 데에 사용.
+  - Body를 통해서 요청 Data를 전달한다.
+  - 주로 신규 Resource 등록, Process 처리에 사용한다.
+  - POST 요청이 오면, 어떻게 처리할지 Resource 마다 정해주어야 한다.
+  - 어떤 Method로 처리하기 애매한 경우에, 그냥 POST를 쓰기도 한다.
+- PUT : Resourec를 대체, 없으면 새로 생성
+  - 기존 Resource를 덮어쓰기(완전 대체) 한다.
+    - ex) name과 age가 이미 있을 때, age만 보내면 name은 없어진다.
+  - POST와의 차이는, Client가 리소스 URI를 지정한다는 것!
+- PATCH : Resource 수정
+  - Patch는 Put과 다르게 Resource 중 일부만 보내도 수정이 된다.
+  - 만약 Patch가 지원이 안되는 서버라면 Post를 쓰자!
+- DELETE : Resource 삭제
+- HEAD : GET과 유사하지만, Header와 Status Line만 반환.
+- OPTIONS : 통신 가능한 Method 목록을 반환
+
+#### HTTP Method의 특징
+- Safe
+  - 호출해도 Resource를 변경하지 않는다.
+  - GET이 안전한 Method 중 하나이다.
+- Idempotent
+  - 몇 번을 호출해도 결과가 바뀌지 않는다.
+  - GET, PUT, DELETE 가 멱등 Method이다.
+  - POST는 멱등성이 없다!
+    - 중복 호출 시, 같은 결제가 중복해서 발생할 수가 있다!
+  - 자동 복구 메커니즘에 활용되는 성질이다.
+    - 서버가 정상 작동을 하지 않을 때, 같은 요청을 받아도 되는가?
+- Cacheable
+  - 응답 결과 Resource를 Cache해서 사용해도 되는가?
+  - GET, HEAD, POST, PATCH는 Cache 가능.
+    - 하지만 실제로는 GET, HEAD 정도만 사용한다.
+    - POST와 PATCH는 본문 내용까지 고려를 해야해서 구현이 어렵다.
