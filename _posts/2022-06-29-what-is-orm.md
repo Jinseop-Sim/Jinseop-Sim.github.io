@@ -2,7 +2,7 @@
 layout: post
 title: "좋은 객체 지향 프로그래밍이란?"
 categories: Springboot
-tags: [cpp]
+tags: [java]
 author:
   - Jinseop Sim
 ---
