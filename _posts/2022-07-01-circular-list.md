@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "원형 연결 리스트"
+title: "Linked List : Circular"
 categories: Algorithm
 tags: [cpp]
 author:
