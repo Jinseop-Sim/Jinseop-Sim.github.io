@@ -12,7 +12,7 @@ author:
 연결 리스트 중에서도, 꼬리가 머리를 가리키고 있는 원형 리스트이다.  
 구조는 아래와 같다.  
 
-[사진 첨부]  
+![image](https://user-images.githubusercontent.com/71700079/176916723-af637648-df60-4469-ac99-bf8e7ee74c52.png) 
 
 ### Example : 백준 1158 : 요세푸스 문제
 {% highlight cpp %}
