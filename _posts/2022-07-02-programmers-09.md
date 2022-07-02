@@ -1,38 +1,38 @@
----
+ï»¿---
 layout: post
-title: "ÇÁ·Î±×·¡¸Ó½º Level 2 - ¼øÀ§ °Ë»ö"
+title: "í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ Level 2 - ìˆœìœ„ ê²€ìƒ‰"
 categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
 ---
 
-## ÇÁ·Î±×·¡¸Ó½º Level 2 : ¼øÀ§ °Ë»ö
+## í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ Level 2 : ìˆœìœ„ ê²€ìƒ‰
 
-ºÐ¸í ¹®Á¦ÀÇ LevelÀº 2ÀÎµ¥, Ä«Ä«¿À ¹®Á¦¿©¼­ ±×·±Áö  
-Ã¼°¨»ó ÈÎ¾À ´õ ³ôÀº LevelÀÇ ¹®Á¦·Î ´À²¸Á³´Ù.
+ë¶„ëª… ë¬¸ì œì˜ Levelì€ 2ì¸ë°, ì¹´ì¹´ì˜¤ ë¬¸ì œì—¬ì„œ ê·¸ëŸ°ì§€  
+ì²´ê°ìƒ í›¨ì”¬ ë” ë†’ì€ Levelì˜ ë¬¸ì œë¡œ ëŠê»´ì¡Œë‹¤.
 
-### 1Â÷ ½Ãµµ : ´Ü¼ø For¹®
+### 1ì°¨ ì‹œë„ : ë‹¨ìˆœ Forë¬¸
 
-Ã³À½¿£ Queue¿Í 2Â÷¿ø ¹è¿­À» ÀÌ¿ëÇØ ´Ü¼øÈ÷ For¹®À» µ¹·Á  
-Query¿¡ ¸Â´Â Çà¸¸ 4¹ø Ãß·Á ³ª°¡´Â ½ÄÀ¸·Î ÁøÇàÇÏ·Á°í Çß´Ù.  
+ì²˜ìŒì—” Queueì™€ 2ì°¨ì› ë°°ì—´ì„ ì´ìš©í•´ ë‹¨ìˆœížˆ Forë¬¸ì„ ëŒë ¤  
+Queryì— ë§žëŠ” í–‰ë§Œ 4ë²ˆ ì¶”ë ¤ ë‚˜ê°€ëŠ” ì‹ìœ¼ë¡œ ì§„í–‰í•˜ë ¤ê³  í–ˆë‹¤.  
 
-Info¸¦ ¹®ÀÚ¿­ ÆÄ½ÌÀ» ÅëÇØ 2Â÷¿ø ¹è¿­·Î ¸¸µé¾î ³½ µÚ,  
-ÁÖ¾îÁö´Â Query¿¡ ºÎÇÕÇÏ´Â Çà¸¸ Ãß·Á³»´Â ½ÄÀÌ¾ú´Ù.  
+Infoë¥¼ ë¬¸ìžì—´ íŒŒì‹±ì„ í†µí•´ 2ì°¨ì› ë°°ì—´ë¡œ ë§Œë“¤ì–´ ë‚¸ ë’¤,  
+ì£¼ì–´ì§€ëŠ” Queryì— ë¶€í•©í•˜ëŠ” í–‰ë§Œ ì¶”ë ¤ë‚´ëŠ” ì‹ì´ì—ˆë‹¤.  
 
-ÇÏÁö¸¸ 100ÁÙÀÌ ³Ñ´Â Code¸¦ Àû´Ù°¡, ÀÌ°Ç ¾Æ´Ï¶ó´Â »ý°¢ÀÌ µé¾ú´Ù.  
-¹®Á¦¸¦ ¸ÂÈú ¼ö´Â ÀÖ°ÚÁö¸¸, È¿À²¼º ¸é¿¡¼­ ¸ðµÎ ½Ã°£ÃÊ°ú°¡ ¶ã °ÍÀÌ´Ù.  
+í•˜ì§€ë§Œ 100ì¤„ì´ ë„˜ëŠ” Codeë¥¼ ì ë‹¤ê°€, ì´ê±´ ì•„ë‹ˆë¼ëŠ” ìƒê°ì´ ë“¤ì—ˆë‹¤.  
+ë¬¸ì œë¥¼ ë§žíž ìˆ˜ëŠ” ìžˆê² ì§€ë§Œ, íš¨ìœ¨ì„± ë©´ì—ì„œ ëª¨ë‘ ì‹œê°„ì´ˆê³¼ê°€ ëœ° ê²ƒì´ë‹¤.  
 
-### 2Â÷ ½Ãµµ : Hash map°ú Bit masking
+### 2ì°¨ ì‹œë„ : Hash mapê³¼ Bit masking
 
-¼¼»ó¿£ Á¤¸» ¶È¶ÈÇÑ »ç¶÷ÀÌ ¸¹Àº °Í °°´Ù.  
+ì„¸ìƒì—” ì •ë§ ë˜‘ë˜‘í•œ ì‚¬ëžŒì´ ë§Žì€ ê²ƒ ê°™ë‹¤.  
 
-¹®Á¦ ÇØ°áÀÇ Key´Â ´ÙÀ½°ú °°´Ù.
-- ¹®ÀÚ¿­ ÆÄ½Ì ¹æ½ÄÀº µ¿ÀÏÇÏ´Ù.
-- Info¸¦ ÆÄ½ÌÇÑ µÚ, Map¿¡ Info¿¡¼­ ³ª¿Ã ¼ö ÀÖ´Â 16°¡Áö Query¸¦ ¸ðµÎ ³Ö´Â´Ù.
-  - ÀÌ ¶§ ºñÆ® ¸¶½ºÅ·À» ÅëÇØ¼­, __"-"__ ¸¦ ³ÖÀ» ÀÚ¸®¸¦ Á¤ÇØÁØ´Ù.
-- °¢ MapÀÇ Key¿¡ ´ëÇÑ Value°¡ ScoreÀÇ Vector·Î ÀúÀåµÈ´Ù.
-  - µû¶ó¼­ ±× Áß¿¡ Query¿¡ ÇØ´ç µÇ´Â °ªÀÇ ¼ö¸¸ ¼¼¸é µÈ´Ù.
+ë¬¸ì œ í•´ê²°ì˜ KeyëŠ” ë‹¤ìŒê³¼ ê°™ë‹¤.
+- ë¬¸ìžì—´ íŒŒì‹± ë°©ì‹ì€ ë™ì¼í•˜ë‹¤.
+- Infoë¥¼ íŒŒì‹±í•œ ë’¤, Mapì— Infoì—ì„œ ë‚˜ì˜¬ ìˆ˜ ìžˆëŠ” 16ê°€ì§€ Queryë¥¼ ëª¨ë‘ ë„£ëŠ”ë‹¤.
+  - ì´ ë•Œ ë¹„íŠ¸ ë§ˆìŠ¤í‚¹ì„ í†µí•´ì„œ, __"-"__ ë¥¼ ë„£ì„ ìžë¦¬ë¥¼ ì •í•´ì¤€ë‹¤.
+- ê° Mapì˜ Keyì— ëŒ€í•œ Valueê°€ Scoreì˜ Vectorë¡œ ì €ìž¥ëœë‹¤.
+  - ë”°ë¼ì„œ ê·¸ ì¤‘ì— Queryì— í•´ë‹¹ ë˜ëŠ” ê°’ì˜ ìˆ˜ë§Œ ì„¸ë©´ ëœë‹¤.
 
 {% highlight cpp %}
 #include <string>
@@ -55,7 +55,7 @@ vector<string> string_parse(string str) {
 
     res.push_back(temp);
     return res;
-} // ¹®ÀÚ¿­ ÆÄ½Ì ÇÔ¼ö, Vector·Î ¹ÝÈ¯ÇØÁØ´Ù.
+} // ë¬¸ìžì—´ íŒŒì‹± í•¨ìˆ˜, Vectorë¡œ ë°˜í™˜í•´ì¤€ë‹¤.
 
 vector<int> solution(vector<string> info, vector<string> query) {
     vector<int> answer;
@@ -68,24 +68,24 @@ vector<int> solution(vector<string> info, vector<string> query) {
             for (int j = 0; j < 4; j++) {
                 if (i & (1 << j)) temp += "-";
                 else temp += key[j];
-            } // 16°¡ÁöÀÇ °æ¿ì¸¦ Map¿¡ ³Ö´Â Bit masking ÀÛ¾÷
+            } // 16ê°€ì§€ì˜ ê²½ìš°ë¥¼ Mapì— ë„£ëŠ” Bit masking ìž‘ì—…
             applicants[temp].push_back(stoi(key[4]));
         }
     }
 
     for (auto& iter : applicants) sort(iter.second.begin(), iter.second.end());
-    // Lower_boundÀÇ ÀÌ¿ëÀ» À§ÇØ °¢ Vector Á¤·Ä
+    // Lower_boundì˜ ì´ìš©ì„ ìœ„í•´ ê° Vector ì •ë ¬
 
     for (auto q : query) {
         vector<string> key = string_parse(q);
         string quest = key[0] + key[1] + key[2] + key[3];
-        // ÆÄ½ÌÇÑ Query¸¦ Map¿¡¼­ °Ë»öÇÏ±â À§ÇØ Concate
+        // íŒŒì‹±í•œ Queryë¥¼ Mapì—ì„œ ê²€ìƒ‰í•˜ê¸° ìœ„í•´ Concate
         vector<int> res = applicants[quest];
 
         int cnt = res.end() - lower_bound(res.begin(), res.end(), stoi(key[4]));
-        // lower_bound¸¦ ÅëÇØ¼­, QueryÀÇ ÇØ´ç °ª ÀÌ»óÀÇ ¼ö°¡
-        // Ã³À½ µîÀåÇÏ´Â index¸¦ ¹ÝÈ¯ ¹Þ´Â´Ù.
-        // ¹è¿­Àº ¹Ýµå½Ã ¿À¸§Â÷¼ø Á¤·ÄÀÌ µÇ¾îÀÖ¾î¾ß ÇÑ´Ù.
+        // lower_boundë¥¼ í†µí•´ì„œ, Queryì˜ í•´ë‹¹ ê°’ ì´ìƒì˜ ìˆ˜ê°€
+        // ì²˜ìŒ ë“±ìž¥í•˜ëŠ” indexë¥¼ ë°˜í™˜ ë°›ëŠ”ë‹¤.
+        // ë°°ì—´ì€ ë°˜ë“œì‹œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ì´ ë˜ì–´ìžˆì–´ì•¼ í•œë‹¤.
 
         answer.push_back(cnt);
     }
