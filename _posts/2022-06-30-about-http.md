@@ -142,3 +142,29 @@ Spring Boot에 대해 배우기 이전에,
   - GET, HEAD, POST, PATCH는 Cache 가능.
     - 하지만 실제로는 GET, HEAD 정도만 사용한다.
     - POST와 PATCH는 본문 내용까지 고려를 해야해서 구현이 어렵다.
+
+#### HTTP Method의 활용 : Data 전송
+- 정적 Data 조회
+  - GET Method와, URI 경로만 지정해서 요청을 한다.
+  - 단순히 조회 결과만 응답에 보낸다.
+  - Query Parameter 없이 조회 가능!
+- 동적 Data 조회
+  - 이 경우에는 Query Parameter이 필요하다.
+    - Query Parameter을 이용하는 GET Method를 이용한다.
+  - URI에 Query Parameter을 포함시켜서 요청을 보낸다.
+  - 주로 검색이나 게시판 목록, 정렬 필터(검색어)에 쓰인다.
+
+- HTML Form Data 전송
+  - 우리는 HTML의 Form 태그를 Data를 전송받을 때 주로 사용한다.
+  - POST Method를 통해서 Data와 함께 요청을 전송한다.
+  - Form의 내용을 Message body를 통해서 전송 (Key = Value 형식)
+  - ```application/x-www-form-urlencoded```에 의해 Url이 Encoding 처리.
+  - HTML Form은 GET 전송도 가능하다.
+    - 하지만 Resource 변경이 일어나는 경우는 POST를 써야한다!
+- HTML API Data 전송
+  - ```application/json```을 Content-Type으로 POST Method를 사용한다.
+  - JSON 형태로 Data를 Body에 넣어서 전송한다.
+  - 어떤 상황에서 주로 사용하나요?
+    - Server와 Server 간에 통신할 때
+    - App Client를 대상으로 통신할 때
+    - Web Client를 대상으로 Javascript를 이용할 때 사용.
