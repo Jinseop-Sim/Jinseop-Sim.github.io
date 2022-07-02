@@ -6,9 +6,6 @@ tags: [java]
 author:
   - Jinseop Sim
 ---
-
-## HTTP에 대하여
-
 Spring Boot에 대해 배우기 이전에,  
 간단하게 HTTP에 대하여 짚고 넘어가보자!  
 
@@ -64,7 +61,6 @@ Spring Boot에 대해 배우기 이전에,
 - 현재는 Persistent Connection으로 문제를 해결했다.
 
 #### HTTP Message  
-
 ![화면 캡처 2022-06-30 203900](https://user-images.githubusercontent.com/71700079/176688505-4b919ec6-b2cc-4075-a51b-5cb6bc6b8b2c.png)  
 
 - Start Line
