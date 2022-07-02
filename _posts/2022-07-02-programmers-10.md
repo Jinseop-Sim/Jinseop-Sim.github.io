@@ -1,39 +1,39 @@
----
+ï»¿---
 layout: post
-title: "ÇÁ·Î±×·¡¸Ó½º Level 2 - ÈÄº¸Å°"
+title: "í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ Level 2 - í›„ë³´í‚¤"
 categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
 ---
 
-## ÇÁ·Î±×·¡¸Ó½º Level 2 : ÈÄº¸Å°
+## í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ Level 2 : í›„ë³´í‚¤
 
-2019³â Ä«Ä«¿À ÄÚµùÅ×½ºÆ® ¹®Á¦¿´´Ù.  
-»ý°¢º¸´Ù °í·ÁÇÒ°Ô ¸¹Àº ¹®Á¦¿´´Ù.  
+2019ë…„ ì¹´ì¹´ì˜¤ ì½”ë”©í…ŒìŠ¤íŠ¸ ë¬¸ì œì˜€ë‹¤.  
+ìƒê°ë³´ë‹¤ ê³ ë ¤í• ê²Œ ë§Žì€ ë¬¸ì œì˜€ë‹¤.  
 
-³»°¡ °í·ÁÇØ¾ß Çß´ø Á¶°ÇÀº ¾Æ·¡¿Í °°´Ù.  
-1. Á¶ÇÕÀ¸·Î ¸ðµç KeyÀÇ Á¶ÇÕÀ» ´Ù Â¥º»´Ù.
-  - ¾î¶»°Ô ±¸ÇöÇÒ Áö´Â ÀÚ½ÅÀÇ ¼±ÅÃ, ³ª´Â DFS¸¦ ½è´Ù.
-2. ÈÄº¸Å°·Î Á¤ÇÏ±â À§ÇØ À¯ÀÏ¼º(Uniqueness)À» °Ë»çÇÑ´Ù.
-3. À¯ÀÏÇÑ ÈÄº¸Å°°¡ Á¤ÇØÁö¸é, ±× ÈÄº¸Å°°¡ Æ÷ÇÔµÇ´Â Å°´Â Á¶ÇÕ¿¡ ³¥ ¼ö ¾ø´Ù.
-  - ÀÌ ÃÖ¼Ò¼º(Minimality) ºÎºÐÀ» ±¸ÇöÇÏ´Â °ÍÀÌ °¡Àå ¾î·Á¿ü´Ù.
-  - Ç¥ÀÇ Å©±â°¡ ¾ó¸¶ µÇÁö ¾Ê¾Ò±â ¶§¹®¿¡, ³ª´Â ¿ÏÀüÅ½»öÀ¸·Î °Ë»çÇß´Ù.
+ë‚´ê°€ ê³ ë ¤í•´ì•¼ í–ˆë˜ ì¡°ê±´ì€ ì•„ëž˜ì™€ ê°™ë‹¤.  
+1. ì¡°í•©ìœ¼ë¡œ ëª¨ë“  Keyì˜ ì¡°í•©ì„ ë‹¤ ì§œë³¸ë‹¤.
+  - ì–´ë–»ê²Œ êµ¬í˜„í•  ì§€ëŠ” ìžì‹ ì˜ ì„ íƒ, ë‚˜ëŠ” DFSë¥¼ ì¼ë‹¤.
+2. í›„ë³´í‚¤ë¡œ ì •í•˜ê¸° ìœ„í•´ ìœ ì¼ì„±(Uniqueness)ì„ ê²€ì‚¬í•œë‹¤.
+3. ìœ ì¼í•œ í›„ë³´í‚¤ê°€ ì •í•´ì§€ë©´, ê·¸ í›„ë³´í‚¤ê°€ í¬í•¨ë˜ëŠ” í‚¤ëŠ” ì¡°í•©ì— ë‚„ ìˆ˜ ì—†ë‹¤.
+  - ì´ ìµœì†Œì„±(Minimality) ë¶€ë¶„ì„ êµ¬í˜„í•˜ëŠ” ê²ƒì´ ê°€ìž¥ ì–´ë ¤ì› ë‹¤.
+  - í‘œì˜ í¬ê¸°ê°€ ì–¼ë§ˆ ë˜ì§€ ì•Šì•˜ê¸° ë•Œë¬¸ì—, ë‚˜ëŠ” ì™„ì „íƒìƒ‰ìœ¼ë¡œ ê²€ì‚¬í–ˆë‹¤.
 
-- À¯ÀÏ¼º °Ë»ç´Â ¾î¶»°Ô ÁøÇàÇÏ´Â°¡?
-  - Áßº¹À» Çã¿ëÇÏÁö ¾Ê´Â, Unordered setÀ» ÀÌ¿ëÇß´Ù.
-    - ÀÚµ¿ Á¤·ÄÀÌ µÇ´Â Setº¸´Ù ´õ »¡¶ó¼­ Unordered¸¦ »ç¿ë.
-  - Áßº¹ÀÌ ¾ø´Ù¸é, set°ú ³²Àº Çà °¹¼ö°¡ °°À» °Í!
-    - ±× ¶§ÀÇ Column Á¶ÇÕÀÌ ÈÄº¸Å°°¡ µÈ´Ù.
-    - ±× ÈÄº¸Å° Á¶ÇÕµéÀ» Vector¿¡ ¸ðµÎ Push back.
+- ìœ ì¼ì„± ê²€ì‚¬ëŠ” ì–´ë–»ê²Œ ì§„í–‰í•˜ëŠ”ê°€?
+  - ì¤‘ë³µì„ í—ˆìš©í•˜ì§€ ì•ŠëŠ”, Unordered setì„ ì´ìš©í–ˆë‹¤.
+    - ìžë™ ì •ë ¬ì´ ë˜ëŠ” Setë³´ë‹¤ ë” ë¹¨ë¼ì„œ Unorderedë¥¼ ì‚¬ìš©.
+  - ì¤‘ë³µì´ ì—†ë‹¤ë©´, setê³¼ ë‚¨ì€ í–‰ ê°¯ìˆ˜ê°€ ê°™ì„ ê²ƒ!
+    - ê·¸ ë•Œì˜ Column ì¡°í•©ì´ í›„ë³´í‚¤ê°€ ëœë‹¤.
+    - ê·¸ í›„ë³´í‚¤ ì¡°í•©ë“¤ì„ Vectorì— ëª¨ë‘ Push back.
 
-- ÃÖ¼Ò¼º °Ë»ç´Â ¾î¶»°Ô ÁøÇàÇÏ´Â°¡?
-  - ÈÄº¸Å° Á¶ÇÕÀÌ ¸ðÀÎ Vector¿Í ÇöÀç °Ë»çÁßÀÎ Á¶ÇÕÀ» ¿ÏÀüÅ½»öÇÑ´Ù.
-    - ex) ÈÄº¸Å° Á¶ÇÕ <0, 13> | ÇöÀç °Ë»çÁßÀÎ Á¶ÇÕ 123  
-          0°ú 123À» °Ë»çÇØ¼­ °ãÄ¡´Â ºÎºÐ ¾øÀ½. Åë°ú.  
-          13°ú 123À» °Ë»çÇßÀ» ¶§, 13Àº 123¿¡ Æ÷ÇÔµÇ¹Ç·Î ºÒÅë.  
-          ÃÖ¼Ò¼º °Ë»ç¿¡¼­ Å»¶ô!  
-
+- ìµœì†Œì„± ê²€ì‚¬ëŠ” ì–´ë–»ê²Œ ì§„í–‰í•˜ëŠ”ê°€?
+  - í›„ë³´í‚¤ ì¡°í•©ì´ ëª¨ì¸ Vectorì™€ í˜„ìž¬ ê²€ì‚¬ì¤‘ì¸ ì¡°í•©ì„ ì™„ì „íƒìƒ‰í•œë‹¤.
+    - ex) í›„ë³´í‚¤ ì¡°í•© <0, 13> | í˜„ìž¬ ê²€ì‚¬ì¤‘ì¸ ì¡°í•© 123  
+          0ê³¼ 123ì„ ê²€ì‚¬í•´ì„œ ê²¹ì¹˜ëŠ” ë¶€ë¶„ ì—†ìŒ. í†µê³¼.  
+          13ê³¼ 123ì„ ê²€ì‚¬í–ˆì„ ë•Œ, 13ì€ 123ì— í¬í•¨ë˜ë¯€ë¡œ ë¶ˆí†µ.  
+          ìµœì†Œì„± ê²€ì‚¬ì—ì„œ íƒˆë½!  
+ã…Ž
 {% highlight cpp %}
 #include <string>
 #include <vector>
@@ -57,7 +57,7 @@ void make_comb(int start, int depth, int limit, string comb, vector<bool> visit)
             comb.erase(comb.size() - 1);
         }
     }
-} // ¸ðµç Á¶ÇÕÀ» ¸¸µå´Â DFS
+} // ëª¨ë“  ì¡°í•©ì„ ë§Œë“œëŠ” DFS
 
 bool check_min(string comb) {
     for (int i = 0; i < res.size(); i++) {
@@ -71,8 +71,8 @@ bool check_min(string comb) {
     }
 
     return true;
-} // ÃÖ¼Ò¼º °Ë»ç ÇÔ¼ö
- // ÈÄº¸Å° vectorÀÎ res¿Í ÇöÀç Á¶ÇÕ comb¸¦ ¿ÏÀüÅ½»ö.
+} // ìµœì†Œì„± ê²€ì‚¬ í•¨ìˆ˜
+ // í›„ë³´í‚¤ vectorì¸ resì™€ í˜„ìž¬ ì¡°í•© combë¥¼ ì™„ì „íƒìƒ‰.
 
 void check_unique(vector<vector<string>> relation, string comb) {
     unordered_set<string> classifier;
@@ -89,8 +89,8 @@ void check_unique(vector<vector<string>> relation, string comb) {
     if (classifier.size() == relation.size()) {
         res.push_back(comb);
     }
-} // À¯ÀÏ¼º °Ë»ç ÇÔ¼ö
- // À¯ÀÏ¼ºÀº Áßº¹À» Çã°¡ÇÏÁö ¾Ê´Â Unordered Set ÀÌ¿ë.
+} // ìœ ì¼ì„± ê²€ì‚¬ í•¨ìˆ˜
+ // ìœ ì¼ì„±ì€ ì¤‘ë³µì„ í—ˆê°€í•˜ì§€ ì•ŠëŠ” Unordered Set ì´ìš©.
 
 int solution(vector<vector<string>> relation) {
     int answer = 0;
@@ -99,10 +99,10 @@ int solution(vector<vector<string>> relation) {
 
 
     for (int i = 1; i < relation[0].size() + 1; i++) {
-        make_comb(0, 0, i, comb, visit); // 1 ~ ¿­ °¹¼ö ¸¸Å­ ¸ðµç Á¶ÇÕ
+        make_comb(0, 0, i, comb, visit); // 1 ~ ì—´ ê°¯ìˆ˜ ë§Œí¼ ëª¨ë“  ì¡°í•©
         for (int i = 0; i < combs.size(); i++)
             check_unique(relation, combs[i]);
-        combs.clear(); // ºñ¿öÁÖ¾î¾ß ÇÑ´Ù.
+        combs.clear(); // ë¹„ì›Œì£¼ì–´ì•¼ í•œë‹¤.
     }
 
     answer = res.size();
