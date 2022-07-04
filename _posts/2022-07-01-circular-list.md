@@ -14,7 +14,7 @@ author:
 
 ![image](https://user-images.githubusercontent.com/71700079/176916723-af637648-df60-4469-ac99-bf8e7ee74c52.png) 
 
-### Example : 백준 1158 : 요세푸스 문제
+### Example : 백준 1158 - 요세푸스 문제
 {% highlight cpp %}
 #include <iostream>
 using namespace std;

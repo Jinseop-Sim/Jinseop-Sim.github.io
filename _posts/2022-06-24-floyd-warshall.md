@@ -27,7 +27,7 @@ author:
 - 이후 단계들은 Table 갱신의 반복이다.
 - 시간 복잡도는 노드 수가 N개일 때, 단계마다 O(N^2)의 연산을 반복하므로, O(N^3)이 된다.
 
-### Example
+### Example : 백준 - 플로이드
 {% highlight cpp %}
 #include <iostream>
 #include <vector>
