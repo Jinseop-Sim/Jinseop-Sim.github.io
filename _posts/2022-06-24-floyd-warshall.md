@@ -6,8 +6,6 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
-
-## Floyid-Warshall
 > 모든 정점에서 다른 정점으로의 최단 경로를 구하는 Algorithm이다.  
 
 ![image](https://user-images.githubusercontent.com/71700079/174823499-627fdd15-abe4-44ef-b712-3d83efc5f68a.png)  
