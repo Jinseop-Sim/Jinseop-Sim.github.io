@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "스프링 핵심 원리 이해 - 예제 1"
+title: "스프링 핵심 원리 이해 - Java 예제"
 categories: Springboot
 tags: [java]
 author:
