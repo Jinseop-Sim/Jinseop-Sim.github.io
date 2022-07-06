@@ -14,13 +14,15 @@ author:
 회원 도메인은 보통 아래와 같은 관계를 가진다.  
 물론 실제로는 더 복잡하겠지만, 우선 이정도 관계로 설계를 해보자.  
 
-![도메인설계](https://user-images.githubusercontent.com/71700079/177573291-dfde0e5e-a3c3-4c3c-a047-9bc5aa5965bc.png)  
-![ehapdls](https://user-images.githubusercontent.com/71700079/177573314-c7de1571-178e-49c9-9c83-4f49d960b454.png)  
+![도메인설계](https://user-images.githubusercontent.com/71700079/177573291-dfde0e5e-a3c3-4c3c-a047-9bc5aa5965bc.png)   
+![ehapdls](https://user-images.githubusercontent.com/71700079/177573314-c7de1571-178e-49c9-9c83-4f49d960b454.png)   
 
 분명 Java 또한 객체 지향 언어이며, 다형성을 사용하는데 과연 객체 지향 5원칙에 부합한 코딩인가?  
 결코 아니다!  
 
-[사진 첨부]  
+![OCP](https://user-images.githubusercontent.com/71700079/177574998-29f24eb5-3fa3-45aa-9b11-6e9de4619599.png)  
+![OCP,DIP](https://user-images.githubusercontent.com/71700079/177575008-f34f36ef-eeac-4fea-a3c5-afa874b3f04b.png)  
+![DIP](https://user-images.githubusercontent.com/71700079/177575120-705582b6-2427-4828-b180-f0f4b58883da.png)  
 
 위의 부분들로 인해, OCP와 DIP 모두 지켜지지 않고 있다!  
 그럼 우리는 이런 문제들을 어떻게 해결해서 최적화를 시킬 수 있을까?  
