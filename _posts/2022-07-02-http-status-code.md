@@ -1,109 +1,109 @@
----
+ï»¿---
 layout: post
-title: "HTTP »óÅÂÄÚµå"
+title: "HTTP ìƒíƒœì½”ë“œ"
 categories: Springboot
 tags: [java]
 author:
   - Jinseop Sim
 ---
 
-> HTTP Response¿¡¼­, Client°¡ º¸³½ ¿äÃ»ÀÇ »óÅÂ¸¦ ¾Ë·ÁÁÖ´Â CodeÀÌ´Ù.  
+> HTTP Responseì—ì„œ, Clientê°€ ë³´ë‚¸ ìš”ì²­ì˜ ìƒíƒœë¥¼ ì•Œë ¤ì£¼ëŠ” Codeì´ë‹¤.  
 
 ### 1XX (Informational)
-¿äÃ»ÀÌ ¼ö½ÅµÆ°í, Ã³¸®ÁßÀÌ¶ó´Â ÀÇ¹Ì·Î Àß ¾²Áö ¾Ê´Â´Ù.
+ìš”ì²­ì´ ìˆ˜ì‹ ëê³ , ì²˜ë¦¬ì¤‘ì´ë¼ëŠ” ì˜ë¯¸ë¡œ ìž˜ ì“°ì§€ ì•ŠëŠ”ë‹¤.
 
 ### 2XX (Successful)
-¿äÃ»ÀÌ Á¤»óÀûÀ¸·Î Ã³¸®µÇ¾ú´Ù´Â ÀÇ¹ÌÀÇ CodeÀÌ´Ù.  
+ìš”ì²­ì´ ì •ìƒì ìœ¼ë¡œ ì²˜ë¦¬ë˜ì—ˆë‹¤ëŠ” ì˜ë¯¸ì˜ Codeì´ë‹¤.  
 
 - 200 OK
-  - °¡Àå ÈçÇÑ ÀÀ´ä Code·Î Á¤»óÀûÀ¸·Î Ã³¸® µÈ °Í.
+  - ê°€ìž¥ í”í•œ ì‘ë‹µ Codeë¡œ ì •ìƒì ìœ¼ë¡œ ì²˜ë¦¬ ëœ ê²ƒ.
 - 201 Created
-  - ¿äÃ»¿¡ ¼º°øÇØ¼­ »õ·Î¿î Resource°¡ »ý¼ºµÇ¾ú´Ù´Â °Í.
-  - »ý¼ºµÈ Resource´Â ÀÀ´äÀÇ Location Header·Î ½Äº°ÇÑ´Ù.
+  - ìš”ì²­ì— ì„±ê³µí•´ì„œ ìƒˆë¡œìš´ Resourceê°€ ìƒì„±ë˜ì—ˆë‹¤ëŠ” ê²ƒ.
+  - ìƒì„±ëœ ResourceëŠ” ì‘ë‹µì˜ Location Headerë¡œ ì‹ë³„í•œë‹¤.
 - 202 Accepted
-  - ¿äÃ»ÀÌ Á¢¼ö´Â µÇ¾úÀ¸³ª, Ã³¸®°¡ ¿Ï·áµÇÁö ¾ÊÀ½.
-  - ex) ¿äÃ» Á¢¼ö ÈÄ 1½Ã°£ µÚ¿¡ ¹èÄ¡ ÇÁ·Î¼¼½º°¡ ¿äÃ»À» Ã³¸®ÇÒ ¿¹Á¤.
+  - ìš”ì²­ì´ ì ‘ìˆ˜ëŠ” ë˜ì—ˆìœ¼ë‚˜, ì²˜ë¦¬ê°€ ì™„ë£Œë˜ì§€ ì•ŠìŒ.
+  - ex) ìš”ì²­ ì ‘ìˆ˜ í›„ 1ì‹œê°„ ë’¤ì— ë°°ì¹˜ í”„ë¡œì„¸ìŠ¤ê°€ ìš”ì²­ì„ ì²˜ë¦¬í•  ì˜ˆì •.
 - 204 No content
-  - ¿äÃ»À» ¼º°øÀûÀ¸·Î ¼öÇàÀº Çß´Ù.
-  - ÇÏÁö¸¸ ÀÀ´ä Payload Body¿¡ º¸³¾ Data°¡ ¾ø´Ù.
-  - ex) ÀúÀå ¹öÆ°ÀÇ °æ¿ì¿¡´Â, °á°ú¿¡ ¾Æ¹« Data°¡ ¾ø¾îµµ µÈ´Ù.
+  - ìš”ì²­ì„ ì„±ê³µì ìœ¼ë¡œ ìˆ˜í–‰ì€ í–ˆë‹¤.
+  - í•˜ì§€ë§Œ ì‘ë‹µ Payload Bodyì— ë³´ë‚¼ Dataê°€ ì—†ë‹¤.
+  - ex) ì €ìž¥ ë²„íŠ¼ì˜ ê²½ìš°ì—ëŠ”, ê²°ê³¼ì— ì•„ë¬´ Dataê°€ ì—†ì–´ë„ ëœë‹¤.
 
 ### 3XX (Redirection)
-¿äÃ»À» ¿Ï·áÇÏ±â À§ÇØ¼± Ãß°¡ÀûÀÎ µ¿ÀÛÀÌ ÇÊ¿äÇÏ´Ù´Â ÀÇ¹ÌÀÌ´Ù.  
+ìš”ì²­ì„ ì™„ë£Œí•˜ê¸° ìœ„í•´ì„  ì¶”ê°€ì ì¸ ë™ìž‘ì´ í•„ìš”í•˜ë‹¤ëŠ” ì˜ë¯¸ì´ë‹¤.  
 
-ÀÌ ¶§ À¥ ºê¶ó¿ìÀú´Â Response¿¡ Location Header°¡ Á¸ÀçÇÏ¸é,  
-ÀÚµ¿À¸·Î ÇØ´ç LocationÀ¸·Î RedirectÇÑ´Ù.  
+ì´ ë•Œ ì›¹ ë¸Œë¼ìš°ì €ëŠ” Responseì— Location Headerê°€ ì¡´ìž¬í•˜ë©´,  
+ìžë™ìœ¼ë¡œ í•´ë‹¹ Locationìœ¼ë¡œ Redirectí•œë‹¤.  
 
-[»çÁø Ã·ºÎ]
+[ì‚¬ì§„ ì²¨ë¶€]
 
-#### RedirectionÀÇ Á¾·ù
-- ¿µ±¸ Redirection : Æ¯Á¤ ¸®¼Ò½ºÀÇ URI°¡ ¿µ±¸ ÀÌµ¿.
+#### Redirectionì˜ ì¢…ë¥˜
+- ì˜êµ¬ Redirection : íŠ¹ì • ë¦¬ì†ŒìŠ¤ì˜ URIê°€ ì˜êµ¬ ì´ë™.
   - 301 Moved Permanently
-    - Redirect ¿äÃ» Method°¡ GETÀ¸·Î º¯ÇÏ°í º»¹®ÀÌ Á¦°ÅµÉ ¼öµµ ÀÖ´Ù.
+    - Redirect ìš”ì²­ Methodê°€ GETìœ¼ë¡œ ë³€í•˜ê³  ë³¸ë¬¸ì´ ì œê±°ë  ìˆ˜ë„ ìžˆë‹¤.
   - 308 Permanent Redirect
-    - 301¿Í µ¿ÀÛÀº °°Áö¸¸, Method¿Í º»¹®ÀÌ À¯ÁöµÈ´Ù.
+    - 301ì™€ ë™ìž‘ì€ ê°™ì§€ë§Œ, Methodì™€ ë³¸ë¬¸ì´ ìœ ì§€ëœë‹¤.
   - ex) /members -> /users
   - ex) /event -> /new-event
-- ÀÏ½Ã Redirection : ÀÏ½ÃÀûÀÎ ÀÌµ¿.
-  - ÁÖ·Î ÀÏ½Ã RedirectionÀ» ¸Å¿ì ¸¹ÀÌ »ç¿ëÇÑ´Ù. Æ¯È÷ 302.
+- ì¼ì‹œ Redirection : ì¼ì‹œì ì¸ ì´ë™.
+  - ì£¼ë¡œ ì¼ì‹œ Redirectionì„ ë§¤ìš° ë§Žì´ ì‚¬ìš©í•œë‹¤. íŠ¹ížˆ 302.
   - 302 Found
-    - Redirect ¿äÃ» Method°¡ GETÀ¸·Î º¯ÇÏ°í, º»¹®ÀÌ Á¦°ÅµÉ ¼öµµ ÀÖ´Ù.
+    - Redirect ìš”ì²­ Methodê°€ GETìœ¼ë¡œ ë³€í•˜ê³ , ë³¸ë¬¸ì´ ì œê±°ë  ìˆ˜ë„ ìžˆë‹¤.
   - 307 Temporary Redirect
-    - Redirect ¿äÃ» Method¿Í º»¹®ÀÌ º¯ÇÏÁö ¾Ê´Â´Ù.
+    - Redirect ìš”ì²­ Methodì™€ ë³¸ë¬¸ì´ ë³€í•˜ì§€ ì•ŠëŠ”ë‹¤.
   - 303 See Other
-    - 302¿Í ±â´ÉÀº °°À¸³ª, Method¸¦ ¹«Á¶°Ç GETÀ¸·Î ¹Ù²Û´Ù.
-  - ex) ÁÖ¹® ¿Ï·á ÈÄ ÁÖ¹® ³»¿ª È­¸éÀ¸·Î ÀÌµ¿.
+    - 302ì™€ ê¸°ëŠ¥ì€ ê°™ìœ¼ë‚˜, Methodë¥¼ ë¬´ì¡°ê±´ GETìœ¼ë¡œ ë°”ê¾¼ë‹¤.
+  - ex) ì£¼ë¬¸ ì™„ë£Œ í›„ ì£¼ë¬¸ ë‚´ì—­ í™”ë©´ìœ¼ë¡œ ì´ë™.
   - ex) PRG : Post / Redirect / Get
-- Æ¯¼ö Redirection
+- íŠ¹ìˆ˜ Redirection
   - 304 Not Modified
-    - Cache¸¦ ¸ñÀûÀ¸·Î »ç¿ëÇÑ´Ù.
-    - Client¿¡°Ô ¸®¼Ò½º°¡ ¼öÁ¤µÇÁö ¾Ê¾ÒÀ½À» ¾Ë·ÁÁÖ´Â °Í.
-    - µû¶ó¼­ Client´Â ·ÎÄÃ¿¡ Á¸ÀçÇÏ´Â Cache¸¦ Àç»ç¿ëÇÏµµ·Ï ÇÑ´Ù.
-    - 304 ÀÀ´äÀº Body¸¦ Æ÷ÇÔÇØ¼­´Â ¾ÈµÈ´Ù.
-    - Á¶°ÇºÎ GET, HEAD ¿äÃ»½Ã »ç¿ëÇÑ´Ù.
+    - Cacheë¥¼ ëª©ì ìœ¼ë¡œ ì‚¬ìš©í•œë‹¤.
+    - Clientì—ê²Œ ë¦¬ì†ŒìŠ¤ê°€ ìˆ˜ì •ë˜ì§€ ì•Šì•˜ìŒì„ ì•Œë ¤ì£¼ëŠ” ê²ƒ.
+    - ë”°ë¼ì„œ ClientëŠ” ë¡œì»¬ì— ì¡´ìž¬í•˜ëŠ” Cacheë¥¼ ìž¬ì‚¬ìš©í•˜ë„ë¡ í•œë‹¤.
+    - 304 ì‘ë‹µì€ Bodyë¥¼ í¬í•¨í•´ì„œëŠ” ì•ˆëœë‹¤.
+    - ì¡°ê±´ë¶€ GET, HEAD ìš”ì²­ì‹œ ì‚¬ìš©í•œë‹¤.
 
 #### PRG : Post / Redirect / Get
-¸¸¾à POST·Î ÁÖ¹® ÈÄ¿¡, À¥ ºê¶ó¿ìÀú¸¦ »õ·Î°íÄ§ ÇÑ´Ù¸é?  
-»õ·Î°íÄ§Àº ´Ù½Ã ¿äÃ»À» º¸³»´Â °ÍÀÌ±â ¶§¹®¿¡ Áßº¹ ÁÖ¹®ÀÇ À§ÇèÀÌ ÀÖ´Ù.  
+ë§Œì•½ POSTë¡œ ì£¼ë¬¸ í›„ì—, ì›¹ ë¸Œë¼ìš°ì €ë¥¼ ìƒˆë¡œê³ ì¹¨ í•œë‹¤ë©´?  
+ìƒˆë¡œê³ ì¹¨ì€ ë‹¤ì‹œ ìš”ì²­ì„ ë³´ë‚´ëŠ” ê²ƒì´ê¸° ë•Œë¬¸ì— ì¤‘ë³µ ì£¼ë¬¸ì˜ ìœ„í—˜ì´ ìžˆë‹¤.  
 
-µû¶ó¼­ ¾Æ·¡¿Í °°ÀÌ Á¶Ä¡ÇÑ´Ù.  
-- POST·Î ÁÖ¹® ÈÄ¿¡ ÁÖ¹® °á°úÈ­¸éÀ» GETÀ¸·Î Redirect ½ÃÅ²´Ù.
-- »õ·Î°íÄ§ÇØµµ °á°ú È­¸éÀº GETÀ¸·Î¸¸ Á¶È¸ µÈ´Ù.
+ë”°ë¼ì„œ ì•„ëž˜ì™€ ê°™ì´ ì¡°ì¹˜í•œë‹¤.  
+- POSTë¡œ ì£¼ë¬¸ í›„ì— ì£¼ë¬¸ ê²°ê³¼í™”ë©´ì„ GETìœ¼ë¡œ Redirect ì‹œí‚¨ë‹¤.
+- ìƒˆë¡œê³ ì¹¨í•´ë„ ê²°ê³¼ í™”ë©´ì€ GETìœ¼ë¡œë§Œ ì¡°íšŒ ëœë‹¤.
 
-¹°·Ð, ¼­¹ö ´Ü¿¡¼­ Áßº¹ ÁÖ¹®À» ¸øÇÏµµ·Ï °ËÁõÇÏ´Â ´Ü°è¸¦ ¸¸µå´Â °Í ¶ÇÇÑ ÇÊ¿äÇÏ´Ù.  
+ë¬¼ë¡ , ì„œë²„ ë‹¨ì—ì„œ ì¤‘ë³µ ì£¼ë¬¸ì„ ëª»í•˜ë„ë¡ ê²€ì¦í•˜ëŠ” ë‹¨ê³„ë¥¼ ë§Œë“œëŠ” ê²ƒ ë˜í•œ í•„ìš”í•˜ë‹¤.  
 
 ### 4XX (Client Error)
-Àß¸øµÈ ¹®¹ý, ÀÔ·Â µîÀ¸·Î ClinetÀÇ ¿À·ù·Î ¼­¹ö°¡ Á¤»ó ÀÛµ¿ÇÒ ¼ö ¾ø´Â °æ¿ìÀÌ´Ù.  
+ìž˜ëª»ëœ ë¬¸ë²•, ìž…ë ¥ ë“±ìœ¼ë¡œ Clinetì˜ ì˜¤ë¥˜ë¡œ ì„œë²„ê°€ ì •ìƒ ìž‘ë™í•  ìˆ˜ ì—†ëŠ” ê²½ìš°ì´ë‹¤.  
 
 - 400 Bad Request
-  - ¿äÃ» ±¸¹®, ¸Þ½ÃÁö µîÀÇ ¿À·ù
-  - Client´Â ¿äÃ» ³»¿ëÀ» ´Ù½Ã °ËÅäÇÏ°í º¸³»¾ß ÇÑ´Ù.
-  - ex) ¿äÃ» ÆÄ¶ó¹ÌÅÍ ¿À·ù, API ½ºÆå ¿À·ù
+  - ìš”ì²­ êµ¬ë¬¸, ë©”ì‹œì§€ ë“±ì˜ ì˜¤ë¥˜
+  - ClientëŠ” ìš”ì²­ ë‚´ìš©ì„ ë‹¤ì‹œ ê²€í† í•˜ê³  ë³´ë‚´ì•¼ í•œë‹¤.
+  - ex) ìš”ì²­ íŒŒë¼ë¯¸í„° ì˜¤ë¥˜, API ìŠ¤íŽ™ ì˜¤ë¥˜
 - 401 Unauthorized
-  - ÀÎÁõÀÌ µÇÁö ¾Ê¾Ò´Ù.
-  - ÀÀ´ä¿¡ __WWW-Authenticate__ Çì´õ¿Í ÇÔ²² ÀÎÁõ ¹æ¹ýÀ» ¼³¸íÇÑ´Ù.
+  - ì¸ì¦ì´ ë˜ì§€ ì•Šì•˜ë‹¤.
+  - ì‘ë‹µì— __WWW-Authenticate__ í—¤ë”ì™€ í•¨ê»˜ ì¸ì¦ ë°©ë²•ì„ ì„¤ëª…í•œë‹¤.
 - 403 Forbidden
-  - ÀÎÁõ ÀÚ°ÝÀº ÀÖÁö¸¸, Á¢±Ù ±ÇÇÑÀÌ ºÒÃæºÐÇÏ´Ù.
-  - ex) ADMIN µî±ÞÀÌ ¾Æ´Ñ »ç¿ëÀÚ°¡ ·Î±×ÀÎÀº ÇßÁö¸¸, ±ÇÇÑÀÌ ¾øÀ½.
+  - ì¸ì¦ ìžê²©ì€ ìžˆì§€ë§Œ, ì ‘ê·¼ ê¶Œí•œì´ ë¶ˆì¶©ë¶„í•˜ë‹¤.
+  - ex) ADMIN ë“±ê¸‰ì´ ì•„ë‹Œ ì‚¬ìš©ìžê°€ ë¡œê·¸ì¸ì€ í–ˆì§€ë§Œ, ê¶Œí•œì´ ì—†ìŒ.
 - 404 Not Found
-  - ¿äÃ» ¸®¼Ò½º°¡ ¼­¹ö¿¡ ¾øÀ½.
-  - ¶Ç´Â Client°¡ ±ÇÇÑÀÌ ¾øÀ» ¶§, ÇØ´ç ¸®¼Ò½º¸¦ ¼û±â°í ½ÍÀ» ¶§µµ ¾¸.
+  - ìš”ì²­ ë¦¬ì†ŒìŠ¤ê°€ ì„œë²„ì— ì—†ìŒ.
+  - ë˜ëŠ” Clientê°€ ê¶Œí•œì´ ì—†ì„ ë•Œ, í•´ë‹¹ ë¦¬ì†ŒìŠ¤ë¥¼ ìˆ¨ê¸°ê³  ì‹¶ì„ ë•Œë„ ì”€.
 
 ### 5XX (Server Error)
-¼­¹ö ¿À·ù·Î ÀÎÇØ ¼­¹ö°¡ Á¤»ó ¿äÃ»À» Ã³¸®ÇÏÁö ¸øÇÏ´Â °æ¿ìÀÌ´Ù.  
-¼­¹ö°¡ º¹±¸°¡ µÈ´Ù¸é, ´Ù½Ã Á¢±ÙÀÌ °¡´ÉÇÏ´Ù.  
+ì„œë²„ ì˜¤ë¥˜ë¡œ ì¸í•´ ì„œë²„ê°€ ì •ìƒ ìš”ì²­ì„ ì²˜ë¦¬í•˜ì§€ ëª»í•˜ëŠ” ê²½ìš°ì´ë‹¤.  
+ì„œë²„ê°€ ë³µêµ¬ê°€ ëœë‹¤ë©´, ë‹¤ì‹œ ì ‘ê·¼ì´ ê°€ëŠ¥í•˜ë‹¤.  
 
 - 500 Internal Server Error
-  - ¼­¹ö ³»ºÎ ¹®Á¦·Î ¿À·ù°¡ ¹ß»ýÇÑ °ÍÀÌ´Ù.
-  - ¾Ö¸ÅÇÏ¸é 500 ¿À·ù¸¦ ³½´Ù.
+  - ì„œë²„ ë‚´ë¶€ ë¬¸ì œë¡œ ì˜¤ë¥˜ê°€ ë°œìƒí•œ ê²ƒì´ë‹¤.
+  - ì• ë§¤í•˜ë©´ 500 ì˜¤ë¥˜ë¥¼ ë‚¸ë‹¤.
 - 503 Service Unavailable
-  - ¼­¹ö°¡ ÀÏ½ÃÀûÀ¸·Î °úºÎÇÏ°¡ µÆ´Ù°Å³ª, ¿¹Á¤µÈ ÀÛ¾÷ÀÌ ÀÖ´Ù´Â °Í.
-  - ÀÀ´ä¿¡ Retry-After Header·Î º¹±¸ ¿¹»ó ½Ã°£À» ¾Ë·ÁÁÙ ¼ö ÀÖ´Ù.
+  - ì„œë²„ê°€ ì¼ì‹œì ìœ¼ë¡œ ê³¼ë¶€í•˜ê°€ ëë‹¤ê±°ë‚˜, ì˜ˆì •ëœ ìž‘ì—…ì´ ìžˆë‹¤ëŠ” ê²ƒ.
+  - ì‘ë‹µì— Retry-After Headerë¡œ ë³µêµ¬ ì˜ˆìƒ ì‹œê°„ì„ ì•Œë ¤ì¤„ ìˆ˜ ìžˆë‹¤.
 
-ÁøÂ¥ Á¤¸»·Î ¼­¹ö¿¡ ¹®Á¦°¡ ¹ß»ýÇÑ °ÍÀÌ ¾Æ´Ï¶ó¸é,  
-À¢¸¸ÇÏ¸é 5XX ¿¡·¯¸¦ ¹ß»ý½ÃÅ°Áö ¸»ÀÚ!  
-À¢¸¸ÇÏ¸é ClientÀÇ ¿À·ù·Î ÆÇ´ÜÇÏ¿¡ 4XX ¿¡·¯¸¦ ¹ß»ý½ÃÄÑ¾ß ÇÑ´Ù.  
+ì§„ì§œ ì •ë§ë¡œ ì„œë²„ì— ë¬¸ì œê°€ ë°œìƒí•œ ê²ƒì´ ì•„ë‹ˆë¼ë©´,  
+ì›¬ë§Œí•˜ë©´ 5XX ì—ëŸ¬ë¥¼ ë°œìƒì‹œí‚¤ì§€ ë§ìž!  
+ì›¬ë§Œí•˜ë©´ Clientì˜ ì˜¤ë¥˜ë¡œ íŒë‹¨í•˜ì— 4XX ì—ëŸ¬ë¥¼ ë°œìƒì‹œì¼œì•¼ í•œë‹¤.  
 
-### ¸¸¾à ¸ð¸£´Â Status Code°¡ ¹ÝÈ¯µÈ´Ù¸é?
-°©ÀÚ±â 299 451 599 Ã³·³ ¾Ë ¼ö ¾ø´Â Status Code¸¦ ¹ÝÈ¯ ¹Þ´Â´Ù¸é?  
-´çÈ²ÇÏÁö ¸»°í, Á¦ÀÏ Ã¹ ÀÚ¸®ÀÎ »óÀ§ Status Code¸¸ ¶°¿Ã¸®ÀÚ.
+### ë§Œì•½ ëª¨ë¥´ëŠ” Status Codeê°€ ë°˜í™˜ëœë‹¤ë©´?
+ê°‘ìžê¸° 299 451 599 ì²˜ëŸ¼ ì•Œ ìˆ˜ ì—†ëŠ” Status Codeë¥¼ ë°˜í™˜ ë°›ëŠ”ë‹¤ë©´?  
+ë‹¹í™©í•˜ì§€ ë§ê³ , ì œì¼ ì²« ìžë¦¬ì¸ ìƒìœ„ Status Codeë§Œ ë– ì˜¬ë¦¬ìž.
