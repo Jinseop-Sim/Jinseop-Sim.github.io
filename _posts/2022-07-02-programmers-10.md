@@ -6,6 +6,7 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
+- [후보키[LEVEL 2]](https://school.programmers.co.kr/learn/courses/30/lessons/42890)   
 
 2019년 카카오 코딩테스트 문제였다.  
 생각보다 고려할게 많은 문제였다.  

@@ -7,7 +7,7 @@ author:
   - Jinseop Sim
 ---
 
-## 프로그래머스 Level 3 : 순위
+- [순위[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/49191)   
 
 node간의 승자, 패자 결과가 주어졌을 때  
 순위를 매길 수 있는 node의 수를 출력하는 문제였다.  

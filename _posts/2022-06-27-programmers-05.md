@@ -7,7 +7,7 @@ author:
   - Jinseop Sim
 ---
 
-## 프로그래머스 Level 3 : 자물쇠와 열쇠
+- [자물쇠와 열쇠[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/60059)  
 
 KAKAO BLIND 공채의 까다로운 구현 문제였다.  
 

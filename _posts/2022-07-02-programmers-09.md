@@ -7,6 +7,8 @@ author:
   - Jinseop Sim
 ---
 
+- [순위 검색[LEVEL 2]](https://school.programmers.co.kr/learn/courses/30/lessons/72412)   
+
 ## 프로그래머스 Level 2 : 순위 검색
 
 분명 문제의 Level은 2인데, 카카오 문제여서 그런지  

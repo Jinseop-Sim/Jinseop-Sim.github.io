@@ -7,9 +7,7 @@ author:
   - Jinseop Sim
 ---
 
-## 프로그래머스 Level 2 : 예상 대진표
-
-![image](https://user-images.githubusercontent.com/71700079/176624176-598f8ac0-0dc6-4892-99e6-6220e62724f1.png)    
+- [예상 대진표[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/12985)  
 
 처음엔 간단한 이진탐색 문제라고 생각하고 접근했다.  
 
@@ -43,7 +41,7 @@ int solution(int n, int a, int b)
 
 ### 2차 시도
 
-이진 탐색으로는 Seg Fault가 발생해서, 접근법을 바꿨다.  
+이진 탐색으로는 Segmentation Fault가 발생해서, 접근법을 바꿨다.  
 주어진 n으로 계산하는 것이 아닌, a와 b로 계산을 하도록 했다.  
 
 a와 b가 같아질 때 까지 Loop를 돌아, 만나는 Round를 계산한다.  

@@ -6,9 +6,7 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
-
-## 프로그래머스 Level 3 - 표 편집
-[표 편집[LEVEL 3]](https://programmers.co.kr/learn/courses/30/lessons/81303)  
+- [표 편집[LEVEL 3]](https://programmers.co.kr/learn/courses/30/lessons/81303)  
 
 2021 카카오 채용연계형 인턴십 코딩 테스트 문제였다.  
 처음엔 단순히 String과 Stack을 이용해서 풀려고 시도했다.  

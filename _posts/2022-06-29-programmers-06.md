@@ -7,7 +7,7 @@ author:
   - Jinseop Sim
 ---
 
-## 프로그래머스 Level 3 : 셔틀 버스
+- [셔틀 버스[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/17678)  
 
 KAKAO BLIND 공채의 문제였다.  
 저번 자물쇠와 열쇠보다는 나았던 것 같다.  

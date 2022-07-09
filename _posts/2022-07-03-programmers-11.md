@@ -6,11 +6,11 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
+- [보석 쇼핑[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/67258)   
 
 2020 카카오 인턴십 문제였다.  
 
 ### 1차 시도 : Unordered Set과 완전 탐색
-
 처음엔 Unordered Set에 집어 넣은 뒤, 종류의 수를 확인하며 진행했다.  
 완전탐색에 가깝게 진행을 하기 때문에 시간초과가 다량 발생했다.  
 Unordered Set의 삽입, 제거 시간 복잡도는 O(1)이라 괜찮을 줄 알았는데 아니었다.  

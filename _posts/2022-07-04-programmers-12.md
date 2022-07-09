@@ -6,9 +6,10 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
+- [배달[LEVEL 2]](https://school.programmers.co.kr/learn/courses/30/lessons/12978) 
 
 나는 보자마자 다익스트라 알고리즘으로 풀면 되겠구나 싶었다.  
-내가 생각한 풀이 방식은 다음과 같다.
+내가 생각한 풀이 방식은 다음과 같다.  
 
 - 1번 마을로 부터 모든 마을에 대한 배달 시간을 요구하고 있다.
   - One to Many의 방식이므로, 다익스트라가 적합하다.

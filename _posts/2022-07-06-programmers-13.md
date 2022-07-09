@@ -6,11 +6,11 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
+- [위장[LEVEL 2]](https://school.programmers.co.kr/learn/courses/30/lessons/42578)  
 
 의외의 복병 문제였다.  
 
 ### 1차 시도 : 백트래킹
-
 너무 생각없이 문제에 접근했다.  
 Map을 이용해서 옷 종류를 받아온 것은 올바른 접근이었다.  
 하지만 백트래킹을 해버려서 쓸데없이 시간초과가 발생했다.  
