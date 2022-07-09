@@ -1,4 +1,4 @@
----
+ï»¿---
 layout: post
 title: "Search : Parametric Search"
 categories: Algorithm
@@ -8,18 +8,18 @@ author:
 math: true
 toc: true
 ---
-¿ì¸®´Â °ú¿¬ ÀÌºĞ Å½»öÀ» ´Ü¼øÈ÷ Á¤·ÄÀÌ³ª ¼ö Ã£±â¿¡¸¸ ¾µ ¼ö ÀÖÀ»±î?  
-ÀÌºĞ Å½»öÀ» ÀÌ¿ëÇÏ´Â Å½»ö¹ıÀÎ __Parametric Search__ ¿¡ ´ëÇØ ¾Ë¾Æº¸ÀÚ.  
+ìš°ë¦¬ëŠ” ê³¼ì—° ì´ë¶„ íƒìƒ‰ì„ ë‹¨ìˆœíˆ ì •ë ¬ì´ë‚˜ ìˆ˜ ì°¾ê¸°ì—ë§Œ ì“¸ ìˆ˜ ìˆì„ê¹Œ?  
+ì´ë¶„ íƒìƒ‰ì„ ì´ìš©í•˜ëŠ” íƒìƒ‰ë²•ì¸ __Parametric Search__ ì— ëŒ€í•´ ì•Œì•„ë³´ì.  
 
 ### Parametric Search?
-Parametric Search´Â ÃÖÀûÈ­ ¹®Á¦¸¦ ÀÌºĞ Å½»öÀ¸·Î Ç®¾î³ª°¡´Â ¹æ¹ıÀÌ´Ù.  
+Parametric SearchëŠ” ìµœì í™” ë¬¸ì œë¥¼ ì´ë¶„ íƒìƒ‰ìœ¼ë¡œ í’€ì–´ë‚˜ê°€ëŠ” ë°©ë²•ì´ë‹¤.  
 
-> ÃÖÀûÈ­ ¹®Á¦¸¦ °áÁ¤ ¹®Á¦(Decision Problem)·Î ¹Ù²Ù¾î Ç® °Í.  
+> ìµœì í™” ë¬¸ì œë¥¼ ê²°ì • ë¬¸ì œ(Decision Problem)ë¡œ ë°”ê¾¸ì–´ í’€ ê²ƒ.  
 
-ÃÖÀûÈ­ ¹®Á¦¸¦ ÀÌºĞ Å½»öÀ» ÅëÇØ ¹üÀ§¸¦ Á¼Çô°¡¸ç ´äÀ» Ã£¾Æ³»´Â °ÍÀÌ´Ù.  
+ìµœì í™” ë¬¸ì œë¥¼ ì´ë¶„ íƒìƒ‰ì„ í†µí•´ ë²”ìœ„ë¥¼ ì¢í˜€ê°€ë©° ë‹µì„ ì°¾ì•„ë‚´ëŠ” ê²ƒì´ë‹¤.  
 
-### Example : ÇÁ·Î±×·¡¸Ó½º - ±İ°ú Àº ¿î¹İÇÏ±â
-[±İ°ú Àº ¿î¹İÇÏ±â[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/86053)  
+### Example : í”„ë¡œê·¸ë˜ë¨¸ìŠ¤ - ê¸ˆê³¼ ì€ ìš´ë°˜í•˜ê¸°
+[ê¸ˆê³¼ ì€ ìš´ë°˜í•˜ê¸°[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/86053)  
 
 {% highlight cpp %}
 #include <string>
@@ -28,7 +28,7 @@ using namespace std;
 
 long long solution(int a, int b, vector<int> g, vector<int> s, vector<int> w, vector<int> t) {
     long long answer = 10e5 * 4 * 10e9;
-    // ±âº»ÀûÀ¸·Î ´äÀº ¹üÀ§ÀÇ ÃÖ´ë°ªÀ¸·Î ¼³Á¤ÇÑ´Ù.
+    // ê¸°ë³¸ì ìœ¼ë¡œ ë‹µì€ ë²”ìœ„ì˜ ìµœëŒ€ê°’ìœ¼ë¡œ ì„¤ì •í•œë‹¤.
 
     long long start = 0;
     long long end = 10e5 * 4 * 10e9;
@@ -37,44 +37,44 @@ long long solution(int a, int b, vector<int> g, vector<int> s, vector<int> w, ve
     while (start <= end) {
         long long mid = (start + end) / 2;
 
-        long long gold = 0; // ÃÑ ¿î¹İÇØ¾ßÇÒ ±İ, Àº
+        long long gold = 0; // ì´ ìš´ë°˜í•´ì•¼í•  ê¸ˆ, ì€
         long long silver = 0;
-        long long carry_sum = 0; // ÃÑ ¿î¹İÇØ¾ßÇÒ ±İ¼Ó
+        long long carry_sum = 0; // ì´ ìš´ë°˜í•´ì•¼í•  ê¸ˆì†
 
         for (int i = 0; i < truck_num; i++) {
-            long long curr_gold = (long long)g[i]; // ÇöÀç µµ½ÃÀÇ ±İ, Àº ÇÑµµ
+            long long curr_gold = (long long)g[i]; // í˜„ì¬ ë„ì‹œì˜ ê¸ˆ, ì€ í•œë„
             long long curr_silver = (long long)s[i];
-            long long curr_weight = (long long)w[i]; // ÇöÀç ¼ö·¹ÀÇ ÃÖ´ë ¹«°Ô
-            long long curr_time = (long long)t[i]; // ÇöÀç ¼ö·¹ÀÇ ¼Ò¿ä ½Ã°£
+            long long curr_weight = (long long)w[i]; // í˜„ì¬ ìˆ˜ë ˆì˜ ìµœëŒ€ ë¬´ê²Œ
+            long long curr_time = (long long)t[i]; // í˜„ì¬ ìˆ˜ë ˆì˜ ì†Œìš” ì‹œê°„
 
             long long how_many_move = mid / (curr_time * 2);
-            // ÃÖ´ë ½Ã°£ ¾È¿¡ ÇöÀç ¼ö·¹´Â ¸î ¹ø ¿Ô´Ù°¬´Ù ÇÏ´Â°¡?
+            // ìµœëŒ€ ì‹œê°„ ì•ˆì— í˜„ì¬ ìˆ˜ë ˆëŠ” ëª‡ ë²ˆ ì™”ë‹¤ê°”ë‹¤ í•˜ëŠ”ê°€?
 
             if (mid % (curr_time * 2) >= t[i]) how_many_move++;
-            // ¿Ô´Ù°¬´Ù ÇßÀ» ¶§, ½Ã°£ÀÌ ³²´Â °æ¿ì´Â Æíµµ·Î ÇÑ ¹ø´õ °¡¾ßÇÏ´Â °æ¿ì.
+            // ì™”ë‹¤ê°”ë‹¤ í–ˆì„ ë•Œ, ì‹œê°„ì´ ë‚¨ëŠ” ê²½ìš°ëŠ” í¸ë„ë¡œ í•œ ë²ˆë” ê°€ì•¼í•˜ëŠ” ê²½ìš°.
 
             gold += (curr_gold < how_many_move * curr_weight) ? curr_gold : how_many_move * curr_weight;
-            // ÇöÀç µµ½ÃÀÇ ±İ ÇÑµµ¿¡ ºñÇØ ¿î¹İ°¡´ÉÇÑ ÀüÃ¼ ¹«°Ô°¡ ´õ Å©¸é?
-            // ÇöÀç µµ½ÃÀÇ ±İÀ» ¿î¹İÇØ¾ßÇÒ ±İ¿¡ ´õÇÑ´Ù.
-            // ¾Æ´Ï¸é, ¿î¹İ °¡´ÉÇÑ ÀüÃ¼ ¹«°Ô¸¸ ´õÇÑ´Ù.
+            // í˜„ì¬ ë„ì‹œì˜ ê¸ˆ í•œë„ì— ë¹„í•´ ìš´ë°˜ê°€ëŠ¥í•œ ì „ì²´ ë¬´ê²Œê°€ ë” í¬ë©´?
+            // í˜„ì¬ ë„ì‹œì˜ ê¸ˆì„ ìš´ë°˜í•´ì•¼í•  ê¸ˆì— ë”í•œë‹¤.
+            // ì•„ë‹ˆë©´, ìš´ë°˜ ê°€ëŠ¥í•œ ì „ì²´ ë¬´ê²Œë§Œ ë”í•œë‹¤.
 
             silver += (curr_silver < how_many_move * curr_weight) ? curr_silver : how_many_move * curr_weight;
-            // À§¿Í µ¿ÀÏ.
+            // ìœ„ì™€ ë™ì¼.
 
             carry_sum += (curr_gold + curr_silver < how_many_move * curr_weight) ? curr_gold + curr_silver : how_many_move * curr_weight;
-            // ÇöÀç µµ½ÃÀÇ ±İ, Àº ÇÑµµ ÃÑÇÕ¿¡ ºñÇØ ÀüÃ¼ ¿î¹İ °¡´É ¹«°Ô°¡ ´õ Å©¸é?
-            // ÇöÀç µµ½ÃÀÇ ±İ, Àº ÇÑµµ ÃÑÇÕÀ» ´õÇØ¹ö¸°´Ù.
-            // ¾Æ´Ï¸é, ¿î¹İ °¡´ÉÇÑ ¹«°Ô ¸¸Å­¸¸ ´õÇÑ´Ù.
+            // í˜„ì¬ ë„ì‹œì˜ ê¸ˆ, ì€ í•œë„ ì´í•©ì— ë¹„í•´ ì „ì²´ ìš´ë°˜ ê°€ëŠ¥ ë¬´ê²Œê°€ ë” í¬ë©´?
+            // í˜„ì¬ ë„ì‹œì˜ ê¸ˆ, ì€ í•œë„ ì´í•©ì„ ë”í•´ë²„ë¦°ë‹¤.
+            // ì•„ë‹ˆë©´, ìš´ë°˜ ê°€ëŠ¥í•œ ë¬´ê²Œ ë§Œí¼ë§Œ ë”í•œë‹¤.
         }
 
         if (gold >= a && silver >= b && carry_sum >= a + b) {
-            // ¸ğµç ±İ, ÀºÀÌ ¿î¹İ °¡´ÉÇÏ´Ù¸é
-            end = mid - 1; // ¹üÀ§¸¦ ÀÛÀºÂÊÀ¸·Î ÁÙÀÎ´Ù.
-            answer = min(mid, answer); // answerÀ» ´õ ÀÛÀºÂÊÀ¸·Î °»½Å.
+            // ëª¨ë“  ê¸ˆ, ì€ì´ ìš´ë°˜ ê°€ëŠ¥í•˜ë‹¤ë©´
+            end = mid - 1; // ë²”ìœ„ë¥¼ ì‘ì€ìª½ìœ¼ë¡œ ì¤„ì¸ë‹¤.
+            answer = min(mid, answer); // answerì„ ë” ì‘ì€ìª½ìœ¼ë¡œ ê°±ì‹ .
         }
         else
             start = mid + 1;
-            // ¿î¹İÀÌ ºÒ°¡´ÉÇÑ ¹üÀ§¶ó¸é ¹üÀ§¸¦ Å« ÂÊÀ¸·Î ÁÙÀÎ´Ù.
+            // ìš´ë°˜ì´ ë¶ˆê°€ëŠ¥í•œ ë²”ìœ„ë¼ë©´ ë²”ìœ„ë¥¼ í° ìª½ìœ¼ë¡œ ì¤„ì¸ë‹¤.
     }
 
     return answer;
