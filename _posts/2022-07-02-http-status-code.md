@@ -110,5 +110,5 @@ author:
 갑자기 299 451 599 처럼 알 수 없는 Status Code를 반환 받는다면?  
 당황하지 말고, 제일 첫 자리인 상위 Status Code만 떠올리자.  
 
-> 사진 및 자료 출처 : [김영한의 HTTP 웹 기본 지식]https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard)
+> - 사진 및 자료 출처 : [김영한의 HTTP 웹 기본 지식]https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard)
 
