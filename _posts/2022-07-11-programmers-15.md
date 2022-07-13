@@ -109,6 +109,7 @@ vector<int> solution(vector<string> operations) {
 2차 시도에서는 이진 균형 트리의 Container인 Set을 이용했다.  
 Set의 최대 최소를 찾아서 지우고, 반환했다.  
 
+{% highlight cpp %}
 #include <string>
 #include <vector>
 #include <set>
@@ -158,3 +159,4 @@ vector<int> solution(vector<string> operations) {
     }
     return answer;
 }
+{% endhighlight %}
