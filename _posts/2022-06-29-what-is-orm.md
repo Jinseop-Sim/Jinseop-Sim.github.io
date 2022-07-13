@@ -18,9 +18,9 @@ Spring은 Java 기반의 Framework이다.
 이 유연하고 변경이 용이한 객체 지향의 핵심이 바로 __다형성!__   
 
 ### 다형성(Polymorphism)
-다형성은 세상을 __역할__ 과 __구현__ 으로 구분한다.
+다형성은 세상을 __역할__ 과 __구현__ 으로 구분한다.  
 
-[사진 첨부]
+![image](https://user-images.githubusercontent.com/71700079/178716798-4bb91066-eecb-41ec-bc19-cdea927261c5.png)  
 
 위의 예시에서, 운전자는 자동차를 운전할 줄만 알면  
 모든 차를 운전할 수가 있다.
@@ -47,7 +47,7 @@ Spring은 Java 기반의 Framework이다.
   - SW는 확장에는 열려 있으나, 변경에는 닫혀 있어야 한다.
   - OCP가 깨진다는 것은, 다형성을 이용한 코드 변경 없는 확장이 불가능 하다는 것이다.
   - ex) MemberService의 OCP  
-       [사진 첨부]
+     ![image](https://user-images.githubusercontent.com/71700079/178716892-6d9c864f-bfef-44f1-83ab-bcfdff26ec0a.png)  
     - 이 경우엔, 다형성을 활용했으나 OCP가 깨져버린 경우이다.
     - 이를 해결하기 위해서는 별도의 조립, 설정자가 필요하다!(__Spring Container__)
 - LSP : 리스코프 치환 원칙
