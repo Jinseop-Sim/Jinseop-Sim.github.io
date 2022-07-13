@@ -71,6 +71,9 @@ Spring은 아래와 같은 기술로 다형성 + OCP, DIP를 가능하도록 한
 
 - DI(Dependency Injection) : 의존성 주입
 - DI Container : 프로그램의 제어권을 갖고, 의존성을 주입해주는 곳
+- IOC(Inversion of Control) : 제어의 역전
+  - DI Container에 의해서 구현 가능한 기술.
+  - Client 코드에서는 더 이상의 변경이 일어나지 않도록 해준다.
 
 위의 기술로 인해, Client 코드 변경 없이 확장이 가능하다.  
 즉, 쉽게 부품만 갈아끼우 듯이 교체를 통한 개발이 가능해진다.  
