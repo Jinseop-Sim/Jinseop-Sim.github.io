@@ -32,9 +32,9 @@ author:
 요청을 완료하기 위해선 추가적인 동작이 필요하다는 의미이다.  
 
 이 때 웹 브라우저는 Response에 Location Header가 존재하면,  
-자동으로 해당 Location으로 Redirect한다.  
+자동으로 해당 Location으로 Redirect한다.   
 
-[사진 첨부]
+![image](https://user-images.githubusercontent.com/71700079/178719375-dc89b829-827d-4c3b-aa97-84a625a985f0.png)  
 
 #### Redirection의 종류
 - 영구 Redirection : 특정 리소스의 URI가 영구 이동.
@@ -68,7 +68,9 @@ author:
 
 따라서 아래와 같이 조치한다.  
 - POST로 주문 후에 주문 결과화면을 GET으로 Redirect 시킨다.
-- 새로고침해도 결과 화면은 GET으로만 조회 된다.
+- 새로고침해도 결과 화면은 GET으로만 조회 된다.  
+
+![image](https://user-images.githubusercontent.com/71700079/178719546-f47517be-afad-4ccd-a879-e9882a15de8c.png)  
 
 물론, 서버 단에서 중복 주문을 못하도록 검증하는 단계를 만드는 것 또한 필요하다.  
 
