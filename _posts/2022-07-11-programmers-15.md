@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "프로그래머스 Level 3 - GPS"
+title: "프로그래머스 Level 3 - 이중 우선 순위 큐"
 categories: Programmers
 tags: [cpp]
 author:
