@@ -1,66 +1,66 @@
----
+ï»¿---
 layout: post
-title: "½ºÇÁ¸µ ÇÙ½É ¿ø¸® ÀÌÇØ - Singleton"
+title: "ìŠ¤í”„ë§ í•µì‹¬ ì›ë¦¬ ì´í•´ - Singleton"
 categories: Springboot
 tags: [java]
 author:
   - Jinseop Sim
 ---
-¸¸¾à ¿©·¯¸íÀÇ Client°¡ µ¿½Ã¿¡ ¿äÃ»À» º¸³½´Ù°í »ý°¢ÇØº¸ÀÚ.  
-±×·³ DI Container¿¡¼­ ¸ðµç ¿äÃ»¿¡ ´ëÇØ °´Ã¼¸¦ ´Ù µû·Î »ý¼ºÇØ¾ß ÇÒ±î?  
-±×·³ ¼ö ¸¸¸íÀÇ °í°´ÀÌ µ¿½Ã¿¡ ¿äÃ»À» ÇÏ¸é, ¼ö ¸¸°³ÀÇ °´Ã¼°¡ »ý¼ºµÇ¾î ¹ö¸°´Ù.  
+ë§Œì•½ ì—¬ëŸ¬ëª…ì˜ Clientê°€ ë™ì‹œì— ìš”ì²­ì„ ë³´ë‚¸ë‹¤ê³  ìƒê°í•´ë³´ìž.  
+ê·¸ëŸ¼ DI Containerì—ì„œ ëª¨ë“  ìš”ì²­ì— ëŒ€í•´ ê°ì²´ë¥¼ ë‹¤ ë”°ë¡œ ìƒì„±í•´ì•¼ í• ê¹Œ?  
+ê·¸ëŸ¼ ìˆ˜ ë§Œëª…ì˜ ê³ ê°ì´ ë™ì‹œì— ìš”ì²­ì„ í•˜ë©´, ìˆ˜ ë§Œê°œì˜ ê°ì²´ê°€ ìƒì„±ë˜ì–´ ë²„ë¦°ë‹¤.  
 
-ÀÌ´Â ½ÉÇÑ ¸Þ¸ð¸®ÀÇ ³¶ºñ¸¦ ÃÊ·¡ÇÑ´Ù!  
+ì´ëŠ” ì‹¬í•œ ë©”ëª¨ë¦¬ì˜ ë‚­ë¹„ë¥¼ ì´ˆëž˜í•œë‹¤!  
 
 ### Singleton Pattern
-À§ÀÇ ¹®Á¦Á¡À» ÇØ°áÇÏ±â À§ÇØ¼­ µîÀåÇÑ µðÀÚÀÎ ÆÐÅÏÀÌ ¹Ù·Î __Singleton__ ÀÌ´Ù.  
+ìœ„ì˜ ë¬¸ì œì ì„ í•´ê²°í•˜ê¸° ìœ„í•´ì„œ ë“±ìž¥í•œ ë””ìžì¸ íŒ¨í„´ì´ ë°”ë¡œ __Singleton__ ì´ë‹¤.  
 
-°´Ã¼ÀÇ »ý¼ºÀ» ¸·°í, ÀÌ¹Ì »ý¼ºµÈ °´Ã¼¸¦ Á¶È¸ÇÏ°í °øÀ¯ÇÏ°Ô ÇÑ´Ù.  
-´ç¿¬È÷ ±×·Î ÀÎÇØ ¸Þ¸ð¸®ÀÇ ³¶ºñ°¡ ¾ø¾îÁö°í, ¼º´ÉÀÌ °³¼± µÈ´Ù.  
+ê°ì²´ì˜ ìƒì„±ì„ ë§‰ê³ , ì´ë¯¸ ìƒì„±ëœ ê°ì²´ë¥¼ ì¡°íšŒí•˜ê³  ê³µìœ í•˜ê²Œ í•œë‹¤.  
+ë‹¹ì—°ížˆ ê·¸ë¡œ ì¸í•´ ë©”ëª¨ë¦¬ì˜ ë‚­ë¹„ê°€ ì—†ì–´ì§€ê³ , ì„±ëŠ¥ì´ ê°œì„  ëœë‹¤.  
 
-##### SingletonÀÇ ±¸Çö
-¼ø¼ö Java ÄÚµå·Î´Â ¾Æ·¡¿Í °°ÀÌ ±¸ÇöÇÏµµ·Ï ÇÑ´Ù.  
+##### Singletonì˜ êµ¬í˜„
+ìˆœìˆ˜ Java ì½”ë“œë¡œëŠ” ì•„ëž˜ì™€ ê°™ì´ êµ¬í˜„í•˜ë„ë¡ í•œë‹¤.  
 
 {% highlight java %}
 public class SingletonService {
 
     public static final SingletonService instance = new SingletonService();
-    // Á¦ÀÏ Ã³À½ Java¿¡¼­ °´Ã¼¸¦ ÇÏ³ª »ý¼ºÇØÁØ´Ù.
+    // ì œì¼ ì²˜ìŒ Javaì—ì„œ ê°ì²´ë¥¼ í•˜ë‚˜ ìƒì„±í•´ì¤€ë‹¤.
 
     public static SingletonService getInstance(){
         return instance;
     }
-    // Á¢±Ù ¹æ¹ýÀº Á¶È¸ ¹Û¿¡ ¾ø´Ù!
+    // ì ‘ê·¼ ë°©ë²•ì€ ì¡°íšŒ ë°–ì— ì—†ë‹¤!
 
     private SingletonService(){
     }
-    // privateÀ¸·Î ¸·¾Æ °´Ã¼ »ý¼ºÀ» ¸·´Â´Ù.
+    // privateìœ¼ë¡œ ë§‰ì•„ ê°ì²´ ìƒì„±ì„ ë§‰ëŠ”ë‹¤.
 }
 {% endhighlight %}
 
-#### SingletonÀÇ ¹®Á¦Á¡
-- ÆÐÅÏ ±¸Çö ÄÚµå°¡ ±²ÀåÈ÷ ¸¹ÀÌ µé¾î°£´Ù.
-- ÀÇÁ¸°ü°è »ó Å¬¶óÀÌ¾ðÆ®°¡ ±¸Ã¼ Å¬·¡½º¿¡ ÀÇÁ¸ÇÑ´Ù. --> DIP À§¹Ý.
-  - ±×¿¡ µû¶ó OCP ¿øÄ¢À» À§¹ÝÇÒ °¡´É¼ºÀÌ ³ô´Ù.
-- ³»ºÎ ¼Ó¼º º¯°æ ¹× ÃÊ±âÈ­°¡ ¸Å¿ì ¾î·Æ´Ù.
-- private »ý¼ºÀÚ·Î ÀÚ½Ä Å¬·¡½º¸¦ ¸¸µå´Â °ÍÀº ¾î·Æ´Ù.
-- °á·ÐÀûÀ¸·Î À¯¿¬¼ºÀÌ ±²ÀåÈ÷ ¶³¾îÁ®, Anti-PatternÀÌ¶ó°í ºÒ¸®±âµµ ÇÑ´Ù.
+#### Singletonì˜ ë¬¸ì œì 
+- íŒ¨í„´ êµ¬í˜„ ì½”ë“œê°€ êµ‰ìž¥ížˆ ë§Žì´ ë“¤ì–´ê°„ë‹¤.
+- ì˜ì¡´ê´€ê³„ ìƒ í´ë¼ì´ì–¸íŠ¸ê°€ êµ¬ì²´ í´ëž˜ìŠ¤ì— ì˜ì¡´í•œë‹¤. --> DIP ìœ„ë°˜.
+  - ê·¸ì— ë”°ë¼ OCP ì›ì¹™ì„ ìœ„ë°˜í•  ê°€ëŠ¥ì„±ì´ ë†’ë‹¤.
+- ë‚´ë¶€ ì†ì„± ë³€ê²½ ë° ì´ˆê¸°í™”ê°€ ë§¤ìš° ì–´ë µë‹¤.
+- private ìƒì„±ìžë¡œ ìžì‹ í´ëž˜ìŠ¤ë¥¼ ë§Œë“œëŠ” ê²ƒì€ ì–´ë µë‹¤.
+- ê²°ë¡ ì ìœ¼ë¡œ ìœ ì—°ì„±ì´ êµ‰ìž¥ížˆ ë–¨ì–´ì ¸, Anti-Patternì´ë¼ê³  ë¶ˆë¦¬ê¸°ë„ í•œë‹¤.
 
 ### Singleton Container
-> À§ÀÇ ¹®Á¦Á¡µéÀ» ÇØ°áÇÏ±â À§ÇØ µîÀåÇÑ °ÍÀÌ ¹Ù·Î Spring Container!  
+> ìœ„ì˜ ë¬¸ì œì ë“¤ì„ í•´ê²°í•˜ê¸° ìœ„í•´ ë“±ìž¥í•œ ê²ƒì´ ë°”ë¡œ Spring Container!  
 
-Spring Container´Â ¾Ë¾Æ¼­ °´Ã¼¸¦ SingletonÀ¸·Î °ü¸®ÇØÁÖ´Â µ¿½Ã¿¡  
-Singleton PatternÀÇ ¸ðµç ´ÜÁ¡À» ÇØ°áÇØÁÖ±â±îÁö ÇÑ´Ù.
-ÁöÀúºÐÇÑ ÄÚµå°¡ µé¾î°¡Áöµµ ¾ÊÀ¸¸ç, DIP, OCP¸¦ À§¹ÝÇÏÁö ¾Ê¾Æµµ µÈ´Ù.
+Spring ContainerëŠ” ì•Œì•„ì„œ ê°ì²´ë¥¼ Singletonìœ¼ë¡œ ê´€ë¦¬í•´ì£¼ëŠ” ë™ì‹œì—  
+Singleton Patternì˜ ëª¨ë“  ë‹¨ì ì„ í•´ê²°í•´ì£¼ê¸°ê¹Œì§€ í•œë‹¤.
+ì§€ì €ë¶„í•œ ì½”ë“œê°€ ë“¤ì–´ê°€ì§€ë„ ì•Šìœ¼ë©°, DIP, OCPë¥¼ ìœ„ë°˜í•˜ì§€ ì•Šì•„ë„ ëœë‹¤.
 
-### Singleton »ç¿ë ½Ã ÁÖÀÇÁ¡
-Singleton Pattern¿¡¼­´Â µ¿ÀÏÇÑ °´Ã¼¸¦ ¿©·¯ Å¬¶óÀÌ¾ðÆ®°¡ °øÀ¯ÇÑ´Ù.  
-ÀÌ ¶§, StatefulÇÏ°Ô ±¸ÇöÇØ¹ö·Á¼­ »óÅÂ¸¦ À¯ÁöÇÏ´Â ÇÊµå¸¦ °øÀ¯ÇØ¹ö¸°´Ù¸é? 
+### Singleton ì‚¬ìš© ì‹œ ì£¼ì˜ì 
+Singleton Patternì—ì„œëŠ” ë™ì¼í•œ ê°ì²´ë¥¼ ì—¬ëŸ¬ í´ë¼ì´ì–¸íŠ¸ê°€ ê³µìœ í•œë‹¤.  
+ì´ ë•Œ, Statefulí•˜ê²Œ êµ¬í˜„í•´ë²„ë ¤ì„œ ìƒíƒœë¥¼ ìœ ì§€í•˜ëŠ” í•„ë“œë¥¼ ê³µìœ í•´ë²„ë¦°ë‹¤ë©´? 
 
-¿¹¸¦ µé¾î, A»ç¿ëÀÚ°¡ ¸¸¿øÄ¡ÀÇ ÁÖ¹®À» ³Ö¾ú´Ù°í °¡Á¤ÇØº¸ÀÚ.  
-³ÖÀÚ¸¶ÀÚ B»ç¿ëÀÚ°¡ 2¸¸¿øÄ¡ÀÇ ÁÖ¹®À» ³Ö¾î¹ö¸®¸é A»ç¿ëÀÚ¿¡°Ôµµ 2¸¸¿øÀÌ ¶ã °ÍÀÌ´Ù.  
-ÀÌ´Â ´õ º¹ÀâÇÑ ÄÚµå·Î °¡°ÔµÇ¸é, ¼­ºñ½º¿¡¼­ Å« ¹®Á¦¸¦ ÃÊ·¡ÇÏ°Ô µÈ´Ù.  
+ì˜ˆë¥¼ ë“¤ì–´, Aì‚¬ìš©ìžê°€ ë§Œì›ì¹˜ì˜ ì£¼ë¬¸ì„ ë„£ì—ˆë‹¤ê³  ê°€ì •í•´ë³´ìž.  
+ë„£ìžë§ˆìž Bì‚¬ìš©ìžê°€ 2ë§Œì›ì¹˜ì˜ ì£¼ë¬¸ì„ ë„£ì–´ë²„ë¦¬ë©´ Aì‚¬ìš©ìžì—ê²Œë„ 2ë§Œì›ì´ ëœ° ê²ƒì´ë‹¤.  
+ì´ëŠ” ë” ë³µìž¡í•œ ì½”ë“œë¡œ ê°€ê²Œë˜ë©´, ì„œë¹„ìŠ¤ì—ì„œ í° ë¬¸ì œë¥¼ ì´ˆëž˜í•˜ê²Œ ëœë‹¤.  
 
-µû¶ó¼­ Ç×»ó ¹«»óÅÂ(Stateless)·Î ¼³°è¸¦ ÇØ¾ß¸¸ ÇÑ´Ù!  
+ë”°ë¼ì„œ í•­ìƒ ë¬´ìƒíƒœ(Stateless)ë¡œ ì„¤ê³„ë¥¼ í•´ì•¼ë§Œ í•œë‹¤!  
 
-> - »çÁø ¹× ÀÚ·á ÃâÃ³ : [±è¿µÇÑÀÇ ½ºÇÁ¸µ ÇÙ½É ¿ø¸® ±âº»Æí](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8)
+> - ì‚¬ì§„ ë° ìžë£Œ ì¶œì²˜ : [ê¹€ì˜í•œì˜ ìŠ¤í”„ë§ í•µì‹¬ ì›ë¦¬ ê¸°ë³¸íŽ¸](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8)
