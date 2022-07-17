@@ -33,7 +33,7 @@ public class FrontControllerServletV1 extends HttpServlet{
 
 {% endhighlight %}
 
-Servlet의 ```RequestURI``를 이용해 URI를 받을 수 있다.  
+Servlet의 ```RequestURI```를 이용해 URI를 받을 수 있다.  
 그 값을 ControllerMap에 Key 값으로 매칭을 시켜, Controller을 불러오고  
 Controller 내부의 Method를 호출함으로써 View를 띄운다.  
 
@@ -140,9 +140,9 @@ public boolean supports(Object handler){
     return (handler instance of ControllerV3);
     // 내가 주입한 Handler(Controller)이 V3에 지원 가능한가?
 }
+{% endhighlight %} 
   - 그리고 Handle 함수를 통해 원래 Controller의 Process 함수를 구현해준다.
     - 반환 값은 ModelView를 반환하도록 한다.
-{% endhighlight %} 
 
 2. Front Controller
   - ```HandlerMappingMap```에 사용할 Handler(Controller) 목록을 저장한다.
