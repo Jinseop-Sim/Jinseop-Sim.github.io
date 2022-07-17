@@ -18,6 +18,7 @@ Controller를 Front Controller에서 정하도록 한다.
 Front Controller에 Controller Map을 만들어 놓고, 요청이 들어온 URI에 맞는 객체를 가져온다.  
 
 {% highlight java %}
+
 // URL이 v1의 하위 모든 Controller을 호출하도록.
 @WebServlet(name = "frontControllerServletV1", urlPatterns = "/front-controller/v1/*"
 public class FrontControllerServletV1 extends HttpServlet{
@@ -29,6 +30,7 @@ public class FrontControllerServletV1 extends HttpServlet{
         controllerMap.put("/front-controller/v1/members", new MemberListControllerV1());
     }
 }
+
 {% endhighlight %}
 
 Servlet의 ```RequestURI``를 이용해 URI를 받을 수 있다.  
@@ -41,11 +43,13 @@ Controller 내부의 Method를 호출함으로써 View를 띄운다.
 이전 Version 1에서 각 Controll들의 내부 Method를 한번 보자.  
 
 {% highlight java %}
+
 public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String viewPath = "/WEB-INF/views/new-form.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);
 }
+
 {% endhighlight %}
 
 3가지의 Controller 모두에 이 viewPath와 Dispatcher 코드가 중복됨을 알 수 있다.  
@@ -55,9 +59,11 @@ Version 2에서는 이 중복 코드들을 MyView라는 Class로 빼버리고 �
 하지만 이번엔 각 Controller 내부 Method가 MyView를 Return 하도록 한다.  
 
 {% highlight java %}
+
 public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         return new MyView("/WEB-INF/views/new-form.jsp");
 }
+
 {% endhighlight %}
 
 위와 같이, MyView에 URI를 직접 View path를 주입해서, Front Controller에서 Render 시킨다.  
@@ -128,6 +134,7 @@ Handler Adapter에서 Controller을 정하도록 하고, 원래의 Controller �
 
 1. Handler Adapter
   - Handler Adapter은 Controller가 지원 가능한지 판단하는 Supports 함수가 필요하다.
+
 {% highlight java %}
 public boolean supports(Object handler){
     return (handler instance of ControllerV3);
