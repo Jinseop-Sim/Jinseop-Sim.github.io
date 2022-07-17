@@ -142,7 +142,7 @@ public boolean supports(Object handler){
 }
   - 그리고 Handle 함수를 통해 원래 Controller의 Process 함수를 구현해준다.
     - 반환 값은 ModelView를 반환하도록 한다.
-[% endhighlight %} 
+{% endhighlight %} 
 
 2. Front Controller
   - ```HandlerMappingMap```에 사용할 Handler(Controller) 목록을 저장한다.
