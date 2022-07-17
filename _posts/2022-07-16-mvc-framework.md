@@ -1,24 +1,24 @@
----
+ï»¿---
 layout: post
-title: "½ºÇÁ¸µ MVC - Á÷Á¢ ¸¸µç Framework"
+title: "ìŠ¤í”„ë§ MVC - ì§ì ‘ ë§Œë“  Framework"
 categories: Springboot
 tags: [java]
 author:
   - Jinseop Sim
 ---
 
-ÀÌÀü±îÁö´Â ServletÀÇ ControllerµéÀ» µû·Îµû·Î °¢°¢ ±¸ÇöÇØ¼­ ½ÇÇà½ÃÄ×´Ù.  
-ÀÌÁ¦´Â º»°İÀûÀ¸·Î MVC PatternÀ» ±¸ÇöÇÏ±â À§ÇØ, ControllerÀ» ÇÏ³ª·Î ¹­¾îº¸ÀÚ.  
-__Front Controller__ ¸¦ ¸¸µé¾î¼­ ControllerÀ» Mapping ÇÏµµ·Ï ÇÒ °ÍÀÌ´Ù.  
+ì´ì „ê¹Œì§€ëŠ” Servletì˜ Controllerë“¤ì„ ë”°ë¡œë”°ë¡œ ê°ê° êµ¬í˜„í•´ì„œ ì‹¤í–‰ì‹œì¼°ë‹¤.  
+ì´ì œëŠ” ë³¸ê²©ì ìœ¼ë¡œ MVC Patternì„ êµ¬í˜„í•˜ê¸° ìœ„í•´, Controllerì„ í•˜ë‚˜ë¡œ ë¬¶ì–´ë³´ì.  
+__Front Controller__ ë¥¼ ë§Œë“¤ì–´ì„œ Controllerì„ Mapping í•˜ë„ë¡ í•  ê²ƒì´ë‹¤.  
 
 ### Front Controller Version 1
-[»çÁø Ã·ºÎ]
+[ì‚¬ì§„ ì²¨ë¶€]
 
-Controller¸¦ Front Controller¿¡¼­ Á¤ÇÏµµ·Ï ÇÑ´Ù.  
-Front Controller¿¡ Controller MapÀ» ¸¸µé¾î ³õ°í, ¿äÃ»ÀÌ µé¾î¿Â URI¿¡ ¸Â´Â °´Ã¼¸¦ °¡Á®¿Â´Ù.  
+Controllerë¥¼ Front Controllerì—ì„œ ì •í•˜ë„ë¡ í•œë‹¤.  
+Front Controllerì— Controller Mapì„ ë§Œë“¤ì–´ ë†“ê³ , ìš”ì²­ì´ ë“¤ì–´ì˜¨ URIì— ë§ëŠ” ê°ì²´ë¥¼ ê°€ì ¸ì˜¨ë‹¤.  
 
 {% highlight java %}
-// URLÀÌ v1ÀÇ ÇÏÀ§ ¸ğµç ControllerÀ» È£ÃâÇÏµµ·Ï.
+// URLì´ v1ì˜ í•˜ìœ„ ëª¨ë“  Controllerì„ í˜¸ì¶œí•˜ë„ë¡.
 @WebServlet(name = "frontControllerServletV1", urlPatterns = "/front-controller/v1/*"
 public class FrontControllerServletV1 extends HttpServlet{
 	private Map<String, ControllerV1> controllerMap = new HashMap<>();
@@ -31,14 +31,14 @@ public class FrontControllerServletV1 extends HttpServlet{
 }
 {% endhighlight %}
 
-ServletÀÇ ```RequestURI``¸¦ ÀÌ¿ëÇØ URI¸¦ ¹ŞÀ» ¼ö ÀÖ´Ù.  
-±× °ªÀ» ControllerMap¿¡ Key °ªÀ¸·Î ¸ÅÄªÀ» ½ÃÄÑ, ControllerÀ» ºÒ·¯¿À°í  
-Controller ³»ºÎÀÇ Method¸¦ È£ÃâÇÔÀ¸·Î½á View¸¦ ¶ç¿î´Ù.  
+Servletì˜ ```RequestURI``ë¥¼ ì´ìš©í•´ URIë¥¼ ë°›ì„ ìˆ˜ ìˆë‹¤.  
+ê·¸ ê°’ì„ ControllerMapì— Key ê°’ìœ¼ë¡œ ë§¤ì¹­ì„ ì‹œì¼œ, Controllerì„ ë¶ˆëŸ¬ì˜¤ê³   
+Controller ë‚´ë¶€ì˜ Methodë¥¼ í˜¸ì¶œí•¨ìœ¼ë¡œì¨ Viewë¥¼ ë„ìš´ë‹¤.  
 
 ### Front Controller Version 2 : MyView
-[»çÁø Ã·ºÎ]
+[ì‚¬ì§„ ì²¨ë¶€]
 
-ÀÌÀü Version 1¿¡¼­ °¢ ControllµéÀÇ ³»ºÎ Method¸¦ ÇÑ¹ø º¸ÀÚ.  
+ì´ì „ Version 1ì—ì„œ ê° Controllë“¤ì˜ ë‚´ë¶€ Methodë¥¼ í•œë²ˆ ë³´ì.  
 
 {% highlight java %}
 public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,11 +48,11 @@ public void process(HttpServletRequest request, HttpServletResponse response) th
 }
 {% endhighlight %}
 
-3°¡ÁöÀÇ Controller ¸ğµÎ¿¡ ÀÌ viewPath¿Í Dispatcher ÄÚµå°¡ Áßº¹µÊÀ» ¾Ë ¼ö ÀÖ´Ù.  
-Version 2¿¡¼­´Â ÀÌ Áßº¹ ÄÚµåµéÀ» MyView¶ó´Â Class·Î »©¹ö¸®°í ÇÔ¼ö·Î ¸¸µé °ÍÀÌ´Ù.  
+3ê°€ì§€ì˜ Controller ëª¨ë‘ì— ì´ viewPathì™€ Dispatcher ì½”ë“œê°€ ì¤‘ë³µë¨ì„ ì•Œ ìˆ˜ ìˆë‹¤.  
+Version 2ì—ì„œëŠ” ì´ ì¤‘ë³µ ì½”ë“œë“¤ì„ MyViewë¼ëŠ” Classë¡œ ë¹¼ë²„ë¦¬ê³  í•¨ìˆ˜ë¡œ ë§Œë“¤ ê²ƒì´ë‹¤.  
 
-¾Õ¼­ »ç¿ëÇß´ø Front ControllerÀº µ¿ÀÏÇÏ´Ù.  
-ÇÏÁö¸¸ ÀÌ¹ø¿£ °¢ Controller ³»ºÎ Method°¡ MyView¸¦ Return ÇÏµµ·Ï ÇÑ´Ù.  
+ì•ì„œ ì‚¬ìš©í–ˆë˜ Front Controllerì€ ë™ì¼í•˜ë‹¤.  
+í•˜ì§€ë§Œ ì´ë²ˆì—” ê° Controller ë‚´ë¶€ Methodê°€ MyViewë¥¼ Return í•˜ë„ë¡ í•œë‹¤.  
 
 {% highlight java %}
 public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,31 +60,18 @@ public MyView process(HttpServletRequest request, HttpServletResponse response) 
 }
 {% endhighlight %}
 
-À§¿Í °°ÀÌ, MyView¿¡ URI¸¦ Á÷Á¢ View path¸¦ ÁÖÀÔÇØ¼­, Front Controller¿¡¼­ Render ½ÃÅ²´Ù.  
-¾Æ±î Version 1ÀÇ Dispatcher °úÁ¤Àº MyViewÀÇ Render ÇÔ¼ö·Î µé¾î°¡°Ô µÇ¸ç,  
-¿ì¸®°¡ °¢ Controller¿¡¼­ ³Ñ°ÜÁØ View path¸¦ ÀÎÀÚ·Î ¹Ş¾Æ, DispatcherÀ» Forward ÇÑ´Ù.
+ìœ„ì™€ ê°™ì´, MyViewì— URIë¥¼ ì§ì ‘ View pathë¥¼ ì£¼ì…í•´ì„œ, Front Controllerì—ì„œ Render ì‹œí‚¨ë‹¤.  
+ì•„ê¹Œ Version 1ì˜ Dispatcher ê³¼ì •ì€ MyViewì˜ Render í•¨ìˆ˜ë¡œ ë“¤ì–´ê°€ê²Œ ë˜ë©°,  
+ìš°ë¦¬ê°€ ê° Controllerì—ì„œ ë„˜ê²¨ì¤€ View pathë¥¼ ì¸ìë¡œ ë°›ì•„, Dispatcherì„ Forward í•œë‹¤.
 
 ### Front Controller Version 3 : ModelView
-[»çÁø Ã·ºÎ]
+[ì‚¬ì§„ ì²¨ë¶€]
 
-»ı°¢ÇØº¸ÀÚ. ±»ÀÌ °¢ Controllerµé ÀÔÀå¿¡¼­ ServeltÀÌ ÇÊ¿ä°¡ ÇÒ±î?  
-»ç½Ç, Front Controller¸¸ ServletÀ» ¾Ë¸é µÇÁö, °¢ ControllerÀº ±»ÀÌ ÇÊ¿ä°¡ ¾ø´Ù.  
-±×·¡µµ Model¿¡ °ªÀº ³Ñ°Ü ÁÖ¾î¾ß ·»´õ¸µ ÇÒ ¼ö ÀÖÀ¸¹Ç·Î, ModelÀ» µû·Î ¸¸µé¾î¼­ ³Ñ°ÜÁÖÀÚ.  
+ìƒê°í•´ë³´ì. êµ³ì´ ê° Controllerë“¤ ì…ì¥ì—ì„œ Serveltì´ í•„ìš”ê°€ í• ê¹Œ?  
+ì‚¬ì‹¤, Front Controllerë§Œ Servletì„ ì•Œë©´ ë˜ì§€, ê° Controllerì€ êµ³ì´ í•„ìš”ê°€ ì—†ë‹¤.  
+ê·¸ë˜ë„ Modelì— ê°’ì€ ë„˜ê²¨ ì£¼ì–´ì•¼ ë Œë”ë§ í•  ìˆ˜ ìˆìœ¼ë¯€ë¡œ, Modelì„ ë”°ë¡œ ë§Œë“¤ì–´ì„œ ë„˜ê²¨ì£¼ì.  
 
-ModelÀ» µû·Î ÀúÀåÇÏ°í, View¸¦ ·»´õ¸µÇØÁÖ´Â ModelView Class¸¦ ¸¸µé¾î »ç¿ëÇÏÀÚ.  
-
-{% hightlight java %}
-public ModelView process(Map<String, String> paramMap) {
-        List<Member> members = memberRepository.findAll();
-        ModelView mv = new ModelView("members");
-        mv.getModel().put("members", members);
-        return mv;
-}
-{% endhighlight %}
-
-Front Controller¿¡¼­ ServletÀ» ÀÌ¿ëÇØ, Parameter MapÀ» ¸¸µé¾î ³½´Ù.  
-ÀÌÈÄ À§¿Í °°ÀÌ ControllerÀÇ ÀÎÀÚ·Î, ```paramMap(ÀÌ¸§, °ª)```À¸·Î Parameter¸¦ ³Ñ±ä´Ù.  
-±×·³ ControllerÀº ModelViewÀÇ Field¿¡ ¹Ì¸® ¼±¾ğµÈ Model¿¡ Entity¸¦ ÁÖÀÔÇÑ´Ù.    
+Modelì„ ë”°ë¡œ ì €ì¥í•˜ê³ , Viewë¥¼ ë Œë”ë§í•´ì£¼ëŠ” ModelView Classë¥¼ ë§Œë“¤ì–´ ì‚¬ìš©í•˜ì.  
 
 {% hightlight java %}
 public ModelView process(Map<String, String> paramMap) {
@@ -95,59 +82,72 @@ public ModelView process(Map<String, String> paramMap) {
 }
 {% endhighlight %}
 
-ÀÌÁ¦ Controller¿¡¼­ ¹İÈ¯¹ŞÀº ModelView¿¡¼­ View nameÀ» ¾òÀ» ¼ö ÀÖ´Ù.  
-View nameÀº View Resolver¸¦ ÅëÇØ View path·Î º¯È¯µÇ¸ç, ¾Æ±î¿Í °°ÀÌ Render°¡ °¡´ÉÇØÁø´Ù.  
+Front Controllerì—ì„œ Servletì„ ì´ìš©í•´, Parameter Mapì„ ë§Œë“¤ì–´ ë‚¸ë‹¤.  
+ì´í›„ ìœ„ì™€ ê°™ì´ Controllerì˜ ì¸ìë¡œ, ```paramMap(ì´ë¦„, ê°’)```ìœ¼ë¡œ Parameterë¥¼ ë„˜ê¸´ë‹¤.  
+ê·¸ëŸ¼ Controllerì€ ModelViewì˜ Fieldì— ë¯¸ë¦¬ ì„ ì–¸ëœ Modelì— Entityë¥¼ ì£¼ì…í•œë‹¤.    
 
-Ãß°¡·Î, ÀÌ¹ø¿¡ ¾²ÀÌ´Â Render ÇÔ¼ö¿¡´Â Model±îÁö °°ÀÌ ³Ñ°ÜÁÖ¾î¾ß ÇÑ´Ù.  
-JSP ÆÄÀÏ¿¡¼­ View·Î RenderÇÏ±â À§ÇØ¼­ °ªÀ» ³Ñ°ÜÁÖ¾î¾ß ÇÏ±â ¶§¹®ÀÌ´Ù.  
-ModelView¿¡¼­ ModelÀ» ²¨³»¼­ ³Ñ°ÜÁÖ¸é, MyView¿¡¼­ ```setAttribute()```¸¦ ÁøÇàÇÑ´Ù.  
+{% hightlight java %}
+public ModelView process(Map<String, String> paramMap) {
+        List<Member> members = memberRepository.findAll();
+        ModelView mv = new ModelView("members");
+        mv.getModel().put("members", members);
+        return mv;
+}
+{% endhighlight %}
+
+ì´ì œ Controllerì—ì„œ ë°˜í™˜ë°›ì€ ModelViewì—ì„œ View nameì„ ì–»ì„ ìˆ˜ ìˆë‹¤.  
+View nameì€ View Resolverë¥¼ í†µí•´ View pathë¡œ ë³€í™˜ë˜ë©°, ì•„ê¹Œì™€ ê°™ì´ Renderê°€ ê°€ëŠ¥í•´ì§„ë‹¤.  
+
+ì¶”ê°€ë¡œ, ì´ë²ˆì— ì“°ì´ëŠ” Render í•¨ìˆ˜ì—ëŠ” Modelê¹Œì§€ ê°™ì´ ë„˜ê²¨ì£¼ì–´ì•¼ í•œë‹¤.  
+JSP íŒŒì¼ì—ì„œ Viewë¡œ Renderí•˜ê¸° ìœ„í•´ì„œ ê°’ì„ ë„˜ê²¨ì£¼ì–´ì•¼ í•˜ê¸° ë•Œë¬¸ì´ë‹¤.  
+ModelViewì—ì„œ Modelì„ êº¼ë‚´ì„œ ë„˜ê²¨ì£¼ë©´, MyViewì—ì„œ ```setAttribute()```ë¥¼ ì§„í–‰í•œë‹¤.  
 
 ### Front Controller Version 4
-[»çÁø Ã·ºÎ]
+[ì‚¬ì§„ ì²¨ë¶€]
 
-ÀÌ¹ø ¹öÀü¿¡¼­´Â ModelView¸¦ ¾ø¾Ö°í, ±×³É ModelÀ» Parameter·Î °°ÀÌ ³Ñ°Üº¸ÀÚ.  
-Front Controller¿¡¼­ Parameter Map°ú ÇÔ²², Modelµµ »ı¼ºÀ» ÇØ¼­ ¸¸µéµµ·Ï ÇÑ´Ù.  
-```paramMap```Àº ¿äÃ» Parameter¿¡¼­ °ªÀ» »©¿À¸ç, ModelÀº ºó Ã¤·Î ³Ñ°ÜÁØ´Ù.  
+ì´ë²ˆ ë²„ì „ì—ì„œëŠ” ModelViewë¥¼ ì—†ì• ê³ , ê·¸ëƒ¥ Modelì„ Parameterë¡œ ê°™ì´ ë„˜ê²¨ë³´ì.  
+Front Controllerì—ì„œ Parameter Mapê³¼ í•¨ê»˜, Modelë„ ìƒì„±ì„ í•´ì„œ ë§Œë“¤ë„ë¡ í•œë‹¤.  
+```paramMap```ì€ ìš”ì²­ Parameterì—ì„œ ê°’ì„ ë¹¼ì˜¤ë©°, Modelì€ ë¹ˆ ì±„ë¡œ ë„˜ê²¨ì¤€ë‹¤.  
 
-±×·³ °¢ Controller¿¡¼­ ```paramMap```°ú ```model```À» ³Ñ°Ü¹ŞÀº µÚ,  
-```paramMap```ÀÇ °ªÀ» ÅëÇØ Entity¸¦ ¸¸µé¾î ```model.put``` À¸·Î ³Ñ±ä´Ù.  
-±×¸®°í ¹İÈ¯ °ªÀº, ÀÌÀü°ú °°ÀÌ View nameÀ» ¹İÈ¯ÇÑ´Ù.  
-View ResolverÀ» ÅëÇØ ¶È°°ÀÌ View path·Î º¯È¯ÇÏ¿© MyView¿¡ ³Ñ°ÜÁÖ¸é,  
-```render(model, req, resp)```À» ÅëÇØ, View¸¦ RenderÇØÁÖ¸ç ¸¶¹«¸®ÇÑ´Ù.  
+ê·¸ëŸ¼ ê° Controllerì—ì„œ ```paramMap```ê³¼ ```model```ì„ ë„˜ê²¨ë°›ì€ ë’¤,  
+```paramMap```ì˜ ê°’ì„ í†µí•´ Entityë¥¼ ë§Œë“¤ì–´ ```model.put``` ìœ¼ë¡œ ë„˜ê¸´ë‹¤.  
+ê·¸ë¦¬ê³  ë°˜í™˜ ê°’ì€, ì´ì „ê³¼ ê°™ì´ View nameì„ ë°˜í™˜í•œë‹¤.  
+View Resolverì„ í†µí•´ ë˜‘ê°™ì´ View pathë¡œ ë³€í™˜í•˜ì—¬ MyViewì— ë„˜ê²¨ì£¼ë©´,  
+```render(model, req, resp)```ì„ í†µí•´, Viewë¥¼ Renderí•´ì£¼ë©° ë§ˆë¬´ë¦¬í•œë‹¤.  
 
 ### Front Controller Version 5 : Adpater
-[»çÁø Ã·ºÎ]
+[ì‚¬ì§„ ì²¨ë¶€]
 
-ÀÌ¹ø ¹öÀüÀº ´Ù¸¥ ¹öÀüµé¿¡ ¸¶Áö¸·À¸·Î ¾î´ğÅÍ ÆĞÅÏÀ» Ãß°¡ÇÑ´Ù.  
-Áö±İ±îÁö ¿ì¸®°¡ °³¹ßÇÑ Front ControllerÀº ÇÑ °¡Áö ¹æ½ÄÀÇ Controller¸¸ ¾µ ¼ö ÀÖ¾ú´Ù.  
-¸¸¾à ¾î¶² °³¹ßÀÚ´Â Version 3À» ¾²°í ½Í°í ¾î¶² °³¹ßÀÚ´Â Version 4¸¦ ¾²°í ½Í´Ù¸é?  
+ì´ë²ˆ ë²„ì „ì€ ë‹¤ë¥¸ ë²„ì „ë“¤ì— ë§ˆì§€ë§‰ìœ¼ë¡œ ì–´ëŒ‘í„° íŒ¨í„´ì„ ì¶”ê°€í•œë‹¤.  
+ì§€ê¸ˆê¹Œì§€ ìš°ë¦¬ê°€ ê°œë°œí•œ Front Controllerì€ í•œ ê°€ì§€ ë°©ì‹ì˜ Controllerë§Œ ì“¸ ìˆ˜ ìˆì—ˆë‹¤.  
+ë§Œì•½ ì–´ë–¤ ê°œë°œìëŠ” Version 3ì„ ì“°ê³  ì‹¶ê³  ì–´ë–¤ ê°œë°œìëŠ” Version 4ë¥¼ ì“°ê³  ì‹¶ë‹¤ë©´?  
 
-±×·² ¶§ ÇÊ¿äÇÑ °ÍÀÌ __Handler Adapter!__  
-¸¶Ä¡ 110V, 220V Àü±â ÄÜ¼¾Æ®¸¦ ¸ğµÎ ¾µ ¼ö ÀÖµµ·Ï º¯È¯ÇØÁÖ´Â ÀåÄ¡¿Í °°ÀÌ  
-Handler Adapter¿¡¼­ ControllerÀ» Á¤ÇÏµµ·Ï ÇÏ°í, ¿ø·¡ÀÇ Controller µ¿ÀÛÀº ±×´ë·Î ÁøÇà½ÃÅ²´Ù.  
+ê·¸ëŸ´ ë•Œ í•„ìš”í•œ ê²ƒì´ __Handler Adapter!__  
+ë§ˆì¹˜ 110V, 220V ì „ê¸° ì½˜ì„¼íŠ¸ë¥¼ ëª¨ë‘ ì“¸ ìˆ˜ ìˆë„ë¡ ë³€í™˜í•´ì£¼ëŠ” ì¥ì¹˜ì™€ ê°™ì´  
+Handler Adapterì—ì„œ Controllerì„ ì •í•˜ë„ë¡ í•˜ê³ , ì›ë˜ì˜ Controller ë™ì‘ì€ ê·¸ëŒ€ë¡œ ì§„í–‰ì‹œí‚¨ë‹¤.  
 
 1. Handler Adapter
-  - Handler AdapterÀº Controller°¡ Áö¿ø °¡´ÉÇÑÁö ÆÇ´ÜÇÏ´Â Supports ÇÔ¼ö°¡ ÇÊ¿äÇÏ´Ù.
+  - Handler Adapterì€ Controllerê°€ ì§€ì› ê°€ëŠ¥í•œì§€ íŒë‹¨í•˜ëŠ” Supports í•¨ìˆ˜ê°€ í•„ìš”í•˜ë‹¤.
 {% highlight java %}
 public boolean supports(Object handler){
     return (handler instance of ControllerV3);
-    // ³»°¡ ÁÖÀÔÇÑ Handler(Controller)ÀÌ V3¿¡ Áö¿ø °¡´ÉÇÑ°¡?
+    // ë‚´ê°€ ì£¼ì…í•œ Handler(Controller)ì´ V3ì— ì§€ì› ê°€ëŠ¥í•œê°€?
 }
-  - ±×¸®°í Handle ÇÔ¼ö¸¦ ÅëÇØ ¿ø·¡ ControllerÀÇ Process ÇÔ¼ö¸¦ ±¸ÇöÇØÁØ´Ù.
-    - ¹İÈ¯ °ªÀº ModelView¸¦ ¹İÈ¯ÇÏµµ·Ï ÇÑ´Ù.
+  - ê·¸ë¦¬ê³  Handle í•¨ìˆ˜ë¥¼ í†µí•´ ì›ë˜ Controllerì˜ Process í•¨ìˆ˜ë¥¼ êµ¬í˜„í•´ì¤€ë‹¤.
+    - ë°˜í™˜ ê°’ì€ ModelViewë¥¼ ë°˜í™˜í•˜ë„ë¡ í•œë‹¤.
 [% endhighlight %} 
 
 2. Front Controller
-  - ```HandlerMappingMap```¿¡ »ç¿ëÇÒ Handler(Controller) ¸ñ·ÏÀ» ÀúÀåÇÑ´Ù.
-    - µé¾î¿Â ¿äÃ» URI¸¦ Key·Î ControllerÀ» Ã£¾Æ¼­ ¾µ ¼ö ÀÖµµ·Ï ÇÑ´Ù.
-  - ```HandlerAdapters```¿¡ »ç¿ëÇÒ Handler Adapter ¸ñ·ÏÀ» ÀúÀåÇÑ´Ù.
-    - °í¸¥ Handler¿¡ ¸Â°Ô ³¢¿ï ¼ö ÀÖ´Â AdapterÀÌ ÀÖ´ÂÁö For LoopÀ¸·Î Ã£¾Æ¾ß ÇÑ´Ù.  
-    - ¾Õ¼­ ¼±¾ğÇÑ Supports ÇÔ¼ö¿Í For loopÀ» ÅëÇØ Ã£À» ¼ö ÀÖ´Ù.
-    - Ã£¾Ò´Ù¸é, Adapter¿¡ Handler¸¦ ³Ñ°Ü Handle ÇÔ¼ö¸¦ ½ÇÇàÇØ ModelView¸¦ ¹İÈ¯¹Ş´Â´Ù.  
+  - ```HandlerMappingMap```ì— ì‚¬ìš©í•  Handler(Controller) ëª©ë¡ì„ ì €ì¥í•œë‹¤.
+    - ë“¤ì–´ì˜¨ ìš”ì²­ URIë¥¼ Keyë¡œ Controllerì„ ì°¾ì•„ì„œ ì“¸ ìˆ˜ ìˆë„ë¡ í•œë‹¤.
+  - ```HandlerAdapters```ì— ì‚¬ìš©í•  Handler Adapter ëª©ë¡ì„ ì €ì¥í•œë‹¤.
+    - ê³ ë¥¸ Handlerì— ë§ê²Œ ë¼ìš¸ ìˆ˜ ìˆëŠ” Adapterì´ ìˆëŠ”ì§€ For Loopìœ¼ë¡œ ì°¾ì•„ì•¼ í•œë‹¤.  
+    - ì•ì„œ ì„ ì–¸í•œ Supports í•¨ìˆ˜ì™€ For loopì„ í†µí•´ ì°¾ì„ ìˆ˜ ìˆë‹¤.
+    - ì°¾ì•˜ë‹¤ë©´, Adapterì— Handlerë¥¼ ë„˜ê²¨ Handle í•¨ìˆ˜ë¥¼ ì‹¤í–‰í•´ ModelViewë¥¼ ë°˜í™˜ë°›ëŠ”ë‹¤.  
 
-ÀÌÈÄ View¸¦ ResolveÇÏ°í RenderÇÏ´Â °úÁ¤Àº ¾ÕÀÇ Version µé°ú µ¿ÀÏÇÏ´Ù.
+ì´í›„ Viewë¥¼ Resolveí•˜ê³  Renderí•˜ëŠ” ê³¼ì •ì€ ì•ì˜ Version ë“¤ê³¼ ë™ì¼í•˜ë‹¤.
   
-»ç½Ç À§ÀÇ ¸ğµç °úÁ¤µéÀº, Spring MVCÀÇ ±¸Á¶¸¦ ÀÌÇØÇÏ±â À§ÇÑ ¹Ø°Å¸§ÀÌ´Ù.  
-Spring MVC¿¡¼­ Á¦°øÇÏ´Â ¸ğµç ±â´ÉµéÀº ¸ğµÎ À§ÀÇ ±¸Á¶¿Í µ¿ÀÏÇÏ±â ¶§¹®ÀÌ´Ù.  
+ì‚¬ì‹¤ ìœ„ì˜ ëª¨ë“  ê³¼ì •ë“¤ì€, Spring MVCì˜ êµ¬ì¡°ë¥¼ ì´í•´í•˜ê¸° ìœ„í•œ ë°‘ê±°ë¦„ì´ë‹¤.  
+Spring MVCì—ì„œ ì œê³µí•˜ëŠ” ëª¨ë“  ê¸°ëŠ¥ë“¤ì€ ëª¨ë‘ ìœ„ì˜ êµ¬ì¡°ì™€ ë™ì¼í•˜ê¸° ë•Œë¬¸ì´ë‹¤.  
 
-> - »çÁø ¹× ÀÚ·á ÃâÃ³ : [±è¿µÇÑÀÇ ½ºÇÁ¸µ MVC 1Æí](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1/dashboard)
+> - ì‚¬ì§„ ë° ìë£Œ ì¶œì²˜ : [ê¹€ì˜í•œì˜ ìŠ¤í”„ë§ MVC 1í¸](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1/dashboard)
