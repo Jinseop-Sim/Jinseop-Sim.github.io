@@ -73,7 +73,7 @@ public MyView process(HttpServletRequest request, HttpServletResponse response) 
 
 Model을 따로 저장하고, View를 렌더링해주는 ModelView Class를 만들어 사용하자.  
 
-{% hightlight java %}
+{% highlight java %}
 public ModelView process(Map<String, String> paramMap) {
         List<Member> members = memberRepository.findAll();
         ModelView mv = new ModelView("members");
@@ -86,7 +86,7 @@ Front Controller에서 Servlet을 이용해, Parameter Map을 만들어 낸다.
 이후 위와 같이 Controller의 인자로, ```paramMap(이름, 값)```으로 Parameter를 넘긴다.  
 그럼 Controller은 ModelView의 Field에 미리 선언된 Model에 Entity를 주입한다.    
 
-{% hightlight java %}
+{% highlight java %}
 public ModelView process(Map<String, String> paramMap) {
         List<Member> members = memberRepository.findAll();
         ModelView mv = new ModelView("members");
