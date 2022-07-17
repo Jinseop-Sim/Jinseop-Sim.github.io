@@ -118,12 +118,35 @@ View Resolver을 통해 똑같이 View path로 변환하여 MyView에 넘겨주면,
 ### Front Controller Version 5 : Adpater
 [사진 첨부]
 
-이번 버전은 다른 버전들에 마지막으로 어댑터를 추가한다.  
+이번 버전은 다른 버전들에 마지막으로 어댑터 패턴을 추가한다.  
+지금까지 우리가 개발한 Front Controller은 한 가지 방식의 Controller만 쓸 수 있었다.  
 만약 어떤 개발자는 Version 3을 쓰고 싶고 어떤 개발자는 Version 4를 쓰고 싶다면?  
 
-그럴 때 필요한 것이 __Handler Adapter!__
+그럴 때 필요한 것이 __Handler Adapter!__  
+마치 110V, 220V 전기 콘센트를 모두 쓸 수 있도록 변환해주는 장치와 같이  
 Handler Adapter에서 Controller을 정하도록 하고, 원래의 Controller 동작은 그대로 진행시킨다.  
 
+1. Handler Adapter
+  - Handler Adapter은 Controller가 지원 가능한지 판단하는 Supports 함수가 필요하다.
+{% highlight java %}
+public boolean supports(Object handler){
+    return (handler instance of ControllerV3);
+    // 내가 주입한 Handler(Controller)이 V3에 지원 가능한가?
+}
+  - 그리고 Handle 함수를 통해 원래 Controller의 Process 함수를 구현해준다.
+    - 반환 값은 ModelView를 반환하도록 한다.
+[% endhighlight %} 
+
+2. Front Controller
+  - ```HandlerMappingMap```에 사용할 Handler(Controller) 목록을 저장한다.
+    - 들어온 요청 URI를 Key로 Controller을 찾아서 쓸 수 있도록 한다.
+  - ```HandlerAdapters```에 사용할 Handler Adapter 목록을 저장한다.
+    - 고른 Handler에 맞게 끼울 수 있는 Adapter이 있는지 For Loop으로 찾아야 한다.  
+    - 앞서 선언한 Supports 함수와 For loop을 통해 찾을 수 있다.
+    - 찾았다면, Adapter에 Handler를 넘겨 Handle 함수를 실행해 ModelView를 반환받는다.  
+
+이후 View를 Resolve하고 Render하는 과정은 앞의 Version 들과 동일하다.
+  
 사실 위의 모든 과정들은, Spring MVC의 구조를 이해하기 위한 밑거름이다.  
 Spring MVC에서 제공하는 모든 기능들은 모두 위의 구조와 동일하기 때문이다.  
 
