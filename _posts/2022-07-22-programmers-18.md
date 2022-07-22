@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "프로그래머스 Level 2 - 2개 이하로 다른 비트 "
+title: "프로그래머스 Level 3 - 합승 택시 요금"
 categories: Programmers
 tags: [cpp]
 author:
