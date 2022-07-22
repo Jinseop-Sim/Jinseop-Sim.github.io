@@ -5,6 +5,7 @@ categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
+math: true
 ---
 
 - [2개 이하로 다른 비트[LEVEL 2]](https://school.programmers.co.kr/learn/courses/30/lessons/77885)
