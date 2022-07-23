@@ -1,6 +1,6 @@
----
+ï»¿---
 layout: post
-title: "ÇÁ·Î±×·¡¸Ó½º Level 3 - °æÁÖ·Î °Ç¼³"
+title: "í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ Level 3 - ê²½ì£¼ë¡œ ê±´ì„¤"
 categories: Programmers
 tags: [cpp]
 author:
@@ -8,21 +8,21 @@ author:
 math: true
 ---
 
-- [°æÁÖ·Î °Ç¼³[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/67259)
+- [ê²½ì£¼ë¡œ ê±´ì„¤[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/67259)
 
-2020 KAKAO ÀÎÅÏ½Ê ¹®Á¦¿´´Ù.  
+2020 KAKAO ì¸í„´ì‹­ ë¬¸ì œì˜€ë‹¤.  
 
-Ã³À½¿£ ¹®Á¦¸¸ º¸°í ´Ü¼øÈ÷ BacktrackingÀ» ÀÌ¿ëÇÏ¸é µÉ °ÍÀÌ¶ó »ý°¢Çß´Ù.  
-³»°¡ °í·ÁÇß´ø °ÍÀº ¾Æ·¡¿Í °°´Ù.  
+ì²˜ìŒì—” ë¬¸ì œë§Œ ë³´ê³  ë‹¨ìˆœížˆ Backtrackingì„ ì´ìš©í•˜ë©´ ë  ê²ƒì´ë¼ ìƒê°í–ˆë‹¤.  
+ë‚´ê°€ ê³ ë ¤í–ˆë˜ ê²ƒì€ ì•„ëž˜ì™€ ê°™ë‹¤.  
 
-1. BacktrackingÀ¸·Î °æ·Î¸¦ ¸ðµÎ Å½»öÇÑ´Ù.
-2. ÄÚ³Ê¸¦ µµ´Â Áö ¾Èµµ´Â Áö´Â ÀÌÀü Å½»ö¿¡¼­ ³Ñ¾î¿Â ¸Å°³º¯¼ö·Î ÆÇ´Ü.
-3. ÀÌ ¶§ ±îÁö °è»êÇÑ °ªº¸´Ù Ä¿Áö¸é Return ÇÔÀ¸·Î½á Cut.  
+1. Backtrackingìœ¼ë¡œ ê²½ë¡œë¥¼ ëª¨ë‘ íƒìƒ‰í•œë‹¤.
+2. ì½”ë„ˆë¥¼ ë„ëŠ” ì§€ ì•ˆë„ëŠ” ì§€ëŠ” ì´ì „ íƒìƒ‰ì—ì„œ ë„˜ì–´ì˜¨ ë§¤ê°œë³€ìˆ˜ë¡œ íŒë‹¨.
+3. ì´ ë•Œ ê¹Œì§€ ê³„ì‚°í•œ ê°’ë³´ë‹¤ ì»¤ì§€ë©´ Return í•¨ìœ¼ë¡œì¨ Cut.  
 
-### 1Â÷ ½Ãµµ : Backtracking(DFS)
+### 1ì°¨ ì‹œë„ : Backtracking(DFS)
 
-¿¹»óÀº ÇßÁö¸¸, $$1/3$$ÀÇ Case°¡ ½Ã°£ÃÊ°ú°¡ ¹ß»ýÇß´Ù.
-³» Code¸¦ È®ÀÎÀ» ÇØº¸´Ï, °è»êµÈ min_costÀÇ °ªÀÌ ³Ê¹« ´Ê°Ô ÀÛ¾ÆÁö´Â°Ô ¹®Á¦¿´´Ù.  
+ì˜ˆìƒì€ í–ˆì§€ë§Œ, $$1/3$$ì˜ Caseê°€ ì‹œê°„ì´ˆê³¼ê°€ ë°œìƒí–ˆë‹¤.
+ë‚´ Codeë¥¼ í™•ì¸ì„ í•´ë³´ë‹ˆ, ê³„ì‚°ëœ min_costì˜ ê°’ì´ ë„ˆë¬´ ëŠ¦ê²Œ ìž‘ì•„ì§€ëŠ”ê²Œ ë¬¸ì œì˜€ë‹¤.  
 
 {% highlight cpp %}
 #include <string>
@@ -75,17 +75,17 @@ int solution(vector<vector<int>> board) {
 }
 {% endhighlight %}
 
-### 2Â÷ ½Ãµµ : Backtracking + DP
+### 2ì°¨ ì‹œë„ : Backtracking + DP
 
-°á±¹ ±¸±ÛÀÇ ÈûÀ» ºô·È´Ù.  
-´Ù¸¥ »ç¶÷µéÀÇ Ç®ÀÌ¸¦ º¸´Ï, DP¿Í DFS¸¦ ÇÕÃÄ¼­ Ç®¾úÀ½À» ¾Ë ¼ö ÀÖ¾ú´Ù.  
+ê²°êµ­ êµ¬ê¸€ì˜ íž˜ì„ ë¹Œë ¸ë‹¤.  
+ë‹¤ë¥¸ ì‚¬ëžŒë“¤ì˜ í’€ì´ë¥¼ ë³´ë‹ˆ, DPì™€ DFSë¥¼ í•©ì³ì„œ í’€ì—ˆìŒì„ ì•Œ ìˆ˜ ìžˆì—ˆë‹¤.  
 
-DP°¡ »ç¿ëÀÌ °¡´ÉÇÑ ÀÌÀ¯´Â,  
-³»°¡ ¸¶Áö¸· µµÂøÁ¡¿¡¼­ ºñ¿ëÀÌ ÃÖ¼Ò°¡ µÇ·Á¸é,  
-¾î¶² °æ·Îµç ```(x, y)``` ±îÁöÀÇ ºñ¿ëÀÌ ÃÖ¼Ò·Î À¯Áö°¡ µÇ¾î¾ß ÇÏ±â ¶§¹®ÀÌ´Ù.  
+DPê°€ ì‚¬ìš©ì´ ê°€ëŠ¥í•œ ì´ìœ ëŠ”,  
+ë‚´ê°€ ë§ˆì§€ë§‰ ë„ì°©ì ì—ì„œ ë¹„ìš©ì´ ìµœì†Œê°€ ë˜ë ¤ë©´,  
+ì–´ë–¤ ê²½ë¡œë“  ```(x, y)``` ê¹Œì§€ì˜ ë¹„ìš©ì´ ìµœì†Œë¡œ ìœ ì§€ê°€ ë˜ì–´ì•¼ í•˜ê¸° ë•Œë¬¸ì´ë‹¤.  
 
-±×¸®°í ¶Ç, DFS¸¦ ÀÌ¿ëÇÏ±â ¶§¹®¿¡ Å½»öÇÏ´Â 4¹æÇâÀÇ ¼ø¼­µµ ¹®Á¦°¡ µÇ¾ú´Ù.  
-```¿ì »ó ÁÂ ÇÏ```ÀÇ ¼ø¼­´ë·Î Å½»öÀ» ÇÏ´Ï Åë°ú°¡ °¡´ÉÇß´Ù.  
+ê·¸ë¦¬ê³  ë˜, DFSë¥¼ ì´ìš©í•˜ê¸° ë•Œë¬¸ì— íƒìƒ‰í•˜ëŠ” 4ë°©í–¥ì˜ ìˆœì„œë„ ë¬¸ì œê°€ ë˜ì—ˆë‹¤.  
+```ìš° ìƒ ì¢Œ í•˜```ì˜ ìˆœì„œëŒ€ë¡œ íƒìƒ‰ì„ í•˜ë‹ˆ í†µê³¼ê°€ ê°€ëŠ¥í–ˆë‹¤.  
 
 {% highlight cpp %}
 #include <string>
@@ -104,26 +104,26 @@ void init_DP(int n) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             DP[i][j] = INF;
-            // DP ¹è¿­À» ¹«ÇÑ´ë·Î ÃÊ±âÈ­.
+            // DP ë°°ì—´ì„ ë¬´í•œëŒ€ë¡œ ì´ˆê¸°í™”.
         }
     }
 }
 
 void backtrack(int direction, int st_x, int st_y, int cost, vector<vector<int>> board, vector<vector<bool>>& visit) {
     if (DP[st_x][st_y] != INF && DP[st_x][st_y] < cost) return;
-    // ¸¸¾à Backtrack¿¡ ÀÇÇØ (x, y)·Î µ¹¾Æ¿ÔÀ¸³ª, cost°¡ ´õ Å©´Ù¸é?  
-    // °Ë»ç¸¦ ÇÒ ÇÊ¿ä°¡ ¾øÀ¸´Ï, Return.
+    // ë§Œì•½ Backtrackì— ì˜í•´ (x, y)ë¡œ ëŒì•„ì™”ìœ¼ë‚˜, costê°€ ë” í¬ë‹¤ë©´?  
+    // ê²€ì‚¬ë¥¼ í•  í•„ìš”ê°€ ì—†ìœ¼ë‹ˆ, Return.
 
     if (min_cost < cost) return;
-    // °Ë»ç¸¦ ÇÏ´Â µµÁß cost°¡ Áö±Ý±îÁö ±¸ÇØ³õÀº ´äº¸´Ù Ä¿Áö¸é Return.
+    // ê²€ì‚¬ë¥¼ í•˜ëŠ” ë„ì¤‘ costê°€ ì§€ê¸ˆê¹Œì§€ êµ¬í•´ë†“ì€ ë‹µë³´ë‹¤ ì»¤ì§€ë©´ Return.
 
     DP[st_x][st_y] = min(DP[st_x][st_y], cost);
-    // ÇöÀç (x, y)±îÁöÀÇ µç ºñ¿ëÀ» ¹è¿­¿¡ ÀúÀå.
-    // BacktrackingÀ» ÇÏ¸ç Á¡Á¡ ÀÛ¾ÆÁø´Ù.
+    // í˜„ìž¬ (x, y)ê¹Œì§€ì˜ ë“  ë¹„ìš©ì„ ë°°ì—´ì— ì €ìž¥.
+    // Backtrackingì„ í•˜ë©° ì ì  ìž‘ì•„ì§„ë‹¤.
 
     if ((st_x == board.size() - 1) && (st_y == board.size() - 1)) {
         min_cost = min(min_cost, cost);
-        // µµÂøÇÏ¸é, ´õ ÀÛÀº °ªÀ» ´ä¿¡ ÀúÀå.
+        // ë„ì°©í•˜ë©´, ë” ìž‘ì€ ê°’ì„ ë‹µì— ì €ìž¥.
         return;
     }
 
@@ -134,8 +134,8 @@ void backtrack(int direction, int st_x, int st_y, int cost, vector<vector<int>> 
             if (!visit[nx][ny] && board[nx][ny] == 0) {
                 visit[nx][ny] = true;
                 if (direction != i + 1 && direction != 9) {
-                    // ¹æÇâ ÆÇ´ÜÀÇ ±âÁØÀÌ µÈ´Ù.
-                    // ÀÌÀü ºÐ±âÀÇ ¹æÇâ°ú ´Ù¸£¸é ÄÚ³ÊÀÎ °Í!
+                    // ë°©í–¥ íŒë‹¨ì˜ ê¸°ì¤€ì´ ëœë‹¤.
+                    // ì´ì „ ë¶„ê¸°ì˜ ë°©í–¥ê³¼ ë‹¤ë¥´ë©´ ì½”ë„ˆì¸ ê²ƒ!
                     backtrack(i + 1, nx, ny, cost + CORNER, board, visit);
                     visit[nx][ny] = false;
                 }
@@ -155,7 +155,7 @@ int solution(vector<vector<int>> board) {
     init_DP(board.size());
     visit[0][0] = true;
     backtrack(9, 0, 0, 0, board, visit);
-    // 9´Â Ãâ¹ßÁ¡À» ÀÇ¹ÌÇÑ´Ù.
+    // 9ëŠ” ì¶œë°œì ì„ ì˜ë¯¸í•œë‹¤.
 
     answer = min_cost;
     return answer;
