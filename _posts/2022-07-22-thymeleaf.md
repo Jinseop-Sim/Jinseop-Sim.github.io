@@ -31,4 +31,7 @@ toc: true
 URL Link를 걸어서 쓰고 싶은 경우, ```@{...}``` 을 사용한다.  
 
 ### Thymeleaf Attribute
-```<td><a href="item.html" th:href="@{/basic/item/{itemId}(itemId=${item.id})}"```
+```<td><a href="item.html" th:href="@{/basic/item/{itemId}(itemId=${item.id})}"```  
+위 코드는, HTML을 그냥 열면 ```href```로 이동하지만,  
+Server단에서 렌더링을 하는 경우엔, ```th:href```가 열리게 된다.  
+이를 타임리프에서 __속성 변경__ 이라고 한다.
