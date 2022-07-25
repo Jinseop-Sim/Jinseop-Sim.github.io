@@ -1,11 +1,10 @@
 ﻿---
 layout: post
-title: "프로그래머스 Level 3 - 경주로 건설"
+title: "프로그래머스 Level 3 - 보행자 천국"
 categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
-math: true
 ---
 
 - [보행자 천국[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/1832)
