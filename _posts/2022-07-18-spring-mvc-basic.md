@@ -11,6 +11,16 @@ author:
 가장 먼저, Spring MVC의 기본 기능들에 대해서 알아보자.  
 
 ### Controller? RestController?
+우리는 Spring Bean으로 등록을 하기 위해 ```@Controller``` 이나 ```@Repository``` 같은 Annotation을 이용한다.  
+이 때, ```@Controller```와 ```@RestController```의 차이는 무엇일까?  
+
+```@RestController```의 Rest는 우리가 아는 RestAPI의 Rest를 의미한다.  
+따라서 API를 이용할 때 쓰는 방식이라는 의미인데, 이는 View Resolver가 작동하지 않음을 의미한다.  
+우리가 HTTP API를 이용할 땐, Body로 Request를 받거나, Body에 Response를 바로 넘겨주었다.  
+바로 그 방식을 의미하는 것이다.  
+
+- ```@Controller``` : Controller의 반환 값은 View Name이 된다.
+- ```@RestController``` : Controller의 반환 값이 그대로 Response에 담긴다.  
 
 ### Bonus : Logging
 우리는 보통 Debugging을 할 때, ```System.out.println```을 통해서 했었다.  
