@@ -58,3 +58,5 @@ Handler Adapter가 Argument Resolver를 호출하고, 필요한 Parameter의 준
 
 결국 위의 동작을 살펴보면, HTTP Message Converter은 어느 단계에 존재할까?  
 Argument Resolver, Return Value Handler 두 개에 개입함을 알 수 있다.  
+
+> - 사진 및 자료 출처 : [김영한의 스프링 MVC 1편](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1/dashboard)
