@@ -26,6 +26,7 @@ JPA에서 사용하는 여러가지 Data Type에 대해서 알아보자.
     - 회원을 삭제하면, 이름 나이 필드도 당연히 삭제된다.
   - 값 타입은 절대 공유하면 안된다! (Side Effect)
     - 특히 기본 타입은 절대로 공유되어서는 안된다!
+  - 또한, 값 타입은 절대로 Immutable 해야 한다!
   - ```int, double...``` : 자바 기본 타입
   - ```Integer, Long...``` : Wrapper Class
     - Wrapper은 Class이기 때문에, 공유가 가능하지만 어차피 변경이 되지 않는다!
@@ -54,6 +55,19 @@ JPA에서 사용하는 여러가지 Data Type에 대해서 알아보자.
     - 위와 같은 Annotation을 사용하게 되면, 같은 값 타입을 넣어도 따로 사용이 가능하다!  
 
 - Collection 값 타입 : 자바 Collection (ArrayList, List..)
+  - Java Collection(List, Set)을 DB의 특정 Column에 집어 넣는 것은 우선 불가능하다.
+  - 따라서 새로운 Table이 생성되어, PK를 통해 매핑을 해주어야 하는 구조이다.
+  - ```@ElementCollection``` Annotation을 먼저 적어준 뒤
+  - ```@CollectionTable(name = "FAVORITE_FOOD", joinColumns @JoinColumn(name = "MEMBER_ID"))```를 통해 등록한다.
+    - 실제로 Member를 영속시켜보면 알 수 있듯이, 새로운 Table이 만들어진다.
+  - Collection 값 타입의 변경
+    - 하지만, 값 타입의 변경이 문제가 된다.
+    - 값 타입은 그 자체를 변경할 수 없어야 하며, 식별자가 없어 추적이 불가능하다고 했다.
+    - 따라서 우리가 Collection 내의 Data를 삭제하고 새로 집어넣어주어야 하는데..
+    - 이 과정에서 JPA는 Table을 싹 지우고 남은 Data만 다시 Insert하는 과정을 거치게 된다.
+  - 따라서 Collection 값 타입은 되도록이면 쓰지 않는다!
+    - 대신 Collection 값 타입을 Entity로 한 번 감싸는 식으로 풀어내자!
+    - OneToMany를 통해 매핑을 하고, CASCADE와 orphanRemoval을 통해 생명주기 관리를 하도록 하자.
 
 ### 값 타입의 비교
 - 동일성(Identity) 비교 : 인스턴스의 참조 값을 비교한다. (==)
