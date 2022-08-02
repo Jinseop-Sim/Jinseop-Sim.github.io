@@ -1,32 +1,32 @@
----
+ï»¿---
 layout: post
-title: "ÇÁ·Î±×·¡¸Ó½º Level 3 - ¿©Çà °æ·Î"
+title: "í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ Level 3 - ì—¬í–‰ ê²½ë¡œ"
 categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
 ---
-- [¿©Çà °æ·Î[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/43164)
+- [ì—¬í–‰ ê²½ë¡œ[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/43164)
 
-Ã³À½¿£ °£´ÜÇÑ DFS¹®Á¦¶ó°í »ý°¢ÇÏ°í Á¢±ÙÇß´Ù.  
-´Ü¼øÈ÷ ¾ËÆÄºª ¼ø¼­·Î¸¸ »Ì¾Æ¼­ °æ·Î¸¦ Ãâ·ÂÇÏ¸é µÈ´Ù°í »ý°¢ÇØ¼­,  
-```unordered_map```À» ¸¸µç µÚ, Value·Î ```priority_queue```¸¦ ³Ö¾ú´Ù.  
-¾ËÆÄºª ºü¸¥ ¼ø¼­·Î ´ÙÀ½ µµÂøÁö¸¦ Ã£µÇ, °¬´ø µµÂøÁö´Â °¡¸é ¾ÈµÇ¹Ç·Î, Queue¿¡¼­ PopÇØÁØ´Ù.  
+ì²˜ìŒì—” ê°„ë‹¨í•œ DFSë¬¸ì œë¼ê³  ìƒê°í•˜ê³  ì ‘ê·¼í–ˆë‹¤.  
+ë‹¨ìˆœížˆ ì•ŒíŒŒë²³ ìˆœì„œë¡œë§Œ ë½‘ì•„ì„œ ê²½ë¡œë¥¼ ì¶œë ¥í•˜ë©´ ëœë‹¤ê³  ìƒê°í•´ì„œ,  
+```unordered_map```ì„ ë§Œë“  ë’¤, Valueë¡œ ```priority_queue```ë¥¼ ë„£ì—ˆë‹¤.  
+ì•ŒíŒŒë²³ ë¹ ë¥¸ ìˆœì„œë¡œ ë‹¤ìŒ ë„ì°©ì§€ë¥¼ ì°¾ë˜, ê°”ë˜ ë„ì°©ì§€ëŠ” ê°€ë©´ ì•ˆë˜ë¯€ë¡œ, Queueì—ì„œ Popí•´ì¤€ë‹¤.  
 
-ÇÏÁö¸¸ ÀÌ ¹æ¹ýÀº ¾î¶² Case¸¦ ¿ÏÀüÈ÷ °£°úÇÑ ¹æ¹ýÀÌ¾ú´Ù.  
-¹Ù·Î ¾ËÆÄºª ¼ø¼­·Î °¬À» ¶§, ¸ñÀûÁö¿¡ µµ´ÞÇÒ ¼ö ¾ø´Â °æ·ÎÀÏ ¼ö ÀÖ´Â CaseÀÌ´Ù.  
+í•˜ì§€ë§Œ ì´ ë°©ë²•ì€ ì–´ë–¤ Caseë¥¼ ì™„ì „ížˆ ê°„ê³¼í•œ ë°©ë²•ì´ì—ˆë‹¤.  
+ë°”ë¡œ ì•ŒíŒŒë²³ ìˆœì„œë¡œ ê°”ì„ ë•Œ, ëª©ì ì§€ì— ë„ë‹¬í•  ìˆ˜ ì—†ëŠ” ê²½ë¡œì¼ ìˆ˜ ìžˆëŠ” Caseì´ë‹¤.  
 
-__¸¸ÀÏ °¡´ÉÇÑ °æ·Î°¡ 2°³ ÀÌ»óÀÏ °æ¿ì ¾ËÆÄºª ¼ø¼­°¡ ¾Õ¼­´Â °æ·Î¸¦ return ÇÕ´Ï´Ù.__  
-À§¿Í °°Àº ¹®±¸°¡ ÀÖ¾ú´Âµ¥, Áï °¡´ÉÇÑ °æ·Î°¡ ¾ø´Ù¸é ¼ø¼­´Â »ó°üÀÌ ¾ø´Ù´Â °ÍÀÌ´Ù.  
+__ë§Œì¼ ê°€ëŠ¥í•œ ê²½ë¡œê°€ 2ê°œ ì´ìƒì¼ ê²½ìš° ì•ŒíŒŒë²³ ìˆœì„œê°€ ì•žì„œëŠ” ê²½ë¡œë¥¼ return í•©ë‹ˆë‹¤.__  
+ìœ„ì™€ ê°™ì€ ë¬¸êµ¬ê°€ ìžˆì—ˆëŠ”ë°, ì¦‰ ê°€ëŠ¥í•œ ê²½ë¡œê°€ ì—†ë‹¤ë©´ ìˆœì„œëŠ” ìƒê´€ì´ ì—†ë‹¤ëŠ” ê²ƒì´ë‹¤.  
 
-±×·³ ```visit``` ¹è¿­À» ÅëÇÑ BacktrackingÀÌ ÇÊ¿äÇÏ´Ù°í ´À²¼´Âµ¥,  
-¾î¶»°Ô °æ·Î°¡ Àß¸øµÇ¾úÀ» ¶§¸¸ µÚ·Î µ¹¾Æ°¥ Áö »ý°¢ÀÌ ³ªÁö ¾Ê¾Ò´Ù.  
+ê·¸ëŸ¼ ```visit``` ë°°ì—´ì„ í†µí•œ Backtrackingì´ í•„ìš”í•˜ë‹¤ê³  ëŠê¼ˆëŠ”ë°,  
+ì–´ë–»ê²Œ ê²½ë¡œê°€ ìž˜ëª»ë˜ì—ˆì„ ë•Œë§Œ ë’¤ë¡œ ëŒì•„ê°ˆ ì§€ ìƒê°ì´ ë‚˜ì§€ ì•Šì•˜ë‹¤.  
 
-### Ç®ÀÌ : Á¶°ÇºÎ Backtracking
+### í’€ì´ : ì¡°ê±´ë¶€ Backtracking
 
-°á±¹ ´Ù¸¥ ºÐµéÀÇ Ç®ÀÌ¸¦ Âü°íÇØº¸´Ï, ÇÔ¼öÀÇ ¹ÝÈ¯°ªÀ» ```Bool```·Î µÎ´õ¶ó.  
-±×·³ for¹®À» ´Ù µ¹¾Æµµ ´õ ÀÌ»ó °¥ ¼ö ÀÖ´Â ±æÀÌ ¾øÀ¸¸é, Backtrack ÇÏ´Â °ÍÀÌ´Ù.  
-±×·¯´Ù ±íÀÌ°¡ ¿ø·¡ µé°í ÀÖ´ø TicketÀÇ ¼ö¿Í °°¾ÆÁö¸é True¸¦ ReturnÇØ ³¡³½´Ù.  
+ê²°êµ­ ë‹¤ë¥¸ ë¶„ë“¤ì˜ í’€ì´ë¥¼ ì°¸ê³ í•´ë³´ë‹ˆ, í•¨ìˆ˜ì˜ ë°˜í™˜ê°’ì„ ```Bool```ë¡œ ë‘ë”ë¼.  
+ê·¸ëŸ¼ forë¬¸ì„ ë‹¤ ëŒì•„ë„ ë” ì´ìƒ ê°ˆ ìˆ˜ ìžˆëŠ” ê¸¸ì´ ì—†ìœ¼ë©´, Backtrack í•˜ëŠ” ê²ƒì´ë‹¤.  
+ê·¸ëŸ¬ë‹¤ ê¹Šì´ê°€ ì›ëž˜ ë“¤ê³  ìžˆë˜ Ticketì˜ ìˆ˜ì™€ ê°™ì•„ì§€ë©´ Trueë¥¼ Returní•´ ëë‚¸ë‹¤.  
 
 {% highlight cpp %}
 #include <string>
@@ -38,20 +38,20 @@ bool visit[10001];
 bool dfs(string dept, vector<vector<string>> tickets, vector<string>& answer, int depth) {
     answer.push_back(dept);
     if (depth == tickets.size()) return true;
-    // Å½»ö ±íÀÌ¿Í, Æ¼ÄÏÀÇ ¼ö°¡ °°À¸¸é Á¾·á
+    // íƒìƒ‰ ê¹Šì´ì™€, í‹°ì¼“ì˜ ìˆ˜ê°€ ê°™ìœ¼ë©´ ì¢…ë£Œ
 
     for (int i = 0; i < tickets.size(); i++) {
         if (tickets[i][0] == dept && !visit[i]) {
             visit[i] = true;
             bool is_possible = dfs(tickets[i][1], tickets, answer, depth+1);
             if (is_possible) return true;
-            // ¸ðµç °æ·Î¸¦ Ã£¾ÒÀ¸¸é Á¾·á
+            // ëª¨ë“  ê²½ë¡œë¥¼ ì°¾ì•˜ìœ¼ë©´ ì¢…ë£Œ
             visit[i] = false; 
-            // Àß¸øµÈ °æ·Î·Î µé¾î°¬À¸¸é Backtrack.
+            // ìž˜ëª»ëœ ê²½ë¡œë¡œ ë“¤ì–´ê°”ìœ¼ë©´ Backtrack.
         }
     }
 
-    // ¿©±â±îÁö ¿Ô´Ù´Â °ÍÀº, ´õ ÀÌ»ó °¥ °æ·Î°¡ ¾ø´Ù´Â °Í!
+    // ì—¬ê¸°ê¹Œì§€ ì™”ë‹¤ëŠ” ê²ƒì€, ë” ì´ìƒ ê°ˆ ê²½ë¡œê°€ ì—†ë‹¤ëŠ” ê²ƒ!
     answer.pop_back();
     return false;
 }
