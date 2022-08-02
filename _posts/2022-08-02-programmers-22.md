@@ -6,7 +6,6 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
-
 - [여행 경로[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/43164)
 
 처음엔 간단한 DFS문제라고 생각하고 접근했다.  

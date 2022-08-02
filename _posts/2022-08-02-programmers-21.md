@@ -6,7 +6,6 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
-
 - [아이템 줍기[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/87694)
 
 처음엔 주어진 그림만 잘 그리면 끝나는 문제라고 생각했다.  
