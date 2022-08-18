@@ -20,7 +20,7 @@ toc: true
 따라서 Exception 또한 Frontend 단에 JSON의 형태로 에러 코드와 메시지를 보냈다.  
 
 먼저, 아래와 같은 구조로 Class를 구성했다.  
-[사진 첨부]  
+![Exception 사진](https://user-images.githubusercontent.com/71700079/185452239-8b749774-91d2-4ce0-a8ee-c03097f476a8.png)  
 
 - ```ErrorCode```
   - ENUM Class로, 내가 Custom한 Exception들을 선언해놓는다.
