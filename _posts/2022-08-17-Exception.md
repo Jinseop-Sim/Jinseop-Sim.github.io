@@ -21,3 +21,15 @@ toc: true
 
 먼저, 아래와 같은 구조로 Class를 구성했다.  
 [사진 첨부]  
+
+- ```ErrorCode```
+  - ENUM Class로, 내가 Custom한 Exception들을 선언해놓는다.
+  - Field에는 상태 코드, 에러 코드, 에러 메시지가 들어간다.
+- ```ErrorResponse```
+  - 일종의 DTO를 만들어 놓은 것이다.
+  - Frontend로의 응답을 객체 형태로 만들어 전송을 하도록 한다.
+- ```GlobalExceptionHandler```
+  - ```@ControllerAdvice```라는 Annotation을 기본적으로 사용한다.
+    - 하지만 나는 반환값이 곧 응답이므로, ```@RestControllerAdvice```를 사용한다.
+  - 등록했던 Custom Exception들을 ```@ExceptionHandler```을 통해 등록한다.
+  - 해당 Exception이 발생하면, ```ResponseEntity``` 를 통해 ```ErrorCode```의 형태로 객체를 반환한다.
