@@ -15,8 +15,9 @@ permalink: /about/
 
 - 사용해 본 기술  
 
-![Springboot](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![SpringSecurity](https://img.shields.io/badge/SpringSecurity-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
-![AWS](https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white)
-![AWS RDS](https://img.shields.io/badge/RDS-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white)
-![S3 bucket](https://img.shields.io/badge/S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white)
+![MariaDB](https://img.shields.io/badge/SpringBoot-003545?style=for-the-badge&logo=mariadb&logoColor=black) 
+![Springboot](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white) 
+![SpringSecurity](https://img.shields.io/badge/SpringSecurity-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white) 
+![AWS](https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white) 
+![AWS RDS](https://img.shields.io/badge/RDS-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white) 
+![S3 bucket](https://img.shields.io/badge/S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white) 
