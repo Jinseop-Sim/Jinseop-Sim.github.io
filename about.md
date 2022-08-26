@@ -8,14 +8,14 @@ permalink: /about/
 
 - 사용해 본 언어  
 
-![Python Badge](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=black) 
+![Python Badge](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=yellow) 
 ![Java Badge](https://img.shields.io/badge/Java-FF160B?style=for-the-badge&logo=jameson&logoColor=white) 
 ![SQL Badge](https://img.shields.io/badge/MYSQL-0696D7?style=for-the-badge&logo=mysql&logoColor=black) 
 ![C Badge](https://img.shields.io/badge/C++-E8E8E8?style=for-the-badge&logo=Cplusplus&logoColor=black)
 
 - 사용해 본 기술  
 
-![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=black) 
+![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=brown) 
 ![Springboot](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white) 
 ![SpringSecurity](https://img.shields.io/badge/SpringSecurity-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white) 
 ![AWS](https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white) 
