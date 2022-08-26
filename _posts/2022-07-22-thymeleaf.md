@@ -1,6 +1,6 @@
----
+ï»¿---
 layout: post
-title: "½ºÇÁ¸µ MVC - Thymeleaf"
+title: "ìŠ¤í”„ë§ MVC - Thymeleaf"
 categories: Springboot
 tags: [java]
 author:
@@ -8,32 +8,32 @@ author:
 toc: true
 ---
 
-¿ì¸®´Â MVC Pattern¿¡ ´ëÇØ¼­ °øºÎÇÒ ¶§, ¿äÃ»¿¡ ´ëÇÑ ÀÀ´äÀ»  
-¹İÈ¯ÇÒ ¼ö ÀÖ´Â 3°¡Áö ¹æ¹ı¿¡ ´ëÇØ¼­ ¹è¿ü´Ù.  
+ìš°ë¦¬ëŠ” MVC Patternì— ëŒ€í•´ì„œ ê³µë¶€í•  ë•Œ, ìš”ì²­ì— ëŒ€í•œ ì‘ë‹µì„  
+ë°˜í™˜í•  ìˆ˜ ìˆëŠ” 3ê°€ì§€ ë°©ë²•ì— ëŒ€í•´ì„œ ë°°ì› ë‹¤.  
 
 1. Static Resource
 2. View Template (Dynamic View)
 3. Message Body
 
-±× Áß µ¿Àû View¸¦ ¹İÈ¯ÇÏ±â À§ÇØ¼­ ¿ì¸®´Â JSP¸¦ »ç¿ëÇß¾ú´Âµ¥,  
-ÀÌÁ¦ ´õ¿í´õ Æí¸®ÇÑ Thymeleaf Engine¿¡ ´ëÇØ¼­ ¹è¿öº¸ÀÚ.  
+ê·¸ ì¤‘ ë™ì  Viewë¥¼ ë°˜í™˜í•˜ê¸° ìœ„í•´ì„œ ìš°ë¦¬ëŠ” JSPë¥¼ ì‚¬ìš©í–ˆì—ˆëŠ”ë°,  
+ì´ì œ ë”ìš±ë” í¸ë¦¬í•œ Thymeleaf Engineì— ëŒ€í•´ì„œ ë°°ì›Œë³´ì.  
 
 ### Thymeleaf Declare
-```<html xmlns:th="http://www.thymeleaf.org">``` ·Î ¼±¾ğÇÏ¿© »ç¿ëÇÑ´Ù.  
+```<html xmlns:th="http://www.thymeleaf.org">``` ë¡œ ì„ ì–¸í•˜ì—¬ ì‚¬ìš©í•œë‹¤.  
 
-### ThymeleafÀÇ ÇÙ½É
-```th:xxx``` Tag°¡ ºÙ¾îÀÖ´Â ÄÚµå´Â Server´Ü¿¡¼­ ·»´õ¸µÀÌ µÈ´Ù.  
-ÇÏÁö¸¸ HTML FileÀ» ¿­¸é, ```th:xxx``` Tag°¡ ¾ø´Â ÄÚµå·Î º¸ÀÌ°Ô µÈ´Ù.  
+### Thymeleafì˜ í•µì‹¬
+```th:xxx``` Tagê°€ ë¶™ì–´ìˆëŠ” ì½”ë“œëŠ” Serverë‹¨ì—ì„œ ë Œë”ë§ì´ ëœë‹¤.  
+í•˜ì§€ë§Œ HTML Fileì„ ì—´ë©´, ```th:xxx``` Tagê°€ ì—†ëŠ” ì½”ë“œë¡œ ë³´ì´ê²Œ ëœë‹¤.  
 
 ### Thymeleaf Link
 ```th:href = "@{/css/bootstrap.min.css}"```  
 
-URL Link¸¦ °É¾î¼­ ¾²°í ½ÍÀº °æ¿ì, ```@{...}``` À» »ç¿ëÇÑ´Ù.  
+URL Linkë¥¼ ê±¸ì–´ì„œ ì“°ê³  ì‹¶ì€ ê²½ìš°, ```@{...}``` ì„ ì‚¬ìš©í•œë‹¤.  
 
 ### Thymeleaf Attribute
 ```<td><a href="item.html" th:href="@{/basic/item/{itemId}(itemId=${item.id})}"```  
-À§ ÄÚµå´Â, HTMLÀ» ±×³É ¿­¸é ```href```·Î ÀÌµ¿ÇÏÁö¸¸,  
-Server´Ü¿¡¼­ ·»´õ¸µÀ» ÇÏ´Â °æ¿ì¿£, ```th:href```°¡ ¿­¸®°Ô µÈ´Ù.  
-ÀÌ¸¦ Å¸ÀÓ¸®ÇÁ¿¡¼­ __¼Ó¼º º¯°æ__ ÀÌ¶ó°í ÇÑ´Ù.  
+ìœ„ ì½”ë“œëŠ”, HTMLì„ ê·¸ëƒ¥ ì—´ë©´ ```href```ë¡œ ì´ë™í•˜ì§€ë§Œ,  
+Serverë‹¨ì—ì„œ ë Œë”ë§ì„ í•˜ëŠ” ê²½ìš°ì—”, ```th:href```ê°€ ì—´ë¦¬ê²Œ ëœë‹¤.  
+ì´ë¥¼ íƒ€ì„ë¦¬í”„ì—ì„œ __ì†ì„± ë³€ê²½__ ì´ë¼ê³  í•œë‹¤.  
 
-> - »çÁø ¹× ÀÚ·á ÃâÃ³ : [±è¿µÇÑÀÇ ½ºÇÁ¸µ MVC 1Æí](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1/dashboard)
+> - ì‚¬ì§„ ë° ìë£Œ ì¶œì²˜ : [ê¹€ì˜í•œì˜ ìŠ¤í”„ë§ MVC 1í¸](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1/dashboard)

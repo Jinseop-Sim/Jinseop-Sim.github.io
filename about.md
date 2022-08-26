@@ -1,12 +1,12 @@
----
+ï»¿---
 layout: page
 title: About
 permalink: /about/
 ---
 
-¾È³çÇÏ¼¼¿ä, ¹é¿£µå °³¹ßÀÚ¸¦ ²Ş²Ù´Â ÇĞ»ıÀÔ´Ï´Ù.  
+ì•ˆë…•í•˜ì„¸ìš”, ë°±ì—”ë“œ ê°œë°œìë¥¼ ê¿ˆê¾¸ëŠ” í•™ìƒì…ë‹ˆë‹¤.  
 
-- »ç¿ëÇØ º» ¾ğ¾î
+- ì‚¬ìš©í•´ ë³¸ ì–¸ì–´
 [![Python Badge](https://img.shields.io/badge/PYTHON-0696D7?style=for-the-badge&logo=Python&logoColor=black)]
 [![Java Badge](https://img.shields.io/badge/Java-FF0000?style=for-the-badge&logo=Java&logoColor=white)]
 [![SQL Badge](https://img.shields.io/badge/MYSQL-000000?style=for-the-badge&logo=mysql&logoColor=skyblue)]
