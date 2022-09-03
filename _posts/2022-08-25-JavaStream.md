@@ -131,7 +131,7 @@ Product p5 = new Product("Chess champs' trophy", 1L, 0L);
 List<Product> productList = new ArrayList<>();
 productList.add(p1); productList.add(p2); productList.add(p3);
 productList.add(p4); productList.add(p5);
-{% endhightlight %}  
+{% endhighlight %}  
 
 - Stream Filtering
 
