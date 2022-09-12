@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "프로그래머스 Level 3 - 보행자 천국"
-categories: Programmers : KAKAO
+categories: [KAKAO] Programmers
 tags: [cpp]
 author:
   - Jinseop Sim

@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "프로그래머스 Level 3 - 경주로 건설"
-categories: Programmers : KAKAO
+categories: [KAKAO] Programmers
 tags: [cpp]
 author:
   - Jinseop Sim

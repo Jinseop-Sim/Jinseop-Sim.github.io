@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "프로그래머스 Level 2 - 양궁 대회"
-categories: Programmers : KAKAO
+categories: [KAKAO] Programmers
 tags: [cpp, KAKAO]
 author:
   - Jinseop Sim
