@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "프로그래머스 Level 3 - 자물쇠와 열쇠"
-categories: KAKAO Programmers
+categories: KAKAO
 tags: [cpp]
 author:
   - Jinseop Sim

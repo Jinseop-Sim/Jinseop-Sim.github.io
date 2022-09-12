@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "프로그래머스 Level 2 - 순위 검색"
-categories: KAKAO Programmers
+categories: KAKAO
 tags: [cpp]
 author:
   - Jinseop Sim

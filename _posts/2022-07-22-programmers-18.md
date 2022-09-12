@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "프로그래머스 Level 3 - 합승 택시 요금"
-categories: KAKAO Programmers
+categories: KAKAO
 tags: [cpp]
 author:
   - Jinseop Sim

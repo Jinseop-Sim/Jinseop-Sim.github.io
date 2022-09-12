@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "프로그래머스 Level 2 - 뉴스 클러스터링"
-categories: KAKAO Programmers
+categories: KAKAO
 tags: [cpp]
 author:
   - Jinseop Sim
