@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "프로그래머스 Level 2 - 후보키"
-categories: Programmers
+categories: Programmers : KAKAO
 tags: [cpp]
 author:
   - Jinseop Sim
