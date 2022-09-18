@@ -17,7 +17,7 @@ author:
   - 그렇다면 이전에 계산한 경우의 수를 더하며 나아가도록 한다!
 
 그럼 어떤 식으로 계산을 진행할 것인가?  
-[사진]
+![거스름돈](https://user-images.githubusercontent.com/71700079/190896267-f164a9bd-7443-485f-9148-9786c73d6bd7.png)
 
 ### DP
 {% highlight cpp %}
