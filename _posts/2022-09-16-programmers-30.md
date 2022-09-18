@@ -6,7 +6,7 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
-- [양궁 대회[LEVEL 2]](https://school.programmers.co.kr/learn/courses/30/lessons/76503)  
+- [모두 0으로 만들기[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/76503)  
 
 처음엔 Edges 배열을 Backtracking을 이용해 순열을 구현했다.
 순열을 통해 방문 순서를 바꿔가며 가중치를 가감하며 모든 경우에서 걸러내는 방식이었다.  
