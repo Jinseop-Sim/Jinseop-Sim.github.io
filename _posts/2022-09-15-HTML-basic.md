@@ -31,6 +31,7 @@ HTML에서는 태그를 통한 Hyperlink 기능을 제공하고 있다.
 - Text Link
 - Image Link
 - Internal Link
+
 ### HTML Entity
 HTML에서는 특수문자를 사용하기 위한 특수한 Code가 존재한다.  
 
@@ -51,8 +52,12 @@ HTML에서는 특수문자를 사용하기 위한 특수한 Code가 존재한다
   - 1/2(fraction): &frac12;s
 
 ### List
+HTML에서는 List를 태그를 통해 표현한다.  
 - UL : Unordered List, 그냥 점으로 표시되는 List이다.
 - OL : Ordered List, 순서가 숫자로 표시되는 List이다.
+- DL : Descriptive List
+
 ### Table
+HTML에서는 ```<Table>``` 태그를 통해 표를 정의한다.
 
 ### Form
