@@ -31,3 +31,5 @@ __Scalability(확장성)__ 을 챙기는 데에는 두 가지 방식이 존재�
 		- 따라서 IP Address를 통해서 목적지를 식별한다.
 	- Destination IP Address만을 보고 Packet을 배달한다.
   - 전송되는 Packet은 순서와 상관없이 전송된다.
+  - 핵심은 Store & Forward 방식이라는 것!
+  	- 그래서 모든 Router들은 CPU와 Memory를 갖고 있어야 한다.
