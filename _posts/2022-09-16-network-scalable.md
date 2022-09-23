@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "[PNUCSE 2022] Scalable Network"
+title: "[PNUCSE Network] Scalable Network"
 categories: Network
 tags: [theory]
 author:
