@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "[PNUCSE 2022] HTML Basic"
+title: "[PNUCSE Web] HTML Basic"
 categories: HTML
 tags: [frontend]
 author:
@@ -9,6 +9,15 @@ toc: true
 ---
 이 강의는 부산대학교 최성기 교수님의 웹 응용 프로그래밍 강의 자료입니다.  
 HTML의 기본 요소들에 대해서 간략하게 알아보자.  
+
+### What is HTML?
+HTML(HyperText Markup Language)라는 단어를 풀어서 해석해보자.
+- HyperText : 순차적 접근을 뛰어넘어, Hyper Link가 가능한 문서.
+- Markup : 마크업 언어는 글을 보다 구조적으로 표현하게 해주는 언어이다.
+  - 제목을 강조하여 크고 굵게 쓴다.
+  - 글머리 기호를 넣는다. ..etc.  
+
+위 해석을 종합해보면, HTML이란 __Hyper Link 기능이 있는 마크업 문서__ 라는 의미임을 알 수 있다.
 
 ### HTML의 기본 구조
 {% highlight html %}
