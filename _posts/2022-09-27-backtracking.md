@@ -1,4 +1,4 @@
----
+ï»¿---
 layout: post
 title: "Graph : Backtracking"
 categories: Algorithm
@@ -6,21 +6,21 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
-º¸Åë ±×·¡ÇÁ ¹®Á¦¸¦ Çª´Â ¹æ½ÄÀº DFS¿Í BFS·Î ³ª´µ°Ô µÈ´Ù.  
-ÇÏÁö¸¸ ±× µÑ¸¸À¸·Î´Â Ç®¸®Áö ¾Ê´Â ¹®Á¦°¡ ÀÖ´Ù. ±×·² ‹š¿¡´Â ÀÏÁ¾ÀÇ ±â¼úÀÌ ÇÊ¿äÇÏ´Ù.  
+ë³´í†µ ê·¸ëž˜í”„ ë¬¸ì œë¥¼ í‘¸ëŠ” ë°©ì‹ì€ DFSì™€ BFSë¡œ ë‚˜ë‰˜ê²Œ ëœë‹¤.  
+í•˜ì§€ë§Œ ê·¸ ë‘˜ë§Œìœ¼ë¡œëŠ” í’€ë¦¬ì§€ ì•ŠëŠ” ë¬¸ì œê°€ ìžˆë‹¤. ê·¸ëŸ´ ë–„ì—ëŠ” ì¼ì¢…ì˜ ê¸°ìˆ ì´ í•„ìš”í•˜ë‹¤.  
 
-¸¸¾à ³»°¡ Áöµµ¸¦ µé°í Á¤±ÛÀ» ÇìÃÄ³ª°¡°í ÀÖ´Ù°í »ý°¢ÇØº¸ÀÚ.  
-Áöµµ »óÀ¸·Î´Â Áö±Ý °¡´Â´ë·Î °£´Ù¸é ¸·´Ù¸¥ ±æ¿¡ µµ´ÞÇÏ°Ô µÈ´Ù.  
-±×·¡µµ ³ª´Â ¾ÕÀ¸·Î °¡¼­ ¸·´Ù¸¥ ±æÀÓÀ» µÎ ´«À¸·Î È®ÀÎÇØ¾ß ÇÏ´Â°¡?  
+ë§Œì•½ ë‚´ê°€ ì§€ë„ë¥¼ ë“¤ê³  ì •ê¸€ì„ í—¤ì³ë‚˜ê°€ê³  ìžˆë‹¤ê³  ìƒê°í•´ë³´ìž.  
+ì§€ë„ ìƒìœ¼ë¡œëŠ” ì§€ê¸ˆ ê°€ëŠ”ëŒ€ë¡œ ê°„ë‹¤ë©´ ë§‰ë‹¤ë¥¸ ê¸¸ì— ë„ë‹¬í•˜ê²Œ ëœë‹¤.  
+ê·¸ëž˜ë„ ë‚˜ëŠ” ì•žìœ¼ë¡œ ê°€ì„œ ë§‰ë‹¤ë¥¸ ê¸¸ìž„ì„ ë‘ ëˆˆìœ¼ë¡œ í™•ì¸í•´ì•¼ í•˜ëŠ”ê°€?  
 
-»ó½ÄÀûÀ¸·Î »ý°¢ÇØº¸¸é, ±»ÀÌ ¸·´Ù¸¥ ±æÀÓÀ» ¾Ë¾ÒÀ» ¶§´Â ´Ù¸¥ ±æ·Î ´Ù½Ã µ¹¾Æ°¡¸é µÈ´Ù.  
-ÀÌ°ÍÀ» ¾Ë°í¸®Áò¿¡¼­´Â __Pruning(°¡ÁöÄ¡±â)__ ±â¹ýÀÌ¶ó°í ¸»ÇÑ´Ù.  
-¿ì¸®°¡ ÈçÈ÷ »ç¿ëÇÏ´ø DFS¿¡ ÀÌ °¡ÁöÄ¡±â¸¦ ´õÇÑ °ÍÀÌ ¹Ù·Î Backtracking(µÇÃßÀû)ÀÌ´Ù!  
+ìƒì‹ì ìœ¼ë¡œ ìƒê°í•´ë³´ë©´, êµ³ì´ ë§‰ë‹¤ë¥¸ ê¸¸ìž„ì„ ì•Œì•˜ì„ ë•ŒëŠ” ë‹¤ë¥¸ ê¸¸ë¡œ ë‹¤ì‹œ ëŒì•„ê°€ë©´ ëœë‹¤.  
+ì´ê²ƒì„ ì•Œê³ ë¦¬ì¦˜ì—ì„œëŠ” __Pruning(ê°€ì§€ì¹˜ê¸°)__ ê¸°ë²•ì´ë¼ê³  ë§í•œë‹¤.  
+ìš°ë¦¬ê°€ í”ížˆ ì‚¬ìš©í•˜ë˜ DFSì— ì´ ê°€ì§€ì¹˜ê¸°ë¥¼ ë”í•œ ê²ƒì´ ë°”ë¡œ Backtracking(ë˜ì¶”ì )ì´ë‹¤!  
 
-DFS·Î ±íÀÌ ¿ì¼± Å½»öÀ» ÁøÇàÇÏ¸ç ¸ðµç °æ¿ì¸¦ ´Ù µÚÁö´Â °ÍÀÌ ¹Ùº¸°°Àº Çàµ¿ÀÎ °æ¿ì°¡ ÀÖ´Ù.  
+DFSë¡œ ê¹Šì´ ìš°ì„  íƒìƒ‰ì„ ì§„í–‰í•˜ë©° ëª¨ë“  ê²½ìš°ë¥¼ ë‹¤ ë’¤ì§€ëŠ” ê²ƒì´ ë°”ë³´ê°™ì€ í–‰ë™ì¸ ê²½ìš°ê°€ ìžˆë‹¤.  
 
-´ëÇ¥ÀûÀÎ ¹®Á¦·Î´Â Ã¼½ºÆÇ¿¡ ÄýÀ» ³õÀ» ¼ö ÀÖ´Â °¡Áþ¼ö¸¦ ¼¼´Â __N-Queens Problem__ ÀÌ ÀÖÀ¸¸ç,  
-Á¶ÇÕÀÌ³ª ¼ø¿­À» ±¸ÇöÇÒ ¶§¿¡µµ BacktrackingÀÌ ÀÌ¿ëµÈ´Ù.  
+ëŒ€í‘œì ì¸ ë¬¸ì œë¡œëŠ” ì²´ìŠ¤íŒì— í€¸ì„ ë†“ì„ ìˆ˜ ìžˆëŠ” ê°€ì§“ìˆ˜ë¥¼ ì„¸ëŠ” __N-Queens Problem__ ì´ ìžˆìœ¼ë©°,  
+ì¡°í•©ì´ë‚˜ ìˆœì—´ì„ êµ¬í˜„í•  ë•Œì—ë„ Backtrackingì´ ì´ìš©ëœë‹¤.  
 
 ### N-Queens Problem
 {% highlight cpp %}
