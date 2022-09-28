@@ -44,3 +44,27 @@ ARP의 동작과정에 대해서 간략하게 알아보자.
 
 위의 동작을 보면 알 수 있듯이, ARP는 Broadcast-Enable 해야 사용이 가능함을 알 수 있다!  
 따라서, __One-Hop 범위 내에 존재하는 단말과 통신하는 LAN 환경에서만__ 사용이 가능함을 알 수 있다.  
+
+### Ethernet Frame
+ARP는 지근거리 통신에서만 사용가능하다. 따라서 우리가 현재 사용하는 LAN인 Ethernet도 ARP를 이용하고 있다!  
+그렇다면 Data를 Network 상에서 옮길 때 Ethernet의 Frame은 어떤 형태로 붙을까?
+
+우리는 Data를 전송할 때, 각 계층마다 Header를 붙여서 Lower Layer로 내려준다는 사실을 알고 있다.  
+그럼 사실상 전송하기 전 최종 계층인 Data Link 계층에서 Frame을 Packet에 붙이게 될텐데, 어떤 형태로 붙게 될까?  
+
+[사진 첨부]
+- Preamble : 송신측과 수신측의 비트 동기화를 위해 사용한다.
+  - 총 8byte로 구성되며, Sync Bit(7byte)와 SFD(1byte)로 나눠진다.
+  - 이 기능 덕분에 우리는 수신측에서 Data의 출발 및 도착 시간 동기화를 할 필요가 없어졌다.
+- Source / Dest Address : 출발 및 도착 장치의 MAC 주소이다.
+- Type
+  - Ethernet II의 표준으로는, 상위계층 Protocol의 정보를 담는다.
+  - IEEE 802.3 CSMA/CD의 표준으로는, MAC 프레임의 길이를 담는다.
+  - 해당 영역 값이 ```0x0600``` 이상이면 Ethernet II로, 아니면 IEEE 802.3 표준으로 해석한다.
+- Data : 실제로 우리가 전송하는 컨텐츠
+  - 이전 글에서 말했던 MTU(Max Transmission Unit)에 따라 최대 1500byte가 가능하다.
+  - 최소 46byte로 구성되며, 46byte가 채워지지 않을 시 Padding으로 46byte를 맞춘다.
+    - 왜?
+- CRC(Cyclic Redundancy Check) : IPv4 Packet에 있던 Checksum과 같이 오류를 검사하는 비트이다.
+  - 나머지는 모두 Frame Header에 붙는데, 이 친구는 Frame Trailer에 붙게 된다.
+  - 오류가 검출될 시, 즉시 Frame을 Drop해버린다.
