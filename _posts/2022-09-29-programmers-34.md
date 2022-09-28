@@ -1,34 +1,35 @@
 ---
 layout: post
-title: "ÇÁ·Î±×·¡¸Ó½º Level 3 - ÃÖ°íÀÇ ÁýÇÕ"
+title: "í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ Level 3 - ìµœê³ ì˜ ì§‘í•©"
 categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
   math: true
 ---
-- [ÃÖ°íÀÇ ÁýÇÕ[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/12938)  
+- [ìµœê³ ì˜ ì§‘í•©[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/12938)  
 
-### 1Â÷ ½Ãµµ : Backtracking
-Ã³À½¿£ n°³ÀÇ ¼ö·Î ÇÕÀÌ s°¡ µÇ´Â Á¶ÇÕÀ» ¸ðµÎ ±¸ÇØ¼­ °öÀ» °è»ê½ÃÄ×´Ù.  
-ÇÏÁö¸¸ ¿ì·ÁÇß´ø´ë·Î, ´ç¿¬ÇÏ°Ôµµ ½Ã°£ÃÊ°ú°¡ ¹ß»ýÇß´Ù.  
+### 1ì°¨ ì‹œë„ : Backtracking
+ì²˜ìŒì—” nê°œì˜ ìˆ˜ë¡œ í•©ì´ sê°€ ë˜ëŠ” ì¡°í•©ì„ ëª¨ë‘ êµ¬í•´ì„œ ê³±ì„ ê³„ì‚°ì‹œì¼°ë‹¤.  
+í•˜ì§€ë§Œ ìš°ë ¤í–ˆë˜ëŒ€ë¡œ, ë‹¹ì—°í•˜ê²Œë„ ì‹œê°„ì´ˆê³¼ê°€ ë°œìƒí–ˆë‹¤.  
 
-### 2Â÷ ½Ãµµ : ¼öÇÐÀû Á¢±Ù
-µµÀúÈ÷ »ý°¢ÀÌ ³ªÁú ¾Ê¾Æ¼­ ´Ù¸¥ ºÐµéÀÇ Ç®ÀÌ¸¦ Âü°íÇß´Ù.  
-±²ÀåÈ÷ ¾îÀÌ°¡ ¾ø´Â Ç®ÀÌ¿´´Ù. ÇÙ½ÉÀº ¾Æ·¡¿Í °°´Ù.  
+### 2ì°¨ ì‹œë„ : ìˆ˜í•™ì  ì ‘ê·¼
+ë„ì €ížˆ ìƒê°ì´ ë‚˜ì§ˆ ì•Šì•„ì„œ ë‹¤ë¥¸ ë¶„ë“¤ì˜ í’€ì´ë¥¼ ì°¸ê³ í–ˆë‹¤.  
+êµ‰ìž¥ížˆ ì–´ì´ê°€ ì—†ëŠ” í’€ì´ì˜€ë‹¤. í•µì‹¬ì€ ì•„ëž˜ì™€ ê°™ë‹¤.  
 
-- °öÀÌ ÃÖ´ë°¡ µÇ´Â °æ¿ì´Â ÃÖ´ëÇÑ ±ÕµîÇÏ°Ô ¼ö°¡ ºÐ¹èµÇ¾úÀ» ¶§ÀÌ´Ù.  
+- ê³±ì´ ìµœëŒ€ê°€ ë˜ëŠ” ê²½ìš°ëŠ” ìµœëŒ€í•œ ê· ë“±í•˜ê²Œ ìˆ˜ê°€ ë¶„ë°°ë˜ì—ˆì„ ë•Œì´ë‹¤.  
 
-ÀÌ ¹®ÀåÀ» Â÷±ÙÂ÷±Ù Áõ¸íÇØº¸ÀÚ.  
-$$a + b = C$$(C´Â »ó¼ö)¶ó°í °¡Á¤ÇØº¸ÀÚ.  
-$$a + (C - a) = C$$ ¶ó°í µÖµµ °°Àº ½ÄÀÌ´Ù.  
-±×·³ °á±¹ ¿ì¸®°¡ ±¸ÇÏ´Â °ÍÀº $$(a(C - a)) = -a^2 - Ca$$ ¶ó´Â ÀÌÂ÷ ÇÔ¼ö°¡ µÈ´Ù.  
-ÇØ´ç ÀÌÂ÷ÇÔ¼ö´Â ¾Æ·¡ ±×¸²°ú °°Àº »çÁøÀÓÀ» ¾Ë ¼ö ÀÖ´Ù.  
+ì´ ë¬¸ìž¥ì„ ì°¨ê·¼ì°¨ê·¼ ì¦ëª…í•´ë³´ìž.  
+$$a + b = C$$(CëŠ” ìƒìˆ˜)ë¼ê³  ê°€ì •í•´ë³´ìž.  
+$$a + (C - a) = C$$ ë¼ê³  ë‘¬ë„ ê°™ì€ ì‹ì´ë‹¤.  
+ê·¸ëŸ¼ ê²°êµ­ ìš°ë¦¬ê°€ êµ¬í•˜ëŠ” ê²ƒì€ $$(a(C - a)) = -a^2 - Ca$$ ë¼ëŠ” ì´ì°¨ í•¨ìˆ˜ê°€ ëœë‹¤.  
+í•´ë‹¹ ì´ì°¨í•¨ìˆ˜ëŠ” ì•„ëž˜ ê·¸ë¦¼ê³¼ ê°™ì€ ì‚¬ì§„ìž„ì„ ì•Œ ìˆ˜ ìžˆë‹¤.  
+![qw](https://user-images.githubusercontent.com/71700079/192790308-e29d4cbf-221c-41b5-8c2c-8a1414728c96.png)  
 
-µû¶ó¼­, ÃÖ´ë°¡ µÇ´Â a°ªÀº C/2°¡ µÈ´Ù.  
-ÇÏÁö¸¸ C°¡ È¦¼öÀÏ °æ¿ì¿£ C/2°¡ ½Ç¼öÀÌ¹Ç·Î, ```{C-1, C}```°¡ µÉ ¶§ ÃÖ´ë°¡ µÉ °ÍÀÌ´Ù.  
+ë”°ë¼ì„œ, ìµœëŒ€ê°€ ë˜ëŠ” aê°’ì€ C/2ê°€ ëœë‹¤.  
+í•˜ì§€ë§Œ Cê°€ í™€ìˆ˜ì¼ ê²½ìš°ì—” C/2ê°€ ì‹¤ìˆ˜ì´ë¯€ë¡œ, ```{C-1, C}```ê°€ ë  ë•Œ ìµœëŒ€ê°€ ë  ê²ƒì´ë‹¤.  
 
-À§ÀÇ ¿ø¸®¿¡ µû¶ó ÄÚµå¸¦ Â¥¸é ¾Æ·¡¿Í °°´Ù.  
+ìœ„ì˜ ì›ë¦¬ì— ë”°ë¼ ì½”ë“œë¥¼ ì§œë©´ ì•„ëž˜ì™€ ê°™ë‹¤.  
 {% highlight cpp %}
 #include <string>
 #include <vector>
