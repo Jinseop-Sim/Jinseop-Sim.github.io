@@ -51,8 +51,8 @@ ARP는 지근거리 통신에서만 사용가능하다. 따라서 우리가 현�
 
 우리는 Data를 전송할 때, 각 계층마다 Header를 붙여서 Lower Layer로 내려준다는 사실을 알고 있다.  
 그럼 사실상 전송하기 전 최종 계층인 Data Link 계층에서 Frame을 Packet에 붙이게 될텐데, 어떤 형태로 붙게 될까?  
+![이더넷프레임](https://user-images.githubusercontent.com/71700079/193004853-21521993-33ef-4eef-8be1-50565d07104b.png)  
 
-[사진 첨부]
 - Preamble : 송신측과 수신측의 비트 동기화를 위해 사용한다.
   - 총 8byte로 구성되며, Sync Bit(7byte)와 SFD(1byte)로 나눠진다.
   - 이 기능 덕분에 우리는 수신측에서 Data의 출발 및 도착 시간 동기화를 할 필요가 없어졌다.
