@@ -45,6 +45,16 @@ ARP의 동작과정에 대해서 간략하게 알아보자.
 위의 동작을 보면 알 수 있듯이, ARP는 Broadcast-Enable 해야 사용이 가능함을 알 수 있다!  
 따라서, __One-Hop 범위 내에 존재하는 단말과 통신하는 LAN 환경에서만__ 사용이 가능함을 알 수 있다.  
 
+### Why ARP is Awesome?! 
+- Dynamic Mapping이 가능하다!
+  - Dynamic Mapping이라는 말은, 물리 주소나 논리 주소 둘 중 하나만 알아도 나머지 하나가 요청이 가능하다는 의미이다.
+  - 이는 Application과 User에 대해 생각하지 않아도 된다는 의미이다.
+  - 또한 System 관리자에 대해서 생각하지 않아도 된다는 의미이다.
+- Network Layer Protocol을 이용하지 않아도 된다.
+  - Data Link Layer에서 지원하는 Protocol이다.
+- Broadcasting이 가능한 Data Link가 필요하다!
+  - Broadcast가 가능하다는 의미!
+
 ### Ethernet Frame
 ARP는 지근거리 통신에서만 사용가능하다. 따라서 우리가 현재 사용하는 LAN인 Ethernet도 ARP를 이용하고 있다!  
 그렇다면 Data를 Network 상에서 옮길 때 Ethernet의 Frame은 어떤 형태로 붙을까?
