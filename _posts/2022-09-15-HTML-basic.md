@@ -158,6 +158,15 @@ HTML에서는 ```<Table>``` 태그를 통해 표를 정의한다.
 </table>
 {% endhighlight %}  
 
+### Span
+```span```은 ```div```와 같은 기능을 하는 Tag이다.  
+하지만 유일한 차이점은 ```span```은 아래와 같이 Inline의 형태로 사용이 가능하다는 것이다.  
+```div```는 Block의 형태로 밖에 사용하지 못한다.  
+
+{% highlight html %}
+<p> 안녕하세요. 이것은 <span style = "font-weight: bold;"> SPAN </span> 입니다. </p>
+{% endhighlight %}
+
 ### Form
 HTML은 다양한 Type의 입력을 받을 수 있는 Form 태그가 존재한다.  
 
