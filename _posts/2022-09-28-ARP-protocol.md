@@ -78,3 +78,27 @@ ARP는 지근거리 통신에서만 사용가능하다. 따라서 우리가 현�
 - CRC(Cyclic Redundancy Check) : IPv4 Packet에 있던 Checksum과 같이 오류를 검사하는 비트이다.
   - 나머지는 모두 Frame Header에 붙는데, 이 친구는 Frame Trailer에 붙게 된다.
   - 오류가 검출될 시, 즉시 Frame을 Drop해버린다.
+
+### ARP Table
+ARP도 HTTP와 같은 Cache의 개념을 차용해서 사용하고 있다.  
+MAC Address를 알 수 없는 장치의 IP와 MAC Address를 처음 연결 시 Table에 저장을 한다.  
+이는 Cache와 같은 역할을 하며, 다음 연결 시 빠른 연결을 제공한다.  
+
+### RARP
+ARP는 IP 주소를 알 때, 알 수 없는 MAC 주소를 알아오는 Protocol 이었다.  
+그럼 그 반대로 MAC 주소는 있지만 IP가 할당되어있지 않을 때는 어떻게 해야할까?  
+
+RARP(Reverse ARP) 방식을 옛날에는 사용했다.  
+ARP와는 반대로, 목적지의 MAC 주소를 바탕으로 IP 주소를 받아오는 Dynamic Mapping Protocol이다.  
+
+하지만 RARP는 분명한 한계가 존재했다!  
+- IP 주소 밖에 받아올 수 없다.
+- 모든 Link 마다 서버가 존재해야 IP를 받아올 수 있다.
+- OS에 존재하지 않고, Application 계층에 존재하기 때문에 계층 원리에 어긋난다.
+
+그로 인해 RARP의 발전된 Protocol인 BOOTP가 등장하게 된다.  
+
+### DHCP
+BOOTP에 더불어서 최종적으로 발전하게된 현재의 IP 할당 Protocol이다.  
+중앙에 DHCP Server를 두고, 해당 네트워크 내의 Host들에게 IP를 모두 할당해주도록 한다.  
+그럼 굳이 IP를 요청할 일이 없으며, RARP 요청이 전혀 필요가 없게 된다!  
