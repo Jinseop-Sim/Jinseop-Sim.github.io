@@ -84,6 +84,35 @@ ARP도 HTTP와 같은 Cache의 개념을 차용해서 사용하고 있다.
 MAC Address를 알 수 없는 장치의 IP와 MAC Address를 처음 연결 시 Table에 저장을 한다.  
 이는 Cache와 같은 역할을 하며, 다음 연결 시 빠른 연결을 제공한다.  
 
+### Proxy ARP
+Proxy(가짜) ARP이다.  
+
+냉장고를 예시로 들어보자.  
+나는 Internet이 삽입되어있지 않는 냉장고를 사용한다. 이 냉장고는 USB만 존재한다.  
+IP Address는 있으나, MAC Address가 존재하지 않아서 ARP 통신이 불가능하다!  
+
+이 때 Ethernet Card가 있어서 ARP 통신이 가능한 PC로 ARP 응답을 보낼 수 있다.  
+내 스마트 폰에서, 특정 IP의 MAC 주소를 찾는 ARP 요청을 보낸다.  
+그럼 원래는 냉장고에게서 MAC 주소를 받아와야 하지만, PC가 본인인 척 요청을 가로챈다.  
+요청을 가로챈 뒤 내가 해당 IP의 주인이고 MAC 주소는 이러이러하다라고 응답을 보낸다.  
+
+이후, PC와 냉장고를 USB로 연결해 Relay Program을 이용해서 정보 교환이 가능하다.  
+
+이것은 유용한 방식일 수도 있겠지만, ARP가 보안에 취약하다는 반증이 된다.  
+누구든 자신이 해당 IP의 주인이라며 Packet을 채갈 수 있다는 것이다.  
+이는 ARP 요청이 Broadcast로 항상 진행되기 때문이다.  
+
+### Gratuitous ARP
+GARP는 보통 ARP와는 다르게 MAC 주소의 획득에 목적을 두지 않는다.  
+내 IP를 목적지로 요청을 보내는데, 대표적인 목적 2가지는 아래와 같다.
+
+- IP 주소 충돌 감지
+  - 내 IP를 목적지로 ARP 요청을 보냈는데 누군가 응답을 한다면?
+  - 이미 해당 IP를 사용하는 Host가 존재한다는 말이 된다.
+    - 이 경우엔, 해당 Host를 막을 방법은 따로 없으며 Windows는 경고만 하도록 되어 있다.
+- ARP Table 갱신
+  - 누군가가 GARP Packet을 보내면, 이를 수신한 모든 Host나 Router은 Table을 갱신한다.
+
 ### RARP
 ARP는 IP 주소를 알 때, 알 수 없는 MAC 주소를 알아오는 Protocol 이었다.  
 그럼 그 반대로 MAC 주소는 있지만 IP가 할당되어있지 않을 때는 어떻게 해야할까?  
@@ -94,9 +123,12 @@ ARP와는 반대로, 목적지의 MAC 주소를 바탕으로 IP 주소를 받아
 하지만 RARP는 분명한 한계가 존재했다!  
 - IP 주소 밖에 받아올 수 없다.
 - 모든 Link 마다 서버가 존재해야 IP를 받아올 수 있다.
-- OS에 존재하지 않고, Application 계층에 존재하기 때문에 계층 원리에 어긋난다.
+- OS에 존재하지 않고, 물리 계층에 존재하기 때문에 계층 원리에 어긋난다.
 
-그로 인해 RARP의 발전된 Protocol인 BOOTP가 등장하게 된다.  
+### BOOTP
+위와 같은 한계로 인해 RARP의 발전된 Protocol인 BOOTP가 등장하게 된다.  
+BOOTP(Bootstrap Protocol)은, RARP 보다 쉽게 개발을 하기 위해 상위 계층과 통신을 한다.  
+__UDP/IP Packet__ 을 이용하며, __Network__ 계층에서 통신을 진행한다.
 
 ### DHCP
 BOOTP에 더불어서 최종적으로 발전하게된 현재의 IP 할당 Protocol이다.  

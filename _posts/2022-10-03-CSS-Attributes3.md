@@ -1,4 +1,4 @@
----
+ï»¿---
 layout: post
 title: "[PNUCSE Web] CSS Attributes - 2"
 categories: HTML
@@ -7,9 +7,9 @@ author:
   - Jinseop Sim
 toc: true
 ---
-ÇØ´ç ±ÛÀº ºÎ»ê´ëÇÐ±³ ÃÖ¼º±â ±³¼ö´ÔÀÇ À¥ ÀÀ¿ëÇÁ·Î±×·¡¹Ö °­ÀÇ¸¦ ¹ÙÅÁÀ¸·Î ÀÛ¼ºÇß½À´Ï´Ù.  
+í•´ë‹¹ ê¸€ì€ ë¶€ì‚°ëŒ€í•™êµ ìµœì„±ê¸° êµìˆ˜ë‹˜ì˜ ì›¹ ì‘ìš©í”„ë¡œê·¸ëž˜ë° ê°•ì˜ë¥¼ ë°”íƒ•ìœ¼ë¡œ ìž‘ì„±í–ˆìŠµë‹ˆë‹¤.  
 
-¸¶Áö¸·À¸·Î Æ¯¼öÇÑ È¿°ú¸¦ °¡Áø Attribute¿¡ ´ëÇØ ¾Ë¾Æº¸ÀÚ.  
+ë§ˆì§€ë§‰ìœ¼ë¡œ íŠ¹ìˆ˜í•œ íš¨ê³¼ë¥¼ ê°€ì§„ Attributeì— ëŒ€í•´ ì•Œì•„ë³´ìž.  
 
 ### Flex Box
 
