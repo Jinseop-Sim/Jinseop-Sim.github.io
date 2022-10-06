@@ -12,3 +12,9 @@ toc: true
 마지막으로 특수한 효과를 가진 Attribute에 대해 알아보자.  
 
 ### Flex Box
+
+### Column
+
+### Component Scaling
+
+### Pagination
