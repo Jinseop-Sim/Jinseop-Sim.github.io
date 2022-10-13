@@ -137,3 +137,33 @@ BOOTP에 더불어서 최종적으로 발전하게된 현재의 IP 할당 Protoc
 
 ##### DHCP Procedure
 ![dhcp 동작](https://user-images.githubusercontent.com/71700079/195479651-dc0acb75-db66-4a8b-9769-81a5f4415754.png)
+
+위와 같은 동작을 통해서 DHCP Server에서 IP를 할당받는다.  
+그리고 위 과정을 거치며, Client는 총 6개의 State를 거쳐간다.  
+- ```INITIALIZE``` : 가장 초기의 상태이다.
+- ```SELECT``` : Client가 Broadcast로 ```DISCOVER```을 날린 상태이다.
+- ```REQUEST``` : DHCP 서버로 부터 ```OFFER```를 받은 상태이다.
+  - 이제, 해당 서버에게 IP 할당을 받기 위해 Request 메시지를 날린다.
+- ```BOUND``` : DCHP 서버로 부터 마지막 ACK을 받고 IP를 할당받은 상태.
+  - 더 이상 IP를 쓰고 싶지 않다면?
+  - ```RELEASE```를 보내 ```INITIALIZE``` 상태로 돌아갈 수 있다!
+- ```RENEW``` : IP 주소를 갱신할 수 있는 상태
+  - IP를 할당 받으면, 해당 IP를 사용할 수 있는 Lease Time이 존재한다.
+  - 이 시간이 50% 이상 지났으면, 연장을 하기 위해 Request를 날린다.
+  - 이후 ```RENEW``` 상태에 들어가는 것!
+    - 여기서 ACK을 받는다면, 다시 ```BOUND``` 상태가 되는 것이고,
+    - ACK이 아닌 NACK을 받는다면, ```INITIALIZE``` 상태로 돌아가 다시 할당을 받는다.
+- ```REBIND``` : IP 주소를 갱신해야만 하는 상태
+  - 위의 ```RENEW```를 지나서, Lease time의 87.5% 까지 응답을 받지 못했다면?
+  - Request를 날리고, ```REBIND``` 상태로 들어간다.
+    - 이 때도 ```RENEW```와 같이, ACK과 NACK에 따라 다르게 동작한다.
+
+### Relay Agent
+Relay Agent. 이 용어는 DHCP의 확장성과 관련된 용어이다.  
+
+우리는 최초에 DHCP 서버를 찾기 위해 Broadcast로 Discover을 날린다.  
+하지만 분명 Broadcast는 LAN, 즉 같은 네트워크 안에서만 가능하다.  
+그런데 만약 DHCP 서버가 같은 네트워크 안에 존재하지 않는다면?  
+
+그럴 때 필요한 것이 바로 __Relay Agent__ 이다.  
+DHCP Relay Agent가 Broadcast 메시지를 받아서 DHCP Server에게 Unicast로 전달한다!  
