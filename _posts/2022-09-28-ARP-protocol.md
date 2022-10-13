@@ -136,4 +136,4 @@ BOOTP에 더불어서 최종적으로 발전하게된 현재의 IP 할당 Protoc
 그럼 굳이 IP를 요청할 일이 없으며, RARP 요청이 전혀 필요가 없게 된다!  
 
 ##### DHCP Procedure
-[사진 첨부]
+![dhcp 동작](https://user-images.githubusercontent.com/71700079/195479651-dc0acb75-db66-4a8b-9769-81a5f4415754.png)
