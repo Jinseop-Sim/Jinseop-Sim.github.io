@@ -128,7 +128,7 @@ ARP와는 반대로, 목적지의 MAC 주소를 바탕으로 IP 주소를 받아
 ### BOOTP
 위와 같은 한계로 인해 RARP의 발전된 Protocol인 BOOTP가 등장하게 된다.  
 BOOTP(Bootstrap Protocol)은, RARP 보다 쉽게 개발을 하기 위해 상위 계층과 통신을 한다.  
-__UDP/IP Packet__ 을 이용하며, __Network__ 계층에서 통신을 진행한다.
+__UDP/IP Packet__ 을 이용하며, __Network__ 계층에서 통신을 진행한다.  
 
 ### DHCP
 BOOTP에 더불어서 최종적으로 발전하게된 현재의 IP 할당 Protocol이다.  
