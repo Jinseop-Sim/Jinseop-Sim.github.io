@@ -7,12 +7,13 @@ author:
   - Jinseop Sim
   math: true
 ---
-- [단속 카메라[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/118668)  
+- [코딩 테스트 공부[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/118668)  
 
 2022 KAKAO INTERNSHIP 문제였다.  
 나에게는 아직 혼자서 생각해내기 매우 어려운 문제였던 것 같다.  
 내가 생각했던 점은 아래와 같다.  
-- 학습을 해야 하는 경우, 
+- 학습을 하거나 문제를 푸는 경우를 모두 생각해보아야 한다.
+  - 즉, 완전 탐색을 해보아야 일단 알 수 있다.
 
 ### DP + Recursion
 {% highlight cpp %}
