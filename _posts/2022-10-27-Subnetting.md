@@ -30,7 +30,9 @@ Router Table이 커지면 커질 수록, Lookup 시간은 길어질 것이고 �
 위와 같은 이유들로 인해서 등장한 것이 바로 __Subnetting__ 이다.  
 기본적으로 하나의 네트워크를 여러개의 서브 네트워크로 자르는 방식이다.  
 
-아래와 같은 방식으로 네트워크를 더 세세하게 분할한다.  
+아래와 같은 방식으로 네트워크를 더 작게 분할한다.  
+![image](https://user-images.githubusercontent.com/71700079/199285422-989a97ed-b4e5-4335-84d9-667cf1e85371.png)  
+![image](https://user-images.githubusercontent.com/71700079/199285587-baf5c4e1-5e28-4299-a2ea-e851c9a332b3.png)  
 
 분할을 하게 되면, IP의 낭비가 없게되며 Router Table의 크기도 줄일 수 있게 된다.  
 
