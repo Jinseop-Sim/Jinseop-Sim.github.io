@@ -5,7 +5,6 @@ categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
-  math: true
 ---
 - [코딩 테스트 공부[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/118668)  
 
@@ -14,7 +13,7 @@ author:
 내가 생각했던 점은 아래와 같다.  
 - 학습을 하거나 문제를 푸는 경우를 모두 생각해보아야 한다.
   - 즉, 완전 탐색을 해보아야 일단 알 수 있다.
-  - 과연 모든 경우를 다 탐색하는데 시간초과가 안날까?  
+  - 과연 모든 경우를 다 탐색하는데 시간초과가 안날까?
 
 그래서 다른 사람들의 풀이를 참고한 결과, DP를 섞어서 사용하는 것이 열쇠였다.  
 완전탐색으로 모든 경우를 탐색을 하되, 배열에 저장을 하면서 나아가는 것이다.  

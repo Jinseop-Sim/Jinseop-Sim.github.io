@@ -5,7 +5,6 @@ categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
-  math: true
 ---
 - [단속 카메라[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/42884)  
 

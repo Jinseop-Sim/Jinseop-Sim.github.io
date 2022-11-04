@@ -5,7 +5,6 @@ categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
-  math: true
 ---
 - [최고의 집합[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/12938)  
 
