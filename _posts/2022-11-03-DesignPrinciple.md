@@ -1,8 +1,8 @@
 ﻿---
 layout: post
 title: "[PNUCSE SE] Design Principle Fundamental"
-categories: HTML
-tags: [frontend]
+categories: SE
+tags: [theory]
 author:
   - Jinseop Sim
 toc: true
