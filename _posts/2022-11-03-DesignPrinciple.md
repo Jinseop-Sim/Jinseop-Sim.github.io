@@ -29,9 +29,10 @@ __Cohesion__, 한국말로는 __응집도__ 라고 한다.
 - Function Cohesion
   - 함수 내의 변수나 문장의 응집도를 의미한다.
   - 아래와 같은 종류의 응집도가 있다.
-  [사진 첨부]
+  ![image](https://user-images.githubusercontent.com/71700079/199871554-e076ad1f-13c1-443c-86cd-edaed4faf4ba.png)  
+
   - Logical Cohesion?
-    [ 사진첨부 ]
+    ![image](https://user-images.githubusercontent.com/71700079/199871522-6b5b4574-71b2-4e09-ae27-00ad978b0408.png)  
     - 위의 코드를 예시로 생각해보자.
     - if문 분기를 기준으로 둘은 전혀 연관성 없는 서로 다른 동작을 하고 있다.
     - 그럼 굳이 두 동작이 같은 함수 내에 있어야 할까?
@@ -45,7 +46,8 @@ __Cohesion__, 한국말로는 __응집도__ 라고 한다.
 응집도를 평가하는 지표로는 다음과 같은 것들이 사용된다.  
 
 - LCOM(Lack of Cohesion Of Method)
-  [사진 첨부]
+![image](https://user-images.githubusercontent.com/71700079/199871603-473b6d6d-7178-4b81-86dc-3cbeabfc1377.png)  
+
 - LCOM Variant
 - LCOM HS(Hendersons-Seller)
 
