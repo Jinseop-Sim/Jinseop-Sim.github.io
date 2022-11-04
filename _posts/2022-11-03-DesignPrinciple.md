@@ -6,6 +6,7 @@ tags: [theory]
 author:
   - Jinseop Sim
 toc: true
+math: true
 ---
 > 해당 자료는 부산대학교 채흥석 교수님의 소프트웨어 공학 강의 자료입니다.  
 
@@ -46,10 +47,34 @@ __Cohesion__, 한국말로는 __응집도__ 라고 한다.
 응집도를 평가하는 지표로는 다음과 같은 것들이 사용된다.  
 
 - LCOM(Lack of Cohesion Of Method)
-![image](https://user-images.githubusercontent.com/71700079/199871603-473b6d6d-7178-4b81-86dc-3cbeabfc1377.png)  
-
+  - 응집도가 얼마나 부족한지를 나타내는 지표이다. 
+  - 이 값이 높을 수록 좋지 않은 코드이다.
+  - 값의 계산 식은 아래와 같다.
+    - $if(|P| > |Q|) LCOM = |P| - |Q|$
+    - $else LCOM = 0$
+    - ```P```는 공통 참조 Instance가 존재하지 않는 Operation 쌍의 수를 말한다.
+    - ```Q```는 공통 참조 Instance가 존재하는 Operation 쌍의 수를 말한다.
+  ![image](https://user-images.githubusercontent.com/71700079/199871603-473b6d6d-7178-4b81-86dc-3cbeabfc1377.png)  
+    - 위의 그림을 예시로 생각해보자.
+    - 좌측 그림에서는 ```P```가 1이며, ```Q```가 2기 때문에 LCOM은 0이다.
+      - (op1, op3) | (op2, op3) (op1, op2) 으로 나눈다.
+    - 우측 그림에서는 ```P```가 2이며, ```Q```가 1이기 때문에 LCOM은 1이다.
+      - (op1, op3) (op2, op3) | (op1, op2) 로 나눈다.
 - LCOM Variant
+  - 위의 LCOM1은 최대값을 상정할 수 없다는 문제가 있다.
+    - 왜? ```P``` 값이 어디까지 커질 지 한계가 없기 때문이다.
+  - 그래서 아래와 같은 새로운 계산식을 도입한다.
+    - $LCOM = 1 - (sum(MF) / M * F) : [0..1]$
 - LCOM HS(Hendersons-Seller)
+  - 위의 계산식의 다른 버전이다.
+    - $LCOM = {M - sum(MF) / F} / (M-1) : [0..2]$
+  - 위의 두 Variant의 용어들은 아래와 같이 정의한다.
+    - M : Class 내의 Method의 총 갯수
+    - F : Class 내의 Instance Field의 수
+    - MF : Method의 Instance에 대한 참조 횟수
+    - 위에서 예시로 들었던 좌측의 그림에서 직접 구해보면 아래와 같다.
+      - $LCOM = 1 - (8/15) = 0.47$
+      - $LCOM HS = (3 - 8/5) / 2 = 0.7$
 
 ### Coupling
 __Coupling__, 한국말로는 __결합도__ 라고 한다.  
@@ -60,10 +85,14 @@ __Coupling__, 한국말로는 __결합도__ 라고 한다.
   - Fan in : 호출하는 Module의 수(Calling Method)
 - Class Coupling
   - RFC(Response For Class)
+    - Class 내의 Method 수 + 호출되는 다른 Class의 Method 수
   - CBO(Coupling Between Object)
+    - 자신이 참조하는 Class의 수 + 자신이 참조되는 Class의 수
 - Package Coupling
   - CE(Efferent Coupling)
+    - 자신의 Package에 정의된 Class가 의존하는 다른 Class의 수
   - CA(Afferent Coupling)
+    - 자신의 Package에 정의된 Class를 의존하는 다른 Class의 수
 
 ### Complexity
 __Complexity__, 한국말로는 __복잡도__ 라고 한다.  
@@ -71,6 +100,7 @@ __Complexity__, 한국말로는 __복잡도__ 라고 한다.
 복잡도를 평가하는 지표로는 다음과 같은 것들이 사용된다.  
 - CC(Cyclomatic Complexity)
   - Code 내 분기문의 수 + 1
+  - CC에 따른 결함 발생 위험도
 - Nesting Depth
   - 분기문이 몇 중으로 겹쳐있는지를 통해 평가하는 지표이다.
 - NPath(Number of static execution Path)
