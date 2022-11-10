@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "[PNUCSE SE] SOLID?"
+title: "[PNUCSE SE] Refactoring"
 categories: SE
 tags: [theory]
 author:
