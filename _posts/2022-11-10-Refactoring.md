@@ -28,18 +28,19 @@ Code Refactoring은 다음과 같은 절차를 의미한다.
   - 코드의 이해도를 높이고, 변경 용이성을 높이기 위해(OCP)!
 
 ### Refactoring : Poor Understandability
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201114346-d3744678-d5a2-4b3f-80b8-803262832843.png)  
 
-모호한 변수의 이름이나, 함수의 이름은 코드 이해도를 떨어트린다.
-타입, 변수의 이름, 함수의 이름을 명확하게 명시해주자!
+모호한 변수의 이름이나, 함수의 이름은 코드 이해도를 떨어트린다.  
+타입, 변수의 이름, 함수의 이름을 명확하게 명시해주자!  
+![image](https://user-images.githubusercontent.com/71700079/201114380-167cffa1-cc6b-476a-b6f2-54915398390e.png)  
 
 ### Refactoring : Introduce Explaining Variable
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201114443-c53880d7-4d94-45c7-8a1c-830f0d9eaa49.png)  
 
-내가 작성한 코드가 어떤 역할인지 명확하게 변수로 표현하라!
+내가 작성한 코드가 어떤 역할인지 명확하게 변수로 표현하라!  
 
 ### Refactoring : Extract Method
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201114511-eedf8868-f7cd-4fa9-a651-e72e4bac7eee.png)  
 
 주석 또한, Code Smell 중 하나라고 할 수 있다.  
 주석이 많다는 것은 명확하게 이해하기 힘든 Code라는 것!  
@@ -47,58 +48,58 @@ Code Refactoring은 다음과 같은 절차를 의미한다.
 공통되는 동작을 하는 문장들을 묶어서 하나의 함수로 추출해낼 것!  
 
 ### Refactoring : Move Method
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201114568-776a780b-f98f-4d60-9809-b0693806757a.png)  
 
 관련이 크게 없는 함수를 Class 내에 그냥 두는 것은 응집도를 저하시킨다.  
 관련이 있는 Class로 옮긴 뒤에 의존을 함으로써 Method를 이용하자!  
 
 ### Refactoring : Split Temporary Variable
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201114621-3fb644ba-38de-4ab2-a41b-9b7cda8cf6ab.png)  
 
 임시 변수로 잠깐 사용할 변수의 이름도, ```temp```로 두고 재사용 하지말 것!  
 문장의 의미를 정확하게 표현할 수 있는 변수의 이름으로 정할 것!  
 
 ### Refactoring : Introduce Assertion
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201114662-c6e21920-83fd-42ff-8663-b8b142e55094.png)  
 
 실제 Program의 값에 대한 제약에 대해 주석을 적는 것은 옳지 않다.  
 차라리 ```Assert()```를 이용해서, 조건 검사를 해주자!  
 
 ### Refactoring : Replace Error Code with Exception
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201114765-ce427cfa-7f4a-4018-90dd-9bb44fa5db24.png)  
 
 Error Code를 그냥 반환을 해주지 말고, 명확하게 어떤 예외인지 반환을 하자!  
 
 ### Refactoring : Replace Conditional with Guard Clauses
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201114825-84dee395-5711-41ce-a741-f4651b34b519.png)  
 
 다중 if문을 사용하지 말고, __Gaurd Clauses__ 를 써서 바로 ```return``` 하라!  
 
 ### Refactoring : Replace Magic Number with Symbolic Constant
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201114867-2aac0e88-8cf9-449d-80ff-92e772fcdaac.png)  
 
 위와 같은 중력 가속도나, 특정 반복 사용 되는 고정 값을 상수로 선언하자.  
 상수로 ```define``` 해놓으면 재사용성이 높아지며, 이해도가 높아진다.  
 
 ### Refactoring : Replace Parameter with Explicit Method
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201114927-effebfa7-57f0-4bd9-888e-c9464d242292.png)  
 
 위의 함수 ```setValue()```는 연관 없는 두 값을 담아 응집도를 떨어트린다.  
 
 ### Refactoring : Split Loop
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201115006-77ef34d9-38d0-4b1c-b56e-33bc9e253df8.png)  
 
 For loop 내에 전혀 연관 없는 두 동작이 들어가 있으면, 응집도를 저하시킨다.  
 서로 다른 Loop으로 Refactoring을 해주자!  
 
 ### Refactoring : Extract Class
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201115053-f863477f-db53-4d9d-964f-fd772746cad4.png)  
 
 하나의 Class 내에 전혀 연관이 없는 Attribute가 존재함을 알 수 있다.  
 그런 경우에는 다른 Class를 만들어 연관이 있는 Attribute 끼리 다시 추출하자!  
 
 ### Refactoring : Replace Type Code with Subclasses
-[코드 사진]
+![image](https://user-images.githubusercontent.com/71700079/201115106-c7f10b8b-82b6-45a1-af49-572645625616.png)  
 
 위와 같이 Type Code가 존재하는 경우, Code Smell이 난다고 볼 수 있다.  
 이런 경우에는 Subclass를 만들고 상속 관계를 만들어 주자!  
