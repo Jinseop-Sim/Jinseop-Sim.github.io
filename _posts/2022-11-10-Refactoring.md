@@ -104,6 +104,12 @@ For loop 내에 전혀 연관 없는 두 동작이 들어가 있으면, 응집�
 위와 같이 Type Code가 존재하는 경우, Code Smell이 난다고 볼 수 있다.  
 이런 경우에는 Subclass를 만들고 상속 관계를 만들어 주자!  
 
+### Refactoring : When I can set Type
+
+위의 경우에는 Type이 고정되어 있고, Type Code가 존재하는 경우였다.  
+하지만 Type이 존재하는데 Type Code를 내가 직접 Set 해줄 수 있는 경우에는 어떻게 할까?  
+해당 Type의 Interface를 구현한 뒤, 하위 객체들이 해당 Type에 의존하는 형태로 설계하자!  
+
 ### Behavior Preservation
 내가 Refactoring을 했을 때, 해당 Code가 그대로 동작하는지 어떻게 확인할까?  
 __Test Suite__ 를 이용할 수 있다!  
