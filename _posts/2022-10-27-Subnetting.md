@@ -46,3 +46,9 @@ Subnetting을 하게 되면, 기존의 Class 분할 방식과는 다르게 Class
     - 97이 ```01100001```이니, 위의 Octet과 &(AND)하면 ```01100000(96)````이 된다.
 
 ### CIDR
+위의 Subnet과 함께, IP의 낭비를 줄이고 Routing Table의 크기를 줄일 수 있는 방법이 있다.  
+바로, 위에서 한 번 언급한 CIDR(Classless Inter Domain Routing)이 되겠다.  
+
+사실 CIDR 기법의 안에 Subnet이 존재한다고 생각해도 될 것이다.  
+자른 Subnet을 CIDR Block이라고 부르기도 하며, Subnet mask와 동시에 사용된다.  
+```A.B.C.D/E```의 형태를 사용하고 있으며, ```E```가 Prefix의 자릿 수를 말한다.  
