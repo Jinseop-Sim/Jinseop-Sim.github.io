@@ -45,5 +45,4 @@ Subnetting을 하게 되면, 기존의 Class 분할 방식과는 다르게 Class
   - 이를 해당 IP 주소와 &(AND) 연산을 해주면, 192.168.44.96이 Subnet ID(Number)가 된다.
     - 97이 ```01100001```이니, 위의 Octet과 &(AND)하면 ```01100000(96)````이 된다.
 
-### Supernetting
-__Supernetting__ 은 Subnetting과 정반대의 개념이다.  
+### CIDR
