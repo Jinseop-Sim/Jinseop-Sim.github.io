@@ -52,3 +52,5 @@ Subnetting을 하게 되면, 기존의 Class 분할 방식과는 다르게 Class
 사실 CIDR 기법의 안에 Subnet이 존재한다고 생각해도 될 것이다.  
 자른 Subnet을 CIDR Block이라고 부르기도 하며, Subnet mask와 동시에 사용된다.  
 ```A.B.C.D/E```의 형태를 사용하고 있으며, ```E```가 Prefix의 자릿 수를 말한다.  
+
+- CIDR Example : University
