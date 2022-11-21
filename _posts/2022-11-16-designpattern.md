@@ -111,4 +111,11 @@ Template Method Pattern의 목적은 중복 Code를 최대한 제거하는 데�
 <img width="1009" alt="스크린샷 2022-11-21 오후 3 01 00" src="https://user-images.githubusercontent.com/71700079/202976725-1c4a415a-98c7-4dc6-85f4-2ceb4e061805.png">  
 
 위와 같이 Class의 상속 관계를 만들어서 처리하는 경우, ```move()``` 함수를 __Template Method__  
-또, ```moveMotor(direction)``` 함수를 __Primitive Operation__ 이라고 칭한다.
+또, ```moveMotor(direction)``` 함수를 __Primitive Operation__ 이라고 칭한다.  
+위의 Class를 실제 Java Code로 바꾸면 아래와 같이 표현할 수 있다.  
+
+<img width="917" alt="스크린샷 2022-11-21 오후 3 05 30" src="https://user-images.githubusercontent.com/71700079/202977184-c977dc35-a1ff-4540-9d4e-59e9743f79a2.png">  
+
+```move()``` 함수를 공통으로 묶었지만, ```moveMotor()``` 함수는 엄연히 두 Class가 다르게 동작을 했었다.  
+따라서 ```move()``` 함수를 사용할 때, 참조한 Class의 Type에 따라 ```moveMotor()``` 함수가 다르게 동작하도록   
+Overriding과 다형성을 통해 설계를 한다. 어차피 Motor Class 밖에선 쓰지 않으니 Protected로 선언한다.
