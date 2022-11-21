@@ -64,11 +64,13 @@ Top Level Design을 지나, Component Level의 설계를 할 때 적용함을 �
   - Strategy Pattern
 
 ### Observer Pattern
-Observer Pattern의 목적은 Subject의 변경을 Object가 쉽게 알아차리게 하는 것.  
-예를 들면, 유튜브 구독자에게 알림을 보내는 기능을 생각해볼 수 있다.  
+Observer Pattern의 목적은 Subject의 변경을 Object가 어떻게 쉽게 알아차릴까?에 있다.  
+- Subject의 변경을 Object가 Polling하며 일일이 감시하고 있어야 할까?
+  - 이는 곧 CPU의 낭비를 의미한다.
+- 또한, 모든 Object에 Subject가 직접 Pointer로 연결을 해놓았다면?
+  - Object가 새로 추가될 때 마다, Subject Class를 변경해야한다.
 
-만약 그냥 Subject Class와 Object Class를 두어서, 방송을 한다면?  
-새로운 구독자가 생기거나 했을 때, Subject Class를 변경해야하는 번거로움이 생긴다.  
+위의 방법을 개선하기 위해서 등장한 것이 바로 Observer Pattern이다!  
 
 ### Strategy Pattern
 Startegy Pattern의 목적은 Context가 Strategy의 상태를 알 수 없게 하는 것!  
