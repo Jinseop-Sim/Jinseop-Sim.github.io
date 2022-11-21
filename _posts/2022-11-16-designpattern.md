@@ -110,3 +110,5 @@ Template Method Pattern의 목적은 중복 Code를 최대한 제거하는 데�
 
 <img width="1009" alt="스크린샷 2022-11-21 오후 3 01 00" src="https://user-images.githubusercontent.com/71700079/202976725-1c4a415a-98c7-4dc6-85f4-2ceb4e061805.png">  
 
+위와 같이 Class의 상속 관계를 만들어서 처리하는 경우, ```move()``` 함수를 __Template Method__  
+또, ```moveMotor(direction)``` 함수를 __Primitive Operation__ 이라고 칭한다.
