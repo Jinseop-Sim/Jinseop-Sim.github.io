@@ -105,7 +105,7 @@ Template Method Pattern의 목적은 중복 Code를 최대한 제거하는 데�
 <img width="682" alt="스크린샷 2022-11-21 오전 11 49 06" src="https://user-images.githubusercontent.com/71700079/202952745-b2fe9519-e6d5-4541-b0af-89cded5cb7c1.png">  
 
 하지만 두 Code는 너무 중복되는 Code가 많으며, 이름만 다르지 거의 같은 Code라고 볼 수 있다.  
-이런 경우에는, 하나를 바꾸면 다른 Class도 바꾸어야하는 __Shotgun Surgery__ 를 발생시킬 수 있다.  
+이런 경우에는, 하나를 바꾸면 다른 Class도 바꾸어야하는 __Shotgun Surgery__ 의 위험이 있다.  
 따라서 아래와 같이 Abstract Class의 상속 관계를 이용해서 해결하자.  
 
 <img width="1009" alt="스크린샷 2022-11-21 오후 3 01 00" src="https://user-images.githubusercontent.com/71700079/202976725-1c4a415a-98c7-4dc6-85f4-2ceb4e061805.png">  
@@ -116,6 +116,6 @@ Template Method Pattern의 목적은 중복 Code를 최대한 제거하는 데�
 
 <img width="917" alt="스크린샷 2022-11-21 오후 3 05 30" src="https://user-images.githubusercontent.com/71700079/202977184-c977dc35-a1ff-4540-9d4e-59e9743f79a2.png">  
 
-```move()``` 함수를 공통으로 묶었지만, ```moveMotor()``` 함수는 엄연히 두 Class가 다르게 동작을 했었다.  
-따라서 ```move()``` 함수를 사용할 때, 참조한 Class의 Type에 따라 ```moveMotor()``` 함수가 다르게 동작하도록   
-Overriding과 다형성을 통해 설계를 한다. 어차피 Motor Class 밖에선 쓰지 않으니 Protected로 선언한다.
+```move()``` 함수를 공통으로 묶었지만, ```moveMotor()``` 함수는 두 Class가 다르게 동작을 했었다.  
+따라서 ```move()``` 함수 사용 시, 참조한 Class Type에 따라 ```moveMotor()``` 함수가 다르게 동작하도록   
+Overriding을 통해 설계를 한다. 어차피 Motor Class 밖에선 쓰지 않으니 Protected로 선언한다.
