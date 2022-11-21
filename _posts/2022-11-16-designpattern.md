@@ -80,12 +80,14 @@ Startegy Pattern의 목적은 Context가 Strategy의 상태를 알 수 없게 �
 <img width="528" alt="스크린샷 2022-11-21 오전 11 15 47" src="https://user-images.githubusercontent.com/71700079/202946382-4c9b30c8-3aea-49a4-80ee-a97c2eb8ec81.png">  
 
 위의 코드는 Pattern을 적용시키기 이전의 코드이다.  
-하나의 Module에 3개의 기능이 모두 들어간 ```analyze()``` 함수는 굉장히 응집도가 떨어져 보인다. 
+하나의 Module에 3개의 기능이 모두 들어간 ```analyze()``` 함수는 굉장히 응집도가 떨어져 보인다.  
 따라서 Refactoring이 필요하다. 아래와 같이 응집도를 높여보자.  
+
 <img width="651" alt="스크린샷 2022-11-21 오전 11 21 45" src="https://user-images.githubusercontent.com/71700079/202947659-63b9b4fe-5c60-4583-8988-d59cbdd1368c.png">  
 
 하지만 여전히 문제는 남아있다. 새로운 계산식을 적용하려면 함수를 수정해야 한다는 것이다.  
 이는 OCP(개방 폐쇄 원칙)에 위배되는 Code이다. 따라서 다음과 같은 Pattern을 적용시킨다!  
+
 <img width="890" alt="스크린샷 2022-11-21 오전 11 23 04" src="https://user-images.githubusercontent.com/71700079/202948222-316189c8-e268-42fe-8b53-d57b6a93f87d.png">  
 
 결국 Context는 해당 Strategy Interface에만 의존하면 된다(DIP).  
@@ -95,3 +97,11 @@ Startegy Pattern의 목적은 Context가 Strategy의 상태를 알 수 없게 �
 Template Method Pattern의 목적은 중복 Code를 최대한 제거하는 데에 있다.  
 
 - Example : HyundaiMotor
+<img width="703" alt="스크린샷 2022-11-21 오전 11 46 59" src="https://user-images.githubusercontent.com/71700079/202952548-6a9aa9c0-2988-49f4-b0d9-45023a20b1ea.png">  
+
+위와 같은 Code를 HyundaiMotors에서 만들어 놓았다고 가정하자.  
+이 때, LGMotors에서도 모터를 만들기 위해 해당 Code를 참고해 아래와 같은 Code를 짰다.  
+
+<img width="682" alt="스크린샷 2022-11-21 오전 11 49 06" src="https://user-images.githubusercontent.com/71700079/202952745-b2fe9519-e6d5-4541-b0af-89cded5cb7c1.png">  
+
+하지만 두 Code는 너무 중복되는 Code가 많으며, 이름만 다르지 거의 같은 Code라고 볼 수 있다.  
