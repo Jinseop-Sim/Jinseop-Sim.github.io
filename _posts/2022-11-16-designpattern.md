@@ -27,8 +27,6 @@ math: true
 Top Level Design을 지나, Component Level의 설계를 할 때 적용함을 알 수 있다.  
 각 Class들 간의 관계를 정의할 때 Design Pattern을 통해 Code Smell을 줄인다!  
 
-- Example : Score Record
-
 ### Pros and Cons
 - Design Pattern의 장점
   - Inspiration
@@ -71,6 +69,8 @@ Observer Pattern의 목적은 Subject의 변경을 Object가 어떻게 쉽게 �
   - Object가 새로 추가될 때 마다, Subject Class를 변경해야한다.
 
 위의 방법을 개선하기 위해서 등장한 것이 바로 Observer Pattern이다!  
+Subject Interface, Object Interface를 각각 만들고 Method를 정의한다.  
+이후 Subject Class와 Object Class들은 Interface를 구현하기만 하면 된다.  
 
 ### Strategy Pattern
 Startegy Pattern의 목적은 Context가 Strategy의 상태를 알 수 없게 하는 것!  
