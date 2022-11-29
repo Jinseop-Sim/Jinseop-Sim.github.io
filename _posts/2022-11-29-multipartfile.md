@@ -1,4 +1,4 @@
----
+ï»¿---
 layout: post
 title: "AWS S3 & Multipart"
 categories: aws
@@ -7,6 +7,6 @@ author:
   - Jinseop Sim
 toc: true
 ---
-AWS¿¡´Â S3ÀÌ¶ó´Â BucketÀÌ Á¸ÀçÇÑ´Ù.
+AWSì—ëŠ” S3ì´ë¼ëŠ” Bucketì´ ì¡´ì¬í•œë‹¤.
 
 ### Multipart File?
