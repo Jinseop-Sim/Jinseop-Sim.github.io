@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "[PNUCSE Network] TCP Transition"
+title: "[PNUCSE Network] TCP Transition Diagram"
 categories: Network
 tags: [theory]
 author:
