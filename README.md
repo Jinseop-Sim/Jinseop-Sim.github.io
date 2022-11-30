@@ -10,7 +10,7 @@
 - 만약, Local 환경에서 해당 저장소를 실행하시고 싶으시면, Ruby를 설치하신 뒤 [Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)을 참고해주시기 바랍니다.  
 
 ## 사용 방법
-- `Ref` tjfcl gn `_config.yml` 수정 후 Commit 하시면 됩니다.  
+- `Ref` 설치 후 `_config.yml` 수정 후 Commit 하시면 됩니다.  
 
 ## Ref
 
