@@ -24,4 +24,10 @@ Segment를 Window Size 만큼 보내다가, 특정 Sequence Number가 Loss가 �
 ACK은 해당 번호에서 멈추며, 해당 Segment를 받을 때 까지 ACK가 늘지 않는다.  
 
 이 방식은 Sequence number을 ```Modulo(2^N)```에 따라 번호를 매긴다.  
-Window Size는 ```2^N``` 보다 클 수 없다.  
+- Window Size는 ```2^N``` 보다 클 수 없다.
+- Receiver Buffer Size는 1로 고정된다.
+- Go-back-N Protocl의 Window Size가 1이 되면, Stop and Wait와 동일해진다.
+
+### Selective Repeat(Reject) ARQ
+
+이 방식은 Sequence
