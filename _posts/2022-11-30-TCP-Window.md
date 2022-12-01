@@ -29,5 +29,11 @@ ACK은 해당 번호에서 멈추며, 해당 Segment를 받을 때 까지 ACK가
 - Go-back-N Protocl의 Window Size가 1이 되면, Stop and Wait와 동일해진다.
 
 ### Selective Repeat(Reject) ARQ
+이 방식도 Sequence Number를 ```Modulo(2^N)```에 따라 번호를 매긴다.
+- Window Size는 ```2^N``` 이어야만 한다.
+- Receiver Buffer 또한 ```2^N``` 이어야만 한다.
+  - 이 점이 GBN Protocol과 다르며, 유리한 점이다.
+  - 다른 Packet들은 재전송이 필요 없어지기 때문이다.
 
-이 방식은 Sequence
+Selective Repeat와 Go-Back-N은 Sliding Window Protocol이라고 부른다.  
+Window가 Shrink하고 Increase하며 움직이는 모습이 마치 Slide하는 듯 보인다.  
