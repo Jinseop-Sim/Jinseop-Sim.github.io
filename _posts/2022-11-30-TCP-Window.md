@@ -43,3 +43,5 @@ ACK은 해당 번호에서 멈추며, 해당 Segment를 받을 때 까지 ACK가
 
 Selective Repeat와 Go-Back-N은 Sliding Window Protocol이라고 부른다.  
 Window가 Shrink하고 Increase하며 움직이는 모습이 마치 Slide하는 듯 보인다.  
+
+### Reliable and Ordered Delivery
