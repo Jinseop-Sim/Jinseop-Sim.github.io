@@ -45,3 +45,30 @@ Selective Repeat와 Go-Back-N은 Sliding Window Protocol이라고 부른다.
 Window가 Shrink하고 Increase하며 움직이는 모습이 마치 Slide하는 듯 보인다.  
 
 ### Reliable and Ordered Delivery
+TCP Buffer에는 그림과 같은 3가지 Pointer가 존재한다.  
+- Sender
+  - LastByteAcked : ACK을 몇 번 까지 받았는지 저장한다.
+    - 당연히 LastByteSent 보다는 작거나 같다.
+  - LastByteWritten : Application이 Buffer의 어디까지를 썼는지 저장한다.
+    - 가장 앞에 있으며, LastByteSent보다 크거나 같다.
+  - LastByteSent : Buffer에 저장된 Data를 어디까지 보냈는지 저장한다.
+- Receiver
+  - LastByteRead : Application에서 마지막으로 읽어 사용한 Data의 위치이다.
+    - 방금 도착한 Data는 아직 읽지 않으므로, LastByteRcvd 보다 작아야 한다.
+  - NextByteExpected : 아직 오지 않아서 받아야하는 Data의 위치를 저장한다.
+    - 중간에 Loss가 발생했으면, 그 위치를 가리키게 된다.
+    - LastByteRcvd + 1 보다 작거 같을 수 있다.
+      - ```+1```이 기준인 이유는, ACK은 Seq보다 항상 +1 되어 도착하기 때문이다.
+  - LastByteRcvd : 수신 버퍼에 저장된 Data의 마지막 위치를 저장한다.  
+
+위의 정보들을 통해서 아래와 같은 특징들을 알아낼 수 있다.  
+- ```LastByteRcvd - LastByteRead <= Sizeof(MaxRcvBuffer)```
+  - Receiver의 Buffer에 도착하는 Data Stream은 최대 버퍼를 넘을 수 없다.
+  - 이는 Buffer overflow로 부터 안전하게 보장하기 위함이다.
+- ```AdvertisedWindow = MaxRcvBuffer - {(NextByteExpected - 1) - LastByteRead}
+  - Receiver Buffer에 남은 공간을 의미하는 식이다.
+  - 사실 더 정확하게 계산하려면, Loss가 발생한 Data 까지 계산해주어야 한다.
+    - ```The amount of out-of-order data received since the NextByteExpected```
+- ```EfectiveWindow = AdvertisedWindow - (LastByteSent - LastByteAcked)```
+  - 해당 값이 0이 되면, Zero Window로 Data를 더 이상 전송할 수 없게 된다.
+- 해당 정보를 이용해서 TCP는 Flow Control을 구현할 수 있다.
