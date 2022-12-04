@@ -117,6 +117,7 @@ For loop 내에 전혀 연관 없는 두 동작이 들어가 있으면, 응집�
 ### Behavior Preservation
 내가 Refactoring을 했을 때, 해당 Code가 그대로 동작하는지 어떻게 확인할까?  
 __Test Suite__ 를 이용할 수 있다!  
+- Test Suite : Test Case들의 집합
 
 ### For Succesful Refactoring
 성공적인 Refactoring은 어떻게 수행할 수 있을까?  
