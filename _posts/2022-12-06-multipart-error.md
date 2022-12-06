@@ -39,5 +39,5 @@ File Class의 ```createNewFile()``` method와 함께 Local File이 눈에 들어
 - 해당 File이 이미 존재하면 False 반환
 - 해당 File이 존재하지 않으면 True 반환
 
-나의 경우에는 Local 환경에 이미 같은 파일이 저장되어 있어서, 해당 함수가 계속 False를 반환했던 것이다.  
-간단하지만 바보같은 오류였다.  
+나의 경우에는 Local 환경에 이미 같은 파일이 저장되어 있어서,  
+해당 함수가 계속 False를 반환했던 것이다. 간단하지만 바보같은 오류였다.  
