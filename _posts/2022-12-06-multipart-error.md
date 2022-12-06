@@ -11,12 +11,12 @@ toc: true
 AWS의 __S3 Bucket__ 을 이용해서 이미지 파일을 관리한다고 한다.  
 
 나도 공부를 하며, 다른 사람들이 만들어 놓은 Code를 참조해 아래와 같이 기능을 만들었다.  
-- ```Controller```
-[사진 첨부]
-- ```Service```
-[사진 첨부]  
-- ```Configuration```
-[사진 첨부]
+- ```Service```  
+<img width="723" alt="스크린샷 2022-12-06 오후 3 30 46" src="https://user-images.githubusercontent.com/71700079/205838378-946bea7a-8706-49c9-b024-d0a2c197d073.png">  
+<img width="906" alt="스크린샷 2022-12-06 오후 3 30 57" src="https://user-images.githubusercontent.com/71700079/205838392-40e91a18-c1d7-4370-a80b-762c05f96ecf.png">  
+
+- ```Configuration```  
+<img width="965" alt="스크린샷 2022-12-06 오후 3 29 31" src="https://user-images.githubusercontent.com/71700079/205838353-a240e658-f2c2-42ee-aee0-5804423c588e.png">  
 
 하지만 예기치 못하게, 계속 파일 변환에 실패를 하였다.  
 ```upload()``` 함수 내에 있는 ```convert()``` 함수에서 계속 오류가 터졌다.  
