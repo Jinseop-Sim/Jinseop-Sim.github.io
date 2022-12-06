@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "AWS S3 & Multipart"
-categories: aws
+categories: ToyProject
 tags: [devops]
 author:
   - Jinseop Sim
