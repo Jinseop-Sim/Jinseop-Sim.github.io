@@ -5,7 +5,6 @@ categories: ToyProject
 tags: [devops]
 author:
   - Jinseop Sim
-toc: true
 ---
 보통 웹 서비스에서 이미지를 게시하거나 프로필 사진 기능을 제공할 때,  
 AWS의 __S3 Bucket__ 을 이용해서 이미지 파일을 관리한다고 한다.  
