@@ -72,3 +72,11 @@ TCP Buffer에는 그림과 같은 3가지 Pointer가 존재한다.
 - ```EfectiveWindow = AdvertisedWindow - (LastByteSent - LastByteAcked)```
   - 해당 값이 0이 되면, Zero Window로 Data를 더 이상 전송할 수 없게 된다.
 - 해당 정보를 이용해서 TCP는 Flow Control을 구현할 수 있다.
+
+### Silly Window Syndrome
+TCP에서는 기본적으로 Sliding Window Algorithm을 사용해 Buffer를 관리한다.  
+그 과정에서 일어날 수 있는 이상한 문제를 하나 알아보자.
+
+### Nagel Algorithm
+위의 Silly Window Sydrome을 해결할 수 있는 해결책이 있다.  
+바로 __Nagel Algorithm__ 이다.  
