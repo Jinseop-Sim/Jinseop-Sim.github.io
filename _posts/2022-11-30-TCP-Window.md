@@ -94,4 +94,10 @@ TCP에서는 기본적으로 Sliding Window Algorithm을 사용해 Buffer를 관
   - MSS 만큼 구성이 가능할 정도로 많은 Data가 Buffer에 존재한다.  
 
 하지만 이 Algorithm은 송신 측에서의 해결법에 국한된다.  
-수신 측에서는 __Clark__ 라는 방식이 따로 있다고 한다.  
+
+### Clark's Solution
+수신 측의 Sydrome을 해결할 수 있는 방안이다.  
+
+- 수신 즉시 ACK을 보내서 송신 측에 받았다는 소식을 전한다.
+  - 이 때, Sliding window의 크기를 0으로 만들어 수신 Buffer가 혼잡함을 알린다.
+  - 최소 수신 Buffer의 1/2 이상, 혹은 MSS가 다 찰 때까지 기다렸다가 원래대로 늘린다.
