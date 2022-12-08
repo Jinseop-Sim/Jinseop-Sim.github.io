@@ -76,7 +76,22 @@ TCP Buffer에는 그림과 같은 3가지 Pointer가 존재한다.
 ### Silly Window Syndrome
 TCP에서는 기본적으로 Sliding Window Algorithm을 사용해 Buffer를 관리한다.  
 그 과정에서 일어날 수 있는 이상한 문제를 하나 알아보자.
+- 송신 측의 Syndrome
+  - 송신 측에서 1 Byte씩 Segment를 반복 전송하는 경우에 발생한다.
+  - 1 Byte를 위해 Header가 40byte나 붙어야 하는데, 배보다 배꼽이 커진 상황이다.
+- 수신 측의 Syndrome
+  - 수신 측의 Buffer가 가득 찼는데, 수신 측의 Window Size가 1이라면?
+  - 송신 측은 ```AdvertisedWindow```를 1밖에 못받는다.
+  - 결국 송신 측의 Syndrome이 발생하게 되는 것!
 
 ### Nagel Algorithm
 위의 Silly Window Sydrome을 해결할 수 있는 해결책이 있다.  
 바로 __Nagel Algorithm__ 이다.  
+
+1. 가장 처음 보내는 Segment는 1 Byte라도 전송한다.
+2. 아닌 경우엔 아래와 같은 경우 Segment를 전송한다.
+  - Receiver 측으로 부터 ACK을 받았다.
+  - MSS 만큼 구성이 가능할 정도로 많은 Data가 Buffer에 존재한다.  
+
+하지만 이 Algorithm은 송신 측에서의 해결법에 국한된다.  
+수신 측에서는 __Clark__ 라는 방식이 따로 있다고 한다.  
