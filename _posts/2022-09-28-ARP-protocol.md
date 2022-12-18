@@ -142,6 +142,8 @@ BOOTP에 더불어서 최종적으로 발전하게된 현재의 IP 할당 Protoc
 그리고 위 과정을 거치며, Client는 총 6개의 State를 거쳐간다.  
 - ```INITIALIZE``` : 가장 초기의 상태이다.
 - ```SELECT``` : Client가 Broadcast로 ```DISCOVER```을 날린 상태이다.
+  - ```DISCOVER``` Message에 Flag를 통해 ```OFFER``` Message의 전달 방식을 정할 수 있다.
+  - Flag가 0이면 Unicast, 1이면 Broadcast로 DHCP 서버에서 ```OFFER```가 날아온다.
 - ```REQUEST``` : DHCP 서버로 부터 ```OFFER```를 받은 상태이다.
   - 이제, 해당 서버에게 IP 할당을 받기 위해 Request 메시지를 날린다.
 - ```BOUND``` : DCHP 서버로 부터 마지막 ACK을 받고 IP를 할당받은 상태.
