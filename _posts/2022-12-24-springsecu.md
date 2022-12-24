@@ -23,4 +23,29 @@ __Filter__ 라는 핵심 요소를 통해서 인증과 인가 처리를 대부�
 #### 인증(Authentication) 관련 Architecture
 ![spring security](https://user-images.githubusercontent.com/71700079/209428010-d477a81b-81a3-46f0-ae64-f0df28fece58.png)  
 
-#### Spring 주요 Module
+위의 사진과 같은 구조를 통해 인증을 진행하게 된다.  
+자세하게 하나하나 분석을 해보자.  
+
+1. Authentication Filter
+  - 가장 먼저 HTTP Request가 들어오면 Filter가 가로채게 된다.
+  - 해당 Filter에서 가로챈 정보를 통해 Token의 인증용 객체를 생성하게 된다.
+2. UsernamePasswordAuthenticationToken
+  - ```Principal-Credential``` 구조를 사용하는 인증용 객체이다.
+  - 인증 이전의 객체를 생성하며, 인증이 완료된 객체 또한 생성하기도 한다.
+3. AuthenticationManager (Interface)
+  - 해당 객체는 구현체가 아닌 Interface에 불과하다.
+  - 이 Interface는 왜 존재할까?
+    - 다음 절차인 ```AuthenticationProvider```이 종류가 여러 개이기 때문이다.
+    - 해당 Provider에 대해서 OCP를 준수하기 위해 Interface를 둔다.
+  - ```ProviderManager``` 라는 구현체를 통해 Provider들을 관리한다.
+4. AuthenticationProvider
+  - Manager은 인증용 객체인 Token을 여러 겹의 Provider에게 넘긴다.
+  - 실질적인 인증 파트를 맡고 있으며, 인증되지 않은 Token을 인증하여 반환한다.
+5. UserDetailedService
+  - 실제로 DB에서 인증에 쓰일 사용자 정보를 가져온다.
+6. UserDetails
+  - DB의 사용자 정보를 통해 ```UserDetails```라는 객체가 생성된다.
+  - 해당 객체를 Provider에게 다시 넘겨, 인증을 진행한다.
+7. 인증이 완료되면 권한 등의 사용자 정보를 담은 ```Authentication``` 객체가 반환된다.
+8. 다시 최초의 ```AuthenticationFilter```에게 ```Authentication``` 객체가 반환된다.
+9. ```Authentication``` 객체를 ```Security Context```에 저장하고 마무리한다.
