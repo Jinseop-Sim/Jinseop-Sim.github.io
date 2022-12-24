@@ -21,6 +21,6 @@ Dependency를 추가하게 되면 아래와 같은 동작이 자동으로 처리
 __Filter__ 라는 핵심 요소를 통해서 인증과 인가 처리를 대부분 진행한다.  
 
 #### 인증(Authentication) 관련 Architecture
-[사진 첨부]
+![spring security](https://user-images.githubusercontent.com/71700079/209428010-d477a81b-81a3-46f0-ae64-f0df28fece58.png)  
 
 #### Spring 주요 Module
