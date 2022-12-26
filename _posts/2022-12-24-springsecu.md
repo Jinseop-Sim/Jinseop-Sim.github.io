@@ -32,6 +32,7 @@ __Filter__ 라는 핵심 요소를 통해서 인증과 인가 처리를 대부�
 2. UsernamePasswordAuthenticationToken
   - ```Principal-Credential``` 구조를 사용하는 인증용 객체이다.
   - 인증 이전의 객체를 생성하며, 인증이 완료된 객체 또한 생성하기도 한다.
+  - 인증이 완료된 객체는 ```Authentication``` 객체라고 한다.
 3. AuthenticationManager (Interface)
   - 해당 객체는 구현체가 아닌 Interface에 불과하다.
   - 이 Interface는 왜 존재할까?
@@ -49,3 +50,18 @@ __Filter__ 라는 핵심 요소를 통해서 인증과 인가 처리를 대부�
 7. 인증이 완료되면 권한 등의 사용자 정보를 담은 ```Authentication``` 객체가 반환된다.
 8. 다시 최초의 ```AuthenticationFilter```에게 ```Authentication``` 객체가 반환된다.
 9. ```Authentication``` 객체를 ```Security Context```에 저장하고 마무리한다.
+
+- ```Authentication``` 객체
+  - Principal : 사용자의 ID혹은 User 객체
+  - Credentials : 비밀번호
+  - Authorities : 인증된 사용자의 권한 목록
+  - Details : 인증 부가 정보
+  - Authenticated : 인증 여부
+  - ```Authentication```은 Interface로, 여러 구현체가 존재한다.
+    - ```UsernamePasswordAuthenticationToken``` 도 그 중 하나이다.
+- ```Security Context```
+  - ```Authentication``` 객체가 저장되는 보관소이다.
+  - ```ThreadLocal```에 저장되어 아무 곳에서나 참조가 가능하고, 언제든 꺼내 쓸 수 있다.
+### 실전 Code 분석
+
+> 참고 Github : [한강나우](https://github.com/HangangNow)
