@@ -62,6 +62,8 @@ __Filter__ 라는 핵심 요소를 통해서 인증과 인가 처리를 대부�
 - ```Security Context```
   - ```Authentication``` 객체가 저장되는 보관소이다.
   - ```ThreadLocal```에 저장되어 아무 곳에서나 참조가 가능하고, 언제든 꺼내 쓸 수 있다.
+
 ### 실전 Code 분석
 
-> 참고 Github : [한강나우](https://github.com/HangangNow)
+> 참고 Github : [한강나우](https://github.com/HangangNow)  
+> 참고 Blog : [Catsbi's blog](https://catsbi.oopy.io/f9b0d83c-4775-47da-9c81-2261851fe0d0)  
