@@ -71,7 +71,10 @@ __Filter__ 라는 핵심 요소를 통해서 인증과 인가 처리를 대부�
 이후로, Security를 이용한 검증 단계가 진행된다.  
 1. ```UsernamePasswordAuthenticationToken```을 통해 ```Authentication``` 객체를 만든다.
   - 이는 인증을 받기 이전의 객체이며, ```DTO```로 넘어온 User 정보를 통해 만든다.
-2. ```ManageBuilder```의 ```authentication()``` 함수를 통해서 
+2. ```ManageBuilder```의 ```authentication()``` 함수를 통해서 실제 검증을 진행한다.
+  - 커스텀 해놓은 JWT Filter를 통해서 검증을 진행한다.
+  - 위에서 언급한 순서들을 통해 검증 진행 후, ```Authentication``` 객체를 반환받는다.
+3. 검증된 ```Authentication``` 객체를 통해 미리 만들어 둔 ```generateTokenDto()``` 함수를 이용해 Token을 생성한다.
 
 > 참고 Github : [Hangangnow](https://github.com/HangangNow), [Flock](https://github.com/4ITING/Project-Flock)  
 > 참고 Blog : [Catsbi's blog](https://catsbi.oopy.io/f9b0d83c-4775-47da-9c81-2261851fe0d0)  
