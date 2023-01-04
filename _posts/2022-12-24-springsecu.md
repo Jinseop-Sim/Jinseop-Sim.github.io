@@ -65,5 +65,13 @@ __Filter__ 라는 핵심 요소를 통해서 인증과 인가 처리를 대부�
 
 ### 실전 Code 분석
 
-> 참고 Github : [한강나우](https://github.com/HangangNow)  
+위의 Code는 간단한 로그인 예제 Code이다.  
+가장 먼저, DB에 접근해 해당 User가 존재하는 지 부터 간단히 검증한다.  
+
+이후로, Security를 이용한 검증 단계가 진행된다.  
+1. ```UsernamePasswordAuthenticationToken```을 통해 ```Authentication``` 객체를 만든다.
+  - 이는 인증을 받기 이전의 객체이며, ```DTO```로 넘어온 User 정보를 통해 만든다.
+2. ```ManageBuilder```의 ```authentication()``` 함수를 통해서 
+
+> 참고 Github : [Hangangnow](https://github.com/HangangNow), [Flock](https://github.com/4ITING/Project-Flock)  
 > 참고 Blog : [Catsbi's blog](https://catsbi.oopy.io/f9b0d83c-4775-47da-9c81-2261851fe0d0)  
