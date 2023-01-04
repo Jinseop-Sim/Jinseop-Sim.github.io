@@ -26,7 +26,7 @@ Access Key와 DB 계정 정보 모두가 노출이 되어 올라간 것이다.
 해당 ```secret.yml```은 문제가 될 만한 민감 정보들을 모두 저장해둔다.  
 원래와 같이 ```spring.datasource.username=``` 과 같은 경로의 형태로 저장하면 된다.  
 
-[사진 첨부]
+![image](https://user-images.githubusercontent.com/71700079/210355019-40d50887-425b-4848-adaa-39ca1c5ee75d.png)  
 위와 같이 ```spring.profiles.include=...```를 이용하여 참조하도록 한다.  
 
 당연히 해당 민감 정보 File은 ```.gitignore```에 등록해 Push 되지 않도록 한다.  
