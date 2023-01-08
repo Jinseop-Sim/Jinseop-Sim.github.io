@@ -1,6 +1,6 @@
----
+ï»¿---
 layout: post
-title: "[Debug] Redis Error¿Í ¸í·É¾î"
+title: "[Debug] Redis Errorì™€ ëª…ë ¹ì–´"
 categories: ToyProject
 tags: [devops]
 author:
