@@ -37,7 +37,7 @@ Spring Security의 검증 과정에는 ```UserDetails``` 객체를 생성하는 
 마지막 줄에 ```this.authorities```를 설정해주고 있음을 확인할 수 있다.  
 해당 ```Collection```에 아무것도 들어가지 않아서 오류가 발생하고 있음을 알 수 있다.  
 
-[사진 첨부]
+<img width="875" alt="KakaoTalk_20230106_232304956" src="https://user-images.githubusercontent.com/71700079/211176757-fd43a8f0-02c6-45e6-a4ad-f9eb8b5725db.png">
 
 이 오류 또한 자격 증명 오류와 마찬가지로 ```UserDetails``` 객체 생성 시점에 해결해야 한다.  
 위의 코드에서 확인할 수 있듯이, ```GrantedAuthority``` 객체를 통해 권한을 주입하고 있다.  
