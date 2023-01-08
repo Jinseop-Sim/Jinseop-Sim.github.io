@@ -15,4 +15,5 @@ author:
 <img width="1040" alt="KakaoTalk_20230106_232449456" src="https://user-images.githubusercontent.com/71700079/211176320-32daf1a6-feb2-46ce-a9d8-7124436d7839.png">  
 
 ### Cannot Pass a null GrantedAuthority collection
-<img width="1379" alt="KakaoTalk_20230106_231227924" src="https://user-images.githubusercontent.com/71700079/211176292-96c0d668-e5d2-475c-9654-697db299620a.png">  
+<img width="1261" alt="KakaoTalk_20230106_231227924" src="https://user-images.githubusercontent.com/71700079/211176364-b199173f-6eb6-46a5-bbaa-ee2a959350bf.png">  
+
