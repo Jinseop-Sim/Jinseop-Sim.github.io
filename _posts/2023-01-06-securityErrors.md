@@ -12,7 +12,7 @@ author:
 그 과정에서 발생한 오류들을 정리해보려 한다.  
 
 ### 자격 증명에 실패하였습니다.
-[사진 첨부]
+<img width="1040" alt="KakaoTalk_20230106_232449456" src="https://user-images.githubusercontent.com/71700079/211176320-32daf1a6-feb2-46ce-a9d8-7124436d7839.png">  
 
 ### Cannot Pass a null GrantedAuthority collection
-[사진 첨부]
+<img width="1379" alt="KakaoTalk_20230106_231227924" src="https://user-images.githubusercontent.com/71700079/211176292-96c0d668-e5d2-475c-9654-697db299620a.png">  
