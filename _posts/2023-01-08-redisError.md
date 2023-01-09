@@ -21,3 +21,11 @@ Redis와 같은 Open Source형 저장소를 처음 써봤기 때문에 그랬는
 검색을 해보니 아뿔싸, 터미널을 통해 Redis를 키고 사용을 하는 것이 맞았다.  
 
 ### Redis 명령어
+- Redis 접속 명령어
+  - ```redis-server``` : Redis 서버에 접속한다.
+  - ```redis-cli``` : Redis 서버의 CLI(Command Line) 환경을 띄운다.
+  - ```redis-cli ping``` : Redis 서버가 켜져있는 지 확인 한다.
+    - 응답이 ```PONG``` 으로 올 경우 서버가 켜져 있는 것이다.
+  - ```redis-cli shutdown``` : Redis 서버를 종료한다.
+- Redis 내부 명령어
+  - ```Keys *``` : 존재하는 모든 Key를 출력한다.
