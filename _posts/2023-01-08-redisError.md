@@ -28,4 +28,5 @@ Redis와 같은 Open Source형 저장소를 처음 써봤기 때문에 그랬는
     - 응답이 ```PONG``` 으로 올 경우 서버가 켜져 있는 것이다.
   - ```redis-cli shutdown``` : Redis 서버를 종료한다.
 - Redis 내부 명령어
-  - ```Keys *``` : 존재하는 모든 Key를 출력한다.
+  - ```keys *``` : 존재하는 모든 Key를 출력한다.
+  - ```del [key]``` : 해당 Key와 Value를 삭제한다.
