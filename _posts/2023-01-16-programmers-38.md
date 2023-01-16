@@ -1,39 +1,39 @@
----
+ï»¿---
 layout: post
-title: "ÇÁ·Î±×·¡¸Ó½º Level 3 - ¼¶ ¿¬°áÇÏ±â"
+title: "í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ Level 3 - ì„¬ ì—°ê²°í•˜ê¸°"
 categories: Programmers
 tags: [cpp]
 author:
   - Jinseop Sim
 ---
-- [µðÆæ½º °ÔÀÓ[LEVEL 2]](https://school.programmers.co.kr/learn/courses/30/lessons/42861)  
+- [ë””íŽœìŠ¤ ê²Œìž„[LEVEL 2]](https://school.programmers.co.kr/learn/courses/30/lessons/42861)  
 
-¿À·£¸¸¿¡ ÄÚµù Å×½ºÆ® °øºÎ¸¦ Çß´Ù.  
-¿À·£¸¸¿¡ ÇÏÀÚ¸¶ÀÚ ¸¸³­ ¹®Á¦°¡ Ã³À½ ¸¸³ªº¸´Â ¾Ë°í¸®Áò ¹®Á¦¿´´Ù.  
+ì˜¤ëžœë§Œì— ì½”ë”© í…ŒìŠ¤íŠ¸ ê³µë¶€ë¥¼ í–ˆë‹¤.  
+ì˜¤ëžœë§Œì— í•˜ìžë§ˆìž ë§Œë‚œ ë¬¸ì œê°€ ì²˜ìŒ ë§Œë‚˜ë³´ëŠ” ì•Œê³ ë¦¬ì¦˜ ë¬¸ì œì˜€ë‹¤.  
 
 ### Floyd-Warshall
-Ã³À½¿¡´Â Floyd-Warshall ¾Ë°í¸®ÁòÀ¸·Î Ç®·Á°í ½ÃµµÇß´Ù.  
-¿Ö³ÄÇÏ¸é, Floyd-WarshallÀº ¸ðµç Á¤Á¡¿¡¼­ ½ÃÀÛÇÏ´Â ÃÖ´Ü°æ·Î¸¦ ±¸ÇÏ±â ¶§¹®ÀÌ´Ù.  
+ì²˜ìŒì—ëŠ” Floyd-Warshall ì•Œê³ ë¦¬ì¦˜ìœ¼ë¡œ í’€ë ¤ê³  ì‹œë„í–ˆë‹¤.  
+ì™œëƒí•˜ë©´, Floyd-Warshallì€ ëª¨ë“  ì •ì ì—ì„œ ì‹œìž‘í•˜ëŠ” ìµœë‹¨ê²½ë¡œë¥¼ êµ¬í•˜ê¸° ë•Œë¬¸ì´ë‹¤.  
 
-ÇÏÁö¸¸, Floyd-WarshallÀ» »ç¿ëÇÏ´Â °æ¿ì¿¡´Â ´ÙÀ½°ú °°Àº ¹®Á¦°¡ ¹ß»ýÇÑ´Ù.  
-- Floyd-WarshallÀº Á¤Á¡°ú Á¤Á¡°£ÀÇ ÃÖ´Ü °æ·Î ¹Û¿¡ ±¸ÇÏÁö ¸øÇÑ´Ù.
-  - Áï, ¸ðµç Á¤Á¡À» Áö³ª¿Ô´ÂÁö ¾Ë ¹æ¹ýÀÌ ¾ø´Ù´Â ¸»ÀÌ´Ù.
-- ±×·¸´Ù¸é ¸ðµç Á¤Á¡¿¡¼­ ½ÃÀÛÇÏ´Â DFS¿Í °áÇÕÀ» ÇÑ´Ù¸é?
-  - ½Ã°£ º¹Àâµµ »ó ÁÁÁö ¾ÊÀº Code°¡ µÉ °ÍÀÌ´Ù.
-  - ÀÌ¹Ì Floyd-Warshall ºÎÅÍ°¡ O(N^3)ÀÎ »óÅÂÀÌ´Ù.
+í•˜ì§€ë§Œ, Floyd-Warshallì„ ì‚¬ìš©í•˜ëŠ” ê²½ìš°ì—ëŠ” ë‹¤ìŒê³¼ ê°™ì€ ë¬¸ì œê°€ ë°œìƒí•œë‹¤.  
+- Floyd-Warshallì€ ì •ì ê³¼ ì •ì ê°„ì˜ ìµœë‹¨ ê²½ë¡œ ë°–ì— êµ¬í•˜ì§€ ëª»í•œë‹¤.
+  - ì¦‰, ëª¨ë“  ì •ì ì„ ì§€ë‚˜ì™”ëŠ”ì§€ ì•Œ ë°©ë²•ì´ ì—†ë‹¤ëŠ” ë§ì´ë‹¤.
+- ê·¸ë ‡ë‹¤ë©´ ëª¨ë“  ì •ì ì—ì„œ ì‹œìž‘í•˜ëŠ” DFSì™€ ê²°í•©ì„ í•œë‹¤ë©´?
+  - ì‹œê°„ ë³µìž¡ë„ ìƒ ì¢‹ì§€ ì•Šì€ Codeê°€ ë  ê²ƒì´ë‹¤.
+  - ì´ë¯¸ Floyd-Warshall ë¶€í„°ê°€ O(N^3)ì¸ ìƒíƒœì´ë‹¤.
 
-À§¿Í °°Àº ÀÌÀ¯·Î ´Ù¸¥ ¾Ë°í¸®ÁòÀ» »ý°¢ÇØº¸´Ù °á±¹ °Ë»öÀ» Çß´Ù.  
+ìœ„ì™€ ê°™ì€ ì´ìœ ë¡œ ë‹¤ë¥¸ ì•Œê³ ë¦¬ì¦˜ì„ ìƒê°í•´ë³´ë‹¤ ê²°êµ­ ê²€ìƒ‰ì„ í–ˆë‹¤.  
 
 ### Kruskal
-__Kruskal Algorithm__ Àº MST¸¦ ±¸ÇÏ´Â ¾Ë°í¸®ÁòÀÌ´Ù.  
-¿©±â¼­ MST¶õ Minimum Spannig Tree·Î, Áï __ÃÖ¼Ò ½ÅÀå Æ®¸®__ ¸¦ ÀÇ¹ÌÇÑ´Ù.  
+__Kruskal Algorithm__ ì€ MSTë¥¼ êµ¬í•˜ëŠ” ì•Œê³ ë¦¬ì¦˜ì´ë‹¤.  
+ì—¬ê¸°ì„œ MSTëž€ Minimum Spannig Treeë¡œ, ì¦‰ __ìµœì†Œ ì‹ ìž¥ íŠ¸ë¦¬__ ë¥¼ ì˜ë¯¸í•œë‹¤.  
 
-- Spanning Tree¶õ?
-  - ¼øÈ¯ ¾øÀÌ ¸ðµç ³ëµå°¡ ¿¬°áµÈ ±×·¡ÇÁ¸¦ ¸»ÇÑ´Ù.
-  - °£¼±ÀÇ ¼ö°¡ ÃÖ¼Ò °£¼±À¸·Î, ```Á¤Á¡ÀÇ ¼ö - 1```ÀÌ µÈ´Ù.
-  - »ç½Ç»ó, Á¤Á¡À» Root·Î ¸ðµç ±×·ì ¸â¹öµéÀ» ÀÚ½ÄÀ¸·Î °®´Â Tree ±¸Á¶ÀÌ´Ù.
-- ±×·³ MST´Â?
-  - Spanning Tree´Â ¿©·¯°³°¡ µÉ ¼ö ÀÖ´Âµ¥, ±× Áß °¡ÁßÄ¡ÀÇ ÇÕÀÌ °¡Àå ÀÛÀº TreeÀÌ´Ù.
+- Spanning Treeëž€?
+  - ìˆœí™˜ ì—†ì´ ëª¨ë“  ë…¸ë“œê°€ ì—°ê²°ëœ ê·¸ëž˜í”„ë¥¼ ë§í•œë‹¤.
+  - ê°„ì„ ì˜ ìˆ˜ê°€ ìµœì†Œ ê°„ì„ ìœ¼ë¡œ, ```ì •ì ì˜ ìˆ˜ - 1```ì´ ëœë‹¤.
+  - ì‚¬ì‹¤ìƒ, ì •ì ì„ Rootë¡œ ëª¨ë“  ê·¸ë£¹ ë©¤ë²„ë“¤ì„ ìžì‹ìœ¼ë¡œ ê°–ëŠ” Tree êµ¬ì¡°ì´ë‹¤.
+- ê·¸ëŸ¼ MSTëŠ”?
+  - Spanning TreeëŠ” ì—¬ëŸ¬ê°œê°€ ë  ìˆ˜ ìžˆëŠ”ë°, ê·¸ ì¤‘ ê°€ì¤‘ì¹˜ì˜ í•©ì´ ê°€ìž¥ ìž‘ì€ Treeì´ë‹¤.
 
 {% highlight cpp %}
 #include <string>
@@ -46,11 +46,11 @@ int kr_map[101];
 
 void init_map(int size) {
     for (int i = 0; i < size; i++)
-        kr_map[i] = i; // ¾ÆÁ÷ ºÎ¸ð°¡ ¾øÀ¸´Ï, ÀÚ±âÀÚ½ÅÀ¸·Î ÃÊ±âÈ­ ÇÑ´Ù.
+        kr_map[i] = i; // ì•„ì§ ë¶€ëª¨ê°€ ì—†ìœ¼ë‹ˆ, ìžê¸°ìžì‹ ìœ¼ë¡œ ì´ˆê¸°í™” í•œë‹¤.
 }
 
 bool cmp(vector<int> a, vector<int> b) {
-    return a[2] < b[2]; // ÁÖ¾îÁø °£¼±µéÀ» ¿À¸§Â÷¼ø Á¤·ÄÇÑ´Ù.
+    return a[2] < b[2]; // ì£¼ì–´ì§„ ê°„ì„ ë“¤ì„ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬í•œë‹¤.
 }
 
 int get_parent(int curr) {
