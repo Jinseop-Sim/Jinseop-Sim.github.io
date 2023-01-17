@@ -6,7 +6,7 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
-- [디펜스 게임[LEVEL 2]](https://school.programmers.co.kr/learn/courses/30/lessons/42861)  
+- [섬 연결하기[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/42861)  
 
 오랜만에 코딩 테스트 공부를 했다.  
 오랜만에 하자마자 만난 문제가 처음 만나보는 알고리즘 문제였다.  
@@ -27,6 +27,7 @@ author:
 ### Kruskal Algorithm
 __Kruskal Algorithm__ 은 MST를 구하는 알고리즘이다.  
 여기서 MST란 Minimum Spannig Tree로, 즉 __최소 신장 트리__ 를 의미한다.  
+또한, 이 Algorithm을 이해하기 위해선 __Union Find__ 에 대해 알고 있어야 한다.  
 
 #### Spanning Tree란?
 - 순환 없이 모든 노드가 연결된 그래프를 말한다.
@@ -36,6 +37,9 @@ __Kruskal Algorithm__ 은 MST를 구하는 알고리즘이다.
 #### 그럼 MST는?
 - Spanning Tree는 여러개가 될 수 있는데, 그 중 가중치의 합이 가장 작은 Tree이다.
 - Prim Algorithm, Kruskal Algorithm 등의 알고리즘으로 구할 수 있다.
+
+#### Union Find?!
+Kruskal Algorithm의 기초가 되는 Union Find는 다음과 같은 정의를 갖는다.  
 
 #### 그렇다면 Kruskal Algorithm은?
 정의는 모든 Node를 최소한의 가중치로 연결하는 Algorithm이다.  
