@@ -22,6 +22,64 @@ __Union Find__ 는 __Graph Algorithm__ 의 일종이다.
 3. ```Find(x)``` 연산을 통해 해당 Node의 부모를 알 수 있다.
   - Skewed Tree를 만들지 않기 위해, 인접 부모 노드가 아닌 Root 노드를 저장한다.
 
+### Example : 백준 1717 집합의 표현
+{% highlight cpp %}
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int nodes[1000001];
+void init_nodes(int size) {
+    for (int i = 1; i <= size; i++)
+        nodes[i] = i;
+}
+
+int get_root(int node_x) { 
+    // 해당 node의 Root를 찾는다.
+    if (nodes[node_x] == node_x) return node_x;
+    return nodes[node_x] = get_parent(nodes[node_x]);
+}
+
+void do_union(int node_x, int node_y) {
+    // Root끼리 연결을 해주는 함수
+    node_x = get_parent(node_x);
+    node_y = get_parent(node_y);
+
+    if (node_x > node_y) nodes[node_x] = node_y;
+    else nodes[node_y] = node_x;
+}
+
+void find(int node_x, int node_y) {
+    // Root가 같으면? 연결된 Tree(같은 집합)!
+    node_x = get_parent(node_x);
+    node_y = get_parent(node_y);
+
+    if (node_x == node_y) cout << "YES\n";
+    else cout << "NO\n";
+}
+
+int main() {
+    int n = 0, m = 0;
+    int cmd = 0, node_x = 0, node_y = 0;
+    
+    cin >> n >> m;
+    init_nodes(n);
+
+    for (int i = 0; i < m; i++) {
+        cin >> cmd >> node_x >> node_y;
+
+        if (cmd == 0)
+            do_union(node_x, node_y);
+        else
+            find(node_x, node_y);
+    }
+
+    return 0;
+}
+{% endhighlight %}
+
+> 참고 자료 출처 : [브랜든의 블로그](https://brenden.tistory.com/33)
+
 ### MST
 Tree의 종류 중에 MST(Minimum Spanning Tree)라는 Tree가 있다.  
 해당 Tree는 위에서 학습한 Union Find로 구현이 가능한 Tree이다.  
@@ -40,5 +98,3 @@ Tree의 종류 중에 MST(Minimum Spanning Tree)라는 Tree가 있다.
 MST를 구할 수 있는 첫번째 알고리즘, Kruskal 알고리즘이다.  
 위에서 언급했듯이 유니온 파인드를 이용해 MST를 구할 수 있다고 했는데,  
 바로 Kruskal Algorithm에 유니온 파인드가 사용된다.  
-
-> 참고 자료 출처 : [브랜든의 블로그](https://brenden.tistory.com/33)
