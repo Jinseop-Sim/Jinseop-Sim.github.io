@@ -6,3 +6,39 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
+__Union Find__ 는 __Graph Algorithm__ 의 일종이다.  
+그 의미는, __합집합 찾기__ 이며 __상호 배타적 집합(Disjoint-Set)__ 이라고 불리기도 한다.  
+
+두 가지의 연산으로 구성된다.  
+- Find : 어떤 Node x가 어떤 집합에 포함되어 있는지 찾는 연산
+- Union : 어떤 두 Node x, y의 집합을 합치는 연산
+  - 이는 곧, 두 Node를 연결한다는 의미와 같다.
+
+### 도식화
+1. 모두 연결되지 않고, 자신만을 원소로 가지는 집합이 있다.
+2. ```Union(x, y)``` 연산을 통해 다음과 같이 연결할 수 있다.
+  - 배열을 갱신하면, 해당 Node의 부모가 배열에 들어가게 된다.
+  - 일반적으로 더 작은 값 쪽이 부모가 된다.
+3. ```Find(x)``` 연산을 통해 해당 Node의 부모를 알 수 있다.
+  - Skewed Tree를 만들지 않기 위해, 인접 부모 노드가 아닌 Root 노드를 저장한다.
+
+### MST
+Tree의 종류 중에 MST(Minimum Spanning Tree)라는 Tree가 있다.  
+해당 Tree는 위에서 학습한 Union Find로 구현이 가능한 Tree이다.  
+
+먼저 Spanning Tree부터 알아보자.  
+- Spanning Tree : Cycle 없이 모든 Node를 이은 Tree.
+  - 해당 Tree는 당연히 Link(Edge)의 수가 ```Node(Vertex) - 1```이 된다.
+
+그럼 Minimum Spanning Tree란 뭘까?  
+바로 Spanning Tree 중 가중치가 가장 작은 Tree를 의미한다.  
+즉, 각 Edge에 가중치가 존재한다고 가정을 하고 구현하는 Tree이다.  
+
+아래부터 MST를 구할 수 있는 알고리즘을 소개하도록 하겠다.  
+
+### Kruskal Algorithm
+MST를 구할 수 있는 첫번째 알고리즘, Kruskal 알고리즘이다.  
+위에서 언급했듯이 유니온 파인드를 이용해 MST를 구할 수 있다고 했는데,  
+바로 Kruskal Algorithm에 유니온 파인드가 사용된다.  
+
+> 참고 자료 출처 : [브랜든의 블로그](https://brenden.tistory.com/33)
