@@ -38,9 +38,6 @@ __Kruskal Algorithm__ 은 MST를 구하는 알고리즘이다.
 - Spanning Tree는 여러개가 될 수 있는데, 그 중 가중치의 합이 가장 작은 Tree이다.
 - Prim Algorithm, Kruskal Algorithm 등의 알고리즘으로 구할 수 있다.
 
-#### Union Find?!
-Kruskal Algorithm의 기초가 되는 Union Find는 다음과 같은 정의를 갖는다.  
-
 #### 그렇다면 Kruskal Algorithm은?
 정의는 모든 Node를 최소한의 가중치로 연결하는 Algorithm이다.  
 1. 저장된 가중치를 오름차순으로 정렬한다. 
@@ -95,5 +92,3 @@ int solution(int n, vector<vector<int>> costs) {
     return answer;
 }
 {% endhighlight %}
-
-### Bonus : Prim Algorithm
