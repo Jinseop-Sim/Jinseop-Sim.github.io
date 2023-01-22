@@ -6,7 +6,7 @@ tags: [devops]
 author:
   - Jinseop Sim
 ---
-협업을 위해서는 반드시 써야 하는 SVN 중 하나인 Git.  
+협업을 위해서는 반드시 써야 하는 SVN(SubVersion) 중 하나인 Git.  
 나는 현재 토이 프로젝트에서의 협업을 위해 Git을 적극 사용하고 있다.  
 
 하지만 혼자 작업을 하다 큰 문제가 발생할 뻔 했었다.  
