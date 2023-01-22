@@ -30,3 +30,10 @@ Access Key와 DB 계정 정보 모두가 노출이 되어 올라간 것이다.
 위와 같이 ```spring.profiles.include=...```를 이용하여 참조하도록 한다.  
 
 당연히 해당 민감 정보 File은 ```.gitignore```에 등록해 Push 되지 않도록 한다.  
+
+> __여기부터 2023.01.22 추가__
+### gitignore의 재적용
+처음에 위의 방식을 통해 적용했을 때는, ```.gitignore```이 동작하지 않았다.  
+그대로 저장소에 ```application-secret.yml``` 이 올라가버려서 또 큰일이 날 뻔했다.  
+
+그래서, 방법이 없을까 물색하던 도중 ```git rm -r --cahced``` 라는 명령어를 알게 되었다.  
