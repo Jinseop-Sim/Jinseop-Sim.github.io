@@ -2,7 +2,7 @@
 layout: post
 title: "다대다 관계와 조회 Query에 대한 고찰"
 categories: ToyProject
-tags: [devops]
+tags: [develop]
 author:
   - Jinseop Sim
 ---
