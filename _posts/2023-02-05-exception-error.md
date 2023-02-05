@@ -31,3 +31,12 @@ author:
 위와 같이 JWT Token이 만료되었을 때 예외를 터뜨리려 했다.  
 하지만, 아래와 같은 에러가 발생하며 예상대로 작동하지 않았다.  
 <img width="1296" alt="KakaoTalk_20230205_164639988" src="https://user-images.githubusercontent.com/71700079/216818548-2ca0d2a4-2747-43e6-986c-0914ffd5aef2.png">  
+
+그 이유는 다음과 같다고 생각했다.  
+- Spring Security는 ```DispatchServlet``` 이전에 ```Filter```로 검증한다.
+  - 분명 ```@ControllerAdvice```는 그 이후에 작동을 하는 것 같다.
+  - 따라서, ```Filter```에서 미리 Exception이 터져버리는 것이다.
+  - 그럼 ```@ControllerAdvice```는 제 기능을 하지 못하게 된다.  
+
+검색을 조금 해서 찾은 실제 동작은 아래와 같다고 한다.  
+[사진 첨부]
