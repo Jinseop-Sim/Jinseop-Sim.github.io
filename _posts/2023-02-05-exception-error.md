@@ -26,8 +26,8 @@ author:
 
 ### JWT Exception
 하지만 문제는 Spring Security에 관련된 예외를 터뜨릴 때 였다.  
-<img width="1296" alt="KakaoTalk_20230205_164639988" src="https://user-images.githubusercontent.com/71700079/216818511-4045f9f0-b01e-4fed-ae34-2cf5aab25d67.png">  
+<img width="690" alt="KakaoTalk_20230205_164654145" src="https://user-images.githubusercontent.com/71700079/216818542-5d84219e-8ae3-4bf8-bc3f-4d0253863ab7.png">  
 
 위와 같이 JWT Token이 만료되었을 때 예외를 터뜨리려 했다.  
 하지만, 아래와 같은 에러가 발생하며 예상대로 작동하지 않았다.  
-<img width="915" alt="KakaoTalk_20230205_165209886" src="https://user-images.githubusercontent.com/71700079/216818516-f9cfac0a-300f-40b2-815b-411a20195e19.png">  
+<img width="1296" alt="KakaoTalk_20230205_164639988" src="https://user-images.githubusercontent.com/71700079/216818548-2ca0d2a4-2747-43e6-986c-0914ffd5aef2.png">  
