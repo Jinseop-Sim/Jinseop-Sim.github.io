@@ -41,4 +41,10 @@ author:
 검색을 조금 해서 찾은 실제 동작은 아래와 같다고 한다.  
 ![controladvice](https://user-images.githubusercontent.com/71700079/216828376-97c8fcf7-c84e-4038-8d60-31075da9e119.png)  
 
+예상 했던대로, ```@ControllerAdvice```는 ```DispatcherServlet``` 까지 내려와  
+Runtime에 발생하는 Exception을 잡아내는 기능을 지원한다.  
+하지만 그 이전에 Filter에서 Exception이 터져버리므로, 해당 Class엔 아무것도 가지 않는 것이다.  
+
+따라서 Filter를 Custom해서 Front단으로 오류 정보를 넘겨줄 필요가 있다!  
+
 ### Solution : Custom Filter
