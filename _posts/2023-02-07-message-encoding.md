@@ -35,6 +35,7 @@ Collation을 설정하지 않아 String이 깨졌던 것으로 판단되어 수�
 하지만 Collation을 설정해도 여전히 문제는 그대로 였다.  
 그래서 Query Console을 통해 DB Charset을 확인해보았다.  
 <img width="978" alt="라틴" src="https://user-images.githubusercontent.com/71700079/217264514-6cebf94c-8a8f-402e-871e-9ee03aa48ed0.png">  
+
 위와 같이 Charset과 Collation이 Latin으로 설정되어 있음을 볼 수 있다.  
 검색을 해보니, 파라미터 그룹을 설정한 뒤 DB를 재 생성하면 된다는 말이 나왔다.  
 하지만 나는 그냥 Query를 통해 해당 값을 수정하기로 했다.  
