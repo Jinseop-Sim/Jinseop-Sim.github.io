@@ -39,6 +39,7 @@ author:
   - 그럼 ```@ControllerAdvice```는 제 기능을 하지 못하게 된다.  
 
 Spring Security Docs에서 말하는 실제 동작은 아래와 같다고 한다.  
+![스시](https://user-images.githubusercontent.com/71700079/217487724-b9cfd2ef-4069-4595-8364-d0872c4d19af.png)  
 
 예상 했던대로, ```@ControllerAdvice```는 ```DispatcherServlet``` 까지 내려와  
 Runtime에 발생하는 Exception을 잡아내는 기능을 지원한다.  
