@@ -32,3 +32,5 @@ __Multipart__ 란 HTTP의 Data 형식 중 하나로, 특이한 형태의 Data이
 
 해당 형식으로 ```Content-Type```을 정하게 되면, 요청의 형태가 달라진다.  
 ```Boundary```라는 개념으로 Data를 여러가지 Part로 나누어 요청을 보내게 된다.  
+
+[내용 추가 예정]
