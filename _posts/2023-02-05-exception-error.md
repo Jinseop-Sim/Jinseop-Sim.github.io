@@ -19,7 +19,7 @@ author:
 - 옳지 않은 ID를 입력해 해당하는 유저가 없을 때
 <img width="381" alt="KakaoTalk_20230205_164916895" src="https://user-images.githubusercontent.com/71700079/216818477-f039b23b-7bf0-4a0e-946c-b8300ac87103.png">  
 
-- 옳지 않은 PW를 입력했을 때
+- 옳지 않은 PW를 입력했을 때  
 <img width="369" alt="KakaoTalk_20230205_165156113" src="https://user-images.githubusercontent.com/71700079/216818482-5df04611-7105-4c23-94db-075e41172eda.png">  
 
 예외를 Front에 JSON 형태로 잘 보내줌을 확인할 수 있다.  
@@ -33,19 +33,31 @@ author:
 <img width="1296" alt="KakaoTalk_20230205_164639988" src="https://user-images.githubusercontent.com/71700079/216818548-2ca0d2a4-2747-43e6-986c-0914ffd5aef2.png">  
 
 그 이유는 다음과 같다고 생각했다.  
-- Spring Security는 ```DispatchServlet``` 이전에 ```Filter```로 검증한다.
-  - 분명 ```@ControllerAdvice```는 그 이후에 작동을 하는 것 같다.
-  - 따라서, ```Filter```에서 미리 Exception이 터져버리는 것이다.
-  - 그럼 ```@ControllerAdvice```는 제 기능을 하지 못하게 된다.  
+- Exception은 이미 발생했고, Catch가 되었다.  
+  - Throw를 해봤자, 누가 받아서 처리할 것인가?
 
-Spring Security Docs에서 말하는 실제 동작은 아래와 같다고 한다.  
+예외 처리의 원리를 무시한 바보같은 코드였다.  
+
+### 실제 Spring Security의 Exeption 처리
+Spring Security Docs에서 말하는 실제 동작은 아래와 같다고 한다.    
 ![스시](https://user-images.githubusercontent.com/71700079/217487724-b9cfd2ef-4069-4595-8364-d0872c4d19af.png)  
 
-```@ControllerAdvice```는 ```DispatcherServlet``` 까지 내려와  
-Runtime에 발생하는 Exception을 잡아내는 기능을 지원한다.  
-하지만 그 이전에 Filter에서 Exception이 터져버리므로, 해당 Class엔 아무것도 가지 않는 것이다.  
+내가 현재 구현하려는 동작은 Throw를 했을 때 Catch 할 누군가가 없다.  
+따라서 새로운 Filter를 만들어서 Throw된 Exception을 잡아야 할 것이다!  
 
-따라서 Filter를 Custom해서 Front단으로 오류 정보를 넘겨줄 필요가 있다!  
+아래와 같이 새로운 ```ExceptionFilter```를 구현한다.  
+이후 ```addFilterBefore``` Method를 통해 Filter Chain을 구현한다.  
+```JWT Filter``` 이전에 ```ExceptionFilter``` 를 Chain 시켰으므로,  
+```JWT Filter```에서 Throw하는 Exception을 ```ExceptionFilter```가 Catch한다.  
 
-### Solution : Custom Filter
-[구현 후 내용 추가 예정]
+추가적으로 공식 문서에서는 다음과 같이 Exception 처리를 설명한다.  
+[사진 첨부]
+
+그림과 같이 Exception 발생 시, 저 두 부분에서 처리를 하도록 되어있다.  
+```ExceptionTranslationFilter```에서 ```doFilter(request, response)```를 호출한다.  
+해당 과정에서 어떤 Exception이 발생했는 지에 따라서 결과가 다르게 등장하는데,  
+- 미인증(Unauthenticated) : ```AuthenticationEntryPoint``` 가 동작한다.  
+- 미인가(Unauthorized) : ```AccessDeniedHandler``` 가 동작한다.  
+
+즉, 내가 구현한 Filter에서 미리 Exception을 Catch 후 처리하기 때문에,  
+해당 미인증, 미인가 결과 처리 파트 까지는 진입하지 않는다.  
