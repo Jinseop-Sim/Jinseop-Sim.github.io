@@ -46,12 +46,17 @@ Spring Security Docs에서 말하는 실제 동작은 아래와 같다고 한다
 따라서 새로운 Filter를 만들어서 Throw된 Exception을 잡아야 할 것이다!  
 
 아래와 같이 새로운 ```ExceptionFilter```를 구현한다.  
+<img width="893" alt="추가예외필터" src="https://user-images.githubusercontent.com/71700079/217564672-5d2c06fc-2bb6-481a-a372-2592a6162cee.png">  
+
 이후 ```addFilterBefore``` Method를 통해 Filter Chain을 구현한다.  
+<img width="593" alt="시큐리티 컨피규어" src="https://user-images.githubusercontent.com/71700079/217564767-2de61fdf-e914-4d5c-a8c3-d6b5d677c89b.png">  
+<img width="730" alt="시큐리티 필터추가" src="https://user-images.githubusercontent.com/71700079/217564712-d6054a02-62fd-43e0-b9a7-402199c73aa9.png">  
+
 ```JWT Filter``` 이전에 ```ExceptionFilter``` 를 Chain 시켰으므로,  
 ```JWT Filter```에서 Throw하는 Exception을 ```ExceptionFilter```가 Catch한다.  
 
 추가적으로 공식 문서에서는 다음과 같이 Exception 처리를 설명한다.  
-[사진 첨부]
+![필터쳉니](https://user-images.githubusercontent.com/71700079/217564596-7cb33bf7-ec8a-4dfb-a8bb-c331b781fc81.png)  
 
 그림과 같이 Exception 발생 시, 저 두 부분에서 처리를 하도록 되어있다.  
 ```ExceptionTranslationFilter```에서 ```doFilter(request, response)```를 호출한다.  
