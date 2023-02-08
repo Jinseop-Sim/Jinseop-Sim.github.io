@@ -40,7 +40,7 @@ author:
 
 Spring Security Docs에서 말하는 실제 동작은 아래와 같다고 한다.  
 
-예상 했던대로, ```@ControllerAdvice```는 ```DispatcherServlet``` 까지 내려와  
+```@ControllerAdvice```는 ```DispatcherServlet``` 까지 내려와  
 Runtime에 발생하는 Exception을 잡아내는 기능을 지원한다.  
 하지만 그 이전에 Filter에서 Exception이 터져버리므로, 해당 Class엔 아무것도 가지 않는 것이다.  
 
