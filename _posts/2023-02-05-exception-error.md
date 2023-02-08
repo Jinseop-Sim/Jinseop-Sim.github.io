@@ -38,8 +38,7 @@ author:
   - 따라서, ```Filter```에서 미리 Exception이 터져버리는 것이다.
   - 그럼 ```@ControllerAdvice```는 제 기능을 하지 못하게 된다.  
 
-검색을 조금 해서 찾은 실제 동작은 아래와 같다고 한다.  
-![controladvice](https://user-images.githubusercontent.com/71700079/216828376-97c8fcf7-c84e-4038-8d60-31075da9e119.png)  
+Spring Security Docs에서 말하는 실제 동작은 아래와 같다고 한다.  
 
 예상 했던대로, ```@ControllerAdvice```는 ```DispatcherServlet``` 까지 내려와  
 Runtime에 발생하는 Exception을 잡아내는 기능을 지원한다.  
