@@ -66,3 +66,6 @@ Spring Security Docs에서 말하는 실제 동작은 아래와 같다고 한다
 
 내가 구현한 Filter에서 미리 Exception을 Catch 후 처리하기 때문에,  
 해당 미인증, 미인가 결과 처리 파트 까지는 진입하지 않는다.  
+
+아래처럼, ```AuthenticationEntryPoint``` 또한 Custom이 가능하다.  
+<img width="724" alt="엔트리포인트" src="https://user-images.githubusercontent.com/71700079/217831478-ee42c468-bfca-4277-b2d0-db62d595caed.png">  
