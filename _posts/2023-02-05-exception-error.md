@@ -64,5 +64,5 @@ Spring Security Docs에서 말하는 실제 동작은 아래와 같다고 한다
 - 미인증(Unauthenticated) : ```AuthenticationEntryPoint``` 가 동작한다.  
 - 미인가(Unauthorized) : ```AccessDeniedHandler``` 가 동작한다.  
 
-즉, 내가 구현한 Filter에서 미리 Exception을 Catch 후 처리하기 때문에,  
+내가 구현한 Filter에서 미리 Exception을 Catch 후 처리하기 때문에,  
 해당 미인증, 미인가 결과 처리 파트 까지는 진입하지 않는다.  
