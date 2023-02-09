@@ -64,8 +64,8 @@ __Filter__ 라는 핵심 요소를 통해서 인증과 인가 처리를 대부�
   - ```ThreadLocal```에 저장되어 아무 곳에서나 참조가 가능하고, 언제든 꺼내 쓸 수 있다.
 
 ### 실전 Code 분석
+<img width="1013" alt="로그인 코드" src="https://user-images.githubusercontent.com/71700079/217831217-5484e958-3d04-415e-b5c3-e535a3b37a6e.png">  
 
-[사진 추가 예정]
 위의 Code는 간단한 로그인 예제 Code이다.  
 가장 먼저, DB에 접근해 해당 User가 존재하는 지 부터 간단히 검증한다.  
 
