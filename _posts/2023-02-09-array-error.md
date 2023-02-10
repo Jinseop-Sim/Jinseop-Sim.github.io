@@ -17,7 +17,9 @@ author:
 - 따라서 User만 좋아요를 누른 글의 기록을 들고 있으면 된다.
 
 하지만 아래와 같은 문제가 발생했다.  
-[사진 첨부]
+<img width="731" alt="좋아요 기능 오류" src="https://user-images.githubusercontent.com/71700079/218121347-0ece622d-88e9-49e7-9937-340506e5d8d6.png">  
+<img width="738" alt="KakaoTalk_20230209_224323845" src="https://user-images.githubusercontent.com/71700079/218121360-b7d55343-c2ae-4f3a-a493-d345192fa022.png">  
+<img width="497" alt="removed2" src="https://user-images.githubusercontent.com/71700079/218121365-c8e65b4c-5653-459b-8802-5c5965da4a25.png">  
 
 사진에서 확인할 수 있듯이, 두 배열이 같은 배열 취급이 되고 있다.  
 잠시 곰곰히 생각을 해보니 정말 기초적이고 바보같은 오류가 있었다.  
