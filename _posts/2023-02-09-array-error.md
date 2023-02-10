@@ -21,9 +21,15 @@ author:
 
 사진에서 확인할 수 있듯이, 두 배열이 같은 배열 취급이 되고 있다.  
 잠시 곰곰히 생각을 해보니 정말 기초적이고 바보같은 오류가 있었다.  
-```OneToMany```와 ```JoinColumn``` Annotation으로 일단 관계를 지었으나,  
-```JoinColumn```과 배열의 타입이 아예 일치함을 알 수 있다.  
+```@OneToMany```와 ```@JoinColumn``` Annotation으로 일단 관계를 지었으나,  
+Join 대상 Column과 배열의 타입이 아예 일치함을 알 수 있다.  
 내 생각엔, 그로 인해 내가 선언한 두 배열을 구분을 할 수 없는 것 같다.  
 
 연관 관계는 Column 명을 보고 FK를 통해 맺어지게 된다.  
-내가 사용한 FK는 
+내가 사용한 FK는 작성한 글 목록은 ```(mappedby = user)``` 이므로 User ID.  
+좋아요 누른 글 목록은 ```@JoinColumn(name = MEMBER_ID)``` 이므로 User ID.  
+둘이 Join 대상 Column이 같고, ```List<PostType>``` 으로 Type도 일치한다.  
+
+그럼 해당 게시글은 User ID를 외래키로 관계를 맺어버리니,  
+해당 배열을 동시에 조작하게 되는 것이라고 생각한다.  
+그럼 이 문제를 어떻게 해결할 수 있을까?  
