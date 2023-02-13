@@ -25,9 +25,16 @@ Springboot에서는 이런 예외 처리의 용이함을 위해 아래의 기술
     - ex) ```IllegalArgumentException```, ```NullPointerException```..
 
 ### ExceptionHanlder
-Spring에서는 각 Controller내에서 발생하는 Exception을 처리할 수 있도록,  
+Spring에서는 각 Controller 내에서 발생하는 Exception을 처리할 수 있도록,  
 ```@ExceptionHandler``` 이라는 Annotation을 지원하고 있다.  
+[사진 추가]  
+
+위 코드와 같이 각 Controller 내에서 발생하는 특정 Exception을 처리해준다.  
 
 ### ControllerAdvice
 불편하게 모든 Controller에 선언을 해야하는 ```ExceptionHandler```를 보완한,  
 전역에 선언해 예외 처리가 가능한, ```@ControllerAdvice``` Annotation이다.  
+[사진 추가]
+
+위 코드와 같이 ```@ControllerAdvice``` 라는 Class를 아예 따로 선언한다.  
+그럼 전역에서 잡히는 예외를 내부의 ```@ExceptionHandler``` 들이 각각 처리를 하게 된다.  
