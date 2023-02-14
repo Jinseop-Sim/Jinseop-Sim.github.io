@@ -35,3 +35,6 @@ Join 대상 Column과 배열의 타입이 아예 일치함을 알 수 있다.
 그럼 해당 게시글은 User ID를 외래키로 관계를 맺어버리니,  
 해당 배열을 동시에 조작하게 되는 것이라고 생각한다.  
 그럼 이 문제를 어떻게 해결할 수 있을까?  
+
+### 결국 ManyToMany
+<img width="499" alt="KakaoTalk_20230214_215918439" src="https://user-images.githubusercontent.com/71700079/218756697-9d183c01-13e2-45d4-bac4-d800495bb873.png">  
