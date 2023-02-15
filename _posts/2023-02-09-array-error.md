@@ -8,7 +8,7 @@ author:
 ---
 프로젝트를 진행하면서 좋아요 기능을 내가 맡게 되었다.  
 내 생각에는 아래의 그림과 같이 Entity에 선언을 하면 될 것이라 생각했다.  
-[사진 첨부]
+<img width="568" alt="멍청한 설계" src="https://user-images.githubusercontent.com/71700079/218949864-a9cf8f20-5821-40b8-b337-4172400c1192.png">  
 
 ```OnetoMany``` 단방향으로 설계한 이유는 아래와 같다.  
 - User가 게시글에 좋아요를 누르고 자신의 배열에 기록한다.
@@ -48,7 +48,8 @@ Join 대상 Column과 배열의 타입이 아예 일치함을 알 수 있다.
 ```ManyToMany```로는 설계하지 않으려 했는데 우선 설계를 해놓고 더 생각하기로 했다.  
 
 아래와 같이 ```ManyToMany``` 로 교차 Entity를 만들어 설계했다.  
-[사진 첨부]  
+<img width="580" alt="변경" src="https://user-images.githubusercontent.com/71700079/218949898-0cfd1740-b782-47ce-a4ca-a02f390baaf1.png">  
+<img width="583" alt="교차 엔티티" src="https://user-images.githubusercontent.com/71700079/218949884-e71df8d7-fbab-483a-a22b-104d73f8b08d.png">  
 
 그 결과 아래와 같이 성공적으로 구현되었음을 확인할 수 있었다.  
 <img width="499" alt="KakaoTalk_20230214_215918439" src="https://user-images.githubusercontent.com/71700079/218756697-9d183c01-13e2-45d4-bac4-d800495bb873.png">  
