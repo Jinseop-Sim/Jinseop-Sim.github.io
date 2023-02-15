@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "Exception과 Spring Security"
+title: "Spring Security의 WebSecurity"
 categories: ToyProject
 tags: [develop]
 author:
