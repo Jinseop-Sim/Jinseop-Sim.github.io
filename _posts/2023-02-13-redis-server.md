@@ -22,3 +22,25 @@ EC2 서버의 IP로 요청을 받을 수 있도록 Redis를 그곳에 띄워야 
 어디까지나 얕은 네트워크 지식을 통한 내 생각이다.  
 
 ### Redis Install
+Redis를 설치해서 이용하는 방식은 크게 두 가지가 있다.  
+
+1. Redis Server를 EC2에 설치해서 사용
+2. ElastiCache(외부 서버)를 통해 사용
+
+후자는 EC2에서 제공하는 ElastiCache라는 서비스인데,  
+Free tier지만 혹시 사용하다가 과금이 될까봐 전자를 사용하기로 했다.  
+신기술은 다음번에 사용해보기로 하자..  
+
+SSH를 연결을 통해 Termianl에서 EC2에 접속한 뒤  
+```
+sudo apt-get update
+sudo apt-get install redis-server
+```
+위의 명령어를 통해서 Redis server를 EC2에 설치해주자.  
+그리고 Redis 사용을 위해서 설정을 조금 해주어야 한다.  
+
+```
+sudo vi /etc/redis/redis.conf
+```
+위의 명령어를 통해 기본 Configuration을 수정해야 한다.  
+__접속 가능한 IP, Max Memory, Memory 교체 알고리즘__ 을 수정한다.  
