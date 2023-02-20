@@ -7,6 +7,9 @@ permalink: /about/
 안녕하세요, 백엔드 개발자를 꿈꾸는 학생입니다.  
 매일매일 사소한 것이라도 꾸준히 올리고자 블로그를 개설했습니다.  
 
+개발에 있어서 가장 중요한 것은 __의사소통__  
+학습에 있어서 가장 중요한 것은 __왜?__  
+
 - 사용해 본 언어  
 
 ![Python Badge](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=yellow) 
