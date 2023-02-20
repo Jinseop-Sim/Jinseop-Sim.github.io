@@ -31,10 +31,11 @@ Static한 리소스, ```favicon.ico```나 ```index.html``` 같은 것들이
 공식 문서의 중요성을 다시 한 번 깨닫게 된 에러였다.  
 
 ### 추가적인 문제 (2023.02.17 수정)
-[사진 첨부]
+<img width="1366" alt="웹 시큐리티 오류" src="https://user-images.githubusercontent.com/71700079/220079469-d1290c99-59fb-4084-9832-211dfcca7e0a.png">  
+
 위와 같이 ```ignoring()``` method가 아닌 ```HttpSecurity```를 권장한다고 한다.  
 공식 문서에 있어서 사용하긴 했는데, 권장하지 않는 방식인가 보다.  
-우선 ```HttpSecurity```에서 ```permitAll()```을 해놓고 좀 더 생각해봐야 할 것 같다.  
+우선 ```HttpSecurity```에서 ```permitAll()```을 해놓고 좀 더 알아봐야 할 것 같다.  
 
 ### 참고문헌
 > [Spring docs : WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/5.7.0-M2/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html)  
