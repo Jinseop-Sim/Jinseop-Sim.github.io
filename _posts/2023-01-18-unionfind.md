@@ -101,5 +101,16 @@ Tree의 종류 중에 MST(Minimum Spanning Tree)라는 Tree가 있다.
 
 ### Kruskal Algorithm
 MST를 구할 수 있는 첫번째 알고리즘, Kruskal 알고리즘이다.  
-위에서 언급했듯이 유니온 파인드를 이용해 MST를 구할 수 있다고 했는데,  
-바로 Kruskal Algorithm에 유니온 파인드가 사용된다.  
+위에서 언급했듯이 ```Union Find```를 이용해 MST를 구할 수 있다고 했는데,  
+바로 Kruskal Algorithm에 ```Union Find```가 사용된다.  
+
+아래와 같은 순서로 진행된다.  
+1. Graph의 모든 간선 정보를 빼내어 오름차순 정렬한다.
+2. 비용이 가장 최소인 간선부터 두 노드를 연결해준다.
+  - 해당 동작에 Union Find의 Union 동작이 들어간다.
+3. 계속 뒤로가며 Union을 반복한다.
+  - 이 때, ```Union Find```의 특징적인 동작이 보인다.
+  - 반복시에 Cycle이 발생하면 MST에 포함시키지 않는다.
+    - 이는 ```Union Find```의 ```find()```를 이용하는 방식이다.
+    - 두 노드의 부모가 같으면, Cycle의 발생을 의미한다!
+4. 모든 배열을 다 순회하고 나면, MST가 완성된다!
