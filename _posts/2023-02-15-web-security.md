@@ -17,11 +17,11 @@ Static한 리소스, ```favicon.ico```나 ```index.html``` 같은 것들이
 따라서 필터에 타지 않게 ```web.ignoring()``` 처리를 해줄 필요가 있다.  
 
 ### Web Security
-```WebSecurity``` 를 이용하기 위해서는 ```WebSecurityConfigurerAdapter``` 를 원래 상속받아야 한다.  
+```WebSecurity```를 이용하려면 원래 ```WebSecurityConfigurerAdapter```를 상속받아야 한다.  
 하지만 아래와 같이 Spring 공식 문서에 보면 __Deprecated__ 되었음을 알 수 있다.  
 <img width="879" alt="Deprecated" src="https://user-images.githubusercontent.com/71700079/218955145-30e90556-c808-4e73-bc3e-74b2cfeb1c1c.png">  
 
-따라서, Spring 공식 문서에서 제공하는 Guideline에 따라 아래와 같이 ```@Bean```을 등록한다.  
+따라서, Spring 공식 문서에서 제공하는 가이드에 따라 아래와 같이 ```@Bean```을 등록한다.  
 <img width="998" alt="새 버전" src="https://user-images.githubusercontent.com/71700079/218955261-8994bd94-f156-47df-9a23-efa0e4178b83.png">  
 <img width="822" alt="새 버전 적용" src="https://user-images.githubusercontent.com/71700079/218955266-1c67f8c5-6d91-4e99-94f5-d40359e5e499.png">  
 
