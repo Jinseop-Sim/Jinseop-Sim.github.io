@@ -30,9 +30,29 @@ author:
   - 나는 해당 함수를 Custom 해놓았기 때문에 확인이 필요할 것 같다.
 
 ### 저장이 잘 되었는가?
+1번 원인을 조사해보기 위해서, 과정에서 저장이 되는지 확인 해보았다.  
+아래와 같이 해당 ```email```로 찾았을 때, ```Member``` 값이 비었는지 확인한다.  
 <img width="774" alt="이즈세이브드" src="https://user-images.githubusercontent.com/71700079/222069053-e9adca5b-0c96-427a-a245-54f439b43151.png">  
+
+결과는 아래와 같이 ```false```.  
+```isEmpty()``` method를 통해 검증했으니, 이는 저장이 되었다는 의미이다.  
 <img width="622" alt="엠프티" src="https://user-images.githubusercontent.com/71700079/222068955-fcee119e-244d-4ce8-b15f-a23914171f5c.png">  
 
+그렇다면 1번 원인은 아님이 확정되었다!  
+
 ### UserDetail의 문제
+2번 원인을 조사하기 위해서, 일반 로그인 ```Service```를 확인해보았다.  
+일반 로그인의 검증 과정에서 아래와 같이 문제를 찾을 수 있었다.  
 <img width="792" alt="겟패스워드" src="https://user-images.githubusercontent.com/71700079/222068978-b940c61e-46ee-42a6-bca0-b52b81e086ea.png">  
+
+일반 로그인의 검증에서는 ```loginDto```의 Password를 그대로 넘겨주고 있었다.  
+그 말인 즉슨, ```passwordEncoder```에 의해 암호화 되기 전의 상태라는 의미이다.  
+하지만 내가 구현한 카카오 로그인 서비스는 아래와 같이 구현해 놓았다.  
+[사진 첨부]  
+
+암호화해서 저장을 한 뒤, 그대로 암호화 한 Password를 넘겨주었다.  
+그러면 당연히 검증을 암호화 된 상태로 진행하니, 예외가 발생할 수 밖에 없는 것이다.  
+따라서 아래와 같이 ```kakaoPassword``` 라는 암호화 이전 값으로 바꾸어주었다.  
 <img width="742" alt="카카오패스워드" src="https://user-images.githubusercontent.com/71700079/222068994-68d045f2-f439-4eac-a463-e98d11788059.png">  
+
+아래와 같이 카카오 회원으로 회원가입이 잘 되었음을 볼 수 있다.  
