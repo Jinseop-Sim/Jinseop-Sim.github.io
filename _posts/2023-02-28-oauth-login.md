@@ -28,3 +28,7 @@ author:
 2. ```loadByUserName()```에 문제가 있다.
   - ```authentication```은 ```loadByUserName()```을 통해 정보를 가져온다.
   - 나는 해당 함수를 Custom 해놓았기 때문에 확인이 필요할 것 같다.
+
+### 저장이 잘 되었는가?
+
+### UserDetail의 문제
