@@ -48,7 +48,8 @@ author:
 일반 로그인의 검증에서는 ```loginDto```의 Password를 그대로 넘겨주고 있었다.  
 그 말인 즉슨, ```passwordEncoder```에 의해 암호화 되기 전의 상태라는 의미이다.  
 하지만 내가 구현한 카카오 로그인 서비스는 아래와 같이 구현해 놓았다.  
-[사진 첨부]  
+<img width="744" alt="카카오 사인업" src="https://user-images.githubusercontent.com/71700079/222082945-719d640d-8ca8-4805-a0ca-c2c28dabdb69.png">  
+<img width="1003" alt="KakaoTalk_20230301_020314801" src="https://user-images.githubusercontent.com/71700079/222082974-8b3bbf80-39ae-48f2-bded-cbb98186b137.png">  
 
 암호화해서 저장을 한 뒤, 그대로 암호화 한 Password를 넘겨주었다.  
 그러면 당연히 검증을 암호화 된 상태로 진행하니, 예외가 발생할 수 밖에 없는 것이다.  
@@ -56,3 +57,4 @@ author:
 <img width="742" alt="카카오패스워드" src="https://user-images.githubusercontent.com/71700079/222068994-68d045f2-f439-4eac-a463-e98d11788059.png">  
 
 아래와 같이 카카오 회원으로 회원가입이 잘 되었음을 볼 수 있다.  
+<img width="376" alt="멤버" src="https://user-images.githubusercontent.com/71700079/222082888-8400e66a-13dc-422c-b6b3-1f04466c32e0.png">  
