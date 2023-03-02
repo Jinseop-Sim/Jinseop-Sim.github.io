@@ -19,6 +19,7 @@ author:
 
 아래의 화면과 같이 추가적으로 회원가입을 진행한다.  
 이미 만들어진 Member에 대해 ```upadate()```를 하는 것이다.  
+![추가가입](https://user-images.githubusercontent.com/71700079/222377455-bdf4f08a-dfeb-415a-9aa9-44526019bf7e.png)  
 
 그렇다면 다른 건 다 괜찮은데 비밀번호는 어떻게 할 것인가?  
 처음엔 아래와 같이 고정된 비밀번호 값을 정해주려 했다.  
@@ -50,8 +51,10 @@ author:
 이는 사실상 해킹에 가까운 행동이라고 생각한다.  
 
 따라서 해당 회원이 카카오 회원인지 아닌지 Attribute에 표시하며,  
+<img width="286" alt="프로바이더" src="https://user-images.githubusercontent.com/71700079/222377770-ef948ad4-e07d-4f65-8344-6974baf8f7e3.png">  
+
 만약 카카오 회원이라면, 아래와 같이 로그인을 제한하도록 한다.  
-[사진 첨부]
+<img width="721" alt="카카오예외" src="https://user-images.githubusercontent.com/71700079/222377629-2234a139-2a21-4941-8aa1-1788c346fcfd.png">  
 
 #### 비밀번호를 변경하려고 시도하는 경우
 카카오 회원은 사실 카카오 계정만 알면 자동 로그인이 되기 때문에,  
@@ -64,4 +67,4 @@ author:
 비밀번호가 변경되더라도 보안이나 서비스 상 문제는 없다고 생각한다.  
 
 하지만 일말의 가능성을 막기 위해서, 아래와 같이 막도록 구현했다.  
-[사진 첨부]
+<img width="651" alt="카카오예외2" src="https://user-images.githubusercontent.com/71700079/222377659-39c363aa-0527-4e84-a4da-5db65756399d.png">  
