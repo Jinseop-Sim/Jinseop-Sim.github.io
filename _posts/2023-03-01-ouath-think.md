@@ -6,7 +6,7 @@ tags: [develop]
 author:
   - Jinseop Sim
 ---
-앞서 글을 썼다 시피 나는 소셜 로그인을 구현했었다.  
+앞서 글을 썼다 시피 나는 카카오 API 로그인을 구현했었다.  
 해당 과정을 진행하며 고민되고 생각했던 것들을 적어보려 한다.  
 
 ### 카카오 회원가입 시 비밀번호
@@ -20,12 +20,13 @@ author:
 아래의 화면과 같이 추가적으로 회원가입을 진행한다.  
 이미 만들어진 Member에 대해 ```upadate()```를 하는 것이다.  
 ![추가가입](https://user-images.githubusercontent.com/71700079/222377455-bdf4f08a-dfeb-415a-9aa9-44526019bf7e.png)  
+<img width="850" alt="KakaoTalk_20230302_183643440" src="https://user-images.githubusercontent.com/71700079/222428007-34468c68-3363-4011-8470-5abed0dca247.png">  
 
 그렇다면 다른 건 다 괜찮은데 비밀번호는 어떻게 할 것인가?  
 아래와 같이 고정된 비밀번호 값을 정해 부여했다.  
-[사진 첨부]
+<img width="279" alt="KakaoTalk_20230302_183522641" src="https://user-images.githubusercontent.com/71700079/222427960-c2c1a8ca-d88a-4c27-aa55-b81d243826e9.png">  
 
-사실 보안상 이런 행동은 좋지 않다고 생각한다.  
+사실 보안상 이런 값은 좋지 않다고 생각한다.  
 모든 계정이 같은 비밀번호를 사용한다는 것은 매우 위험할 것이다.  
 
 ```UUID.random()``` 값을 부여해서 임의의 암호를 만들려 했으나,  
