@@ -55,7 +55,7 @@ __이는 지금 아래의 원칙을 완벽히 위배하고 있다!__
 
 이럴 때 사용할 수 있는 것이 __Factory Method__ 패턴이 되겠다.  
 아래와 같이 Factory Class를 생성한다.  
-[사진 첨부]
+![팩토리메서드](https://user-images.githubusercontent.com/71700079/224066721-2b7c5ab2-b761-4ff0-97e8-84d4cc0571ef.png)
 
 이제 생성의 책임은 __Factory Class__ 가 지게 된다.  
 새 객체가 생기더라도 Factory만 변경해주면, 알아서 생성을 해준다.  
@@ -84,7 +84,7 @@ Static Factory Method는 Factory Method와는 조금 차이가 있다.
 고유한 Method의 이름을 적어 객체의 생성 목적을 드러내는 것이다.  
 
 예를 들면 아래와 같은 코드가 될 수 있겠다.  
-[사진 첨부]
+![정적 팩토리 메서드](https://user-images.githubusercontent.com/71700079/224066761-d5aa7d1c-0171-4999-953f-b3b425bc381a.png)
 
 신입사원과 경력사원을 생성하려는 목적이 잘 드러나있다.  
 
