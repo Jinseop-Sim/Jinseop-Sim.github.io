@@ -37,13 +37,11 @@ Factory Method의 정의는 아래와 같다.
 
 예를 들어 내가 게임을 개발한다고 생각해보자.  
 그래서 아래와 같은 형태로 3개의 직업 Class를 만들어서 개발했다.  
-![크래스](https://user-images.githubusercontent.com/71700079/224202709-0ac6ee01-ec19-4ab3-bf0f-d7da45b7ee96.png)  
+![클래스의 형태](https://user-images.githubusercontent.com/71700079/224204617-c22fd0a6-282a-44d4-a4ae-faf6cf18675d.png)  
 
 이제 Service 단에 새 캐릭터를 만드는 기능을 개발하려 한다.  
 하지만 지금 상태라면, 아래와 같은 Service 코드가 될 것이다.  
-![ww](https://user-images.githubusercontent.com/71700079/224202738-60c8de45-a1a5-4e77-ab1c-3c0bb4712235.png)  
-
-현재는 분기문으로 생성을 갈라야하니, 새 직업이 생길 때마다 Service 코드도 변경해야만 하는 일이 생겨버린다.  
+![멍청한ㅅ ㅓ비스](https://user-images.githubusercontent.com/71700079/224204642-467ab678-7ddf-4846-9dff-c5c655b325fd.png)  
 
 __이는 지금 아래의 원칙을 완벽히 위배하고 있다!__  
 - SRP : 변경은 한 가지 이유로만 하도록 한다.
@@ -51,16 +49,16 @@ __이는 지금 아래의 원칙을 완벽히 위배하고 있다!__
   - 하지만 지금은 객체 생성의 책임까지 지고있다.
 - OCP : 변경에는 닫혀있으나, 확장에는 열려있어라.
   - SRP에서 이어지는 부분이다.
-  - 새 직업 Class가 생길 때 마다 매번 Service 코드를 변경한다.
+  - 새 직업 Class가 생길 때 마다 매번 Service의 분기문을 변경한다.
 
 이럴 때 사용할 수 있는 것이 __Factory Method__ 패턴이 되겠다.  
 아래와 같이 Factory Class를 생성한다.  
-![Qorxhfl](https://user-images.githubusercontent.com/71700079/224203097-0d9e2114-53a9-463f-b2b0-58ab975ca24a.png)  
+![팩토리 크래스](https://user-images.githubusercontent.com/71700079/224204783-b2c8d712-2e69-4bbc-9dc0-03605da700be.png)  
 
 이제 생성의 책임은 __Factory Class__ 가 지게 된다.  
 새 객체가 생기더라도 Factory만 변경해주면, 알아서 생성을 해준다.  
 이는 아래와 같이 Service Class의 결합도를 낮춰주며, 최종적으로 개발자 입장에서 유지 보수가 용이하게 하고 가독성 또한 높여준다.  
-![개선된 서비스](https://user-images.githubusercontent.com/71700079/224203111-52160c8d-c30c-4c8c-814a-6bbcad8865a3.png)  
+![개선된 서비스](https://user-images.githubusercontent.com/71700079/224204802-15b1bc26-2dc3-4e1c-b9b1-e2ce880e56e9.png)  
 
 ### Static Factory Method?
 Static Factory Method는 Factory Method와는 조금 차이가 있다.  
@@ -85,7 +83,7 @@ Static Factory Method는 Factory Method와는 조금 차이가 있다.
 고유한 Method의 이름을 적어 객체의 생성 목적을 드러내는 것이다.  
 
 예를 들면 아래와 같은 코드가 될 수 있겠다.  
-![정적 팩토리 메서드](https://user-images.githubusercontent.com/71700079/224066761-d5aa7d1c-0171-4999-953f-b3b425bc381a.png)  
+![이름을 가질 수 있다](https://user-images.githubusercontent.com/71700079/224204873-536edf70-c9e6-4dd6-ac1f-8cfdbd338196.png)  
 
 신입사원과 경력사원을 생성하려는 목적이 잘 드러나있다.  
 
@@ -94,15 +92,13 @@ Static Factory Method는 Factory Method와는 조금 차이가 있다.
 Enum이나 아래의 Day 같이 자주 사용되는 요소가 정해져있다면,  
 해당 객체를 미리 생성 해놓고 Cache 처럼 사용이 가능하다.  
 새로운 객체를 만드는 것이 아닌, 저장해 놓았던 객체를 꺼내 주는 것!  
-
-![Day예제](https://user-images.githubusercontent.com/71700079/224202783-dd218af1-bed7-4071-8be1-9c87f4ddc0fe.png)  
+![Day 예제](https://user-images.githubusercontent.com/71700079/224204899-92fa602c-a58e-42bf-bc65-6d9611217528.png)  
 
 #### 3. 하위 자료형 객체를 반환할 수 있다.
 이 부분에서는 Factory Method와 동일한 역할을 한다.  
 사실 이 부분이 Static Factory Method의 기본 역할이라고 생각한다.  
 당연히 Factory Method pattern에서 기인했으니, 위와 같이 생각한다.  
-
-[사진 첨부]  
+![하위 개체 호출 예제](https://user-images.githubusercontent.com/71700079/224204929-b0187e61-fe40-4eba-8e37-428618ffdfe9.png)  
 
 #### 4. 객체의 생성을 캡슐화할 수 있다.
 REST API로 개발을 하다보면, 계층 간 Data 전송에 ```DTO```가 사용된다.  
