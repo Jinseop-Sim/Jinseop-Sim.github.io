@@ -36,12 +36,12 @@ Factory Method의 정의는 아래와 같다.
 말로는 이해하기 어려우니 예를 들어보자.  
 
 예를 들어 내가 게임을 개발한다고 생각해보자.  
-그래서 아래와 같이 3개의 직업 Class를 만들어서 개발했다.  
-[사진 첨부]
+그래서 아래와 같은 형태로 3개의 직업 Class를 만들어서 개발했다.  
+![크래스](https://user-images.githubusercontent.com/71700079/224202709-0ac6ee01-ec19-4ab3-bf0f-d7da45b7ee96.png)  
 
 이제 Service 단에 새 캐릭터를 만드는 기능을 개발하려 한다.  
 하지만 지금 상태라면, 아래와 같은 Service 코드가 될 것이다.  
-[사진 첨부]
+![ww](https://user-images.githubusercontent.com/71700079/224202738-60c8de45-a1a5-4e77-ab1c-3c0bb4712235.png)  
 
 현재는 분기문으로 생성을 갈라야하니, 새 직업이 생길 때마다 Service 코드도 변경해야만 하는 일이 생겨버린다.  
 
@@ -94,7 +94,7 @@ Enum이나 아래의 Day 같이 자주 사용되는 요소가 정해져있다면
 해당 객체를 미리 생성 해놓고 Cache 처럼 사용이 가능하다.  
 새로운 객체를 만드는 것이 아닌, 저장해 놓았던 객체를 꺼내 주는 것!  
 
-[예시 : Day Class]
+![Day예제](https://user-images.githubusercontent.com/71700079/224202783-dd218af1-bed7-4071-8be1-9c87f4ddc0fe.png)  
 
 #### 3. 하위 자료형 객체를 반환할 수 있다.
 이 부분에서는 Factory Method와 동일한 역할을 한다.  
