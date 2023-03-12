@@ -9,7 +9,7 @@ author:
 프로젝트가 막바지에 갈 수록 DB에 값을 넣는 일이 많아졌다.  
 DB를 자주 확인하다 보니 굉장히 이상한 현상이 발생함을 확인했다.  
 바로 아래와 같은 현상이다.  
-[사진 첨부]
+<img width="423" alt="KakaoTalk_20230310_211517230" src="https://user-images.githubusercontent.com/71700079/224524214-17780829-04ea-44c9-b75e-05f0007fd50c.png">  
 
 나는 Primary key에 ```@GenerateValue```를 걸어 놓았다.  
 그러면 Key에 ```Auto increment```가 걸려, 생성시마다 값이 증가한다.  
@@ -33,6 +33,5 @@ Id 값을 Frontend에서 사용할 때에도 내가 보내주는 값만 쓸테�
 하지만 나는 위의 이유들에 해당하는 행동을 한 적이 없다.  
 다른 이유를 조금 더 찾아보았다.  
 
-
 ### 참고문헌
-> [Maria DB docs : Auto increment](https://mariadb.com/kb/en/auto_increment/)
+> [Maria DB docs : Auto increment](https://mariadb.com/kb/en/auto_increment/)  
