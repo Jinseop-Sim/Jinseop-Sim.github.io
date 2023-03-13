@@ -33,7 +33,7 @@ Id 값을 Frontend에서 사용할 때에도 내가 보내주는 값만 쓸테�
 하지만 나는 위의 이유들에 해당하는 행동을 한 적이 없다.  
 다른 이유를 조금 더 찾아보았다.  
 
-[SQL AUTHORITY.com](https://blog.sqlauthority.com/2018/01/24/sql-server-identity-jumping-1000-identity_cache/)  
+> [SQL AUTHORITY.com : Identity Cache](https://blog.sqlauthority.com/2018/01/24/sql-server-identity-jumping-1000-identity_cache/)  
 해당 링크는 나와 아예 동일한 문제에 대해 안내하고 있다.  
 DB의 ```IDENTITY_CACHE```와 관련된 문제라고 한다.  
 
@@ -45,5 +45,9 @@ DB가 예기치 않은 종료를 맞이했을 때, 미리 만들어 둔 1000의 
 ```ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = OFF```  
 ```IDENTITY_CACHE```를 사용하지 않음으로써, 값의 점프를 막는 것이다.  
 
+Datagrip을 통해서 내가 사용중인 DB에 확인해 보았다.  
+아래와 같이 해당 항목은 찾아볼 수가 없었다.  
+
 ### 참고문헌
 > [Maria DB docs : Auto increment](https://mariadb.com/kb/en/auto_increment/)  
+> [SQL AUTHORITY.com : Identity Cache](https://blog.sqlauthority.com/2018/01/24/sql-server-identity-jumping-1000-identity_cache/)  
