@@ -47,6 +47,7 @@ DB가 예기치 않은 종료를 맞이했을 때, 미리 만들어 둔 1000의 
 
 Datagrip을 통해서 내가 사용중인 DB에 확인해 보았다.  
 아래와 같이 해당 항목은 찾아볼 수가 없었다.  
+[사진 첨부]
 
 ### 참고문헌
 > [Maria DB docs : Auto increment](https://mariadb.com/kb/en/auto_increment/)  
