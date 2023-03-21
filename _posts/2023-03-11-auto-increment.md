@@ -49,6 +49,14 @@ Datagrip을 통해서 내가 사용중인 DB에 확인해 보았다.
 하지만 명령어가 먹히지 않았고, 아래와 같은 항목만이 존재했다.  
 <img width="603" alt="KakaoTalk_20230321_191405653" src="https://user-images.githubusercontent.com/71700079/226590823-489eab08-47f9-4744-8a4e-a2d783b69a15.png">  
 
+하지만 공식문서에는 다음과 같이 분명 ```CACHE```가 parameter로 명시되어 있다.  
+[사진 첨부]  
+
+또한 아래와 같이 실제 DB에도 ```Cache_size```가 1000으로 존재함을 알 수 있다.  
+[사진 첨부]  
+
+조금 더 찾아보니, 공식문서에 ```ALTER SEQUENCE```를 통해 설정을 바꿀 수 있다고 되어있다.
+
 ### 참고문헌
 > [Maria DB docs : Auto increment](https://mariadb.com/kb/en/auto_increment/)  
 > [Maria DB docs : CREATE SEQUENCE](https://mariadb.com/kb/en/create-sequence/)  
