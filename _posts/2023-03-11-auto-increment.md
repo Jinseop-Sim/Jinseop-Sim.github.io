@@ -47,7 +47,7 @@ DB가 예기치 않은 종료를 맞이했을 때, 미리 만들어 둔 1000의 
 
 Datagrip을 통해서 내가 사용중인 DB에 확인해 보았다.  
 하지만 명령어가 먹히지 않았고, 아래와 같은 항목만이 존재했다.  
-[사진 첨부]
+<img width="603" alt="KakaoTalk_20230321_191405653" src="https://user-images.githubusercontent.com/71700079/226590823-489eab08-47f9-4744-8a4e-a2d783b69a15.png">
 
 ### 참고문헌
 > [Maria DB docs : Auto increment](https://mariadb.com/kb/en/auto_increment/)  
