@@ -50,7 +50,7 @@ Datagrip을 통해서 내가 사용중인 DB에 확인해 보았다.
 <img width="603" alt="KakaoTalk_20230321_191405653" src="https://user-images.githubusercontent.com/71700079/226590823-489eab08-47f9-4744-8a4e-a2d783b69a15.png">  
 
 하지만 공식문서에는 다음과 같이 분명 ```CACHE```가 parameter로 명시되어 있다.  
-[사진 첨부]  
+![w](https://user-images.githubusercontent.com/71700079/227532252-6504f946-f003-490a-a5df-b86bab7c8d0e.png)  
 
 또한 아래와 같이 실제 DB에도 ```Cache_size```가 1000으로 존재함을 알 수 있다.  
 [사진 첨부]  
