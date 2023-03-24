@@ -55,7 +55,7 @@ Datagrip을 통해서 내가 사용중인 DB에 확인해 보았다.
 또한 아래와 같이 실제 DB에도 ```Cache_size```가 1000으로 존재함을 알 수 있다.  
 [사진 첨부]  
 
-조금 더 찾아보니, 공식문서에 ```ALTER SEQUENCE```를 통해 설정을 바꿀 수 있다고 되어있다.
+조금 더 찾아보니, 공식문서에 ```ALTER SEQUENCE```를 통해 설정을 바꿀 수 있다고 되어있다.  
 
 ### 참고문헌
 > [Maria DB docs : Auto increment](https://mariadb.com/kb/en/auto_increment/)  
