@@ -55,7 +55,16 @@ Datagrip을 통해서 내가 사용중인 DB에 확인해 보았다.
 또한 아래와 같이 실제 DB에도 ```Cache_size```가 1000으로 존재함을 알 수 있다.  
  <img width="942" alt="ㅂㅈ" src="https://user-images.githubusercontent.com/71700079/227534540-791ac29b-3a10-4584-abd8-69304cc302e8.png">  
 
-조금 더 찾아보니, 공식문서에 ```ALTER SEQUENCE```를 통해 설정을 바꿀 수 있다고 되어있다.  
+조금 더 찾아보니, 공식문서에 ```ALTER SEQUENCE```를 통해 설정을 바꿀 수 있다고 되어 있었다.  
+![image](https://user-images.githubusercontent.com/71700079/227535333-b4a2f227-c2e8-419a-a5ce-7c224828ab0b.png)  
+
+따라서 다음과 같이 ```DataGrip```에서 ```NOCACHE``` 옵션을 통해 수정했다.  
+<img width="464" alt="KakaoTalk_20230324_223339378" src="https://user-images.githubusercontent.com/71700079/227535524-a9fb8658-788f-4350-9cfb-c26222dd2411.png">  
+다시 확인을 해보면 ```Cache size```가 0으로 바뀌었음을 확인할 수 있다.
+<img width="677" alt="KakaoTalk_20230324_223403807" src="https://user-images.githubusercontent.com/71700079/227535474-1416abd9-7779-409b-8849-a87f5db9e700.png">  
+
+잘 작동하는지 실제로 DB를 강제 종료해서 Stress를 줘 보았다.  
+[사진 추가]  
 
 ### 참고문헌
 > [Maria DB docs : Auto increment](https://mariadb.com/kb/en/auto_increment/)  
