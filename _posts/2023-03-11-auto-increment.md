@@ -53,7 +53,7 @@ Datagrip을 통해서 내가 사용중인 DB에 확인해 보았다.
 ![w](https://user-images.githubusercontent.com/71700079/227532252-6504f946-f003-490a-a5df-b86bab7c8d0e.png)  
 
 또한 아래와 같이 실제 DB에도 ```Cache_size```가 1000으로 존재함을 알 수 있다.  
-[사진 첨부]  
+ <img width="942" alt="ㅂㅈ" src="https://user-images.githubusercontent.com/71700079/227534540-791ac29b-3a10-4584-abd8-69304cc302e8.png">  
 
 조금 더 찾아보니, 공식문서에 ```ALTER SEQUENCE```를 통해 설정을 바꿀 수 있다고 되어있다.  
 
