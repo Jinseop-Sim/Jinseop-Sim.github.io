@@ -33,6 +33,7 @@ Id 값을 Frontend에서 사용할 때에도 내가 보내주는 값만 쓸테�
 하지만 나는 위의 이유들에 해당하는 행동을 한 적이 없다.  
 다른 이유를 조금 더 찾아보았다.  
 
+### Sequence의 IDENTITY_CACHE
 > [SQL AUTHORITY.com : Identity Cache](https://blog.sqlauthority.com/2018/01/24/sql-server-identity-jumping-1000-identity_cache/)  
 해당 링크는 나와 아예 동일한 문제에 대해 안내하고 있다.  
 DB의 ```IDENTITY_CACHE```와 관련된 문제라고 한다.  
@@ -63,6 +64,7 @@ Datagrip을 통해서 내가 사용중인 DB에 확인해 보았다.
 다시 확인을 해보면 ```Cache size```가 0으로 바뀌었음을 확인할 수 있다.
 <img width="677" alt="KakaoTalk_20230324_223403807" src="https://user-images.githubusercontent.com/71700079/227535474-1416abd9-7779-409b-8849-a87f5db9e700.png">  
 
+### 실제 적용
 실제로 잘 동작하는지 기간을 두고 지켜보았다.  
 원래는 아래와 같이 1000씩 건너뛰어 이상한 증가세를 보였다.  
 <img width="366" alt="KakaoTalk_20230327_191700146" src="https://user-images.githubusercontent.com/71700079/228291468-725bed01-7aa9-48aa-8c67-34e22a79c014.png">  
