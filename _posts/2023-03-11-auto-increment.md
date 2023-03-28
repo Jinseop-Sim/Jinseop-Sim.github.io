@@ -63,8 +63,12 @@ Datagrip을 통해서 내가 사용중인 DB에 확인해 보았다.
 다시 확인을 해보면 ```Cache size```가 0으로 바뀌었음을 확인할 수 있다.
 <img width="677" alt="KakaoTalk_20230324_223403807" src="https://user-images.githubusercontent.com/71700079/227535474-1416abd9-7779-409b-8849-a87f5db9e700.png">  
 
-잘 작동하는지 실제로 DB를 강제 종료해서 Stress를 줘 보았다.  
-[사진 추가]  
+실제로 잘 동작하는지 기간을 두고 지켜보았다.  
+원래는 아래와 같이 1000씩 건너뛰어 이상한 증가세를 보였다.  
+<img width="366" alt="KakaoTalk_20230327_191700146" src="https://user-images.githubusercontent.com/71700079/228291468-725bed01-7aa9-48aa-8c67-34e22a79c014.png">  
+하지만 3월 26일 이후로는 7000번대로만 ```id```가 생성됨을 볼 수 있다.  
+<img width="837" alt="KakaoTalk_20230327_191214078" src="https://user-images.githubusercontent.com/71700079/228291477-bc8108d2-d560-44dd-ba84-e11fe2645216.png">  
+<img width="847" alt="KakaoTalk_20230327_191305085" src="https://user-images.githubusercontent.com/71700079/228291484-6f4e8ed9-a62e-477f-8a15-9d8916aa11a4.png">  
 
 ### 참고문헌
 > [Maria DB docs : Auto increment](https://mariadb.com/kb/en/auto_increment/)  
