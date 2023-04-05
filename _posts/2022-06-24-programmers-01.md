@@ -6,7 +6,6 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
-
 - [전화번호 목록[LEVEL 2]](https://school.programmers.co.kr/learn/courses/30/lessons/42577)   
 
 나는 먼저, 정렬을 한 뒤에 인접 번호에 겹치는 접두사가 있는지  
