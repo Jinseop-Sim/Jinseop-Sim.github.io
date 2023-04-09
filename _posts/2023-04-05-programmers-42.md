@@ -40,3 +40,30 @@ for문 내에서 돌아가게 되면 또 O(N^2)의 복잡도를 가지게 되어
 
 따라서, 방법을 바꾸어 O(N)만에 최대 index를 구해낼 수 있도록 한다.  
 뒤에서 부터 배열을 훑으며 최대 값을 저장하며 나아가는 방식이다.  
+
+{% highlight cpp %}
+vector<int> solution(int e, vector<int> starts) {
+    vector<int> answer;
+    vector<int> divisors(e + 1);
+    vector<int> maxvec(e + 1);
+    int max = 0, max_idx = 0;
+
+    for (int i = 1; i <= e; i++) {
+        for (int j = i; j <= e; j += i) {
+            divisors[j] += 1;
+        }
+    }
+
+    
+    for (int i = e; i >= 0; i--) {
+        max_idx = max > divisors[i] ? max_idx : i;
+        max = max > divisors[i] ? max : divisors[i];
+        maxvec[i] = max_idx;
+    }
+
+    for (auto i : starts)
+        answer.push_back(maxvec[i]);
+
+    return answer;
+}
+{% endhighlight %}
