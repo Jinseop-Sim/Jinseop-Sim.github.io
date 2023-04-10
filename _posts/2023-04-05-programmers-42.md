@@ -18,9 +18,32 @@ author:
 간단히, 아주 간단히 생각 했을 때 O(N^2)의 복잡도로 구할 수 있다.  
 2중 for문을 사용하는 코드이기 때문에, O(N^2)의 복잡도를 가진다.  
 
+그냥 루트 e까지 무작정 나누어 떨어지는 값마다 카운트를 한다.  
 약수를 이렇게 무작정 구하니, 당연히 시간초과가 발생했다.  
 
-[코드 첨부]
+{% highlight cpp %}
+vector<int> solution(int e, vector<int> starts) {
+    vector<int> answer;
+    vector<int> divisors(e + 1);
+
+    divisors[1] = 1;
+    for (int i = 2; i <= e; i++) {
+        int cnt = 0;
+
+        for (int j = 1; j <= sqrt(i); j++) {
+            if(i % j == 0)
+                cnt++;
+        }
+
+        divisors.push_back(cnt);
+    } // 말도 안되는 O(N^2)의 Logic
+
+    for (auto i : starts)
+        answer.push_back(max_element(divisors.begin() + i, divisors.begin() + e) - divisors.begin());
+
+    return answer;
+}
+{% endhighlight %}
 
 ### 같은 N(O^2), 다른 느낌
 약수를 구하는 로직을 조금 변경했다.   
@@ -30,7 +53,25 @@ author:
 하지만 이 로직 또한 시간초과가 발생했다.  
 약수를 구하는 것이 아닌, 최대값을 구하는 것이 문제였던 것이다.  
 
-[코드 첨부]
+{% highlight cpp %}
+vector<int> solution(int e, vector<int> starts) {
+    vector<int> answer;
+    vector<int> divisors(e + 1);
+
+    for (int i = 1; i <= e; i++) {
+        for (int j = i; j <= e; j += i) {
+            divisors[j] += 1;
+        } // i의 배수마다 divisors에 1을 더함
+    } // 같은 O(N^2)이지만 시간이 훨씬 줄어든다.
+
+    for (auto i : starts)
+        answer.push_back(max_element(divisors.begin() + i, divisors.begin() + e) - divisors.begin());
+    // 이 부분이 문제가 되는 로직이다.
+    // O(N)을 starts 배열 길이 만큼 돌림.
+
+    return answer;
+}
+{% endhighlight %}
 
 ### 문제는 Index
 결국 문제는 최대값이 위치한 Index를 구하는 방식이었다.  
@@ -45,7 +86,7 @@ for문 내에서 돌아가게 되면 또 O(N^2)의 복잡도를 가지게 되어
 vector<int> solution(int e, vector<int> starts) {
     vector<int> answer;
     vector<int> divisors(e + 1);
-    vector<int> maxvec(e + 1);
+    vector<int> maxvec(e + 1); // 최대값 배열을 만듬
     int max = 0, max_idx = 0;
 
     for (int i = 1; i <= e; i++) {
@@ -54,12 +95,13 @@ vector<int> solution(int e, vector<int> starts) {
         }
     }
 
-    
     for (int i = e; i >= 0; i--) {
         max_idx = max > divisors[i] ? max_idx : i;
         max = max > divisors[i] ? max : divisors[i];
         maxvec[i] = max_idx;
     }
+    // 최대값 배열에 구간의 최대값을 저장하며 나아간다.
+    // 마지막엔 해당 구간 참조만 하면 됨.
 
     for (auto i : starts)
         answer.push_back(maxvec[i]);
