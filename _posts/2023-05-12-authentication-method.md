@@ -1,4 +1,4 @@
----
+﻿---
 layout: post
 title: "다양한 인증 기술과 새로운 가능성"
 categories: Tech
