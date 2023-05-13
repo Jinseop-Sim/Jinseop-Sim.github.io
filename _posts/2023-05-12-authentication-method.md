@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "다양한 인증 기술과 새로운 가능성"
+title: "다양한 인증 기술과 실제 적용 가능성"
 categories: Tech
 tags: [theory]
 author:
@@ -19,3 +19,5 @@ toc: true
 ## MFA
 기존에는 사용자의 ID, Password 정도만 받아서 인증하는 "One factor" 방식이 대부분이었다면,  
 보안이 점점 중요해지면서 "Multi Factor" 기반의 인증의 중요성이 대두되었다.  
+
+## 프로젝트 적용 가능성
