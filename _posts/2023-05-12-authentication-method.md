@@ -1,11 +1,7 @@
 ﻿---
 layout: post
-<<<<<<< HEAD
-title: "다양한 인증 기술과 새로운 가능성에 대한 고찰"
-=======
 title: "다양한 신원 인증 기술, 어떻게 프로젝트에 적용할까?"
->>>>>>> b6c7ba781b15692da67745cbb78501d755120787
-categories: Tech
+categories: GraduationProject
 tags: [theory]
 author:
   - Jinseop Sim
