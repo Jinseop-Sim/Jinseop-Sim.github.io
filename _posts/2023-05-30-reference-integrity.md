@@ -36,6 +36,7 @@ author:
 
 위의 기능들로 인해, 아래와 같이 탈퇴 시 모든 관계를 제거하는 코드를 작성했다.  
 <img width="739" alt="탈퇴 코드" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/a8b540d6-2f46-4c76-bf63-36c5dee9ebb3">  
+
 하지만 그래도 아래와 같이 참조 무결성 오류가 발생함을 확인할 수 있었다.  
 <img width="892" alt="댓글 참조 무결성" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/19c9b8af-5c4e-47f7-9ed7-2505eb092b66">  
 
@@ -48,10 +49,11 @@ __왜일까?__
 이 때 관계가 살아있으면, 삭제된 객체가 다시 생성이 되어버리는 경우가 발생한다.  
 따라서 ```CASCADE.REMOVE```를 사용함이 옳다고 공식문서를 읽어가며 해결했던 기록이 있다.  
 
-이번에도 아래와 같이 ```CASCADE.REMOVE```로 변경을 해주었으며, 탈퇴 진행 로직도 변경을 했다.    
+이번에도 아래와 같이 ```CASCADE.REMOVE```로 변경을 해주었고, 탈퇴 로직도 변경을 했다.    
 <img width="671" alt="얘도 cascade" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/791d199b-333a-479b-80d4-29644e9f1a71">  
 <img width="725" alt="탈퇴코드2" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/767a2c89-09c2-4470-b2d0-85a7d4142f1d">  
+
 곧바로 탈퇴가 정상적으로 진행됨을 확인할 수 있다!  
 <img width="233" alt="성공" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/839bcb45-bc8b-46cf-af78-f73cc9497e25">  
 
-```CASACDE``` 속성을 사용할 때는 조심 또 조심하자!  
+__```CASACDE``` 속성을 사용할 때는 조심 또 조심하자!__  
