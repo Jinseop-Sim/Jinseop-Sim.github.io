@@ -1,23 +1,23 @@
----
+ï»¿---
 layout: post
-title: "CORSÀÇ ±âÀÌÇÑ ¿À·ù"
+title: "CORSì˜ ê¸°ì´í•œ ì˜¤ë¥˜"
 categories: ToyProject
 tags: [develop]
 author:
   - Jinseop Sim
 ---
-ÅäÀÌ ÇÁ·ÎÁ§Æ®°¡ ¾î´À»õ ¸·¹ÙÁö¿¡ ´Ù´Ù¸£°í, ½ÇÁ¦ µ¿ÀÛÀ» È®ÀÎÇÏ´Â ÀýÂ÷¸¸ ³²¾Ò´Ù.  
-±×·¯³ª, È®ÀÎÀ» ÇÏ´Â ÀýÂ÷¸¦ ÁøÇàÇÏÁö ¸øÇÒ ±Ùº»ÀûÀÎ ¹®Á¦°¡ »ý°å´Ù.  
-¾Æ·¡¿Í °°ÀÌ ÀÌÀü¿¡ Àâ¾Ò´ø __CORS__ ¿¡·¯°¡ ¹ß»ýÇÏ´Â °ÍÀÌ´Ù.  
-[»çÁø Ãß°¡]
+í† ì´ í”„ë¡œì íŠ¸ê°€ ì–´ëŠìƒˆ ë§‰ë°”ì§€ì— ë‹¤ë‹¤ë¥´ê³ , ì‹¤ì œ ë™ìž‘ì„ í™•ì¸í•˜ëŠ” ì ˆì°¨ë§Œ ë‚¨ì•˜ë‹¤.  
+ê·¸ëŸ¬ë‚˜, í™•ì¸ì„ í•˜ëŠ” ì ˆì°¨ë¥¼ ì§„í–‰í•˜ì§€ ëª»í•  ê·¼ë³¸ì ì¸ ë¬¸ì œê°€ ìƒê²¼ë‹¤.  
+ì•„ëž˜ì™€ ê°™ì´ ì´ì „ì— ìž¡ì•˜ë˜ __CORS__ ì—ëŸ¬ê°€ ë°œìƒí•˜ëŠ” ê²ƒì´ë‹¤.  
+[ì‚¬ì§„ ì¶”ê°€]
 
-### ÀÌ»óÇÑ CORS
-ºÐ¸í ¼­¹ö ÂÊ Configuration¿¡µµ ¾Æ·¡¿Í °°ÀÌ CORS¿¡ ´ëÇÑ Ã³¸®¸¦ ÇØ³õ¾Ò´Ù.  
-[»çÁø Ãß°¡]
+### ì´ìƒí•œ CORS
+ë¶„ëª… ì„œë²„ ìª½ Configurationì—ë„ ì•„ëž˜ì™€ ê°™ì´ CORSì— ëŒ€í•œ ì²˜ë¦¬ë¥¼ í•´ë†“ì•˜ë‹¤.  
+[ì‚¬ì§„ ì¶”ê°€]
 
-½ÉÁö¾î ```preflight request```µµ ¼º°øÀûÀ¸·Î º¸³»Áö°í ÀÖ´Ù.  
-ÀÀ´ä¿¡´Â ```Access-Control Allow-Origin``` Çì´õ¿¡ ¿ì¸® »çÀÌÆ® OriginÀÌ ±â·ÏµÇ¾î ÀÖ´Ù.  
-±×·¸´Ù¸é ºÐ¸í ÀÌÈÄ¿¡ ÇØ´ç origin¿¡¼­ µé¾î¿À´Â ¿äÃ»Àº ¸ðµÎ Åë°ú°¡ µÇ¾î¾ß ÇÑ´Ù.  
-[»çÁø Ãß°¡]
+ì‹¬ì§€ì–´ ```preflight request```ë„ ì„±ê³µì ìœ¼ë¡œ ë³´ë‚´ì§€ê³  ìžˆë‹¤.  
+ì‘ë‹µì—ëŠ” ```Access-Control Allow-Origin``` í—¤ë”ì— ìš°ë¦¬ ì‚¬ì´íŠ¸ Originì´ ê¸°ë¡ë˜ì–´ ìžˆë‹¤.  
+ê·¸ë ‡ë‹¤ë©´ ë¶„ëª… ì´í›„ì— í•´ë‹¹ originì—ì„œ ë“¤ì–´ì˜¤ëŠ” ìš”ì²­ì€ ëª¨ë‘ í†µê³¼ê°€ ë˜ì–´ì•¼ í•œë‹¤.  
+[ì‚¬ì§„ ì¶”ê°€]
 
-__¿Ö ¾ÈµÇ´Â °ÍÀÏ±î?__
+__ì™œ ì•ˆë˜ëŠ” ê²ƒì¼ê¹Œ?__
