@@ -33,3 +33,12 @@ toc: true
 
 기본적으로 Composition API는 ```setup()``` 메서드를 통해 사용한다.  
 Options API와는 시작하는 부분의 형태부터 다르다는 것을 알 수 있다.  
+아래와 같이 변수와 함수를 선언한 뒤, ```return```하여 ```template```에서 사용할 수 있다.  
+![image](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f03e67db-fd2d-42d2-9f4f-34dc24ac8404)  
+![image](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/7f40a88c-074a-430f-a366-bd63e95bd031)  
+
+> ```ref```는 __반응형 변수__ 라는 것인데, 따로 포스팅을 하도록 하겠다.  
+> 물론, 반응형 변수가 아닌 그냥 변수로 사용해도 무방하다.  
+
+그 결과 아래와 같이 간단한 테스트 메시지가 잘 출력됨을 확인할 수 있다.  
+![image](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/75c63215-6d77-44cb-839c-04eb41ff6f50)  
