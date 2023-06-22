@@ -25,3 +25,11 @@ toc: true
 그래서 Vue에서는 __Composition API__ 라는 방식을 권장하며, 제공한다!  
 
 ## Composition API
+물론, Composition API가 꼭 필수로 사용해야 하는 방식은 아니다.  
+하지만 추후에 Vue를 실제로 현업에서 사용해야 하는 때가 온다면,  
+분명히 Options API보다는 Composition API를 권장하고 사용하게 될 것이다.  
+
+- ```Setup()```
+
+기본적으로 Composition API는 ```setup()``` 메서드를 통해 사용한다.  
+Options API와는 시작하는 부분의 형태부터 다르다는 것을 알 수 있다.  
