@@ -29,57 +29,62 @@ __Union Find__ 는 __Graph Algorithm__ 의 일종이다.
 
 ### Example : 백준 1717 집합의 표현
 {% highlight cpp %}
-#include <vector>
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int nodes[1000001];
+int nodes[1000001]; // 그래프
 void init_nodes(int size) {
-    for (int i = 1; i <= size; i++)
-        nodes[i] = i;
+	for (int i = 1; i <= size; i++)
+		nodes[i] = i;
 }
 
-int get_root(int node_x) { 
-    // 해당 node의 Root를 찾는다.
-    if (nodes[node_x] == node_x) return node_x;
-    return nodes[node_x] = get_parent(nodes[node_x]);
+int get_parent(int node) {
+	// 인덱스와 자기 자신이 같으면 root node
+	if (nodes[node] == node) return node;
+	// 재귀적으로 부모(root)를 찾는다.
+	return nodes[node] = get_parent(nodes[node]);
 }
 
-void do_union(int node_x, int node_y) {
-    // Root끼리 연결을 해주는 함수
-    node_x = get_parent(node_x);
-    node_y = get_parent(node_y);
+void do_union(int node_a, int node_b) {
+	node_a = get_parent(node_a); // root 노드를 받아온다.
+	node_b = get_parent(node_b);
 
-    if (node_x > node_y) nodes[node_x] = node_y;
-    else nodes[node_y] = node_x;
+	// 통상적으로 유니온 파인드는 작은 쪽이 부모가 된다.
+	if (node_a > node_b) nodes[node_a] = node_b;
+	else nodes[node_b] = node_a;
 }
 
-void find(int node_x, int node_y) {
-    // Root가 같으면? 연결된 Tree(같은 집합)!
-    node_x = get_parent(node_x);
-    node_y = get_parent(node_y);
+void find(int node_a, int node_b) {
+	node_a = get_parent(node_a);
+	node_b = get_parent(node_b);
 
-    if (node_x == node_y) cout << "YES\n";
-    else cout << "NO\n";
+	// 부모가 같음은, 같은 집합임을 의미한다.
+	if (node_a == node_b) cout << "YES\n";
+	else cout << "NO\n";
 }
 
 int main() {
-    int n = 0, m = 0;
-    int cmd = 0, node_x = 0, node_y = 0;
-    
-    cin >> n >> m;
-    init_nodes(n);
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-    for (int i = 0; i < m; i++) {
-        cin >> cmd >> node_x >> node_y;
+	int num = 0, op_num = 0;
+	int oper = 0, node_a = 0, node_b = 0;
 
-        if (cmd == 0)
-            do_union(node_x, node_y);
-        else
-            find(node_x, node_y);
-    }
+	cin >> num >> op_num;
+	init_nodes(num);
 
-    return 0;
+	for (int i = 0; i < op_num; i++) {
+		cin >> oper >> node_a >> node_b;
+
+		if (oper == 0)
+			do_union(node_a, node_b);
+		else
+			find(node_a, node_b);
+	}
+
+	return 0;
 }
 {% endhighlight %}
 
