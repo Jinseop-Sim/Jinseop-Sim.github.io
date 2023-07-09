@@ -14,7 +14,7 @@ __Union Find__ 는 __Graph Algorithm__ 의 일종이다.
 - Union : 어떤 두 Node x, y의 집합을 합치는 연산
   - 이는 곧, 두 Node를 연결한다는 의미와 같다.
 
-### 도식화
+## Disjoint Set과 Union find
 1. 모두 연결되지 않고, 자신만을 원소로 가지는 집합이 있다.  
 ![unf1](https://user-images.githubusercontent.com/71700079/213406867-7a0c036e-a313-400c-9700-2e42a8963fea.png)  
 
@@ -90,7 +90,7 @@ int main() {
 
 > 참고 자료 출처 : [브랜든의 블로그](https://brenden.tistory.com/33)
 
-### MST
+## MST, 최소 신장 트리
 Tree의 종류 중에 MST(Minimum Spanning Tree)라는 Tree가 있다.  
 해당 Tree는 위에서 학습한 Union Find로 구현이 가능한 Tree이다.  
 
@@ -104,18 +104,114 @@ Tree의 종류 중에 MST(Minimum Spanning Tree)라는 Tree가 있다.
 
 아래부터 MST를 구할 수 있는 알고리즘을 소개하도록 하겠다.  
 
-### Kruskal Algorithm
+## Kruskal Algorithm
 MST를 구할 수 있는 첫번째 알고리즘, Kruskal 알고리즘이다.  
 위에서 언급했듯이 ```Union Find```를 이용해 MST를 구할 수 있다고 했는데,  
 바로 Kruskal Algorithm에 ```Union Find```가 사용된다.  
 
 아래와 같은 순서로 진행된다.  
 1. Graph의 모든 간선 정보를 빼내어 오름차순 정렬한다.
+
+{% highlight cpp %}  
+for (int i = 0; i < ed; i++) {
+	cin >> node_x >> node_y >> weight;
+	graph.push_back({ weight, { node_x, node_y } });
+}
+{% endhighlight %}  
+
 2. 비용이 가장 최소인 간선부터 두 노드를 연결해준다.
   - 해당 동작에 Union Find의 Union 동작이 들어간다.
-3. 계속 뒤로가며 Union을 반복한다.
+
+{% highlight cpp %}
+void do_union(int node_x, int node_y) {
+	node_x = get_parent(node_x);
+	node_y = get_parent(node_y);
+
+	if (node_x < node_y) parent[node_x] = node_y;
+	else parent[node_y] = node_x;
+}
+{% endhighlight %}  
+
+3. 계속 그래프를 훑으며 Union을 반복한다.
   - 이 때, ```Union Find```의 특징적인 동작이 보인다.
   - 반복시에 Cycle이 발생하면 MST에 포함시키지 않는다.
     - 이는 ```Union Find```의 ```find()```를 이용하는 방식이다.
     - 두 노드의 부모가 같으면, Cycle의 발생을 의미한다!
+
+{% highlight cpp %}
+bool checkCycle(int node_x, int node_y) {
+	node_x = get_parent(node_x);
+	node_y = get_parent(node_y);
+
+	if (node_x == node_y)
+		return true;
+	return false;
+}
+{% endhighlight %}  
+
 4. 모든 배열을 다 순회하고 나면, MST가 완성된다!
+
+### Example : 백준 1197 최소 스패닝 트리
+{% highlight cpp %}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int parent[10001]; // 그래프
+long long answer = 0;
+vector<pair<int, pair<int, int>>> graph;
+void init_map(int size) {
+	for (int i = 1; i <= size; i++)
+		parent[i] = i;
+}
+
+int get_parent(int node) {
+	if (parent[node] == node) return node;
+	return parent[node] = get_parent(parent[node]);
+}
+
+bool checkCycle(int node_x, int node_y) {
+	node_x = get_parent(node_x);
+	node_y = get_parent(node_y);
+
+	if (node_x == node_y)
+		return true;
+
+	return false;
+}
+
+void do_union(int node_x, int node_y) {
+	node_x = get_parent(node_x);
+	node_y = get_parent(node_y);
+
+	if (node_x < node_y) parent[node_x] = node_y;
+	else parent[node_y] = node_x;
+}
+
+int main() {
+	int ver = 0, ed = 0;
+	int node_x = 0, node_y = 0, weight = 0;
+
+	cin >> ver >> ed;
+	for (int i = 0; i < ed; i++) {
+		cin >> node_x >> node_y >> weight;
+		graph.push_back({ weight, { node_x, node_y } });
+	}
+
+	init_map(ver);
+	sort(graph.begin(), graph.end()); // 가중치 오름차순 정렬
+
+	// 이제부터 간선을 잇는다.
+	for (int i = 0; i < ed; i++) {
+		if (!checkCycle(graph[i].second.first, graph[i].second.second)) {
+			do_union(graph[i].second.first, graph[i].second.second);
+			answer += graph[i].first;
+		}
+	}
+
+	cout << answer;
+
+	return 0;
+}
+{% endhighlight %}
