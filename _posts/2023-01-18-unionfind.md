@@ -103,7 +103,6 @@ Tree의 종류 중에 MST(Minimum Spanning Tree)라는 Tree가 있다.
 즉, 각 Edge에 가중치가 존재한다고 가정을 하고 구현하는 Tree이다.  
 
 아래부터 MST를 구할 수 있는 알고리즘을 소개하도록 하겠다.  
-
 ## Kruskal Algorithm
 MST를 구할 수 있는 첫번째 알고리즘, Kruskal 알고리즘이다.  
 위에서 언급했듯이 ```Union Find```를 이용해 MST를 구할 수 있다고 했는데,  
@@ -112,7 +111,7 @@ MST를 구할 수 있는 첫번째 알고리즘, Kruskal 알고리즘이다.
 아래와 같은 순서로 진행된다.  
 1. Graph의 모든 간선 정보를 빼내어 오름차순 정렬한다.
 
-{% highlight cpp %}  
+{% highlight cpp %}
 for (int i = 0; i < ed; i++) {
 	cin >> node_x >> node_y >> weight;
 	graph.push_back({ weight, { node_x, node_y } });
