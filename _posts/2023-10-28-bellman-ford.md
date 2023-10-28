@@ -90,3 +90,25 @@ author:
 위와 같은 모습을 보았을 때, ```정점의 개수 - 1```회가 지나도 계속 갱신이 될 것을 알 수 있다.  
 이는 사이클이 발생했을 때, __간선 가중치의 합이 음수이기 떄문에__ 발생하는 문제이다.  
 알고리즘 상에서 모든 탐색이 종료된 후 한 번더 탐색을 함으로써 음의 사이클을 발견해낼 수 있다.  
+
+### Example : 백준 11657 - 타임머신
+아래는 벨만 포드 알고리즘으로 문제를 푸는 코드의 예시이다.  
+{% highlight java %}
+public static void bellmanFord(long[] dist, ArrayList<Tuple> edges, int vertex) {
+        for(int i = 0; i <= vertex - 1; i++){
+            for(int j = 0; j < edges.size(); j++){
+                int from = edges.get(j).from;
+                int to = edges.get(j).to;
+                long cost = edges.get(j).cost;
+
+                if(dist[from] == Long.MAX_VALUE)
+                    continue;
+                // 갱신되지 않은 정점은 계산에 포함하지 않는다.
+                if(dist[to] > dist[from] + cost)
+                    dist[to] = dist[from] + cost;
+                // 현재 저장된 거리보다 새로 이은 길의 거리가 더 짧으면?
+                // 거리를 갱신한다.
+            }
+        }
+    }
+{% endhighlight %}
