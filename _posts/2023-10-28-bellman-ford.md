@@ -49,6 +49,7 @@ author:
   - 따라서 이 경우에도 거리를 새로 갱신해주어야 한다!
  
 결국 처음 갱신된 Distance vector는 아래와 같은 모습이 될 것이다.  
+
 ![거리벡터 drawio](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/a0e00e3a-4211-4c03-b86c-8483ea6d087e)  
 
 ### Iteration 2
@@ -60,6 +61,7 @@ author:
 따라서, 갱신 대상이 되는 정점의 수도 늘어 최단 거리의 갱신 여지가 더 생기는 것이다.  
 
 2회차 탐색의 결과 Distance vector는 아래와 같다.  
+
 ![2차거리벡터 drawio](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/15bc9586-7609-49c8-92eb-5050a6037a13)  
 
 주요 원인이 되었던 갱신은 아래와 같다.  
