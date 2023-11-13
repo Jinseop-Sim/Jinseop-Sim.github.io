@@ -44,10 +44,73 @@ Memoization이란, 동적 계획법의 핵심이자 꽃이다.
 ## 분할 정복 대표 문제
 ### 쿼드 트리
 {%highlight cpp%}
-{%endhighlight%}
+void compress_quad_tree(int x_idx, int y_idx, int len) {
+	if (len == 1) {
+		// 길이가 1까지 왔다면 그냥 출력을 하면 된다.
+		cout << quad_tree[x_idx][y_idx];
+		return;
+	}
+
+	pair<bool, bool> flag_pair = check_compression(x_idx, y_idx, len);
+  // 0이나 1로 압축이 가능한지 검사하는 함수
+  
+	if (flag_pair.first) // 모두 0인 경우
+		cout << 0;
+	else if (flag_pair.second)
+		cout << 1; // 모두 1인 경우
+	else { // 0과 1이 섞여있는 경우
+		cout << "(";
+		// 쿼드트리의 기본, 순서를 반드시 맞춰주어야 함.
+		compress_quad_tree(x_idx, y_idx, len/2); // 왼쪽 위
+		compress_quad_tree(x_idx, y_idx + len/2, len/2); // 오른쪽 위
+		compress_quad_tree(x_idx + len/2, y_idx, len/2); // 왼쪽 아래
+		compress_quad_tree(x_idx + len/2, y_idx + len/2, len/2); // 오른쪽 아래
+		cout << ")";
+	}
+
+	return;
+}
+{%endhighlight%}  
+
 ### 하노이의 탑
 {%highlight cpp%}
-{%endhighlight%}
+void move_hanoi(ll depth, int source, int auxiliary, int destination) {
+	// 하노이의 탑은 분할 정복 알고리즘의 대표적인 문제이다.
+	if (depth == 1) {
+		cout << source << " " << destination << "\n";
+		return;
+	}
+
+	// STEP 1. n-1개의 원판을 보조 기둥으로 옮긴다.
+	move_hanoi(depth - 1, source, destination, auxiliary);
+	// STEP 2. 남은 1개를 목적지 기둥으로 옮긴다.
+	cout << source << " " << destination << "\n";
+	// STEP 3. 보조 기둥에 옮겼던 n-1개의 원판을 목적지 기둥으로 옮긴다.
+	move_hanoi(depth - 1, auxiliary, source, destination);
+}
+{%endhighlight%}  
+
 ### 거듭 제곱
 {%highlight cpp%}
+ll power(ll mult) {
+	// 분할 정복의 기초, 쪼개어 큰 문제를 해결한다.
+	// 거듭제곱은? b승이 짝수 -> a^(b/2) * a^(b/2)
+	// b승이 홀수 -> a^(b/2) * a^(b/2 + 1)
+	if (mult == 0)
+		return 1; // 0승은 1이다.
+	if (mult == 1)
+		return num % divisor; // 1승은 그냥 나머지
+
+	remaind = power(mult / 2) % divisor;
+  // 이 부분이 핵심이다.
+  // 계산량을 줄이기 위해, remaind 변수에서 나머지를 계속 기억하고 있는다.
+  
+	if (mult % 2 == 0)
+		return (remaind * remaind) % divisor;
+  // 기억하고 있던 나머지끼리 곱하고 다시 나누어 결과를 계산한다.
+	else
+		return (((remaind * remaind) % divisor) * num) % divisor;
+  // mult승이 홀수 승인 경우에는, 뒤에 num을 한번 더 곱한 뒤 나누어준다.
+  // 이 방식은 O(logN)이 걸리는 분할 정복법을 통한 거듭제곱 방식이다.
+}
 {%endhighlight%}
