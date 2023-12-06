@@ -1,95 +1,95 @@
 ---
 layout: post
-title: "Spring ProjectÀÇ ¼³°è ÁøÇà °úÁ¤"
+title: "Spring Projectì˜ ì„¤ê³„ ì§„í–‰ ê³¼ì •"
 categories: Springboot
 tags: [theory]
 author:
   - Jinseop Sim
 toc: true
 ---
-SpringÀ¸·Î Project¸¦ ÁøÇàÇÏ°í ¼³°èÇÒ ¶§ÀÇ °úÁ¤À» ´ë·«ÀûÀ¸·Î Á¤¸®ÇØº¸ÀÚ.  
+Springìœ¼ë¡œ Projectë¥¼ ì§„í–‰í•˜ê³  ì„¤ê³„í•  ë•Œì˜ ê³¼ì •ì„ ëŒ€ëžµì ìœ¼ë¡œ ì •ë¦¬í•´ë³´ìž.  
 
-### ¿ä±¸»çÇ× ºÐ¼®
-¾î¶°ÇÑ ¿ä±¸°¡ µé¾î¿ÔÀ» ¶§ ±× ¿ä±¸»çÇ×À» Á¦´ë·Î ºÐ¼®ÇÔÀº ¸Å¿ì Áß¿äÇÏ´Ù.  
-½ÇÁ¦ µ¿ÀÛÇÏ´Â È­¸éÀÌ³ª, ±â´É ¸ñ·ÏÀ» ÅëÇØ¼­ ¿ì¸®°¡ ±¸ÇöÇØ¾ß ÇÒ °ÍÀ» »ý°¢ÇÑ´Ù.  
-![¿ä±¸»çÇ×](https://user-images.githubusercontent.com/71700079/190896332-fd793c93-3dce-488e-a3a8-d679b491c870.png)  
+### ìš”êµ¬ì‚¬í•­ ë¶„ì„
+ì–´ë– í•œ ìš”êµ¬ê°€ ë“¤ì–´ì™”ì„ ë•Œ ê·¸ ìš”êµ¬ì‚¬í•­ì„ ì œëŒ€ë¡œ ë¶„ì„í•¨ì€ ë§¤ìš° ì¤‘ìš”í•˜ë‹¤.  
+ì‹¤ì œ ë™ìž‘í•˜ëŠ” í™”ë©´ì´ë‚˜, ê¸°ëŠ¥ ëª©ë¡ì„ í†µí•´ì„œ ìš°ë¦¬ê°€ êµ¬í˜„í•´ì•¼ í•  ê²ƒì„ ìƒê°í•œë‹¤.  
+![ìš”êµ¬ì‚¬í•­](https://user-images.githubusercontent.com/71700079/190896332-fd793c93-3dce-488e-a3a8-d679b491c870.png)  
 
-### Entity ºÐ¼® ¹× Å×ÀÌºí ¼³°è
-º¸Åë ½Ç¹«¿¡¼­´Â __DDD(µµ¸ÞÀÎ ÁÖµµ ¼³°è)___ ¸¦ ±â¹ÝÀ¸·Î SW ¼³°è¸¦ ÁøÇàÇÑ´Ù°í ÇÑ´Ù.  
-![DB ½ºÅ°¸¶](https://user-images.githubusercontent.com/71700079/190896334-0d298464-7b97-47ac-b207-b2068bcfb9c7.png)  
+### Entity ë¶„ì„ ë° í…Œì´ë¸” ì„¤ê³„
+ë³´í†µ ì‹¤ë¬´ì—ì„œëŠ” __DDD(ë„ë©”ì¸ ì£¼ë„ ì„¤ê³„)___ ë¥¼ ê¸°ë°˜ìœ¼ë¡œ SW ì„¤ê³„ë¥¼ ì§„í–‰í•œë‹¤ê³  í•œë‹¤.  
+![DB ìŠ¤í‚¤ë§ˆ](https://user-images.githubusercontent.com/71700079/190896334-0d298464-7b97-47ac-b207-b2068bcfb9c7.png)  
 
-µû¶ó¼­ ¿ì¸®´Â µµ¸ÞÀÎ ¸ðµ¨À» Á¤È®È÷ ¼³°èÇÏ°í ±×¿¡ ¸ÂÃç DB Å×ÀÌºíÀ» ¼³°èÇØ¾ß ÇÑ´Ù.  
-¿£Æ¼Æ¼¿¡ ¾î¶² °ªÀÌ µé¾î°¡¾ß ÇÏ´ÂÁö, ClassµéÀÌ ¿¬°ü°ü°è¸¦ ¸Î´ÂÁö Á¦´ë·Î ¼³°èÇÒ ÇÊ¿ä°¡ ÀÖ´Ù.  
+ë”°ë¼ì„œ ìš°ë¦¬ëŠ” ë„ë©”ì¸ ëª¨ë¸ì„ ì •í™•ížˆ ì„¤ê³„í•˜ê³  ê·¸ì— ë§žì¶° DB í…Œì´ë¸”ì„ ì„¤ê³„í•´ì•¼ í•œë‹¤.  
+ì—”í‹°í‹°ì— ì–´ë–¤ ê°’ì´ ë“¤ì–´ê°€ì•¼ í•˜ëŠ”ì§€, Classë“¤ì´ ì—°ê´€ê´€ê³„ë¥¼ ë§ºëŠ”ì§€ ì œëŒ€ë¡œ ì„¤ê³„í•  í•„ìš”ê°€ ìžˆë‹¤.  
 
-### Entity Class °³¹ß
-DB ¼³°è¸¦ ¸¶ÃÆÀ¸¸é, ¹Ù·Î Entity Class °³¹ß¿¡ Âø¼öÇÒ ¼ö ÀÖ´Ù.  
+### Entity Class ê°œë°œ
+DB ì„¤ê³„ë¥¼ ë§ˆì³¤ìœ¼ë©´, ë°”ë¡œ Entity Class ê°œë°œì— ì°©ìˆ˜í•  ìˆ˜ ìžˆë‹¤.  
 
-- Entity ¼³°è ½Ã ÁÖÀÇÁ¡!
-  1. Áï½Ã ·ÎµùÀº ¿¹ÃøÀÌ ¾î·Æ°í, ¾î¶² SQLÀÌ ½ÇÇàµÉÁö ÃßÀûÇÏ±â°¡ ¾î·Æ´Ù.
-    - Æ¯È÷ JPQLÀ» ½ÇÇàÇÒ ¶§ N+1 ¹®Á¦°¡ ¹ß»ýÈ° È®·üÀÌ ³ô¾ÆÁø´Ù.
-    - µû¶ó¼­ ¹Ýµå½Ã ¸ðµç ¿¬°ü°ü°è´Â __LAZY__ ·Î ¼³Á¤ÇÏµµ·Ï ÇÏÀÚ!
-  2. Java CollectionÀº ¹Ýµå½Ã ÇÊµå¿¡¼­ ¹Ù·Î ÃÊ±âÈ­ ÇØÁÖÀÚ.
-    - ¹°·Ð »ý¼ºÀÚ¿¡¼­ »ý¼º´Ü°è¿¡ ÃÊ±âÈ­¸¦ ÇÒ ¼öµµ ÀÖ´Ù.
-    - ÇÏÁö¸¸ Best Practice´Â ÇÊµå¿¡¼­ °ð¹Ù·Î ÃÊ±âÈ­ ÇØÁÖ´Â °Í!
-    - ÀÌ´Â NPE·ÎºÎÅÍ ¿ì¸®¸¦ ¾ÈÀüÇÏ°Ô ÁöÄÑÁØ´Ù.
-  3. Table, ColumnÀ» »ý¼ºÇÒ ¶§ ÀÌ¸§¿¡ ´ëÇÑ ±ÔÄ¢À» ÀûÀýÈ÷ Á¤ÇØ¾ß ÇÑ´Ù.
-    - º¸Åë Java¿¡¼± Camel Case, DB¿¡¼± ¼Ò¹®ÀÚ + Underscore°¡ °ü·ÊÀÎ °æ¿ì°¡ ¸¹´Ù.
-    - ½ºÇÁ¸µÀº DB »ðÀÔ ½Ã Camel Case¸¦ ÀÚµ¿À¸·Î Underscore·Î ¹Ù²ãÁØ´Ù.
-    - ´ë¹®ÀÚµµ ¼Ò¹®ÀÚ·Î ÀÚµ¿À¸·Î ¹Ù²ãÁØ´Ù.
-    - ¹°·Ð ½Ç¹«¿¡ ÅõÀÔµÇ¾úÀ» ¶§, È¸»ç¿¡¼­ Á¤ÇØ³õÀº ³»±Ô¸¦ µû¸£´Â °ÍÀÌ ¸Â´Ù.
-  4. Cascade ¼³Á¤À» Àß ÇØ³õÀ» °Í!
-    - Cascade ¼³Á¤À» Àß ÇØ³õÀ¸¸é ÄÚµå°¡ ¸Å¿ì °£°áÇÏ°í ±ò²ûÇØÁø´Ù.
+- Entity ì„¤ê³„ ì‹œ ì£¼ì˜ì !
+  1. ì¦‰ì‹œ ë¡œë”©ì€ ì˜ˆì¸¡ì´ ì–´ë µê³ , ì–´ë–¤ SQLì´ ì‹¤í–‰ë ì§€ ì¶”ì í•˜ê¸°ê°€ ì–´ë µë‹¤.
+    - íŠ¹ížˆ JPQLì„ ì‹¤í–‰í•  ë•Œ N+1 ë¬¸ì œê°€ ë°œìƒí™œ í™•ë¥ ì´ ë†’ì•„ì§„ë‹¤.
+    - ë”°ë¼ì„œ ë°˜ë“œì‹œ ëª¨ë“  ì—°ê´€ê´€ê³„ëŠ” __LAZY__ ë¡œ ì„¤ì •í•˜ë„ë¡ í•˜ìž!
+  2. Java Collectionì€ ë°˜ë“œì‹œ í•„ë“œì—ì„œ ë°”ë¡œ ì´ˆê¸°í™” í•´ì£¼ìž.
+    - ë¬¼ë¡  ìƒì„±ìžì—ì„œ ìƒì„±ë‹¨ê³„ì— ì´ˆê¸°í™”ë¥¼ í•  ìˆ˜ë„ ìžˆë‹¤.
+    - í•˜ì§€ë§Œ Best PracticeëŠ” í•„ë“œì—ì„œ ê³§ë°”ë¡œ ì´ˆê¸°í™” í•´ì£¼ëŠ” ê²ƒ!
+    - ì´ëŠ” NPEë¡œë¶€í„° ìš°ë¦¬ë¥¼ ì•ˆì „í•˜ê²Œ ì§€ì¼œì¤€ë‹¤.
+  3. Table, Columnì„ ìƒì„±í•  ë•Œ ì´ë¦„ì— ëŒ€í•œ ê·œì¹™ì„ ì ì ˆížˆ ì •í•´ì•¼ í•œë‹¤.
+    - ë³´í†µ Javaì—ì„  Camel Case, DBì—ì„  ì†Œë¬¸ìž + Underscoreê°€ ê´€ë¡€ì¸ ê²½ìš°ê°€ ë§Žë‹¤.
+    - ìŠ¤í”„ë§ì€ DB ì‚½ìž… ì‹œ Camel Caseë¥¼ ìžë™ìœ¼ë¡œ Underscoreë¡œ ë°”ê¿”ì¤€ë‹¤.
+    - ëŒ€ë¬¸ìžë„ ì†Œë¬¸ìžë¡œ ìžë™ìœ¼ë¡œ ë°”ê¿”ì¤€ë‹¤.
+    - ë¬¼ë¡  ì‹¤ë¬´ì— íˆ¬ìž…ë˜ì—ˆì„ ë•Œ, íšŒì‚¬ì—ì„œ ì •í•´ë†“ì€ ë‚´ê·œë¥¼ ë”°ë¥´ëŠ” ê²ƒì´ ë§žë‹¤.
+  4. Cascade ì„¤ì •ì„ ìž˜ í•´ë†“ì„ ê²ƒ!
+    - Cascade ì„¤ì •ì„ ìž˜ í•´ë†“ìœ¼ë©´ ì½”ë“œê°€ ë§¤ìš° ê°„ê²°í•˜ê³  ê¹”ë”í•´ì§„ë‹¤.
 
-### Application °³¹ß : Architecture
-ÀÌÁ¦ ½ÇÁ¦ ¾ÖÇÃ¸®ÄÉÀÌ¼ÇÀ» °³¹ßÀ» ÇÒ ´Ü°èÀÌ´Ù.  
-¿ì¸®´Â ¾ÖÇÃ¸®ÄÉÀÌ¼ÇÀ» °³¹ßÇÒ ¶§ °èÃþÇü ±¸Á¶¸¦ »ç¿ëÇÒ °ÍÀÌ´Ù.  
+### Application ê°œë°œ : Architecture
+ì´ì œ ì‹¤ì œ ì• í”Œë¦¬ì¼€ì´ì…˜ì„ ê°œë°œì„ í•  ë‹¨ê³„ì´ë‹¤.  
+ìš°ë¦¬ëŠ” ì• í”Œë¦¬ì¼€ì´ì…˜ì„ ê°œë°œí•  ë•Œ ê³„ì¸µí˜• êµ¬ì¡°ë¥¼ ì‚¬ìš©í•  ê²ƒì´ë‹¤.  
 
-- °èÃþÇü ±¸Á¶?
-  - Controller(Web) : ½ÇÁ¦ À¥ API °èÃþ
-  - Service : ºñÁî´Ï½º ·ÎÁ÷, Æ®·£Àè¼Ç ÀÛ¾÷À» ÇÏ´Â °èÃþ
-  - Repository : JPA¸¦ »ç¿ëÇÏ´Â, DB¿¡ Á¢±ÙÀ» ÇÏ´Â °èÃþ
-  - Domain : Entity°¡ ¸ðÀÎ °èÃþ
-- °³¹ß ¼ø¼­
-  - __Repository -> Service -> Test Code ÀÛ¼º -> Controller ÀÛ¼º__
-  - __ÀÌ ºÎºÐÀº ÃßÈÄ¿¡ TDD¿¡ °üÇØ Æ÷½ºÆÃÇÏ¸ç ¼öÁ¤ÇÏ°Ú´Ù.__
+- ê³„ì¸µí˜• êµ¬ì¡°?
+  - Controller(Web) : ì‹¤ì œ ì›¹ API ê³„ì¸µ
+  - Service : ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§, íŠ¸ëžœìž­ì…˜ ìž‘ì—…ì„ í•˜ëŠ” ê³„ì¸µ
+  - Repository : JPAë¥¼ ì‚¬ìš©í•˜ëŠ”, DBì— ì ‘ê·¼ì„ í•˜ëŠ” ê³„ì¸µ
+  - Domain : Entityê°€ ëª¨ì¸ ê³„ì¸µ
+- ê°œë°œ ìˆœì„œ
+  - __Repository -> Service -> Test Code ìž‘ì„± -> Controller ìž‘ì„±__
+  - __ì´ ë¶€ë¶„ì€ ì¶”í›„ì— TDDì— ê´€í•´ í¬ìŠ¤íŒ…í•˜ë©° ìˆ˜ì •í•˜ê² ë‹¤.__
 
-#### DTOÀÇ ÀÌ¿ë
-DTO(Data Transfer Object)¶õ?  
-- Client ´Ü°úÀÇ ¼ÒÅë¿¡ ÀÖ¾î¼­ ÇÊ¿äÇÑ °ª¸¸ »Ì¾Æ¼­ ¸¸µå´Â °´Ã¼ÀÌ´Ù.  
-- DTO´Â ¿Ö »ç¿ëÇÏ³ª¿ä?
-  - EntityÀÇ ¸ðµç ¼Ó¼ºÀÌ ¿ÜºÎ¿¡ ³ëÃâµÇ¸é º¸¾È ¹®Á¦°¡ ¹ß»ýÇÒ ¼ö ÀÖ´Ù.
-  - À§¿¡¼­ ¸»Çß´Ù½ÃÇÇ, ÇÊ¿äÇÑ °ª¸¸ »Ì¾Æ¼­ °´Ã¼¸¦ ¸¸µé±â ¶§¹®¿¡ È¿À²ÀûÀÌ´Ù.
-  - °èÃþÀû ±¸Á¶¿¡ ÀÖ¾î¼­, °èÃþ °£ÀÇ ºÐ¸®¸¦ È®½ÇÇÏ°Ô ÇÒ ¼ö ÀÖ´Ù.
+#### DTOì˜ ì´ìš©
+DTO(Data Transfer Object)ëž€?  
+- Client ë‹¨ê³¼ì˜ ì†Œí†µì— ìžˆì–´ì„œ í•„ìš”í•œ ê°’ë§Œ ë½‘ì•„ì„œ ë§Œë“œëŠ” ê°ì²´ì´ë‹¤.  
+- DTOëŠ” ì™œ ì‚¬ìš©í•˜ë‚˜ìš”?
+  - Entityì˜ ëª¨ë“  ì†ì„±ì´ ì™¸ë¶€ì— ë…¸ì¶œë˜ë©´ ë³´ì•ˆ ë¬¸ì œê°€ ë°œìƒí•  ìˆ˜ ìžˆë‹¤.
+  - ìœ„ì—ì„œ ë§í–ˆë‹¤ì‹œí”¼, í•„ìš”í•œ ê°’ë§Œ ë½‘ì•„ì„œ ê°ì²´ë¥¼ ë§Œë“¤ê¸° ë•Œë¬¸ì— íš¨ìœ¨ì ì´ë‹¤.
+  - ê³„ì¸µì  êµ¬ì¡°ì— ìžˆì–´ì„œ, ê³„ì¸µ ê°„ì˜ ë¶„ë¦¬ë¥¼ í™•ì‹¤í•˜ê²Œ í•  ìˆ˜ ìžˆë‹¤.
 
-### Application °³¹ß : Repository
-DB¿¡ ½ÇÁúÀûÀ¸·Î Á¢±ÙÀ» ÇÏ´Â °èÃþÀÎ Repository °èÃþÀÌ´Ù.  
-Spring JPA¸¦ ÀÌ¿ëÇÏ±â À§ÇØ¼­, ¹Ýµå½Ã ```EntityManager``` ¸¦ µî·ÏÇØ¾ß ÇÑ´Ù.  
+### Application ê°œë°œ : Repository
+DBì— ì‹¤ì§ˆì ìœ¼ë¡œ ì ‘ê·¼ì„ í•˜ëŠ” ê³„ì¸µì¸ Repository ê³„ì¸µì´ë‹¤.  
+Spring JPAë¥¼ ì´ìš©í•˜ê¸° ìœ„í•´ì„œ, ë°˜ë“œì‹œ ```EntityManager``` ë¥¼ ë“±ë¡í•´ì•¼ í•œë‹¤.  
 
 {% highlight java %}
-@PersistContext // Ç¥ÁØ Annotation, Springboot´Â @Autowired °¡´É.
+@PersistContext // í‘œì¤€ Annotation, SpringbootëŠ” @Autowired ê°€ëŠ¥.
 private EntityManger em;
 {% endhighlight %}
 
-### Application °³¹ß : Service
-½ÇÁ¦ Repository¸¦ ÁÖÀÔ ¹Þ¾Æ¼­ ±â´ÉÀ» »ç¿ëÇÏ°í, ·ÎÁ÷ÀÌ µé¾î°¡´Â ºÎºÐÀÌ´Ù.  
-RepositoryÀÇ ±â´ÉÀ» ÀÌ¿ëÇØ DB¿¡ º¯°æÀ» ¹ß»ý½ÃÅ°±â ¶§¹®¿¡ Transaction ´ÜÀ§·Î ¼³°èÇÑ´Ù.  
+### Application ê°œë°œ : Service
+ì‹¤ì œ Repositoryë¥¼ ì£¼ìž… ë°›ì•„ì„œ ê¸°ëŠ¥ì„ ì‚¬ìš©í•˜ê³ , ë¡œì§ì´ ë“¤ì–´ê°€ëŠ” ë¶€ë¶„ì´ë‹¤.  
+Repositoryì˜ ê¸°ëŠ¥ì„ ì´ìš©í•´ DBì— ë³€ê²½ì„ ë°œìƒì‹œí‚¤ê¸° ë•Œë¬¸ì— Transaction ë‹¨ìœ„ë¡œ ì„¤ê³„í•œë‹¤.  
 
-µé¾î¿Â °ª¿¡ ´ëÇÑ __Validation__ ¶ÇÇÑ ÀÌ Service ´Ü¿¡¼­ °ËÁõÇÑ´Ù.  
-Validation ¶ÇÇÑ ºñÁî´Ï½º ·ÎÁ÷ÀÌ¹Ç·Î, Service ´Ü¿¡ ¼³°è¸¦ ÇÏ´Â °ÍÀÌ ¿Ç´Ù.  
+ë“¤ì–´ì˜¨ ê°’ì— ëŒ€í•œ __Validation__ ë˜í•œ ì´ Service ë‹¨ì—ì„œ ê²€ì¦í•œë‹¤.  
+Validation ë˜í•œ ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§ì´ë¯€ë¡œ, Service ë‹¨ì— ì„¤ê³„ë¥¼ í•˜ëŠ” ê²ƒì´ ì˜³ë‹¤.  
 
-±âº»ÀûÀ¸·Î ÄÚµå¿¡ ```@Service``` AnnotationÀ» ³Ö¾î Spring BeanÀ¸·Î µî·ÏÇÏµµ·Ï ÇÑ´Ù.  
-»ý¼ºÀÚ ÁÖÀÔ ¹æ½ÄÀ¸·Î Repository¸¦ ÁÖÀÔ¹Þ¾Æ¼­ »ç¿ëÇÑ´Ù.  
+ê¸°ë³¸ì ìœ¼ë¡œ ì½”ë“œì— ```@Service``` Annotationì„ ë„£ì–´ Spring Beanìœ¼ë¡œ ë“±ë¡í•˜ë„ë¡ í•œë‹¤.  
+ìƒì„±ìž ì£¼ìž… ë°©ì‹ìœ¼ë¡œ Repositoryë¥¼ ì£¼ìž…ë°›ì•„ì„œ ì‚¬ìš©í•œë‹¤.  
 
-### Application °³¹ß : Controller
+### Application ê°œë°œ : Controller
 
-### Application °³¹ß : View
-½ÇÁ¦·Î Client ´Ü¿¡ »Ñ·ÁÁö´Â View¸¦ °³¹ßÇÏ´Â ¹æ½Ä¿¡´Â µÎ °¡Áö°¡ Á¸ÀçÇÑ´Ù.  
+### Application ê°œë°œ : View
+ì‹¤ì œë¡œ Client ë‹¨ì— ë¿Œë ¤ì§€ëŠ” Viewë¥¼ ê°œë°œí•˜ëŠ” ë°©ì‹ì—ëŠ” ë‘ ê°€ì§€ê°€ ì¡´ìž¬í•œë‹¤.  
 
 - SSR(Server Side Rendering)
-  - ¼­¹ö¿¡¼­ Á÷Á¢ HTMLÀ» µé°í, Data¸¦ HTML·Î »Ñ·ÁÁÖ¾î Rendering ÇÏ´Â ¹æ½Ä.
-  - JSP, Thymeleaf µî »ç¿ë.
+  - ì„œë²„ì—ì„œ ì§ì ‘ HTMLì„ ë“¤ê³ , Dataë¥¼ HTMLë¡œ ë¿Œë ¤ì£¼ì–´ Rendering í•˜ëŠ” ë°©ì‹.
+  - JSP, Thymeleaf ë“± ì‚¬ìš©.
 - CSR(Client Side Rendering)
-  - ¼­¹ö¿¡¼­ HTMLÀ» µé°íÀÖÁö ¾Ê´Â´Ù.
-  - ¼­¹ö¿¡¼­ Client(Frontend) ´ÜÀ¸·Î Data¸¦ Æ¯Á¤ ÇüÅÂ·Î º¸³»ÁØ´Ù.
-  - ±×·³ Client ´Ü¿¡¼­ ÇØ´ç Data¸¦ °¡°øÇØ¼­ Client¿¡°Ô Rendering ÇØÁÖ´Â ¹æ½Ä.
-  - React, Vue µîÀ» ÅëÇØ Javascript Coding.
+  - ì„œë²„ì—ì„œ HTMLì„ ë“¤ê³ ìžˆì§€ ì•ŠëŠ”ë‹¤.
+  - ì„œë²„ì—ì„œ Client(Frontend) ë‹¨ìœ¼ë¡œ Dataë¥¼ íŠ¹ì • í˜•íƒœë¡œ ë³´ë‚´ì¤€ë‹¤.
+  - ê·¸ëŸ¼ Client ë‹¨ì—ì„œ í•´ë‹¹ Dataë¥¼ ê°€ê³µí•´ì„œ Clientì—ê²Œ Rendering í•´ì£¼ëŠ” ë°©ì‹.
+  - React, Vue ë“±ì„ í†µí•´ Javascript Coding. 
