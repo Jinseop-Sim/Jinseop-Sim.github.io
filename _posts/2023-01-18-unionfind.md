@@ -117,7 +117,6 @@ for (int i = 0; i < ed; i++) {
 	graph.push_back({ weight, { node_x, node_y } });
 }
 {% endhighlight %}  
-
 2. 비용이 가장 최소인 간선부터 두 노드를 연결해준다.
   - 해당 동작에 Union Find의 Union 동작이 들어간다.
 
@@ -130,7 +129,6 @@ void do_union(int node_x, int node_y) {
 	else parent[node_y] = node_x;
 }
 {% endhighlight %}  
-
 3. 계속 그래프를 훑으며 Union을 반복한다.
   - 이 때, ```Union Find```의 특징적인 동작이 보인다.
   - 반복시에 Cycle이 발생하면 MST에 포함시키지 않는다.
@@ -147,7 +145,6 @@ bool checkCycle(int node_x, int node_y) {
 	return false;
 }
 {% endhighlight %}  
-
 4. 모든 배열을 다 순회하고 나면, MST가 완성된다!
 
 ### Example : 백준 1197 최소 스패닝 트리
