@@ -1,0 +1,49 @@
+---
+layout: post
+title: "Strategy pattern?"
+categories: Tech
+tags: [theory]
+author:
+  - Jinseop Sim
+toc: true
+---
+이번에는 Strategy(전략) 패턴에 대해 공부해보자.  
+
+### Strategy?
+먼저 전략 패턴을 간단하게 정의해보자.  
+다양한 전략을 확장 없이 변경만을 통해 사용하도록 하는 패턴이다.  
+
+간단히 정의만 보았을 땐 이해가 되지 않을 수 있다.  
+예를 들어 우리가 검색 기능을 만든다고 가정해보자.  
+전체 검색도 가능하지만, 카테고리 별 검색 기능을 만들고 싶다.  
+
+만약 카테고리 별 검색 기능이 아래의 사진과 같이 하드코딩 되어있다면?  
+검색 별로 기능을 ```if```문만으로 구별하여 하나의 함수에 넣었다면?  
+소프트웨어가 커지게 되었을 때 굉장히 복잡해지게 될 것이다.  
+새로운 기능을 추가하거나, 원래의 기능을 수정할 때 매우 곤란해지는 것이다.  
+<img width="604" alt="스크린샷 2024-01-06 오후 4 07 59" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/b8632937-7fb7-4759-b796-3e7e76736c1c">  
+
+그럴 때 Strategy 패턴을 사용하면 부품 갈아끼우듯 코드를 관리할 수 있다.  
+새로운 기능을 추가하고, 기능을 수정할 때 원하는 부품만 고치면 되는 것이다.  
+
+### 실제 구현
+우리는 ```Interface```를 적극적으로 이용해서 코드를 패턴화할 수 있다.  
+아래의 사진과 같이 ```SearchStrategy``` interface를 하나 만들었다.  
+<img width="636" alt="스크린샷 2024-01-06 오후 4 18 35" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/03735e0a-25b9-4af8-8c87-fd191e81b7e2">  
+
+이제 이 ```Interface```를 통해서 다양한 기능의 부품들을 생산한다.  
+이제 생산된 부품들을 ```SearchButton```에 단순히 끼우기만 하면 된다!  
+아래의 사진과 같이 ```SearchButton```을 수정해보자.  
+<img width="705" alt="스크린샷 2024-01-06 오후 4 23 44" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/7bba260e-f2ae-4b2b-876b-e6e011ed7713">  
+
+```SearchButton```의 필드에 ```SearchStrategy```가 존재한다.  
+이는 부품을 끼울 수 있는 구멍정도로 생각하면 좋을 것 같다.  
+```setter```를 통해 어떤 전략을 사용할 지 정할 수 있도록 설계한다.  
+우리는 이제 별다른 수정 없이 ```onClick``` 메서드만 사용하면 된다.  
+아래의 사진과 같이 사용할 수 있을 것이다.  
+<img width="992" alt="스크린샷 2024-01-06 오후 4 34 20" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/5b6ab319-eae4-4fa9-81fa-2bb1440244d9">  
+<img width="171" alt="스크린샷 2024-01-06 오후 4 35 15" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/284eee3c-e776-429c-b910-1d09c23ac1d5">  
+
+모두 동일하게 ```onClick``` 메서드만을 사용하지만,  
+```setSearchStrategy``` 메서드를 통해 부품을 갈아끼움으로써  
+코드를 따로 수정하거나 하지 않고도 다른 종류의 검색 기능을 사용할 수 있다.  
