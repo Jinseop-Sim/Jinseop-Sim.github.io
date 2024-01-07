@@ -36,14 +36,17 @@ Student minsu = new Student();
 
 이 때, 싱글톤이 적용되지 않은 상태라면?  
 아래의 사진과 같이 페이지 별로 옵션이 다르게 적용이 됨을 볼 수 있다.  
+
 <img width="827" alt="스크린샷 2024-01-05 오후 9 22 57" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/95c98569-e82b-4f7a-8e4f-b190cb545d7c">  
 
 하지만 아래의 사진과 같이 싱글톤 패턴을 적용하도록 한다면?  
+
 <img width="423" alt="스크린샷 2024-01-05 오후 9 25 42" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/cf46075b-9f35-4a4c-8144-70477f9e1830">  
 
 각 페이지에서 ```new Settings()``` 키워드로 설정을 하는 것이 아닌,  
 ```getSettings()``` 메서드를 통하여 인스턴스를 할당받기 떄문에  
 아래와 같이 설정이 그대로 유지됨을 확인할 수 있다.  
+
 <img width="797" alt="스크린샷 2024-01-05 오후 9 26 33" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/b09941c5-7c62-40f1-b492-bb512777e2e1">  
 
 ### 단점
@@ -53,4 +56,9 @@ Student minsu = new Student();
 하지만 단점이 없는 것은 아니다.  
 다른 것들을 모두 떠나서 가장 큰 단점은 ```동시성``` 문제의 발생 가능성이다.  
 하나의 ```static```한 객체를 여러 사용자가 동시에 사용하기 때문인데,  
-물론 막을 수 있는 문제이긴 하다.
+물론 ```synchronized```나 ```volatile``` 예방이 가능하다.  
+
+### Spring의 Singleton
+Spring은 기본적으로 객체의 생성에 있어서 Singleton 패턴이 적용된다.  
+물론, 위에서 언급했던 단점들을 보완한 Singleton 패턴을 제공하고 있다.  
+따라서 트래픽이 많은 웹 서비스에 적용하기 굉장히 적합한 프레임워크인 것이다.  
