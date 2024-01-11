@@ -7,6 +7,8 @@ author:
   - Jinseop Sim
 toc: true
 ---
+> __모든 글은 유튜브 얄팍한 코딩사전에 출처를 두고있습니다.__
+
 이번에 알아볼 패턴은 __Composite__ 패턴이다.  
 
 ### Composite?
