@@ -7,6 +7,8 @@ author:
   - Jinseop Sim
 toc: true
 ---
+> __모든 글은 유튜브 얄팍한 코딩사전에 출처를 두고있습니다.__
+
 이번에는 Facade 패턴에 대해서 학습해보자.  
 
 ### Facade?
