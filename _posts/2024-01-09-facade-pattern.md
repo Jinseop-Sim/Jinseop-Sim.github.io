@@ -43,7 +43,10 @@ Facade 패턴은 아래와 같이 구현할 수 있다.
 
 <img width="483" alt="스크린샷 2024-01-10 오전 10 48 39" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/667d6593-bebc-449a-9acf-0c83139c9419">  
 
-위에서 보았던 일련의 동작들을 하나의 메서드로 만들어 버린다.  
+위에서 보았던 일련의 동작들을 아래와 같이 하나의 메서드로 만들어 버리자.  
+
+<img width="618" alt="스크린샷 2024-01-12 오후 8 32 09" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ebcf9e0f-e83b-4f74-a2a3-0df07c66c02d">  
+
 이렇게 구현하면 사용자는 해당 함수 하나만 알면 된다!  
 객체 지향 개발자라면 많이 구현해 보았을 법한 방식의 코드이다.  
 
