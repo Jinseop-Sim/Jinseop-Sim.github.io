@@ -51,7 +51,7 @@ Student minsu = new Student();
 
 <img width="797" alt="스크린샷 2024-01-05 오후 9 26 33" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/b09941c5-7c62-40f1-b492-bb512777e2e1">  
 
-### 단점
+### 장단점
 싱글톤은 장점만 보았을 때 굉장히 좋은 패턴이라고 볼 수 있다.  
 메모리 관점에서 유용하며, 데이터 공유도 쉽다는 점이 그렇다.  
 
@@ -59,6 +59,7 @@ Student minsu = new Student();
 다른 것들을 모두 떠나서 가장 큰 단점은 ```동시성``` 문제의 발생 가능성이다.  
 하나의 ```static```한 객체를 여러 사용자가 동시에 사용하기 때문인데,  
 물론 ```synchronized```나 ```volatile``` 예방이 가능하다.  
+이러한 단점 때문에 __안티패턴__ 취급을 받기도 한다.  
 
 ### Spring의 Singleton
 Spring은 기본적으로 객체의 생성에 있어서 Singleton 패턴이 적용된다.  
