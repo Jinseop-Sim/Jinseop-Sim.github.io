@@ -58,3 +58,15 @@ toc: true
 이럴 때 우리는 생성자를 하나로 줄일 수 있다!  
 아래와 같이 코드를 수정하면 될 것이다.  
 
+<img width="921" alt="스크린샷 2024-01-18 오후 3 48 29" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/725b17fe-4447-4849-be6c-e75620b9ba1d">  
+
+생성자 하나를 두고 두 개의 정적 팩토리 메서드를 구현했다.  
+이렇게 되면 이름을 통해 객체 생성의 목적이 확실해 졌다.  
+또한 생성자를 여러개 두지 않아도 되어 코드가 보다 간결해졌다.  
+
+<img width="836" alt="스크린샷 2024-01-18 오후 3 49 38" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/92b0451e-f6e8-42e8-ad76-2b244d1faa78">  
+
+실제로 사용되는 부분에서는 위와 같이 사용할 수 있다.  
+```Comment.commentWithoutParent()```는 첫 댓글,  
+```Comment.commentWithParent()```는 답글 서비스에 들어가있다.  
+이렇게 실제 서비스의 리팩토링에도 사용할 수 있는 패턴이다.  
