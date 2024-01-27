@@ -63,3 +63,110 @@ author:
 현재 노드가 꺼져있으면, 현재 노드의 부모 노드를 켜준다.  
 그럼 현재 노드가 켜져있으면? 그냥 지나가면 된다.  
 그렇게 진행하면 위와 같이 최소한의 노드만 켜져있게 된다!  
+
+전체적인 코드는 아래와 같이 구현되었다.  
+{% highlight cpp %}
+int indegree[100001];
+vector<int> graph[100001];
+bool visit[100001];
+int topology_sort(int vertex) {
+	int answer = 0;
+
+	queue<int> top_q;
+	for (int i = 1; i <= vertex; i++)
+		if (indegree[i] == 1)
+			top_q.push(i);
+	// 진입 차수가 1이면 Leaf node.
+	
+	while (!top_q.empty()) {
+		int curr_node = top_q.front();
+		top_q.pop();
+
+		for (int i = 0; i < graph[curr_node].size(); i++) {
+			int next_node = graph[curr_node][i];
+			indegree[next_node]--;
+
+			if (indegree[next_node] == 1)
+				top_q.push(next_node);
+			if (visit[curr_node] == false)
+				visit[next_node] = true;
+			// 자식 노드가 꺼져있을 때, 부모노드를 켜는게 핵심이다.
+		}
+	}
+
+	for (int i = 1; i <= vertex; i++)
+		if (visit[i])
+			answer++;
+
+	cout << answer;
+	return answer;
+}
+
+int solution(int n, vector<vector<int>> lighthouse) {
+	for (int i = 0; i < lighthouse.size(); i++) {
+		int from = lighthouse[i][0];
+		int to = lighthouse[i][1];
+
+		graph[from].push_back(to);
+		graph[to].push_back(from);
+		indegree[from]++;
+		indegree[to]++; // 진입 차수
+	}
+
+	return topology_sort(n);
+}
+{% endhighlight %}
+
+### Appendix : DFS
+사실, DFS로 구현하는 방식은 잘 생각이 나지 않았는데,  
+다른 사람들의 풀이를 참고해보니 모두 DFS로 푼 것 같았다.  
+
+간단하게 DFS로 구현하는 방식은 아래와 같다.  
+DFS 방식대로 트리를 쭉 내려가되, 다음 노드가 내가 온 노드인지 검사한다.  
+이는 그래프가 양방향으로 주어졌기 때문에 검사해야 무한루프가 돌지 않는다.  
+
+쭉 타고 내려가며, 현재 노드와 다음 노드가 둘 다 켜져있지 않다면?  
+둘 중 하나는 반드시 켜져야 하므로, 위에서 말했듯 부모 노드를 켜준다.  
+DFS에서는 현재 노드가 부모 노드가 되고, 다음 노드가 자식 노드이므로  
+현재 노드를 켜주고 다음 노드로 DFS를 진행한다.  
+
+{% highlight cpp %}
+vector<int> graph[100001];
+bool visit[100001];
+int answer = 0;
+void dfs(int curr_node, int parent) {
+	for (int i = 0; i < graph[curr_node].size(); i++) {
+		int next_node = graph[curr_node][i];
+
+		if (next_node != parent) {
+		// 다음 노드가 부모와 다른지 확인해야만 한다.
+		// 그래야 거꾸로 돌아가지 않는다!
+			dfs(next_node, curr_node);
+			// 현재 노드를 부모로 하는 다음 노드로 진행.
+
+			if (!visit[curr_node] && !visit[next_node]) {
+				visit[curr_node] = true;
+				// 다음 노드와 연결된 부모 노드인
+				// 현재 노드를 키는게 이득이다!
+				answer++;
+			}
+		}
+	}
+}
+
+int solution(int n, vector<vector<int>> lighthouse) {
+	for (int i = 0; i < lighthouse.size(); i++) {
+		int from = lighthouse[i][0];
+		int to = lighthouse[i][1];
+
+		graph[from].push_back(to);
+		graph[to].push_back(from);
+	}
+
+	dfs(1, 1);
+	return answer;
+}
+{% endhighlight %}
+
+원리는 위상 정렬과 같지만, 노드 방문 순서만 다르다!  
+다양한 방식으로 문제에 접근하는 시각을 기르는 게 중요하다!  
