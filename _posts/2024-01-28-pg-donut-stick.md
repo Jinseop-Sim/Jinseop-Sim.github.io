@@ -92,3 +92,74 @@ for (int i = 0; i < edges.size(); i++) {
 
 그래서 결국 다른 사람의 풀이를 참고했다.  
 다른 사람들의 풀이는 그래프 탐색을 하지 않는 풀이도 있었다.  
+해당 풀이를 참고해서 진입 진출 차수를 통해 문제를 풀었다.  
+
+진입 차수와 진출 차수를 저장하는 배열을 만들어 각각 저장한다.  
+먼저, 생성된 정점은 어떤 특징을 가지는가?  
+진입 차수가 없으며, 진출 차수가 반드시 1개 이상인 정점이다.  
+단순히 분기문만으로 판단이 가능하다.  
+
+이후 각 그래프가 가지는 특징에 따라 모양을 판별한다.  
+
+- 막대 그래프
+  - 막대 그래프의 리프 노드는 진출 차수가 0이다.
+  - 이 경우는 유일하다.
+- 8자 그래프
+  - 8자 그래프에는 반드시 진입 차수가 2 이상, 진출 차수가 2인 정점이 있다.
+  - 진입 차수가 2 이상인 이유는, 생성된 정점에 꽂힌 정점일 수 있기 때문이다.
+- 도넛 그래프
+  - ```생성된 정점의 진출 차수 - (막대 수 + 도넛 수)```가 된다.
+  - 생성된 정점의 진출 차수가 곧 전체 그래프 수이기 때문이다.
+
+최종적으로 아래와 같이 구현하였다.  
+{% highlight cpp %}
+int indegree[1000001], outdegree[1000001];
+int check_created_node(int last_node) {
+	for (int i = 1; i <= last_node; i++)
+		if (indegree[i] == 0 && outdegree[i] > 1)
+			return i;
+}
+
+bool check_bar_graph(int target) {
+	if (outdegree[target] == 0)
+		return true;
+	return false;
+}
+
+bool check_eight_graph(int target) {
+	if (indegree[target] >= 2 && outdegree[target] == 2)
+		return true;
+	return false;
+}
+
+vector<int> solution(vector<vector<int>> edges) {
+	vector<int> answer(4, 0);
+
+	int last_node = 0;
+	for (int i = 0; i < edges.size(); i++) {
+		int from = edges[i][0];
+		int to = edges[i][1];
+		last_node = max(max(last_node, from), to);
+
+		indegree[to]++; // 해당 노드 진입 차수
+		outdegree[from]++; // 해당 노드 진출 차수
+	}
+
+	int created_node = check_created_node(last_node);
+	answer[0] = created_node;
+
+	for (int i = 1; i <= last_node; i++) {
+		if (i == created_node)
+			continue;
+
+		if (check_bar_graph(i))
+			answer[2]++;
+		if (check_eight_graph(i))
+			answer[3]++;
+
+		answer[1] = outdegree[created_node] - (answer[2] + answer[3]);
+	}
+
+	return answer;
+}
+{% endhighlight %}
