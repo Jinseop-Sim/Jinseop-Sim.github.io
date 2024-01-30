@@ -49,3 +49,23 @@ Greedy 하게 풀 수 있을까 생각해보았는데, 안될 것 같다.
 먼저 한 번 구현을 해보자.
 
 ### 백트래킹
+먼저 상담원을 분배하는 모든 경우를 아래와 같이 구현했다.  
+{% highlight cpp %}
+void select_counselor(int member, vector<int> &counselors) {
+	if (member == 0) {
+    // calculate_waiting_time();
+		return;
+	}
+
+	for (int i = 0; i < counselors.size(); i++) {
+		counselors[i]++;
+		select_counselor(member - 1, counselors);
+		counselors[i]--;
+	}
+}
+{% endhighlight %}
+
+출력 결과, 모든 경우의 수가 잘 출력됨을 확인했다.  
+여기까지는 굉장히 단순한 백트래킹 구현이었다.  
+이제 효율적으로 대기 시간을 계산하는 것이 관건이다.  
+
