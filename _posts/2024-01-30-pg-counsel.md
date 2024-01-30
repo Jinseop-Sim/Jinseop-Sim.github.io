@@ -69,3 +69,66 @@ void select_counselor(int member, vector<int> &counselors) {
 여기까지는 굉장히 단순한 백트래킹 구현이었다.  
 이제 효율적으로 대기 시간을 계산하는 것이 관건이다.  
 
+나는 ```우선순위 큐```를 사용해서 대기 시간을 계산하려고 한다.  
+상담은 당연히 먼저 시작한 사람을 우선으로 진행된다.  
+그럼 앞사람이 끝나야 다음 사람이 상담을 시작할 수 있는 것이다.  
+
+유형 별로 우선순위 큐를 만들어 상담실이라고 가정하도록 하자.  
+그럼 현재 상담 신청을 한 사람의 시작 시간을 기준으로,  
+현재 상담 가능한 상담원이 없는 경우에 대기 시간을 더해주면 될 것이다.  
+최종적으로 아래와 같이 구현해보았다.  
+{% highlight cpp %}
+int calculate_waiting_time(vector<int> counselors, vector<vector<int>> &reqs) {
+	int waiting_time = 0;
+	vector<priority_queue<int, vector<int>, greater<int>>> counsel_q(counselors.size());
+	// 상담 종료 시간, 상담원 유형
+
+	for (int i = 0; i < reqs.size(); i++) {
+		int curr_category = reqs[i][2];
+
+		while (!counsel_q[curr_category - 1].empty() && counsel_q[curr_category - 1].top() <= reqs[i][0]) {
+			counsel_q[curr_category - 1].pop();
+			counselors[curr_category - 1]++;
+		}
+
+		if (counselors[curr_category - 1] == 0) {
+		// 진행 가능한 상담원이 없으면?
+			int diff = counsel_q[curr_category - 1].top() - reqs[i][0];
+			waiting_time += diff;
+
+			counsel_q[curr_category - 1].pop();
+			counsel_q[curr_category - 1].push(reqs[i][0] + reqs[i][1]);
+			
+			continue;
+		}
+
+		counsel_q[curr_category - 1].push(reqs[i][0] + reqs[i][1]);
+		counselors[curr_category - 1]--;
+	}
+
+	return waiting_time;
+}
+{% endhighlight %}  
+
+하지만 아쉽게도 절반의 케이스에서 시간초과가 발생했다.  
+예제 케이스와 시간초과가 뜨지 않는 케이스는 모두 정답처리가 됐으니,  
+핵심 로직은 우선 제쳐두고 시간초과의 원인을 찾도록 해보자.  
+
+### Timeout : Backtracking
+처음엔 ```counselors``` 배열이 문제라고 생각했다.  
+C++은 배열을 매개변수로 넘기게 되면 함수 내에서 배열을 새로 생성한다.  
+그렇기에 보통 ```&``` 연산자를 통해 ```Call by reference```를 수행하는데,  
+사실 이는 메모리 초과라고 보는 것이 맞는 것 같아 후보에서 제외했다.  
+
+다음으로 백트래킹 로직을 살펴보았다.  
+내 백트래킹 로직을 보면 ```for```문을 통해서 조합을 만들고 있다.  
+이 과정에서 문제를 발견할 수 있었다.  
+굳이 배열의 처음부터 다시 훑어서 조합을 만들어야 할까?  
+
+순서가 바뀌면 다른 조합이니, 처음부터 훑어야 한다고 생각했다.  
+하지만 처음부터 훑는 경우엔 굳이 확인이 필요없는 중복이 생긴다.  
+즉, 현재 인덱스를 넘겨 해당 위치부터 훑기만 해도 조합을 만들 수 있다.  
+해당 부분이 시간 초과가 발생한 핵심 원인이었다.  
+
+해당 로직을 고치니 곧바로 정답을 받을 수 있었다.  
+오랜만에 레벨 3 문제를 혼자 힘으로 해결하니 뿌듯하다.  
