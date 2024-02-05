@@ -45,3 +45,82 @@ author:
 나올 수 있는 경우의 수가 그렇게 많지는 않을 것으로 예상된다.  
 
 한 번 백트래킹을 이용해 구현해보도록 하자!  
+우리는 ```남은 화살, 어피치 점수, 라이언 점수```를 신경쓰며 진행해야 한다.  
+매개변수로 세 변수를 넘기며, ```남은 화살```이 없을 때 중단하도록 한다.  
+중단 되었을 때, 라이언의 가장 큰 차이의 점수로 이기는 경우로 갱신하는 것이다.  
+
+```Tie break```를 처리하는 데에 굉장히 애를 먹었다.  
+__가장 낮은 점수를 많이 맞추는 경우__ 를 우선으로 선택해야 하는데,  
+처음에는 당연히 마지막에 골라지는 것이 낮은 점수를 많이 고른게 아닐까했다.  
+
+하지만 그게 아니었다, __가장 낮은__ 점수를 많이 맞춘 경우,  
+즉 ```2 1 1 0 0```과 ```9 0 0 0 1```이 답일 때 후자를 선택하라는 것이다.  
+그럼 당연히 마지막에 골라지는 것만이 답이 되는 것은 아니게 된다.  
+
+결국 굉장히 지저분한 분기문으로 처리했으며  
+최종적으로 아래와 같이 구현되었다.  
+{% highlight cpp %}
+vector<int> score_vec(11, 0);
+vector<int> result(11, 0);
+int max_diff = 0, max_last_idx = 0;
+bool is_possible = false;
+void backtrack(int curr_idx, int arrows, int apeach_score, int ryan_score, vector<int> &info) {
+    if (arrows == 0) {
+        if (ryan_score > apeach_score) {
+            is_possible = true;
+            int diff = ryan_score - apeach_score;
+
+            if (max_diff <= diff) {
+                if (max_diff == diff) {
+                    if (curr_idx >= max_last_idx) {
+                        if (max_last_idx == curr_idx) {
+                            if (result[curr_idx] <= score_vec[curr_idx])
+                                result = score_vec;
+
+                            return;
+                        }
+
+                        max_last_idx = curr_idx;
+                        result = score_vec;
+                    }
+
+                    return;
+                }
+
+                max_last_idx = curr_idx;
+                max_diff = diff;
+                result = score_vec;
+            }
+        }
+
+        return;
+    }
+
+    for (int i = curr_idx + 1; i < info.size(); i++) {
+        if (arrows - (info[i] + 1) < 0)
+            score_vec[i] += arrows;
+        else
+            score_vec[i] = info[i] + 1;
+
+        int apeach_coef = 0, ryan_coef = 1;
+        if (info[i] < score_vec[i]) {
+            // 라이언이 이기면 계수를 1로 만들어야 함
+            apeach_coef = 1;
+
+            if (info[i] == 0) // 근데 어피치가 안쏜거면 0으로 다시 만듬
+                apeach_coef = 0;
+        }
+        else // 어피치가 이기면 라이언 계수가 0이 됨
+            ryan_coef = 0;
+
+        backtrack(i, arrows - score_vec[i], apeach_score - ((10 - i) * apeach_coef), ryan_score + ((10 - i) * ryan_coef), info);
+        score_vec[i] = 0;
+    }
+}
+{% endhighlight %}  
+
+사실 이 문제는 예전에 풀었던 문제이다.  
+그 때는 다른 사람의 풀이를 참고하며 풀었었던 기억이 있다.  
+이번에는 다시 푸는 것이니 혼자 힘으로 풀어내려 했다.  
+다행히도 혼자 풀 수 있었지만, 코드가 굉장히 지저분하다.  
+좀 더 깔끔하게 짤 수 있는 로직을 생각하는 연습을 해야할 것 같다.  
