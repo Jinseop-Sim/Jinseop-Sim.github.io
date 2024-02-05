@@ -120,7 +120,7 @@ int red_blue_bfs(vector<vector<int>> &maze){
             if(!blue_fin){
                 if((blue_nx >= 0 && blue_nx < maze.size()) && (blue_ny >= 0 && blue_ny < maze[0].size())){
                     if(!visit_blue[blue_nx][blue_ny] && maze[blue_nx][blue_ny] != 5){
-                        blue_q.push({{blue_nx, blue_ny}, blue_stride + 1});
+                        blue_q.push({ {blue_nx, blue_ny}, blue_stride + 1});
                         visit_blue[blue_nx][blue_ny] = true;
                     }
                 }
