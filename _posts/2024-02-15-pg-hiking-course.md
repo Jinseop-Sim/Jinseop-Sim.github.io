@@ -6,7 +6,7 @@ tags: [cpp]
 author:
   - Jinseop Sim
 ---
-- [리틀 프렌즈 사천성[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/118669)
+- [등산 코스 정하기[LEVEL 3]](https://school.programmers.co.kr/learn/courses/30/lessons/118669)
 
 이번 문제는 프로그래머스의 레벨 3 등산 코스 정하기 문제이다.  
 ```2022 KAKAO INTERNSHIP``` 문제라고 한다.  
