@@ -102,6 +102,86 @@ vector<int> solution(int target) {
 ### DP
 곰곰히 생각을 해보니 DP와 유사하다는 생각이 들었다.  
 그래서 DP의 ```Memoization```을 이용해보기로 결심했다.  
+어떻게 점화식을 세울 수 있을까?  
+
+우선 나는 DP 배열의 각 칸을 점수로 두기로 했다.  
+즉, ```DP[100001]```의 배열을 만들어 계산을 진행하고자 한다.  
+
+진행 방식은 점수로 부터 0까지 내려가며 ```for```문을 돌리려고 한다.  
+아래와 같은 ```for```문을 사용할 수 있을 것이다.  
+{% highlight cpp %}
+for (int curr_score = target; curr_score > 0; curr_score--){
+  // 점수 계산
+}
+{% endhighlight %}
+
+이제 다음으로는 점수를 어떻게 계산해 나갈 것인가가 관건이다.  
+내가 맞출 수 있는 점수는 ```1 ~ 20```과 각각의 ```X2, X3```그리고 ```50```점이다.  
+해당 점수들을 얻었을 때 ```target - score```에 해당하는 칸에 횟수를 기록할 것이다.  
+
+단, 이 때 위에서 DFS를 진행할 때 살펴보았던 중지 조건과 동일한 조건 하에서  
+더 이상 탐색할 필요가 없을 때는, 해당 회차를 중지시켜야 한다.  
+아래와 같은 검사 함수를 만들어 줄 수 있을 것이다.  
+
+{% highlight cpp %}
+bool validate(int next_score, int curr_score) {
+    if (next_score < 0)
+        return false; // 버스트
+
+    if (dp[next_score].first && (dp[next_score].first <= dp[curr_score].first))
+        return false;
+    // 다음 점수에 이미 탐색한 기록이 있는데
+    // 횟수가 현재 횟수와 같거나 더 적으면 탐색할 필요 X
+
+    if ((dp[next_score].first == dp[curr_score].first + 1) && dp[next_score].second > dp[curr_score].second)
+        return false;
+    // 현재 점수에서 하나 더 던져서 다음 점수를 만들 수 있는 경우
+    // 즉, 던진 횟수가 같은 tie break의 경우에
+    // 볼 + 싱글의 경우가 현재 더 적으면 탐색할 필요 X
+
+    return true;
+}
+{% endhighlight %}  
+
+이제는 우리가 원하는 점수로 부터 내려가며, 배열에 차곡차곡 쌓으면 된다!  
+아래와 같이 최종적으록 구현되었다.  
+{% highlight cpp %}
+vector<int> answer;
+for (int curr_score = target; curr_score > 0; curr_score--) {
+    for (int next_score = 1; next_score <= 20; next_score++) {
+        for (int coef = 1; coef <= 3; coef++) {
+            int next = curr_score - (next_score * coef);
+
+            if (!validate(next, curr_score))
+                continue;
+
+            dp[next].first = dp[curr_score].first + 1;
+            if (coef == 1) // 싱글을 맞추는 경우
+                dp[next].second = dp[curr_score].second + 1;
+            else // 아닌 경우 현행 유지
+                dp[next].second = dp[curr_score].second;
+        }
+    }
+
+    int next = curr_score - 50; // 불
+        
+    if (!validate(next, curr_score))
+        continue;
+
+    dp[next].first = dp[curr_score].first + 1;
+    dp[next].second = dp[curr_score].second + 1;
+    // 불은 무조건 올려주어야 함
+}
+
+answer.push_back(dp[0].first);
+answer.push_back(dp[0].second);
+return answer;
+{% endhighlight %}  
+
+### Appendix : DP 튜닝
+다른 사람들의 풀이를 참고하기 위해 찾아보니, 다양한 풀이가 있었다.  
+그런데 대부분 DP를 그냥 사용하는 것이 아니라 분기를 하고 있었다.  
+내가 생각하기엔 조금 수학적인 부분들이 많이 가미된 풀이인 것 같다.  
 
 먼저 생각해야 할 조건들 부터 생각해보자.  
 1. 대상 점수가 1 ~ 20 사이일 경우
