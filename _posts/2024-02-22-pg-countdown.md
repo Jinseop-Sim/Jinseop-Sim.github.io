@@ -210,3 +210,105 @@ return answer;
 이후로도 분명 많은 조건에 따라 자를 수 있겠지만,  
 ```Memoization```을 통해 계산해도 충분하다고 생각된다.  
 
+그럼 이후로 올 수들에 대한 점화식은 어떻게 될까?  
+최대한 적게 던지기 위해서는, 최대한 큰 점수를 내야할 것이다.  
+그런데 이 때 ```50```점을 선택할 지 ```60```점을 선택할 지가 관건이 된다.  
+왜? 같은 점수일 때 ```50```점, 즉 불을 더 많이 맞춘 사람이 승리하기 때문이다.  
+
+즉, 우리는 특정 점수에 대해서 트리플과 불 중 더 최선의 선택을 해야 한다.  
+1. 트리플과 불 둘 다 던진 횟수가 같을 때
+  - ```싱글, 불```을 더 많이 맞춘 쪽을 선택한다.
+2. 트리플을 선택했을 때 더 적게 던지는 경우
+  - ```dp[i] = dp[i - 60] + 1```이 된다.
+  - ```sb[i] = sb[i - 60]```, ```싱글 + 불```은 바뀌지 않는다.
+3. 불을 선택했을 때 더 적게 던지는 경우
+  - ```dp[i] = dp[i - 50] + 1```
+  - ```sb[i] = dp[i - 50] + 1```, ```싱글 + 불```이 1회 추가된다.
+
+최종적으로 아래와 같이 구현된다.  
+{% highlight cpp %}
+bool validate(int next_score, int curr_score) {
+    if (next_score < 0)
+        return false; // 버스트
+
+    if (dp[next_score].first && (dp[next_score].first <= dp[curr_score].first))
+        return false;
+    // 다음 점수에 이미 탐색한 기록이 있는데
+    // 횟수가 현재 횟수와 같거나 더 적으면 탐색할 필요 X
+
+    if ((dp[next_score].first == dp[curr_score].first + 1) && dp[next_score].second > dp[curr_score].second)
+        return false;
+    // 현재 점수에서 하나 더 던져서 다음 점수를 만들 수 있는 경우
+    // 즉, 던진 횟수가 같은 tie break의 경우에
+    // 볼 + 싱글의 경우가 현재 더 적으면 탐색할 필요 X
+
+    return true;
+}
+{% endhighlight %}  
+
+이제는 우리가 원하는 점수로 부터 내려가며, 배열에 차곡차곡 쌓으면 된다!  
+아래와 같이 최종적으록 구현되었다.  
+{% highlight cpp %}
+void fill_dp(int target) {
+    if (dp[target - 60].first == dp[target - 50].first) {
+        dp[target].first = dp[target - 50].first + 1;
+        dp[target].second = max(dp[target - 60].second, dp[target - 50].second + 1);
+        // 트리플을 하거나, 불을 던져 불 + 1을 하거나
+    }
+    else if (dp[target - 60].first < dp[target - 50].first) {
+        dp[target].first = dp[target - 60].first + 1;
+        dp[target].second = dp[target - 60].second;
+    }
+    else {
+        dp[target].first = dp[target - 50].first + 1;
+        dp[target].second = dp[target - 50].second + 1;
+    }
+}
+
+vector<int> solution(int target) {
+    vector<int> answer;
+
+    for (int i = 1; i <= target; i++) {
+        // 1. 싱글 1회, 불 1회로 끝나는 경우
+        if (i == 50 || i <= 20) {
+            dp[i].first = 1;
+            dp[i].second = 1;
+        }
+        // 2. 60이하일 때, 3의 배수인 경우
+        else if (i <= 60 && i % 3 == 0) {
+            dp[i].first = 1;
+            dp[i].second = 0;
+        }
+        // 3. 40이하일 때, 2의 배수인 경우
+        else if (i <= 40 && i % 2 == 0) {
+            dp[i].first = 1;
+            dp[i].second = 0;
+        }
+        // 4. 51 ~ 70일 때 불 + 싱글
+        else if (i > 50 && i <= 70) {
+            dp[i].first = 2;
+            dp[i].second = 2;
+        }
+        // 위의 경우에 포함되지 않는 경우
+        else if (i < 70) {
+            // 40보다 작은 경우는 싱글 + 싱글
+            if (i < 40) {
+                dp[i].first = 2;
+                dp[i].second = 2;
+            }
+            // 아니라면 싱글 + 더블 혹은 싱글 + 트리플
+            else {
+                dp[i].first = 2;
+                dp[i].second = 1;
+            }
+        }
+        // 남은 경우는 모두 dp로 해결
+        else
+            fill_dp(i);
+    }
+
+    answer.push_back(dp[target].first);
+    answer.push_back(dp[target].second);
+    return answer;
+}
+{% endhighlight %}  
