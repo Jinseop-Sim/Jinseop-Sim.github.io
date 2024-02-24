@@ -29,65 +29,139 @@ author:
 직접 찾으려면 시간 초과가 발생하지는 않을까?  
 효율적인 로직을 위해 ```Queue``` 자료 구조를 한 번 이용해보자.  
 
-우선순위 큐에 현재 진행 중인 작업을 집어 넣고, 현재 시간과 진입 시간을 비교한다.  
-```현재 시간 + 처리 시간```이 이후 현재 시간과 같아지는 순간 큐에서 뺀다.  
+우선순위 큐에 현재 진행 중인 작업을 집어 넣고, 현재 시간과 종료 시간을 비교한다.  
+```종료 시간```이 현재 시간과 같다면? 그냥 작업을 종료하면 된다.  
 큐에서 빠지게 되면, 동시에 새로운 일을 수행할 수 있다는 것!  
 곧바로 해당 코어에게 새로운 일을 배정하고, 큐에 다시 집어 넣는다.  
 
+```종료 시간```이 현재 시간보다 크다면? 작업을 종료하되, 시간을 갱신한다.  
+이후 동일하게 새로운 일을 배정하고 큐에 다시 집어 넣는다!  
+
+단, 우선순위 큐는 종료 시간을 기준으로 오름차순으로 정렬하도록 한다.  
 위와 같이 반복적으로 처리하면, 마지막에 큐에 남는 코어가 답이 될 것이다.  
 아래와 같이 구현해보았다.  
 {% highlight cpp %}
-struct cmp {
-	bool operator()(piii a, piii b) {
-		if (a.first.first == b.first.first)
-			return a.second > b.second;
-		
-		return a.first.first > b.first.first;
-	}
-};
-
-unordered_map<int, int> core_index_map;
 int solution(int n, vector<int> cores) {
 	int answer = 0;
-	int size = cores.size(), iter = 0;
+	int size = cores.size();
 
-	for (int i = 0; i < size; i++)
-		core_index_map[cores[i]] = i + 1;
-	sort(cores.begin(), cores.end());
-
-	priority_queue<piii, vector<piii>, cmp> core_q;
+	priority_queue<pii, vector<pii>, greater<>> core_q;
 	for (int i = 0; i < cores.size(); i++) {
-		core_q.push({ { cores[i], cores[i] }, i });
-		iter = i;
-	}
+		core_q.push({cores[i], i});
+		n--;
+	} // 시작하자마자, 모든 코어에 작업을 시킴
 
 	int timer = 1;
-	bool finished = false;
-	while (true) {
-		while (!core_q.empty() && (core_q.top().first.first == timer)) {
-			iter++;
-			core_q.push({ { timer + core_q.top().first.second, core_q.top().first.second}, iter });
+	while (n > 0) {
+		pii curr_core = core_q.top();
+		core_q.pop(); // 다음 작업을 처리할 코어
+
+		if (curr_core.first == timer)
+			n--; 
+		// 현재 시간과 해당 코어의 종료 시간이 같으면 그냥 종료
+		else if (curr_core.first > timer) {
+			timer = curr_core.first;
 			n--;
-
-			if (n == 0) {
-				finished = true;
-				answer = core_q.top().first.second;
-				break;
-			}
-
-			core_q.pop();
+		// 현재 시간보다 해당 코어의 종료 시간이 크면?
+		// 현재 시간을 코어의 종료 시간으로 변경해야 함
 		}
 
-		if (finished)
-			break;
-
-		timer++;
+		if (n == 0)
+			answer = curr_core.second + 1;
+		// 작업이 모두 끝났으면 종료 시점 저장
+		else
+			core_q.push({ timer + cores[curr_core.second], curr_core.second });
 	}
 
-	answer = core_index_map[answer];
 	return answer;
 }
 {% endhighlight %}
 
 ### 이분 탐색
-안타깝게도 위의 로직은 효율성 케이스에서 시간초과가 발생했다.  
+안타깝게도 위의 로직은 효율성 케이스에서 시간 초과가 발생했다.  
+정확성 케이스는 모두 통과했으나, 아무래도 edge case를 통과하지 못하나보다.  
+edge case의 경우, ```O(10000 * 50000)```의 시간 복잡도를 갖게 될텐데,  
+문제의 시간 제한을 통과하기엔 너무 느린 속도였던 것 같다.  
+그래서 다른 사람들의 풀이를 조금 참고해보았다.  
+
+효율성 케이스를 통과하기 위해서는 __이분 탐색__ 을 해야 한다고 한다.  
+어떤 요소를 옮기며 이분 탐색을 진행해야 할까?  
+
+정해져 있는 요소는 작업의 수 ```n```과 처리 시간, 코어의 수이다.  
+그럼 우리가 조절할 수 있는 유일한 변수는 ```작업 시간```이 된다.  
+주어지는 작업 시간 내에 ```n```개의 작업을 처리할 수 있는지로 기준을 잡자.  
+
+처리가 가능하다면, 작업 시간을 더 줄여보고  
+처리가 불가능하다면, 작업 시간을 더 늘려보면 될 것 같다.  
+처리가 가능한지 판단하는 로직은 아래와 같이 구현하면 될 것이다.  
+{% highlight cpp %}
+int std = cores.size();
+for (int i = 0; i < cores.size(); i++)
+	std += mid / cores[i];
+{% endhighlight %}
+
+오른쪽 끝이 되는 최대 작업 시간은 몇으로 잡아야 할까?  
+원래는 edge case인 ```(100000 * 50000) / 2```가 최대 시간이 된다.  
+하지만 ```50000```으로 잡아도 통과를 하는 것을 보니, 케이스가 없나보다.  
+
+이제 코어를 순회하며 각 코어가 처리할 수 있는 일의 수를 계산한다.  
+```총 작업 시간 / 처리 시간 + 1```을 하면, 처리할 수 있는 일의 수가 된다.  
+아래의 그림을 보면 이해가 빠를 것이다.  
+
+![image](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/e14cd85b-baa4-4318-a6df-4c32b9b5c3a2)  
+
+위의 그림은 ```6초```동안 3개의 코어가 처리할 수 있는 작업의 수이다.  
+```(6 / 1) + 1 + (6 / 2) + 1 + (6 / 3) + 1```의 결과인 ```14```임을 알 수 있다.  
+```+1```은 기본적으로 ```0초```에 수행되는 작업들을 의미한다.  
+이 로직을 ```n```개를 처리하지 못하는 최대 시간에 수렴할 때까지 반복한다.  
+
+왜 ```n```개를 만들지 못하는 최대 시간에 수렴시킬까?  
+그래야 해당 시간 + 1을 했을 때, ```n```개를 처리할 수 있기 때문이다.  
+이제 우리는 남은 일을 처리하는 과정에서 답을 구할 수 있다.  
+
+```해당 시간 + 1 / 처리 시간```의 나머지가 0인 코어는 일을 처리할 수 있다.  
+왜? 처리 시간으로 나누어 떨어지는 시간에 코어는 ```작업 + 1```이 되기 때문!  
+최종적으로 아래와 같이 구현할 수 있다.  
+{% highlight cpp %}
+int solution(int n, vector<int> cores) {
+	int answer = 0;
+
+	if (n <= cores.size())
+		return n;
+
+	int left_v = 0, right_v = 50000;
+	while (left_v + 1 < right_v) {
+		int mid = (left_v + right_v) / 2;
+		int std = cores.size(); // 기본적으로 진행하는 작업
+
+		for (int i = 0; i < cores.size(); i++)
+			std += mid / cores[i];
+		// 작업 시간 내에 해당 코어가 몇 개의 작업을 처리할 수 있는지?
+
+		if (std < n)
+			left_v = mid;
+		// 작업을 모두 끝낼 수 없다면 작업 시간을 늘려야 한다.
+		else
+			right_v = mid;
+		// 작업을 모두 끝낼 수 있다면 작업 시간을 줄인다.
+	}
+
+	int std = cores.size(); // 기본 작업
+	for (int i = 0; i < cores.size(); i++)
+		std += left_v / cores[i];
+	// 최대 시간 내에 처리할 수 있는 작업의 수
+	for (int i = 0; i < cores.size(); i++) {
+		if ((left_v + 1) % cores[i] == 0)
+			std++;
+	// 최대 시간 + 1을 했을 때 처리가능한 코어를 찾는다.
+		if (std == n)
+			return i + 1;
+	}
+
+	return 0;
+}
+{% endhighlight %}
+
+해당 문제를 딱 보았을 때, 이분 탐색일 줄은 꿈에도 몰랐다.  
+이런 유형의 아이디어성 문제는 많이 풀어서 익혀야 한다.  
+좀 더 많은 문제를 풀도록 하자.  
