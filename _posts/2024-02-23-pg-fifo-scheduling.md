@@ -29,18 +29,65 @@ author:
 직접 찾으려면 시간 초과가 발생하지는 않을까?  
 효율적인 로직을 위해 ```Queue``` 자료 구조를 한 번 이용해보자.  
 
-큐에 현재 진행 중인 작업을 집어 넣고, 현재 시간과 진입 시간을 비교한다.  
-```현재 시간 - 진입 시간```이 작업 처리 시간과 같아지는 순간 큐에서 뺀다.  
-포인터를 하나 생성해서 큐에서 빠질 때 포인터를 밀어 다음 코어에 일을 시키고,  
-큐에 작업을 집어넣을 떄에도 포인터를 밀어 다음 코어에 일을 시킨다면?  
+우선순위 큐에 현재 진행 중인 작업을 집어 넣고, 현재 시간과 진입 시간을 비교한다.  
+```현재 시간 + 처리 시간```이 이후 현재 시간과 같아지는 순간 큐에서 뺀다.  
+큐에서 빠지게 되면, 동시에 새로운 일을 수행할 수 있다는 것!  
+곧바로 해당 코어에게 새로운 일을 배정하고, 큐에 다시 집어 넣는다.  
 
-어차피 오름차순으로 작업을 정렬했으니 작업이 끝나는 순서도 같을 것이다.  
-그러므로, 순차적으로 비는 코어에 일을 순차적으로 시킬 수 있을 것이다!  
+위와 같이 반복적으로 처리하면, 마지막에 큐에 남는 코어가 답이 될 것이다.  
+아래와 같이 구현해보았다.  
+{% highlight cpp %}
+struct cmp {
+	bool operator()(piii a, piii b) {
+		if (a.first.first == b.first.first)
+			return a.second > b.second;
+		
+		return a.first.first > b.first.first;
+	}
+};
 
-### ?
-곰곰히 다시 생각해보니 위의 로직은 큰 실수를 하고 있다.  
-작업이 끝나는 순서가 같다는 보장이 없다는 것이다.  
-예를 들어, ```1, 5```의 처리 시간을 갖는 두 코어가 있다면?  
-```1```의 코어가 일 5개를 처리한 뒤에는 두 코어의 작업이 동시에 끝난다.  
-즉 우리는 단순히 선형적으로 포인터를 증가시켜서는 이를 구현할 수 없다.  
+unordered_map<int, int> core_index_map;
+int solution(int n, vector<int> cores) {
+	int answer = 0;
+	int size = cores.size(), iter = 0;
 
+	for (int i = 0; i < size; i++)
+		core_index_map[cores[i]] = i + 1;
+	sort(cores.begin(), cores.end());
+
+	priority_queue<piii, vector<piii>, cmp> core_q;
+	for (int i = 0; i < cores.size(); i++) {
+		core_q.push({ { cores[i], cores[i] }, i });
+		iter = i;
+	}
+
+	int timer = 1;
+	bool finished = false;
+	while (true) {
+		while (!core_q.empty() && (core_q.top().first.first == timer)) {
+			iter++;
+			core_q.push({ { timer + core_q.top().first.second, core_q.top().first.second}, iter });
+			n--;
+
+			if (n == 0) {
+				finished = true;
+				answer = core_q.top().first.second;
+				break;
+			}
+
+			core_q.pop();
+		}
+
+		if (finished)
+			break;
+
+		timer++;
+	}
+
+	answer = core_index_map[answer];
+	return answer;
+}
+{% endhighlight %}
+
+### 이분 탐색
+안타깝게도 위의 로직은 효율성 케이스에서 시간초과가 발생했다.  
