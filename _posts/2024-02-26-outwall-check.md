@@ -27,10 +27,104 @@ author:
 문제에 예시로 나와있는 그림을 보니 문득 그리디인가? 하는 생각이 들었다.  
 아래의 예시 그림을 한 번 보도록 하자.  
 
-
+![image](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/1d598af6-12d2-4396-bfc2-a23e4dd37969)  
 
 붉은 경로는 내가 표시한 최단 경로이다.  
 위의 그림과 같이 모든 위치에 대해서 최단 거리를 알아낼 수 있다면?  
 
 ```0```번 위치부터 ```for```문을 돌며 ```시계, 반시계```를 각각 돌아보자.  
 그럼 둘 중 다른 정점을 처음 만나는 거리가 더 짧은 방향을 선택한다.  
+
+### 완전 탐색!
+결국 다른 사람들의 풀이를 조금 찾아보았다.  
+설마설마 했는데 완전탐색으로 풀 수 있는 문제였다.  
+```시계, 반시계```로 가는 모든 경우를 구해야 한다고 생각했는데 아니었다.  
+문제를 꽤 단순화한 뒤 완전탐색으로도 시간이 충분했다.  
+
+최종적으로 아래와 같이 구현되었다.  
+{% highlight cpp %}
+#include <string>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+#define INF 987654321
+
+vector<int> permutation;
+int result = INF;
+bool visit[8];
+void circulate_weak(int n, vector<int> &weak) {
+    int size = weak.size();
+    for (int i = 0; i < size - 1; i++)
+        weak.push_back(weak[i] + n);
+    // 취약 지점을 원형으로 만들기 위해 뒤에 값을 추가한다.
+    // 마지막 지점을 제외한 나머지 지점 추가
+}
+
+void backtrack(int depth, int idx, int limit, vector<int> dist, vector<int> weak) {
+    if (depth == dist.size()) {
+        for (int i = 0; i < limit; i++) {
+            int from = weak[i]; // 출발 지점
+            int end = weak[i + limit - 1];
+            // 종료 지점은 출발지에 대해 정반대편
+
+            for (int j = 0; j < permutation.size(); j++) {
+                from += permutation[j]; // 시작 지점부터 탐색 가능 거리 더하기
+                
+                if(j + 1 > result)
+                    break;
+                
+                if (from >= end) {
+                // 시작지점 >= 끝지점이 되면 순찰을 완료한 것
+                    result = min(result, j + 1);
+                    break;
+                }
+
+                
+                for (int k = i + 1; k < i + limit; k++) {
+                    if (weak[k] > from) {
+                        from = weak[k];
+                        break;
+                    }
+                } // 외벽 점검이 끝나지 않았지만, 이동할 수 없는 경우
+                // 다음 취약 지점으로 이동해서 친구를 움직여야 한다.
+            }
+        }
+
+        return;
+    }
+
+    for (int i = 0; i < dist.size(); i++) {
+        if (!visit[i]) {
+            visit[i] = true;
+            permutation.push_back(dist[i]);
+            backtrack(depth + 1, i, limit, dist, weak);
+            visit[i] = false;
+            permutation.pop_back();
+        }
+    }
+}
+
+int solution(int n, vector<int> weak, vector<int> dist) {
+    int answer = 0;
+
+    sort(dist.begin(), dist.end(), greater<>());
+    // 친구들 이동거리 내림차순 정렬
+    int origin_weak_size = weak.size();
+    circulate_weak(n, weak);
+
+    for (int i = 0; i < dist.size(); i++) {
+        visit[i] = true;
+        permutation.push_back(dist[i]);
+        backtrack(1, i, origin_weak_size, dist, weak);
+        visit[i] = false;
+        permutation.pop_back();
+    }
+
+    if (result == INF)
+        return -1;
+    else
+        answer = result;
+    return answer;
+}
+{% endhighlight %}
