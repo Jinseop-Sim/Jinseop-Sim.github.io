@@ -27,7 +27,7 @@ author:
 문제에 예시로 나와있는 그림을 보니 문득 그리디인가? 하는 생각이 들었다.  
 아래의 예시 그림을 한 번 보도록 하자.  
 
-![image](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/cab1f2a1-022d-417a-ae97-1b87dd7b6a50)  
+
 
 붉은 경로는 내가 표시한 최단 경로이다.  
 위의 그림과 같이 모든 위치에 대해서 최단 거리를 알아낼 수 있다면?  
