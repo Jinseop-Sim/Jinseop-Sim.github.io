@@ -55,16 +55,77 @@ author:
   - 다음 친구에게 넘기되, 다음 취약 지점이 다시 시작지점이 된다.
 4. 모든 친구에게 검사를 시켰지만 순회가 불가능한 경우, ```-1```을 반환한다.
 
+위의 로직에 따라 아래와 같이 구현하였다.  
+{% highlight cpp %}
+void circulate_weak(int n, vector<int> &weak) {
+    int size = weak.size();
+    for (int i = 0; i < size - 1; i++)
+        weak.push_back(weak[i] + n);
+    // 취약 지점을 원형으로 만들기 위해 뒤에 값을 추가한다.
+    // 마지막 지점을 제외한 나머지 지점 추가
+}
+
+int solution(int n, vector<int> weak, vector<int> dist) {
+    int answer = INF;
+
+    sort(dist.begin(), dist.end(), greater<>());
+    // 친구들 이동거리 내림차순 정렬
+    int origin_weak_size = weak.size();
+    circulate_weak(n, weak);
+
+    for (int i = 0; i < origin_weak_size; i++) {
+        int from = weak[i]; // 출발 지점
+        int end = weak[i + origin_weak_size - 1];
+        // 종료 지점은 출발지에 대해 정반대편
+
+        for (int j = 0; j < dist.size(); j++) {
+            from += dist[j]; // 시작 지점부터 탐색 가능 거리 더하기
+
+            if (from >= end) {
+                // 시작지점 >= 끝지점이 되면 순찰을 완료한 것
+                answer = min(answer, j + 1);
+                break;
+            }
+
+
+            for (int k = i + 1; k < i + origin_weak_size; k++) {
+                if (weak[k] > from) {
+                    from = weak[k];
+                    break;
+                }
+            } // 외벽 점검이 끝나지 않았지만, 이동할 수 없는 경우
+            // 다음 취약 지점으로 이동해서 친구를 움직여야 한다.
+        }
+    }
+
+    if (answer == INF)
+        return -1;
+    else
+        return answer;
+}
+{% endhighlight %}
+
+하지만 결과는 대부분 맞았지만, 3개의 테스트 케이스에서 실패를 받았다.  
+어떤 점이 문제였을까?  
+
 ### 완전 탐색!
+그리디로도 해결을 못하는 케이스가 있었다.  
+곰곰히 생각을 해보니, 거리가 짧은 친구를 먼저 보내야하는 케이스가 있다.  
+예를 들어, 취약 지점의 길이가 ```1```인 지점과 ```2```인 지점이 순서대로 있을 때,  
+거리가 ```1```인 친구를 먼저 보내고 ```2```인 친구를 보내면 해결이 가능하다.  
+하지만 ```2```인 친구를 먼저 보내면 해결이 불가능하다.  
+
+이런 케이스에서 실패를 받게된 것 같다.  
+
 결국 다른 사람들의 풀이를 조금 찾아보았다.  
 설마설마 했는데 완전탐색으로 풀 수 있는 문제였다.  
-```시계, 반시계```로 가는 모든 경우를 구해야 한다고 생각했는데 아니었다.  
-문제를 꽤 단순화한 뒤 완전탐색으로도 시간이 충분했다.  
+시간이 부족할 것 같았는데, 완전탐색으로도 시간이 충분했다.  
 
 생각을 해보면, 친구가 최대 ```8```명이니 완전탐색에 소요되는 시간은?  
 ```8!```인 ```40320```이 될 것이다.  
 그럼 여기에 추가적으로 최대 ```15```개의 취약 지점을 모두 검사한다.  
 그럼 최종적으로 ```O(40320 * 15 * 8)```의 시간복잡도를 갖게 되는 것이다!  
+시간초과가 발생하지는 않을 만한 시간복잡도이다.  
 
 로직은 위의 그리디 방식과 동일하나, 순열을 이용한다는 점만 다르다.  
 친구들을 점검 보내는 모든 조합에 대해 모든 시작 위치를 대입해보는 것이다.  
@@ -149,3 +210,5 @@ int solution(int n, vector<int> weak, vector<int> dist) {
     return answer;
 }
 {% endhighlight %}
+
+시간복잡도 개념을 조금 더 확실하게 생각해볼 것!  
