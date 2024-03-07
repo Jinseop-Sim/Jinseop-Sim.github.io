@@ -37,6 +37,7 @@ for (int i = 0; i < edges.size(); i++) {
 	int to = edges[i][1];
 
 	graph[from].push_back(to);
+ 	graph[to].push_back(from);
 }
 {% endhighlight %}  
 
@@ -91,3 +92,106 @@ void backtrack(vector<int> info, int curr_node, int sheep_count, int wolf_count)
 
 ### 백트래킹 + Queue
 굉장히 특이하게 백트래킹에 ```Queue```를 이용하고 있었다.  
+갈 수 있는 노드들만 순간순간 판단하여 탐색을 하는 것이다.  
+아래와 같이 백트래킹 로직이 구현되어 있다.  
+{% highlight cpp %}
+void backtrack(vector<int> info, int curr_node, int sheep_count, int wolf_count, queue<int> node_q) {
+	if (!info[curr_node])
+		sheep_count++;
+	else
+		wolf_count++;
+
+	cout << curr_node << " " << sheep_count << " " << wolf_count << '\n';
+	if (wolf_count >= sheep_count)
+		return;
+	result = max(sheep_count, result);
+
+	for (int i = 0; i < graph[curr_node].size(); i++)
+		node_q.push(graph[curr_node][i]);
+	// 갈 수 있는 노드를 모두 큐에 저장한다.
+	for (int i = 0; i < node_q.size(); i++) {
+		int next_node = node_q.front();
+		node_q.pop();
+		cout << i << '\n';
+		backtrack(info, next_node, sheep_count, wolf_count, node_q);
+
+		node_q.push(next_node);
+	}
+}
+{% endhighlight %}  
+
+현재 노드에서 갈 수 있는 모든 노드를 큐에 넣어 유지시킨다.  
+반대편 노드로 갔다가 현재 노드로 돌아오는 동작이 가능해지는 것이다.  
+또한 조건에 의해 함수가 종료되었을 때, 다시 큐에 현재 노드를 집어넣는다.  
+이는 ```반대편 노드에서 더 진행을 한 뒤 다시 돌아왔을 때를 탐색하기 위함```이다.  
+
+위의 로직으로는 반대편 노드를 탐색하고 현재 노드로 돌아오는 움직임이 가능하다.  
+어차피 돌아오는 과정에 ```root``` 노드를 거치게 되니, 정답이 되는 셈이다.  
+어떻게 이런 아이디어가 떠오르는 지 경이로울 따름이다.  
+
+### 백트래킹 + 3차원 배열
+다른 풀이로는, 내가 생각했던 풀이와 유사한 풀이가 있었다.  
+나는 2차원의 방문 배열을 사용했지만, 3차원을 사용한 풀이였다.  
+이 풀이가 내가 원했던 직관적인 풀이대로 잘 풀어주었다고 생각한다.  
+아래와 같이 함수가 구현되어 있다.  
+{% highlight cpp %}
+void backtrack(vector<int> &info, int curr_node, int sheep_count, int wolf_count) {
+	if (curr_node == 0)
+		result = max(result, sheep_count);
+	// 루트로 돌아오는 경우에 최대값을 갱신
+
+	for (int i = 0; i < graph[curr_node].size(); i++) {
+		int next_node = graph[curr_node][i];
+		if (!info[next_node]) {
+			// 다음 노드가 양인 경우
+			if (!visit[next_node][sheep_count + 1][wolf_count]) {
+				visit[next_node][sheep_count + 1][wolf_count] = true;
+				info[next_node] = VACANT;
+				backtrack(info, next_node, sheep_count + 1, wolf_count);
+				visit[next_node][sheep_count + 1][wolf_count] = false;
+				info[next_node] = 0;
+			}
+		}
+		else if (info[next_node] == 1) {
+			// 다음 노드가 늑대인 경우
+			if (!visit[next_node][sheep_count][wolf_count + 1]) {
+				if (sheep_count == wolf_count + 1)
+					continue;
+				// 늑대를 획득했을 때 양과 같으면 다음 노드 탐색
+
+				visit[next_node][sheep_count][wolf_count + 1] = true;
+				info[next_node] = VACANT;
+				backtrack(info, next_node, sheep_count, wolf_count + 1);
+				visit[next_node][sheep_count][wolf_count + 1] = false;
+				info[next_node] = 1;
+			}
+		}
+		else {
+			// 다음 노드가 빈 노드일 경우
+			if (!visit[next_node][sheep_count][wolf_count]) {
+				visit[next_node][sheep_count][wolf_count] = true;
+				backtrack(info, next_node, sheep_count, wolf_count);
+				visit[next_node][sheep_count][wolf_count] = false;
+			}
+		}
+	}
+}
+{% endhighlight %}  
+
+```visit[x][y][z]```에 대해서 각각의 칸은 다음을 의미한다.  
+- ```x``` : 현재 노드의 번호
+- ```y``` : 현재 획득한 양의 수
+- ```z``` : 현재 획득한 늑대의 수
+
+즉 ```x```번 노드에 ```y, z```마리의 동물을 데리고 온 적이 있음을 판단한다.  
+이미 해당 정보대로 데리고 온 적이 있다면, 방문할 필요가 없다.  
+
+이제 탐색하며 다음 노드가 양인지 늑대인지에 따라 분기를 나눈다.  
+- 양 : 양을 하나 획득하고 진행한다.
+- 늑대 : 늑대의 수가 양의 수와 같아지면 중지한다.
+
+완전 직관적인 백트래킹 풀이이다.  
+
+어떤 알고리즘이 사용되는 지 판단하기는 쉬운 문제였다고 생각한다.  
+하지만 디테일한 아이디어가 떠올리기 굉장히 어려웠던 문제같다.  
+조금 더 많이 풀어 사고력을 길러보자.  
