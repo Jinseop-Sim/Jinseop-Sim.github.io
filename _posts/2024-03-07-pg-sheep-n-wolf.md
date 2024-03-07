@@ -44,3 +44,50 @@ for (int i = 0; i < edges.size(); i++) {
 이 때 모든 양을 다 수집한 뒤, 다시 ```4번``` 노드로 이동을 해야 하는데,  
 이 경우는 이미 방문했던 ```1번``` 노드로 다시 들어가는 상황이 된다.  
 이런 경우는 어떻게 구현을 해야하는 지가 관건일 것 같다.  
+
+나는 방문을 확인하는 배열을 2차원 배열로 만들어 시도했다.  
+또한 양과 늑대는 한 번 데려가면 없어지므로, 해당 체크 배열도 만들었다.  
+아래와 같이 구현하였다.  
+{% highlight cpp %}
+void backtrack(vector<int> info, int curr_node, int sheep_count, int wolf_count) {
+	if (sheep_count == wolf_count) {
+		// 같아지는 경우는 더 이상 못감
+		return;
+	}
+
+	if (curr_node == 0) {
+		// 다시 루트 노드로 돌아온 경우
+		cout << sheep_count << '\n';
+	}
+
+	for (int i = 0; i < graph[curr_node].size(); i++) {
+		int next_node = graph[curr_node][i];
+
+		if (!visit[curr_node][next_node]) {
+			visit[curr_node][next_node] = true;
+
+			if (info[next_node] && !sheep_wolf_visit[next_node]) {
+				sheep_wolf_visit[next_node] = true;
+				backtrack(info, next_node, sheep_count + 1, wolf_count);
+			}
+
+			if (!info[next_node] && !sheep_wolf_visit[next_node]) {
+				sheep_wolf_visit[next_node] = true;
+				backtrack(info, next_node, sheep_count, wolf_count + 1);
+			}
+
+			if (sheep_wolf_visit[next_node])
+				backtrack(info, next_node, sheep_count, wolf_count);
+
+			visit[curr_node][next_node] = false;
+		}
+	}
+}
+{% endhighlight %}  
+
+하지만 이 로직에는 문제가 굉장히 많다.  
+방문했던 곳을 다시 방문하는 동작 자체가 불가능했다.  
+결국 조금 더 고민을 하다 다른 사람들의 풀이를 참고했다.  
+
+### 백트래킹 + Queue
+굉장히 특이하게 백트래킹에 ```Queue```를 이용하고 있었다.  
