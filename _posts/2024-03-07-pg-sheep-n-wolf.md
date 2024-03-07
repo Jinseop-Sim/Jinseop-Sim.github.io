@@ -37,7 +37,6 @@ for (int i = 0; i < edges.size(); i++) {
 	int to = edges[i][1];
 
 	graph[from].push_back(to);
-  graph[to].push_back(from);
 }
 {% endhighlight %}  
 
