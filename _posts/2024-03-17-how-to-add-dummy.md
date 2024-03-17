@@ -43,6 +43,17 @@ DB에서 사용할 수 있는 프로시저에 대해 알아보자.
 DB에서의 프로시저도 동일한 의미를 가진다.  
 
 우리가 계획한 절차대로 수행할 명령들을 모아놓은 것이다.  
+아래의 구문들을 사용해서, 프로시저를 구성할 수 있다.  
+
+- ```SHOW PROCEDURE STATUS``` : 프로시저 목록을 확인할 수 있다.
+- ```CREATE PROCEDURE [이름](파라미터1, 파라미터2, ...)``` : 프로시저를 생성한다.
+- ```DROP PROCEDURE [이름]``` : 해당 프로시저를 삭제한다.
+- ```CALL [이름](파라미터1, 파라미터2, ..)``` : 생성한 프로시저를 호출한다.
+- ```BEGIN END``` : 프로시저의 시작과 끝을 정의하는 구문
+- ```DECLARE [변수] INT DEFAULT [값]``` : 프로시저 내의 변수를 선언한다.
+- ``` SET [변수] = [값]``` : 프로시저 내의 변수에 접근하여 값을 바꾼다.
+- ```WHILE [조건] DO END WHILE``` : 프로시저 내에서 반복문을 수행한다.
+
 예를 들어 10개의 데이터를 삽입한다면, 아래와 같이 구현할 수 있다.  
 
 {% highlight sql %}
@@ -63,9 +74,10 @@ DELIMITER $$
 CALL insertLoop; $$
 {% endhighlight %}  
 
-아래는 프로시저를 통해 데이터를 삽입하기 전 용량이다.  
+<img width="506" alt="스크린샷 2024-03-17 오후 4 56 30" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/4b5897df-f0e1-4bf0-97c2-260b1cf8043e">  
 
-<img width="581" alt="스크린샷 2024-03-17 오후 4 40 47" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ae61d6ce-6a31-410a-a960-703804d8dfdd">  
+아래와 같이 조회해보면, 프로시저가 잘 생성되었음을 확인할 수 있다.  
+또한, 실행 시 더미 데이터가 잘 삽입되었음을 확인할 수 있다.  
 
-아래는 프로시저와 함께 데이터를 삽입한 뒤의 용량이다.  
-
+<img width="430" alt="스크린샷 2024-03-17 오후 5 07 54" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f4a1db40-a0e9-4032-8628-6a2c89a24957">
+<img width="399" alt="스크린샷 2024-03-17 오후 4 57 10" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/bdf92193-ac40-4902-a591-d2df2457d73f">
