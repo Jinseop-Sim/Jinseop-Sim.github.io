@@ -146,3 +146,14 @@ DB에 200개의 더미 데이터, 100만개의 더미 데이터를 넣고 요청
 
 ### JPA Pageable
 ```Spring JPA```에서는 ```Pageable```이라는 굉장히 유용한 객체를 제공한다.  
+
+```Pageable``` 객체를 사용하지 않는 경우엔, 아래와 같이 구현될 것이다.  
+프론트엔드 단에서 가장 마지막에 받은 커서를 요청에 함께 보내야한다.  
+
+<img width="911" alt="스크린샷 2024-03-18 오전 2 41 40" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/04913035-cf56-495c-9fc6-ffc6e4d7cf7c">  
+
+그 결과 아래와 같이 10개씩 최신순으로 불러옴을 볼 수 있다.  
+
+<img width="578" alt="스크린샷 2024-03-18 오전 2 42 45" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/3cad1234-594a-4a07-8542-4b80ba3f4e30">  
+
+```Pageable``` 객체는 ```JPARepository```에서 Pagination을 구현하도록 한다.  
