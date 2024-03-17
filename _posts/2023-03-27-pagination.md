@@ -75,8 +75,41 @@ Query의 끝에 ```LIMIT``` 구문이 추가되어 있음을 확인할 수 있�
 ### Cursor based pagination
 위의 이유로 등장하게 된 것이 ```cursor based pagination``` 방식이다.  
 ```OFFSET```을 사용하지 않고, ```WHERE``` 절로 조건을 걸어 요청한다.  
-
+아래와 같이 Query를 요청하면, 아래의 표와 같이 결과가 나올 것이다.  
 {% highlight sql %}
+SELECT *
+FROM BOARD
+WHERE ID < 1001
+ORDER BY ID DESC LIMIT 5;
+{% endhighlight %}  
 
-{% endhighlight %}
+<img width="249" alt="스크린샷 2024-03-17 오후 4 13 36" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/b7ac7e2d-861d-4925-8735-9149e692659c">  
+
+그럼 위의 Query에 이어서 아래와 같이 요청한다면?  
+{% highlight sql %}
+SELECT *
+FROM BOARD
+WHERE ID < 996
+ORDER BY ID DESC LIMIT 5;
+{% endhighlight %}  
+
+<img width="247" alt="스크린샷 2024-03-17 오후 4 15 03" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/570b6211-011d-463f-98d5-d6a13beca00e">  
+
+위와 같은 표처럼 Query의 결과가 출력될 것이다.  
+Pagination을 한 효과와 동일하게, 최신순으로 5개씩 잘려 결과가 반환되었다.  
+이제 해당 Query를 일반화하면 아래와 같이 요청할 수 있다.  
+{% highlight sql %}
+SELECT *
+FROM BOARD
+WHERE ID < {마지막으로 요청한 ID}
+ORDER BY ID DESC LIMIT 5;
+{% endhighlight %}  
+
+마지막으로 요청한 ```ID```를 계속 갱신하며 요청하는 것이다.  
+해당 방식은 ```OFFSET```과 다르게 데이터를 모두 불러오지 않는다.  
+또한 ```WHERE``` 절로 조건을 걸어, ```Index```도 태울 수 있다.  
+따라서 ```Offset based```에 비해 훨씬 효율적이다!  
+
+그럼 이 방식을 코드에서 어떻게 구현할 수 있을까?  
 ### JPA Pageable
+```Spring JPA```에서는 ```Pageable```이라는 굉장히 유용한 객체를 제공한다.  
