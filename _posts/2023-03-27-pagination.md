@@ -16,7 +16,7 @@ Pagination이 필요한 이유는 다음과 같다.
   - 일정 수의 글 만큼 자르는 것이 보기 더 편할 것이다.
 
 ### Pagination 로직이 Frontend에 있다면?
-Backend는 Query를 통해 전체 글을 보내기만 하면 되고, 
+Backend는 Query를 통해 전체 글을 보내기만 하면 되고,  
 Frontend에 매번 전체 게시글을 불러온 뒤 구현해야 한다.  
 
 이는 위에서 언급했던 Pagination이 필요한 이유에 어긋난다.  
