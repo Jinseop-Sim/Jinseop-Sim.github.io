@@ -122,7 +122,7 @@ DB에 200개의 더미 데이터, 100만개의 더미 데이터를 넣고 요청
 
 <img width="561" alt="스크린샷 2024-03-17 오후 5 21 20" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/b9f2dde2-c8f7-4844-bfec-d8e156a46738">  
 
-적은 데이터에서는 ``offset based pagination```이 더 빠름을 확인할 수 있다.  
+적은 데이터에서는 ```offset based pagination```이 더 빠름을 확인할 수 있다.  
 
 아래의 결과들은 100만개의 더미 데이터에 대한 비교이다.  
 아래의 사진에서 100만개의 데이터가 생성되었음을 확인할 수 있다.  
