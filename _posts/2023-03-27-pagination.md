@@ -110,6 +110,26 @@ ORDER BY ID DESC LIMIT 5;
 또한 ```WHERE``` 절로 조건을 걸어, ```Index```도 태울 수 있다.  
 따라서 ```Offset based```에 비해 훨씬 효율적이다!  
 
+#### 실제 성능 테스트
+DB에 200개의 더미 데이터, 10만개의 더미 데이터를 넣고 요청을 보내 보았다.  
+아래의 결과들은 200개의 더미 데이터에 대한 비교이다.  
+
+- ```Offset based pagination```
+
+<img width="761" alt="스크린샷 2024-03-17 오후 5 15 59" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/a955390d-7c69-49c7-9dd3-4a72e70c391f">  
+<img width="561" alt="스크린샷 2024-03-17 오후 5 17 47" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/c96723b0-d682-4c3a-ab9f-cddbe15200b2">  
+
+- ```Cursor based pagination```  
+
+아래의 결과들은 10만개의 더미 데이터에 대한 비교이다.  
+
+- ```Offset based pagination```
+
+
+- ```Cursor based pagination```
+
+
 그럼 이 방식을 코드에서 어떻게 구현할 수 있을까?  
+
 ### JPA Pageable
 ```Spring JPA```에서는 ```Pageable```이라는 굉장히 유용한 객체를 제공한다.  
