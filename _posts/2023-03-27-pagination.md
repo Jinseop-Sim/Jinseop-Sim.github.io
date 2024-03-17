@@ -116,10 +116,11 @@ DB에 200개의 더미 데이터, 10만개의 더미 데이터를 넣고 요청�
 
 - ```Offset based pagination```
 
-<img width="761" alt="스크린샷 2024-03-17 오후 5 15 59" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/a955390d-7c69-49c7-9dd3-4a72e70c391f">  
-<img width="561" alt="스크린샷 2024-03-17 오후 5 17 47" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/c96723b0-d682-4c3a-ab9f-cddbe15200b2">  
+<img width="597" alt="스크린샷 2024-03-17 오후 5 21 42" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/22c8179d-f6a4-41e8-8cad-202e85e2b391">  
 
 - ```Cursor based pagination```  
+
+<img width="561" alt="스크린샷 2024-03-17 오후 5 21 20" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/b9f2dde2-c8f7-4844-bfec-d8e156a46738">  
 
 아래의 결과들은 10만개의 더미 데이터에 대한 비교이다.  
 
