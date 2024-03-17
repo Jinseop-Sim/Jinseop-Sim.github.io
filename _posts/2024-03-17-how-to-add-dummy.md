@@ -37,4 +37,35 @@ GROUP BY 1;
 충분한 용량이 있음을 확인했다면, 다음으로 넘어가자!  
 
 ### 프로시저
-DB에서 사용할 수 있는 프로시저에 대해 알아보자.
+DB에서 사용할 수 있는 프로시저에 대해 알아보자.  
+우리가 프로그래밍을 할 때 __프로시저__ 라는 단어를 사용한 적이 있을 것이다.  
+아마 __함수(Function)__ 와 유사한 단어로 사용하였을 것이다.  
+DB에서의 프로시저도 동일한 의미를 가진다.  
+
+우리가 계획한 절차대로 수행할 명령들을 모아놓은 것이다.  
+예를 들어 10개의 데이터를 삽입한다면, 아래와 같이 구현할 수 있다.  
+
+{% highlight sql %}
+DELIMITER $$
+DROP PROCEDURE IF EXISTS insertLoop$$
+
+CREATE PROCEDURE insertLoop()
+BEGIN
+  DECLARE i INT DEFAULT 1;
+  WHILE i <= 10 DO
+    INSERT INTO test_board(id, title, author)
+    VALUES (i, concat('HELLO ', i), concat('KIM ', i));
+    SET i = i + 1;
+  END WHILE;
+END$$
+DELIMITER $$
+
+CALL insertLoop; $$
+{% endhighlight %}  
+
+아래는 프로시저를 통해 데이터를 삽입하기 전 용량이다.  
+
+<img width="581" alt="스크린샷 2024-03-17 오후 4 40 47" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ae61d6ce-6a31-410a-a960-703804d8dfdd">  
+
+아래는 프로시저와 함께 데이터를 삽입한 뒤의 용량이다.  
+
