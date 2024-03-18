@@ -156,4 +156,25 @@ DB에 200개의 더미 데이터, 100만개의 더미 데이터를 넣고 요청
 
 <img width="578" alt="스크린샷 2024-03-18 오전 2 42 45" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/3cad1234-594a-4a07-8542-4b80ba3f4e30">  
 
+```JPARepository```를 사용하는 경우엔, 훨씬 깔끔하게 코드 작성이 가능하다.  
 ```Pageable``` 객체는 ```JPARepository```에서 Pagination을 구현하도록 한다.  
+먼저, 아래와 같이 ```Repository```를 ```Interface```로 구현한다.  
+
+<img width="651" alt="스크린샷 2024-03-18 오후 7 37 06" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/9f9ea45e-c613-4d5c-97b4-592e65fb5007">  
+
+```JPARepository```는 메서드의 이름을 ```SQL```로 매핑하는 ```ORM```이다.  
+위의 경우, 매우 간단하게 한 줄로 ```id``` 기준 오름차순으로 게시글을 가져올 수 있다.  
+
+아래와 같이 __Postman__ 을 통해 ```/test?page=1&size=10```의 경로로 요청을 보내면?  
+그 아래의 사진과 같이 2개의 Query가 날아감을 확인할 수 있다.  
+또한 요청의 결과가 원하는 대로 ```999990 ~ 999981```번 게시글임을 확인할 수 있다.  
+
+<img width="287" alt="스크린샷 2024-03-18 오후 7 41 41" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/d0b4ac0c-1989-4b61-8e4c-50f4283926d5">  
+
+<img width="626" alt="스크린샷 2024-03-18 오후 7 41 30" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/137c830d-b50c-42fe-af1a-48f4ecb8b304">  
+
+<img width="337" alt="스크린샷 2024-03-18 오후 7 42 25" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/d245defd-da2e-4aa3-9e26-60dd39d6c821">  
+
+이렇게 ```JPARepository```는 매우 간편한 Query를 지원한다.  
+하지만 복잡한 요청을 보내야 하는 경우, ```JPARepository```만으로는 처리할 수 없다.  
+```JPQL, QueryDSL```과 같은 기능을 통해, 직접 Query를 작성해야 할 때도 있다.  
