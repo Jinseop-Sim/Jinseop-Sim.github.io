@@ -42,3 +42,35 @@ author:
 
 하지만 살펴보니, ```카테고리, 설명``` 필드도 중복되는 요소였다.  
 또한, 핵심적으로 아래와 같이 생성자에 중복되는 요소들이 발견되었다.  
+
+<img width="589" alt="스크린샷 2024-03-19 오후 11 57 11" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ed7a19ff-eac9-4c51-b3a6-fe8c5a6e4743">  
+
+상위 4개의 필드가 현재 중복되어 상속받은 요소들이다.  
+이렇게 코드를 작성하면, ```상속 및 추상화```를 적용한 의미가 없어진다.  
+아래와 같이 코드를 수정해보았다.  
+
+<img width="924" alt="스크린샷 2024-03-20 오전 12 10 10" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/b9760fd1-903c-471d-8727-f33a893fb507">  
+
+<img width="647" alt="스크린샷 2024-03-20 오전 12 10 21" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/1903a351-50d8-4500-8013-af0e9882da8c">
+
+위와 같이 부모 클래스에 공통 요소 생성자를 구현한다.  
+```super()``` 메서드를 이용해 부모 클래스의 생성자를 이용하고,  
+자식 클래스에 개별적으로 있는 필드들 또한 초기화 해주도록 한다.  
+이렇게 구현해야 깔끔한 객체지향이라고 생각한다!  
+
+아래와 같이 간이로 글을 생성하는 테스트를 진행해 보았다.  
+
+<img width="478" alt="스크린샷 2024-03-20 오전 12 59 11" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/e8ece41e-77cf-4aa3-a06b-630bd754fd96">  
+
+<img width="957" alt="스크린샷 2024-03-20 오전 12 59 54" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/23f64580-a2a5-4aee-ae7c-6e4c820ffa20">  
+
+성공적으로 생성됨을 확인할 수 있다!  
+
+### Service
+그럼 이번엔 비즈니스 로직이 구현된 ```Service```로 넘어가보도록 하자.  
+과연 ```Service``` 패키지에는 객체 지향적으로 코드가 잘 짜여있을까?  
+
+### Repository
+마지막으로, 실제 DB에 접근하는 ```Repository```이다.  
+과연 ```Repository``` 패키지는 객체 지향적으로 잘 구현되었을까?  
+
