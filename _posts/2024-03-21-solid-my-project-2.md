@@ -71,3 +71,15 @@ DB에서 가져온 값들 중, ```Contents``` 클래스의 필드만 가지게 �
 <img width="213" alt="스크린샷 2024-03-21 오후 10 04 33" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/b6762a7d-c1d1-4bd8-b900-faf11a18b772">  
 
 기존에는 위와 같이 모두 분리되어있는 모습을 볼 수 있다...  
+아래와 같이 통합된 ```유저 참여, 좋아요``` 클래스를 생성해 주었다.  
+또한 기존 클래스는 일단 살려두고, 통합된 ```Serv, Repo```를 만들었다.  
+
+<img width="261" alt="스크린샷 2024-03-21 오후 10 40 06" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/cdfc5146-1ab1-4dfc-85d7-40517a1def0b">  
+
+<img width="241" alt="스크린샷 2024-03-21 오후 10 41 07" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/9634a87f-868f-4a63-a70a-1a0a52f3367c">  
+
+이제 문제는, 해당 ```Contents```들에 대해 들어오는 요청을 구분하는 것이다.  
+```Controller```는 구분해서 사용하는 것이 옳으니 건드리지 않았다.  
+이제 들어오는 요청에 따라 어떤 글을 쓸 지, 조회할 지, 다르게 구현해야 한다.  
+
+### 정적 팩토리 메서드!
