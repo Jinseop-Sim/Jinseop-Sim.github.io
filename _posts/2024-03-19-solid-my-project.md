@@ -96,7 +96,7 @@ author:
 ### Repository
 ```Service```를 추상화하기 이전에, ```Repository```를 먼저 보도록 하자.  
 보통 ```Spring Data JPA```를 이용한다면, 기본적으로 ```Repository```가 제공이 된다.  
-하지만 내 프로젝트의 경우에는 아래와 같이 직접 메서드들을 ```JPQL```을 통해 구현해 놓았다.  
+내 프로젝트의 경우에는 아래와 같이 직접 메서드들을 ```JPQL```을 통해 구현해 놓았다.  
 
 <img width="726" alt="스크린샷 2024-03-20 오후 11 02 49" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/39346e5d-7f61-4996-ab6f-c8782f2d0b63">  
 
