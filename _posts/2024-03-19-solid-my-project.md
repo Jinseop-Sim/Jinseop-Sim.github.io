@@ -143,6 +143,4 @@ author:
 ```GroupBuying```는 ```Contents```보다 크기가 큰 ```자식 Class```이기 때문이다.  
 ```Contents```로 불러와버리는 경우, ```GroupBuying```에 있는 요소들을 매핑할 수 없다.  
 
-위의 문제들로 인해 전략을 수정하기로 했다.  
-
-### Repository : Interface
+위의 문제들로 인해 전략을 수정하기로 했다!  
