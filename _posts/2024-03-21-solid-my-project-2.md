@@ -82,4 +82,12 @@ DB에서 가져온 값들 중, ```Contents``` 클래스의 필드만 가지게 �
 ```Controller```는 구분해서 사용하는 것이 옳으니 건드리지 않았다.  
 이제 들어오는 요청에 따라 어떤 글을 쓸 지, 조회할 지, 다르게 구현해야 한다.  
 
-### 정적 팩토리 메서드!
+### 다시, 객체 지향
+먼저 시나리오를 따라, ```GroupBuying``` 글을 조회해보도록 하자.  
+
+<img width="654" alt="스크린샷 2024-03-21 오후 10 49 44" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ddf7b248-bb38-4f1c-9622-94e401c1f8d7">  
+
+<img width="837" alt="스크린샷 2024-03-21 오후 10 50 07" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ce477444-33f3-4e33-97aa-a03896815d83">  
+
+현재 구조는 위와 같이, 별도로 글을 구분할 수 있는 방식이 없다.  
+이제 사용자의 요청에 따라 해당 메서드 내에서 글의 종류를 구분할 수 있어야 한다.  
