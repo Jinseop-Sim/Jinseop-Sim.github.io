@@ -72,24 +72,75 @@ DB에서 가져온 값들 중, ```Contents``` 클래스의 필드만 가지게 �
 
 기존에는 위와 같이 모두 분리되어있는 모습을 볼 수 있다...  
 아래와 같이 통합된 ```유저 참여, 좋아요``` 클래스를 생성해 주었다.  
-또한 기존 클래스는 일단 살려두고, 통합된 ```Serv, Repo```를 만들었다.  
+만약을 대비해 기존 클래스는 일단 살려두고, 통합된 ```Serv, Repo```를 만들었다.  
 
 <img width="261" alt="스크린샷 2024-03-21 오후 10 40 06" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/cdfc5146-1ab1-4dfc-85d7-40517a1def0b">  
 
 <img width="241" alt="스크린샷 2024-03-21 오후 10 41 07" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/9634a87f-868f-4a63-a70a-1a0a52f3367c">  
 
-이제 문제는, 해당 ```Contents```들에 대해 들어오는 요청을 구분하는 것이다.  
-```Controller```는 구분해서 사용하는 것이 옳으니 건드리지 않았다.  
-이제 들어오는 요청에 따라 어떤 글을 쓸 지, 조회할 지, 다르게 구현해야 한다.  
+이제부터 ```게시글, 참여, 좋아요```와 관련된 클래스를 모두 리팩토링 할 것이다.  
+프로젝트의 크기가 크지 않아 시간이 많이 걸리지는 않을 것이라고 생각한다.  
 
-### 다시, 객체 지향
-먼저 시나리오를 따라, ```GroupBuying``` 글을 조회해보도록 하자.  
+### 클래스 대통합
+이틀 정도 게시글과 관련된 모든 코드를 리팩토링했다.  
+그 결과, 중복되는 코드를 많이 제거할 수 있었고 좀 더 깔끔하게 정리할 수 있었다.  
 
-<img width="654" alt="스크린샷 2024-03-21 오후 10 49 44" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ddf7b248-bb38-4f1c-9622-94e401c1f8d7">  
+#### 게시글 클래스
+우선 게시글 클래스는 모두 ```Contents```라는 접두사로 통합되었다.  
+아래의 사진들을 통해, ```Serv, Repo``` 모두 통합되었음을 확인할 수 있다.  
 
-<img width="837" alt="스크린샷 2024-03-21 오후 10 50 07" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ce477444-33f3-4e33-97aa-a03896815d83">  
+<img width="930" alt="스크린샷 2024-03-24 오후 3 48 29" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/c9f30488-d4ec-4096-9b18-cae79f3e72d7">  
 
-현재 구조는 위와 같이, 별도로 글을 구분할 수 있는 방식이 없다.  
-이제 사용자의 요청에 따라 해당 메서드 내에서 글의 종류를 구분할 수 있어야 한다.  
+<img width="1011" alt="스크린샷 2024-03-24 오후 3 48 47" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/5a0a122a-da87-4ead-a1e3-dd07813c6d7b">  
 
-### Static factory method!
+3개로 분리되어있던 ```Serv, Repo``` 클래스를 모두 제거하였다.  
+자연스럽게 하나의 클래스로 코드가 모이며, 중복 코드는 제거된 것이다.  
+또한 게시글을 요청, 반환하는 ```DTO```들이 클래스와 덩달아 비대해지게 되었다.  
+
+<img width="369" alt="스크린샷 2024-03-24 오후 3 51 13" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/350f030b-821f-4b95-ac79-f43315a3cb2d">  
+
+하지만, 감당 가능할 정도의 크기라고 생각한다.  
+중복되는 코드가 많은 것 보단, 클래스를 우고 주석을 다는 것이 낫다는 생각이 들었다.  
+
+#### 좋아요 클래스
+좋아요 기능과 관련된 ```Entity``` 또한 하나로 통합되었다.  
+기존에는 언급했듯, 사용되는 게시물 별로 분리되어 있었다.  
+하지만 아래와 같이 깔끔하게 하나로 통합하게 되었다.  
+자연스레, ```Repository``` 또한 하나로 통합되어 깔끔해졌다.  
+
+<img width="370" alt="스크린샷 2024-03-24 오후 3 53 13" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/2c35cff5-7980-4c66-9340-a4fd8bd46177">  
+
+아래의 두 사진을 통해 기존 ```Repo``` 클래스와 비교할 수 있다.  
+
+<img width="876" alt="스크린샷 2024-03-24 오후 3 57 16" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/05f48009-3370-4515-889b-b8a20f453d7d">  
+
+<img width="960" alt="스크린샷 2024-03-24 오후 4 00 00" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/3fd116c1-2fe5-48be-a66c-c53aa5a65bda">  
+
+기존의 코드는 게시글 종류 별로 모두 함수가 따로 작성되었다.  
+하지만 클래스를 통합하며, 함수의 수가 절반으로 줄게 되었다.  
+훨씬 깔끔해졌다!  
+
+
+#### 참여 클래스
+참여 기능과 관련된 ```Entity```도 통합되었다.  
+좋아요와 마찬가지로 아래와 같이 훨씬 깔끔하게 통합되었다.  
+
+<img width="405" alt="스크린샷 2024-03-24 오후 3 53 31" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/a1421d88-d61b-4c9d-81ad-a99f574d3316">  
+
+<img width="917" alt="스크린샷 2024-03-24 오후 3 57 53" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/aa8e9d4b-58af-4286-90b5-13c1a5d6bbb1">
+
+#### 마이페이지
+이 기능이 가장 크게 변화가 있었다고 생각한다.  
+기존에는 아래와 같이 굉장히 코드가 지저분했다.  
+
+<img width="637" alt="스크린샷 2024-03-24 오후 4 04 34" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ebcb0e16-d25e-4029-93a1-f27a17adc63c">  
+
+모든 게시글 별로 따로따로 조회를 해야했기 때문에, 너무 지저분했다.  
+언젠가는 반드시 리팩토링 하겠다고 생각했었는데, 마침 이번에 하게 되었다.  
+아래와 같이 훨씬 깔끔해진 코드를 확인할 수 있다.  
+
+<img width="786" alt="스크린샷 2024-03-24 오후 4 06 36" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/0e051136-4e63-4a61-925b-30270614f626">  
+
+1차적으로 클래스 통합에 대한 리팩토링은 끝난 것 같다.  
+이제 사소한 부분을 더 깔끔하게 하고, 기능을 교체하려고 한다.  
+혹은 더 할 수 있다면 기능을 더해보고 싶기도 하다!  
