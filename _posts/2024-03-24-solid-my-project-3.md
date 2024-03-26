@@ -104,6 +104,14 @@ Springboot에는 기본적으로 위와 같은 ```Validation``` 기능을 제공
 
 이후 ```Controller```에 ```@Valid``` Annotation을 부착했다.  
 그 결과, 아래와 같은 로그가 서버에 뜨게 된다.  
-해당 오류는 ```400```으로 처리 되기 때문에, 
+해당 오류는 ```400```으로 처리 되기 때문에, ```WARN```으로 처리된다.  
+서버에 문제가 생기는 것은 아니기 때문에, 그냥 방지만 하는 것이다.  
 
-<img width="869" alt="스크린샷 2024-03-26 오후 8 50 20" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/eeee040b-bb8f-4313-ac2f-6a04027a4fdc">
+<img width="869" alt="스크린샷 2024-03-26 오후 8 50 20" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/eeee040b-bb8f-4313-ac2f-6a04027a4fdc">  
+
+하지만 위와 같이 응답이 날아가는 경우엔, 이유를 알 수가 없을 것이다.  
+물론, 프론트엔드 단에서 검증할 때 이유를 알려 줄 것이다.  
+그래서 ```입력 양식```에 대한 검증은 굳이 응답이 필요하지 않다고 생각한다.  
+대신, ```Service```단에서 아래와 같이 예외처리를 할 수 있을 것이다.  
+
+<img width="723" alt="스크린샷 2024-03-26 오후 9 25 00" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/08d75ba0-42bd-490e-83fa-71a1e11239e1">  
