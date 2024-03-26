@@ -115,3 +115,9 @@ Springboot에는 기본적으로 위와 같은 ```Validation``` 기능을 제공
 대신, ```Service```단에서 아래와 같이 예외처리를 할 수 있을 것이다.  
 
 <img width="723" alt="스크린샷 2024-03-26 오후 9 25 00" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/08d75ba0-42bd-490e-83fa-71a1e11239e1">  
+
+예를 들어, 없는 유저로 로그인을 시도했다면?  
+아래와 같은 커스텀된 예외 응답을 프론트엔드 단에서 받을 수 있다.  
+해당 응답을 보고, 사용자에게 띄워주는 등 처리가 가능할 것이다.  
+
+<img width="421" alt="스크린샷 2024-03-26 오후 9 28 42" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/234a9f4e-ce3b-49a3-b2c5-a7a0e52b230d">  
