@@ -82,3 +82,28 @@ author:
 Springboot에는 기본적으로 위와 같은 ```Validation``` 기능을 제공한다.  
 단순히 ```Annotation```만 붙여주면, 알아서 검증을 해준다.  
 이런 부분이 정말 Springboot의 편의성 면에서의 강력함이 아닌가 싶다.  
+
+이 부분에서 잠깐 고민이 생겼다.  
+```Validation```을 진행해야 할 ```Layer```는 어디일까?  
+```Entity?``` ```DTO?``` 어디에서 검증을 해야할까?  
+의문이 생겨 다른 사람들의 의견을 조금 참고해 보았다.  
+
+```StackOverFlow```를 조금 뒤져본 결과, 아래와 같은 답변들이 있었다.  
+
+<img width="661" alt="스크린샷 2024-03-26 오후 8 28 26" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/8d50a8a7-2cef-4038-8b76-f4acf0d6f2f2">  
+<img width="666" alt="스크린샷 2024-03-26 오후 8 36 52" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/7ee6e857-7e60-4416-b2a7-6e6f9e33d0e0">  
+
+대부분의 개발자들은 모든 ```Layer```에서의 유효성 검증이 필요하다고 한다.  
+```Entity```와 ```DTO```에서 검증을 진행하고,  
+심지어는 ```Service Layer```에서 또한 검증을 진행함이 필요하다고 한다.  
+```Controller```에서 ```Service```로 정상 값이 넘어옴을 가정함은 좋지 않다고 한다.  
+
+그래서 나는 우선 ```Entity```와 ```DTO```에 모두 ```Validation```을 달았다.  
+
+<img width="744" alt="스크린샷 2024-03-26 오후 8 41 30" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/baaaa1d5-2143-466e-a1e5-26ba1cfb3622">  
+
+이후 ```Controller```에 ```@Valid``` Annotation을 부착했다.  
+그 결과, 아래와 같은 로그가 서버에 뜨게 된다.  
+해당 오류는 ```400```으로 처리 되기 때문에, 
+
+<img width="869" alt="스크린샷 2024-03-26 오후 8 50 20" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/eeee040b-bb8f-4313-ac2f-6a04027a4fdc">
