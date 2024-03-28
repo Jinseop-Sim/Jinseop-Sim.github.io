@@ -79,7 +79,6 @@ author:
 
 <img width="353" alt="스크린샷 2024-03-27 오후 11 43 24" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/09887335-19c0-4542-8634-a8ac6d805f7c">
 
-
 #### attribute()
 ```getAttribute()```와 ```setAttribute()```는 그럼 언제 쓸 수 있을까?  
 위의 로그인 로직을 다시 보면, ```setAttribtue()```가 사용되었음을 볼 수 있다.  
