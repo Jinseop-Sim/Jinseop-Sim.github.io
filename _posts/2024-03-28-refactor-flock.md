@@ -47,10 +47,18 @@ Member은 내가 직접 만든 객체이니, ```Session```에 어떻게 저장�
 
 <img width="678" alt="스크린샷 2024-03-28 오후 9 38 46" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/d236f468-85c2-4184-9001-29dfebb1faad">  
 
-<img width="294" alt="스크린샷 2024-03-28 오후 8 24 47" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f4f2694f-a67f-47b8-9b09-dc0d956199de">  
-
-먼저 회원가입을 진행한 뒤, 로그인을 진행해주도록 하자.  
+이제 회원가입을 진행한 뒤, 로그인을 진행해주도록 하자.  
 로그인을 하지 않은 경우, 정상적으로 아래와 같이 응답하게 됨을 볼 수 있다.  
 
 <img width="425" alt="스크린샷 2024-03-28 오후 8 25 52" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/6942c269-fc60-438c-a8f0-678375a3721e">  
 
+만약 로그인을 한다면?  
+아래와 같이 정상적으로 ```마이페이지``` 기능에 대해 응답을 받을 수 있다.  
+
+<img width="431" alt="스크린샷 2024-03-28 오후 9 46 11" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/fecb7bb7-2cec-4741-b079-bcb33173b3bc">  
+
+추가적으로 정상적으로 사용자의 정보를 받아오는지 확인해보았다.  
+사용자를 받아온 뒤, 사용자의 닉네임을 출력하도록 로그를 찍어보았다.  
+내가 회원가입한 닉네임이 아래와 같이 잘 나옴을 확인할 수 있다.  
+
+<img width="859" alt="스크린샷 2024-03-28 오후 9 44 31" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/83501cfe-50ee-49be-b92a-0ef3a6c70b61">
