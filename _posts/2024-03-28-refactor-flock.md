@@ -25,7 +25,7 @@ author:
 
 아래와 같이 ```SessionUtil``` 클래스를 하나 만들어주었다.  
 
-<img width="730" alt="스크린샷 2024-03-28 오후 8 16 49" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/255c05f0-c3c9-4914-bb42-7500f2afbd7e">
+<img width="657" alt="스크린샷 2024-03-28 오후 8 33 25" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/99abe132-d2ed-4ed4-98e5-e5904bba10ee">  
 
 내부에는 ```getCurrentMember()``` 함수가 존재한다.  
 해당 함수를 통해, 세션의 유무를 체크하고 동시에 사용자를 반환한다.  
@@ -33,6 +33,19 @@ author:
 세션이 있다면? 로그인 된 유저로 판단하고, 멤버의 정보를 그대로 반환하도록 한다.  
 
 잘 작동하는 지 직접 확인해보도록 하자.  
+
+#### 잠깐! 발생한 문제  
+잠시 문제가 발생했다.  
+위의 함수를 보면 ```Member```를 결과로 반환하기 위해 ```Casting```을 하고있다.  
+하지만 그 과정에서 에러가 발생했다.  
+```Optional```은 ```Member```로 ```Casting```할 수 없다는 오류를 만났다.  
+
+뭐가 문제일까 잠깐 생각해보니, 꽤 당연하게 발생한 오류였다.  
+Member은 내가 직접 만든 객체이니, ```Session```에 어떻게 저장될 지 알 수 없다.  
+따라서 안전하게 ```Long```이나 ```String```을 값으로 저장하는게 맞다고 판단했다.  
+아래와 같이 함수를 변경해주었다.  
+
+<img width="678" alt="스크린샷 2024-03-28 오후 9 38 46" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/d236f468-85c2-4184-9001-29dfebb1faad">  
 
 <img width="294" alt="스크린샷 2024-03-28 오후 8 24 47" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f4f2694f-a67f-47b8-9b09-dc0d956199de">  
 
