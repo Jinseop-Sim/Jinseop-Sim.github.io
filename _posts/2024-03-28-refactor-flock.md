@@ -62,3 +62,69 @@ Member은 내가 직접 만든 객체이니, ```Session```에 어떻게 저장�
 내가 회원가입한 닉네임이 아래와 같이 잘 나옴을 확인할 수 있다.  
 
 <img width="859" alt="스크린샷 2024-03-28 오후 9 44 31" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/83501cfe-50ee-49be-b92a-0ef3a6c70b61">
+
+이것으로 세션을 불러오는 함수는 리팩토링 끝!  
+남은 부분에 리팩토링 해야할 부분이 너무나도 많다.  
+차근차근 진행해보도록 하자.  
+
+### 웹툰 서비스 리팩토링
+현재 웹툰 서비스의 코드들을 보면 DTO가 정리가 되어있지 않다.  
+또, 생성자가 모두 노출되어있어 코드가 길어져있다.  
+이를 리팩토링 해보려고 한다.  
+
+#### 웹툰 상세 페이지
+예를 들어 아래의 웹툰 상세 페이지 응답 메서드를 보자.  
+굉장히 지저분하고 생성자의 매개변수가 모두 노출되어 있다.  
+
+<img width="701" alt="스크린샷 2024-03-28 오후 10 23 17" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/b5d55037-cee0-4cde-9471-a61df43b6946">  
+
+아래와 같이 코드를 조금 깔끔하게(?) 고쳐보았다.  
+우선 기능이 조금 어색한거 같아, 로직을 조금 수정하도록 했다.  
+로그인 한 경우엔 내가 준 별점으로, 아닌 경우엔 평균 별점을 출력하도록 한다.  
+
+<img width="949" alt="스크린샷 2024-03-28 오후 10 53 06" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f50b52b3-7f18-4f2b-93b6-1a64e5b4d141">  
+
+또, Dto에 ```정적 팩토리 메서드```를 만들어 매개변수에 필드가 드러나지 않도록 했다.  
+또한 메서드가 이름을 갖기 때문에, 역할이 명확해졌다.  
+
+#### 웹툰에 별점 추가하기
+별점 추가하기 기능 또한 만만치 않게 지저분하다.  
+아래의 사진과 같이 굉장히 지저분한 코드를 볼 수 있다.  
+
+<img width="962" alt="스크린샷 2024-03-28 오후 11 06 47" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/4b8928da-9923-42b4-9965-a0ec4f9a0ab5">  
+
+우선 DTO에 존재하는 ```sendStarLike``` 메서드부터 없애려고 한다.  
+DTO에서 ```StarLike```라는 엔티티에 의존하는 것은 좋지 않다고 생각한다.  
+
+<img width="753" alt="스크린샷 2024-03-28 오후 11 07 56" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/fb955f43-e20a-4e09-acd6-d2f2fab0434c">  
+
+그리하여, ```StarLike``` 엔티티 내에 ```toStarLike``` 메서드를 만들었다.  
+이렇게 되면, DTO는 더 이상 ```StarLike```에 의존하지 않아도 된다.  
+이제 또 다른 메서드 ```postStar()```를 한번 보도록 하자.  
+
+<img width="309" alt="스크린샷 2024-03-28 오후 11 09 28" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/74dd1788-184b-4a35-a381-359d2ec47da9">  
+
+```StarLike``` 내부에서 ```Member```와 ```Webtoon```에 접근하고 있다.  
+물론 필드에 존재하는 엔티티이긴 하나, 아무래도 다른 엔티티의 필드를 호출하는 일이다.  
+또한, 생각해보니 양방향으로 굳이 ```Stars``` 배열이 있을 필요가 없다고 판단되었다.  
+따라서 아래와 같이 아예 제거하는 쪽으로 코드를 변경했다.  
+
+<img width="761" alt="스크린샷 2024-03-28 오후 11 14 56" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/b956e04b-dec0-4796-adac-ffbd896ef57c">  
+
+단, ```Webtoon``` 엔티티에는 ```starCount```를 만들어 두었다.  
+사람들이 누를 때 마다 해당 값이 올라가, 평균을 구할 수 있도록 할 것이다.  
+
+### 마이페이지 서비스 리팩토링
+마이페이지에는 현재 기본적으로 나의 정보를 출력하도록 되어있다.  
+아래와 같이 ```내가 쓴 댓글```, ```닉네임```, ```칭호``` 등을 볼 수 있다.  
+
+<img width="804" alt="스크린샷 2024-03-28 오후 11 24 25" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/e52d08d1-9ca0-4122-ae05-1b1203a661f7">  
+
+하지만, 코드가 굉장히 지저분함을 볼 수 있다.  
+쓸데없이 빈 ```List```를 생성하기도 하며, 매개변수가 모두 드러난다.  
+아래와 같이 코드를 수정해보았다.  
+
+<img width="803" alt="스크린샷 2024-03-28 오후 11 40 59" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f67ffddf-b6d5-4561-988a-4f38e04a0295">  
+
+댓글을 불러오는 코드를 ```stream()```을 적용해서 간소화했다.  
+또한 매개변수에 필드가 드러나지 않도록, 객체를 집어넣어 주었다.  
