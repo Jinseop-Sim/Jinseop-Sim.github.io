@@ -23,10 +23,11 @@ author:
 단순히 ```DB```에서 현재 댓글을 ```부모```로 가진 댓글을 모두 가져오면 된다.  
 그러기 위해서, 우선 필드에 ```부모 댓글``` 필드를 만들어 주었다.  
 
-<img width="331" alt="스크린샷 2024-03-29 오후 2 45 07" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ac97b8d5-f327-4f00-92f1-95a8507f9723">  
+<img width="758" alt="스크린샷 2024-03-29 오후 4 15 07" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ff18346b-10f9-484a-81ba-5282b8fed646">  
 
 이후 댓글을 모두 조회해 올 때를 생각해서 위와 같이 선언했다.  
 게시글을 조회할 때, ```댓글, 대댓글```이 모두 한 번에 조회되어야 한다.  
+```댓글```을 조회할 때, 해당 ```id```를 부모로 하는 댓글을 함께 조회하도록 하자.  
 
 #### 양방향 관계?
 그 과정속에서 고민이 하나 생겼다.  
@@ -45,3 +46,23 @@ author:
 그런 경우에는 양방향으로 걸고 ```CASCADE``` 옵션을 사용하면 매우 편리하다.  
 
 나는 양방향으로 선언하고 사용해도 무방하다고 생각한다.  
+
+### N + 1 및 문제 발생
+```Service, Controller```를 모두 구현하고 보니,  
+내가 얼마나 생각없이 코드를 짰는지 알 수 있었다.  
+곧바로 아래와 같이 ```N+1 Query``` 문제가 발생했다.  
+
+<img width="510" alt="N+1 Prob" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/274afbf8-6ff6-4351-8421-e76c6a5fe471">  
+또한 게시글을 조회하는 로직을 이상하게 짜, 댓글도 이상하게 조회되었다.  
+
+<img width="520" alt="Comment probl" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/73205c22-b70a-43a3-9d68-798431842bbe">  
+
+먼저 기존에 짜놓은 로직을 보도록 하자.  
+웹툰의 상세 페이지를 불러올 떄, 아래와 같이 댓글을 조회하도록 했다.  
+
+<img width="810" alt="스크린샷 2024-03-29 오후 4 18 27" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/fa6db692-4b03-4667-854a-78eaf3d82020">  
+
+댓글을 먼저 불러온 뒤, 댓글의 DTO에서 대댓글을 조회한다.  
+지금 다시 생각해보면 정말 바보같은 로직이다.  
+
+<img width="638" alt="스크린샷 2024-03-29 오후 4 19 12" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/78628ca6-f4b8-4e2b-b906-69793f249328">  
