@@ -76,3 +76,22 @@ author:
 JPA가 DB에서 값을 조회해오는 원리를 한번 상기해보자.  
 ```영속성 컨텍스트``` 개념과 ```1차 캐시``` 개념을 알아야 할 것이다.  
 
+JPA에는 아래의 그림과 같이 기본적으로 ```영속성 컨텍스트```가 존재한다.  
+
+![image](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/198b7ec2-68e4-437a-913d-b38cfe49b2b7)  
+> 출처 : [Baeldung JPA/Hibernate Persistence Context](https://www.baeldung.com/jpa-hibernate-persistence-context)
+
+영속성 컨텍스트는 아래와 같은 역할을 수행할 수 있다고 한다.  
+![image](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/e3f5f699-05de-4620-b044-873f577271a8)  
+
+1. 캐시
+2. 변경 감지
+3. 지연 로딩
+
+위의 기능들과 함께 ```Entity```들의 생명주기를 관리할 수 있는 장치가 된다.  
+우리가 주목해야 할 기능은 ```캐시```로서의 기능이다.  
+어떤 정보를 ```find()``` 했을 때, JPA는 ```영속성 컨텍스트```를 먼저 조회한다.  
+만약 ```캐시```에 없는 정보라면, ```DB```에 접근하기 위해 쿼리를 날린다.  
+
+그럼, 다시 ```댓글 대댓글``` 기능으로 돌아가보자.  
+나는 지금 ```Webtoon```만을 찾아
