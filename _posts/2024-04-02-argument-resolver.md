@@ -96,7 +96,21 @@ Spring에서 제공하는 ```HandlerMethodArgumentResolver```를 구현한 구�
 그럼 세션이 유효기간이 만료되지 않았는데 사용자가 로그인을 못하는 경우를 방지할 수 있다.  
 
 ```Redis``` 내에 세션이 살아있는 동안은 지속적으로 인증이 가능한 것이다!  
+또한, 조금 찾아보니 ```EnableRedisHttpSession``` 어노테이션이 지원된다고 한다.  
+```Redis``` 내에서 직접 세션을 관리하도록 지원하는 것이다.  
+이 기능을 한번 사용해보려고 한다.  
 
 ### 실제 구현
 사실 내 프로젝트에는 굳이 필요가 없는 기능이긴 하다.  
 그래도 한번 구현해보도록 하자.  
+
+먼저 새로운 것을 도입할 땐, 항상 Configuration을 작성해주자.  
+```EnableRedisHttpSession``` 어노테이션은 ```Configuration``` 어노테이션이 위치하는 곳에 둔다.  
+
+<img width="873" alt="스크린샷 2024-04-03 오전 12 07 34" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/a959f3af-65fc-40d1-b1a5-3014bb55a1d1">  
+
+위와 같이 ```maxInactiveInterval```을 설정해줄 수 있는데, 기본값은 ```30```분이다.  
+```Session```의 만료 기간을 설정하는 것이다.  
+그 결과, 로그인을 하게 되면 아래와 같이 ```Session```이 저장됨을 확인할 수 있다.  
+
+<img width="528" alt="스크린샷 2024-04-02 오후 11 49 11" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/8fd16c15-054c-429e-8571-4010d4636cd8">  
