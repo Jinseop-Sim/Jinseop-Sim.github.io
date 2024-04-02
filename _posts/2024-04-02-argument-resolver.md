@@ -25,3 +25,16 @@ author:
 
 정확히 이 개념을 이해하려면 ```DispatcherServlet```에 대한 개념부터 알아야 한다.  
 REST API 요청이 들어왔을 때, 처리하는 흐름을 알아야 하는 것이다.  
+
+### 실제 구현
+<img width="743" alt="스크린샷 2024-04-02 오후 3 46 40" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/9507b10e-b99d-4173-9468-8a07a761f66a">  
+
+<img width="272" alt="스크린샷 2024-04-02 오후 3 46 53" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/403614f1-3f9e-4671-bb7e-adf422b996d0">  
+
+<img width="702" alt="스크린샷 2024-04-02 오후 3 47 12" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/8804fee2-e43b-428e-bc4f-a8e1bfb5b3a1">  
+
+<img width="674" alt="스크린샷 2024-04-02 오후 3 57 13" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f2b20cc9-88c8-4de1-a122-5bb190580d7b">  
+
+<img width="835" alt="스크린샷 2024-04-02 오후 3 58 11" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/7b43fd41-06b8-46a9-9581-3c77984f8b87">  
+
+<img width="549" alt="스크린샷 2024-04-02 오후 3 59 13" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/9258d2b7-335d-4c09-b271-38743f60311b">
