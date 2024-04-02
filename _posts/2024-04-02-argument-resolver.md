@@ -27,9 +27,21 @@ author:
 REST API 요청이 들어왔을 때, 처리하는 흐름을 알아야 하는 것이다.  
 
 ### 실제 구현
-<img width="743" alt="스크린샷 2024-04-02 오후 3 46 40" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/9507b10e-b99d-4173-9468-8a07a761f66a">  
+아래와 같이 ```UserArgumentResolver```를 구현해 주었다.  
+Spring에서 제공하는 ```HandlerMethodArgumentResolver```를 구현한 구현체이다.  
+
+<img width="946" alt="스크린샷 2024-04-02 오후 4 04 51" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/3fea59cc-910a-4535-9454-c86bfaa02515">
+
+```supportsParameter()```와 ```resolveArgument()```를 오버라이드 했다.  
+```supportsParameter()```는 파라미터의 타입에 대한 검증 장치이다.  
+```resolveArgument()```는 본격적으로 파라미터를 가공해주는 함수가 되겠다.  
 
 <img width="272" alt="스크린샷 2024-04-02 오후 3 46 53" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/403614f1-3f9e-4671-bb7e-adf422b996d0">  
+
+로그인할 때, ```Session```에 ```SessionConstant```를 키로 사용자 정보를 저장했었다.  
+```ArgumentResolver```에서 사용자의 요청을 가로채, 저장했던 요청자의 정보를 꺼내보는 것이다.  
+```getAttribute(SessionConstant)``` 메서드를 통해서 저장했던 정보를 꺼낸다.  
+이후, 미리 만들어둔 아래와 같은 ```UserSessionDto```를 통해 정보를 반환한다.  
 
 <img width="702" alt="스크린샷 2024-04-02 오후 3 47 12" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/8804fee2-e43b-428e-bc4f-a8e1bfb5b3a1">  
 
