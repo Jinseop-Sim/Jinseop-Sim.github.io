@@ -36,12 +36,17 @@ Spring에서 제공하는 ```HandlerMethodArgumentResolver```를 구현한 구�
 ```supportsParameter()```는 파라미터의 타입에 대한 검증 장치이다.  
 ```resolveArgument()```는 본격적으로 파라미터를 가공해주는 함수가 되겠다.  
 
-<img width="272" alt="스크린샷 2024-04-02 오후 3 46 53" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/403614f1-3f9e-4671-bb7e-adf422b996d0">  
-
 로그인할 때, ```Session```에 ```SessionConstant```를 키로 사용자 정보를 저장했었다.  
 ```ArgumentResolver```에서 사용자의 요청을 가로채, 저장했던 요청자의 정보를 꺼내보는 것이다.  
 ```getAttribute(SessionConstant)``` 메서드를 통해서 저장했던 정보를 꺼낸다.  
 이후, 미리 만들어둔 아래와 같은 ```UserSessionDto```를 통해 정보를 반환한다.  
+
+<img width="272" alt="스크린샷 2024-04-02 오후 3 46 53" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/403614f1-3f9e-4671-bb7e-adf422b996d0">  
+
+커스텀한 ```ArgumentResolver```를 이제 기존의 처리 과정에 삽입해주어야 한다.  
+아래와 같이 ```WebMvcConfigurer```를 구현함으로써 삽입이 가능해진다.  
+```ArgumentResolvers```를 매개변수로 받아온 뒤, 내가 만든 ```resolver```를 ```add```한다.  
+요청을 처리하는 기차가 지나가는 중간에 내 ```resolver```를 태우는 느낌같다.  
 
 <img width="702" alt="스크린샷 2024-04-02 오후 3 47 12" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/8804fee2-e43b-428e-bc4f-a8e1bfb5b3a1">  
 
