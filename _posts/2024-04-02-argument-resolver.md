@@ -26,6 +26,22 @@ author:
 정확히 이 개념을 이해하려면 ```DispatcherServlet```에 대한 개념부터 알아야 한다.  
 REST API 요청이 들어왔을 때, 처리하는 흐름을 알아야 하는 것이다.  
 
+![argumentresolver drawio](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/975d7920-e19d-42ee-a786-df529a2eb90b)
+
+간단하게 위와 같이 도식화 해보았다.  
+요청이 들어오면, ```DispatcherServlet```이 컨트롤 타워의 역할을 맡는다.  
+사용할 ```Handler```를 매핑하고, 해당 ```Handler```를 끼울 ```Adapter```를 찾는다.  
+이후 ```Adapter```를 호출해서, ```Model```에 값을 넣는 작업을 처리한다.  
+
+이 때, ```RequestMappingHandler```에서 ```ArgumentResolver```가 참여하게 된다!  
+쉽게 말해, ```Controller```에 들어가는 매개변수를 처리하기 위해 참여한다.  
+```ArgumentResolver```가 매개변수를 가공해서 ```Controller```에게 넘겨주게 된다.  
+그럼 ```Adpater```에서, 해당 매개변수와 함께 ```Controller```를 호출하게 된다.  
+
+그럼 해당 ```Controller```에서 반환한 값을 ```ReturnValueHandler```에서 응답으로 내보낸다!  
+여기까지가 ```HTTPRequest```를 처리해서 응답으로 반환하기까지의 과정이다.  
+우리는 ```ArgumentResolver```가 처리할 HTTP 메시지 내에서, ```Session```을 이용할 것이다.  
+
 ### 실제 구현
 아래와 같이 ```UserArgumentResolver```를 구현해 주었다.  
 Spring에서 제공하는 ```HandlerMethodArgumentResolver```를 구현한 구현체이다.  
@@ -114,3 +130,8 @@ Spring에서 제공하는 ```HandlerMethodArgumentResolver```를 구현한 구�
 그 결과, 로그인을 하게 되면 아래와 같이 ```Session```이 저장됨을 확인할 수 있다.  
 
 <img width="528" alt="스크린샷 2024-04-02 오후 11 49 11" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/8fd16c15-054c-429e-8571-4010d4636cd8">  
+
+서버를 재시작하더라도 로그인이 잘 되어있음을 확인할 수 있었다.  
+어노테이션 하나만 추가했는데, ```Session```이 자동으로 저장되는게 신기하다.  
+이렇게 간편한 기술일수록, 어떻게 동작하는 지를 알아야 한다고 생각한다.  
+```EnableRedisHttpSession```에 대해서 공부를 좀 더 해보도록 하자.  
