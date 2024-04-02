@@ -50,8 +50,25 @@ Spring에서 제공하는 ```HandlerMethodArgumentResolver```를 구현한 구�
 
 <img width="702" alt="스크린샷 2024-04-02 오후 3 47 12" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/8804fee2-e43b-428e-bc4f-a8e1bfb5b3a1">  
 
+### 서비스 적용
+이제 기존에 로그인 한 사용자의 정보를 불러와야 하는 서비스들을 수정해보자.  
+기존에 있던 서비스 중 ```마이페이지```에 접근하는 서비스를 보도록 하자.  
+
 <img width="674" alt="스크린샷 2024-04-02 오후 3 57 13" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f2b20cc9-88c8-4de1-a122-5bb190580d7b">  
+
+기존에는 위와 같이 ```SessionUtil```의 함수를 호출해서 정보를 받아왔다.  
+하지만 아래와 같이 코드를 좀 더 깔끔하게 수정할 수 있었다.  
+```ArgumentResolver```를 통해 넘겨받은 ```UserSessionDto```를 이용했다.  
+별도의 함수 호출도 없고, ```SessionUtil```이 지금 당장은 필요 없게 되었다!  
 
 <img width="835" alt="스크린샷 2024-04-02 오후 3 58 11" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/7b43fd41-06b8-46a9-9581-3c77984f8b87">  
 
-<img width="549" alt="스크린샷 2024-04-02 오후 3 59 13" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/9258d2b7-335d-4c09-b271-38743f60311b">
+아래와 같이 로그인을 하지 않고 접근하는 경우, 예외를 잘 응답함을 볼 수 있다.  
+
+<img width="549" alt="스크린샷 2024-04-02 오후 3 59 13" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/9258d2b7-335d-4c09-b271-38743f60311b">  
+
+또한 로그인 후에 마이페이지에 접근하는 경우, 아래와 같이 잘 응답됨을 볼 수 있다.  
+
+<img width="485" alt="스크린샷 2024-04-02 오후 4 48 29" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/3dc706d8-8c0e-4d8a-8fed-bdf1d79e735c">  
+
+남은 ```Session```을 사용하는 서비스들도 모두 수정해보도록 하자!  
