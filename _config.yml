@@ -39,3 +39,9 @@ social:
 google_site_verification: u4WXQl0Eu66rsQo2kRdCNx
 lang: en
 skin: daylight
+repository: Jinseop-Sim/Jinseop-Sim.github.io
+comments:
+  provider: "utterances"
+  utterances:
+    theme: "github-light"
+    issue_term: "pathname"
