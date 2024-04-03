@@ -88,3 +88,7 @@ author:
 
 <img width="844" alt="스크린샷 2024-04-03 오후 9 28 52" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/376edcbe-226f-4ca0-9369-d513ed4004e0">   
 
+분기문들이 싹 사라진 모습을 보니 굉장히 기분이 좋다.  
+이제 제대로 동작하는 지 테스트를 해보도록 하자.  
+
+### 테스트 코드
