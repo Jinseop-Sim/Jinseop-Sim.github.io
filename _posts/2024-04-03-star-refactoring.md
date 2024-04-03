@@ -70,3 +70,19 @@ author:
 생각해보니 ```updateStar```로 통합하거나, ```1점, 5점``` 2개의 메서드만 있어도 될 것 같다.  
 이번에는 ```Member Entity```를 한번 수정해보도록 하자.  
 
+<img width="345" alt="스크린샷 2024-04-03 오후 9 25 37" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ecadfbd6-2b31-4019-8eab-dc3dfd60f2c8">  
+
+우선은 위와 같이 통합해보았다.  
+차라리 ```Member Entity```에 ```if``` 분기를 주는게 낫다고 판단했다.  
+칭호에 대한 책임은 ```Member Entity```에 있기 때문이다.  
+
+또한 ```Service``` 로직에서 분기를 없애기 위해 ```Enum```을 사용했다.  
+이런식으로 ```Enum```을 사용할 수 있다는 것은 이번에 처음 알게 되었다.  
+
+<img width="547" alt="스크린샷 2024-04-03 오후 9 27 54" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/65286404-d2da-4103-8e3b-45873c66bf58">  
+
+아래와 같이 계산 식을 ```Enum``` 클래스에 정의해서 사용하는 것이다.  
+그럼 아래와 같이 ```Service``` 로직이 더 깔끔해지게 된다.  
+
+<img width="844" alt="스크린샷 2024-04-03 오후 9 28 52" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/376edcbe-226f-4ca0-9369-d513ed4004e0">   
+
