@@ -81,8 +81,10 @@ author:
 
 <img width="547" alt="스크린샷 2024-04-03 오후 9 27 54" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/65286404-d2da-4103-8e3b-45873c66bf58">  
 
-아래와 같이 계산 식을 ```Enum``` 클래스에 정의해서 사용하는 것이다.  
-그럼 아래와 같이 ```Service``` 로직이 더 깔끔해지게 된다.  
+위와 같이 계산 식을 ```Enum``` 클래스에 정의해서 사용하는 것이다.  
+```Enum```의 생성자로 들어온 매개변수를 ```Function```으로 받을 수가 있다.  
+그럼 ```Function```의 ```apply``` 메서드를 통해 내가 넣은 수식을 실행할 수 있다.  
+이제 아래와 같이 ```Service``` 로직이 더 깔끔해지게 된다.  
 
 <img width="844" alt="스크린샷 2024-04-03 오후 9 28 52" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/376edcbe-226f-4ca0-9369-d513ed4004e0">   
 
