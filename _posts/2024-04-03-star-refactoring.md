@@ -19,8 +19,54 @@ author:
 우선은 ```Service```단에서 책임을 분리해야겠다는 생각이 들었다.  
 지금은 ```별점 추가```와 ```별점 수정```이 같은 함수에서 일어나고 있다.  
 또한 같은 ```Controller```에 대해서 처리가 되고 있다.  
-이는 객체 지향의 ```SRP```에 위반 된다고 생각한다.  
+아래와 같이 구현되었으며, 이는 객체 지향의 ```SRP```에 위반 된다고 생각한다.  
+
+<img width="933" alt="스크린샷 2024-04-03 오후 7 57 25" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/0bbbd42d-ae76-4b61-84a5-d1a92c35d378">  
 
 차라리 ```Controller```를 분리시켜서, 프론트엔드에서 처리를 하는게 맞다는 생각이 들었다.  
 프론트엔드에서 이미 별점이 있다면 ```/updateStar```` 경로로 요청을 보내고,  
 처음 별점을 매기는 것이라면 ```/pushStar```로 요청을 보내는 식으로 구현할 수 있을 것이다.  
+아래와 같이 ```Controller```를 분리시켰다.  
+
+<img width="843" alt="스크린샷 2024-04-03 오후 7 59 53" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/cb6156f7-241b-424f-a629-29c1ca009e1d">  
+
+또한 ```Service``` 레이어도 아래와 같이 함수를 분리시켰다.  
+이제 ```Controller```와 ```Service```의 메서드들은 각각 하나의 책임을 가진다.  
+
+<img width="815" alt="스크린샷 2024-04-03 오후 7 59 37" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/6ee4d6b8-534c-4bfd-9f62-48cf7325ad88">  
+
+### 코드 중복 제거
+또한 ```Service``` 레이어의 코드 중복을 제거하려고 한다.  
+기존에는 아래와 같이 중복되는 코드들이 곳곳에 사용되고 있었다.  
+
+<img width="693" alt="스크린샷 2024-04-03 오후 8 07 46" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/7c86cc50-9f1e-478d-af20-0b8c827c6920">  
+
+```getScore()```과 같은 코드는 한번에 빼서 재사용할 수 있다.  
+저런 부분 또한 나는 ```Code smell```이라고 생각하며, 아래와 같이 수정했다.  
+
+<img width="513" alt="스크린샷 2024-04-03 오후 8 12 13" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/ad08423d-71aa-4c25-a66d-5d47c5720e33">   
+
+### 함수 통합
+코드 중복 이외에도, ```Entity``` 내부의 함수를 손봐야겠다는 생각이 들었다.  
+기존의 ```Webtoon Entity``` 내부 메서드에는 아래와 같은 메서드들이 있다.  
+
+<img width="308" alt="스크린샷 2024-04-03 오후 8 13 33" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/c29e9b11-1209-46ab-b104-ecdb69edacde">  
+
+내가 생각하기에는 ```updateStar```로 충분히 통합할 수 있는 부분이라고 생각된다.  
+아래와 같이 통합해보자.  
+
+<img width="329" alt="스크린샷 2024-04-03 오후 8 20 44" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/4798ed78-aa7a-4d92-8f42-7937c5e7b8ae">  
+
+메서드를 위와 같이 통합하니, ```Service``` 로직도 아래와 같아졌다.  
+기존에 ```if```문으로 분기하던 로직이 사라지고, 굉장히 깔끔해졌다.  
+
+<img width="505" alt="스크린샷 2024-04-03 오후 8 22 37" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/3c860e0b-9322-4ddb-baf8-bf72cffeedaa">  
+
+또한 ```Member Entity```의 내부에는 아래와 같은 메서드들이 있다.  
+
+<img width="425" alt="스크린샷 2024-04-03 오후 8 14 43" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/fad9a04e-b038-443a-8407-7d74355291b6">  
+
+칭호 시스템이 존재하기 때문에 만들어 놓은 메서드들이다.  
+생각해보니 ```updateStar```로 통합하거나, ```1점, 5점``` 2개의 메서드만 있어도 될 것 같다.  
+이번에는 ```Member Entity```를 한번 수정해보도록 하자.  
+
