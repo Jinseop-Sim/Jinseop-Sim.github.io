@@ -67,8 +67,37 @@ author:
 이제 이를 통해서 기능을 개발해보도록 하자.  
 
 ### 서비스 적용
+```Spring Redis```에서 제공되는 ```opsForList``` 기능을 사용할 것이다.  
+```List```의 ```Key```를 사용자 아이디로, ```Value```를 게시글 번호로 했다.  
+```Key```를 사용자 아이디로 한 이유는, 게시글이 훨씬 더 양이 많을 것이기 때문이다.  
+
+아래의 ```checkViews``` 함수를 통해 ```List```에 게시글 번호를 넣었다.  
+```Key```를 ```VIEWS:[USERID]```와 같은 형태로 만들어 판별하게 했다.  
+매개변수로 ```userId```를 받아, 해당 사용자의 기록에 남기도록 한 것이다.  
+
 <img width="587" alt="스크린샷 2024-04-07 오전 3 16 03" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/a2a19277-d3c1-4ccb-bfd7-5277b84254a4">  
+
+이제 아래의 ```validate``` 함수를 통해 조회를 했는지 안했는지 검증한다.  
+기본적으로 ```opsForList()```에서 제공하는 ```indexOf()``` 메서드를 사용했다.  
+현재 사용자가 조회한 웹툰의 아이디를 ```List``` 내에서 찾을 수 있는 것이다.  
+만약 없다면 함수의 동작에 의해 ```-1```이 반환되므로, 해당 결과를 ```boolean```으로 반환한다.  
+
+```null```인 경우에는 ```List``` 자체가 없음을 의미한다.  
+이는 첫 방문을 의미하니, ```True```를 반환해서 조회수가 증가하도록 해야 한다.  
 
 <img width="736" alt="스크린샷 2024-04-07 오전 3 15 45" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/2aa096ca-2d21-486c-8301-48fbe2457d63">  
 
+```if (findedIndex == null)```이 ```Always False```라는 경고가 뜨고 있다.  
+```Long``` Type으로 선언했기 때문에 ```null``` 값이 분명 들어갈 수 있을텐데 왜 뜨는걸까?  
+확인을 하기 위해 ```Redis```를 직접 비우고, 다시 조회해 보았다.  
+
+<img width="970" alt="스크린샷 2024-04-07 오후 12 17 04" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f8191b13-344a-4e08-b858-eae0a6ed02e7">  
+
+로그를 찍어 상태를 보려하니, ```NPE```가 발생했다.  
+그 말인 즉, ```findedIndex```가 ```null```로 들어왔다는 말이 된다.  
+왜 저런 경고가 뜨는 것인지는 알 수 없지만, 우선은 그냥 진행해보도록 하자.  
+
 ### Spring Scheduler
+이제 하루마다 랭킹을 초기화 하고, 조회한 게시글 목록을 초기화 해야 한다.  
+이런 동작을 위해 ```Spring``` 에서는 ```Scheduled```라는 아주 멋진 기능을 제공한다.  
+
