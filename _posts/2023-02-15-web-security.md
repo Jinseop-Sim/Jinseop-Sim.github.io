@@ -42,7 +42,7 @@ Static한 리소스, ```favicon.ico```나 ```index.html``` 같은 것들이
 ```authorizeHttpRequest```를 통해 ```permitAll```을 하는 방향을 고려하라고 한다.  
 
 따라서 아래와 같이 코드를 수정했다.  
-[사진 첨부]
+![image](https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/2d9b200e-2dad-4d64-ab1c-4fba0fdf9db8)  
 
 ### 참고문헌
 > [Spring docs : WebSecurityConfigurerAdapter](https://docs.spring.io/spring-security/site/docs/5.7.0-M2/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html)  
