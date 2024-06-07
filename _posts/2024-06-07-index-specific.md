@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Index of Mysql"
+title: "Index of MySQL"
 categories: Tech
 tags: [theory]
 author:
@@ -20,3 +20,16 @@ toc: true
 
 ### Index의 구조
 실제 Index가 동작하는 원리를 알기 위해, 그 구조를 알아야 한다.  
+나는 현재 MySQL을 기준으로 공부를 하고 있으니, InnoDB 엔진의 Index를 알아보자.  
+
+#### B-Tree Index
+InnoDB에서 기본 구조로 채택하고 사용하고 있는 B-Tree 구조의 Index이다.  
+가장 큰 특징은 아래와 같이 여러개의 자식 노드를 가질 수 있음이 특징이다.  
+
+<img width="782" alt="스크린샷 2024-06-07 오후 8 24 21" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/5b3f7104-4cd8-44cc-9926-fbeb6f7e00c1">  
+
+또한, 리프노드의 데이터들이 링크드리스트와 같이 서로 연결되어, 범위 검색에 유리한 구조이다.  
+사실 B-Tree라고 칭하지만 이 구조의 Tree는 엄밀히 말하자면 ```B+Tree```이다.  
+인덱스는 키를 기준으로 항상 정렬된 상태로 유지가 된다.  
+즉, 삽입과 수정이 빈번한 경우에는 재정렬 또한 빈번해지므로 인덱스를 걸지 않는 것이 좋다.  
+
