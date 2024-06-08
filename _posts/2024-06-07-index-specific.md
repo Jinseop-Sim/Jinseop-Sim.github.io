@@ -51,9 +51,30 @@ MySQL에서는 ```EXPLAIN``` 키워드를 통해 실행 계획을 확인할 수 
 
 실제로 ```profiling```을 통해 실행 시간을 확인해 보았다.  
 ```ALL```로 Full scan을 하는 것보다 ```const```가 훨씬 빠름을 확인할 수 있다.  
-```ALL```은 약 0.15초 정도 소요가 되며, ```const```는 0.00022초 정도 소요가 된다.  
+```ALL```은 약 ```0.15초``` 정도 소요가 되며, ```const```는 ```0.00022초``` 정도 소요가 된다.  
 
 <img width="565" alt="스크린샷 2024-06-07 오후 9 50 23" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f37896d1-20bd-4013-a370-f78d60ee8f73">  
 <img width="578" alt="스크린샷 2024-06-07 오후 9 50 39" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/3020ced7-204c-45e1-96c0-1ab6638c054a">   
 
 이제 실제로 Index를 걸어 ```WHERE``` 절을 통해 확인을 해보도록 하자.  
+아래와 같이 ```CREATE INDEX```와 ```SHOW INDEX```를 통해 Index의 생성을 확인한다.  
+
+<img width="1196" alt="스크린샷 2024-06-08 오전 11 53 58" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/710ac70e-78c8-484c-a60c-cf297c5d64a7">  
+
+이제 쿼리의 실행 계획을 다시한번 살펴보도록 하자.  
+사용되는 ```Key```에 방금 생성한 ```title_idx```가 들어가게 된다.  
+또한 ```Type```이 ```ref```로 동등 조건으로 비교를 하는 방식을 의미한다.  
+
+<img width="961" alt="스크린샷 2024-06-08 오전 11 54 57" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/2462d69a-2268-47e5-a942-11da54d1b1cc">  
+
+그렇다면 당연히 아래와 같이 범위 검색을 하는 경우에는 ```range```가 들어가게 된다.  
+속도는 ```const -> eq_ref -> ref -> range``` 순으로 빠르게 탐색이 가능하게 된다.  
+
+<img width="948" alt="스크린샷 2024-06-08 오전 11 56 54" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/565253c1-cbee-4244-9fdb-6537a77f35b3">  
+
+이제 Index를 태워 조회를 했을 때 속도 차이를 한번 확인해보도록 하자.  
+Index가 없었을 때는 약 ```0.15```초가 소요가 되었었다.  
+하지만 Index를 걸어 색인으로 탐색을 하는 경우에는 ```0.0002```초 정도 소요됨을 확인할 수 있다.  
+```const``` 옵션으로 ```PK```를 탐색하는 경우와 거의 유사한 속도가 나오게 된다!  
+
+<img width="569" alt="스크린샷 2024-06-08 오전 11 58 34" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/1709413a-00c7-4a15-8d8a-347195a10e39">  
