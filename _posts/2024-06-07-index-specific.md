@@ -49,6 +49,11 @@ MySQL에서는 ```EXPLAIN``` 키워드를 통해 실행 계획을 확인할 수 
 
 <img width="896" alt="스크린샷 2024-06-07 오후 9 45 29" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/45cabd66-a04b-4f9d-a248-1a1d54a67b74">  
 
-<img width="565" alt="스크린샷 2024-06-07 오후 9 50 23" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f37896d1-20bd-4013-a370-f78d60ee8f73">  
+실제로 ```profiling```을 통해 실행 시간을 확인해 보았다.  
+```ALL```로 Full scan을 하는 것보다 ```const```가 훨씬 빠름을 확인할 수 있다.  
+```ALL```은 약 0.1초 정도 소요가 되며, ```const```는 0.0002초 정도 소요가 된다.  
 
-<img width="578" alt="스크린샷 2024-06-07 오후 9 50 39" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/3020ced7-204c-45e1-96c0-1ab6638c054a">  
+<img width="565" alt="스크린샷 2024-06-07 오후 9 50 23" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/f37896d1-20bd-4013-a370-f78d60ee8f73">  
+<img width="578" alt="스크린샷 2024-06-07 오후 9 50 39" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/3020ced7-204c-45e1-96c0-1ab6638c054a">   
+
+이제 실제로 Index를 걸어 ```WHERE``` 절을 통해 확인을 해보도록 하자.  
