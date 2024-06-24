@@ -65,4 +65,15 @@ Docker는 기본적으로 설치한 뒤, ```zsh``` 환경에서 조작이 가능
 
 <img width="326" alt="스크린샷 2024-06-24 오후 5 20 20" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/38c8210e-5618-401b-97c5-c51ab738a6b8">  
 
-하지만 현재 제대로 인식을 하지 못하고 오류가 발생하고 있는데, 빠른 해결이 필요할 것 같다.  
+하지만 현재 제대로 인식을 하지 못하고 오류가 발생하고 있는데, 아래와 같이 해결하였다.  
+```yml``` 파일을 작성할 때, 엔터 키를 입력하면 자동으로 인덴트가 들어가게 된다.  
+하지만 그대로 사용하면 위와 같은 오류가 발생함을 알 수 있었다.  
+조금 불편하지만, 오류를 발생시키지 않기 위해서 수동으로 인덴트를 조절해 주었다.  
+
+<img width="318" alt="스크린샷 2024-06-24 오후 5 22 20" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/4590253c-ad69-4195-96d2-556269323a5a">  
+
+이후 해당 디렉토리 내에서 ```docker-compose build``` 명령을 수행해주었다.  
+아래와 같이 ```remindme-web``` 이라는 이미지가 하나 생성되었음을 확인할 수 있다.  
+
+<img width="509" alt="스크린샷 2024-06-24 오후 5 23 40" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/868f67b0-0466-4f1f-82a4-20ecc5483ecb">  
+
