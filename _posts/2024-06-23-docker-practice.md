@@ -77,3 +77,17 @@ Docker는 기본적으로 설치한 뒤, ```zsh``` 환경에서 조작이 가능
 
 <img width="509" alt="스크린샷 2024-06-24 오후 5 23 40" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/868f67b0-0466-4f1f-82a4-20ecc5483ecb">  
 
+이후 ```build```된 파일을 실행시켜줄 ```docker-compose up``` 명령어를 실행시켰다.  
+하지만... 아래의 사진과 같이 정상적으로 실행이 되지 않았다.  
+
+<img width="1451" alt="스크린샷 2024-06-25 오후 8 23 34" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/82f1ec6b-27b7-4249-82bf-c960e4e9e156">  
+
+내가 생각하기에는, ```docker```의 ```mariadb```의 데이터베이스 때문인 것 같다.  
+내 로컬 환경의 ```mariadb```에는 당연히 내가 선언한 데이터베이스가 존재한다.  
+하지만 ```mariadb``` 이미지는 외부에서 받아왔기 때문에, 따로 데이터베이스가 정의되어 있지 않다.  
+그래서 직접 터미널에서 정의를 해주어야 할 것 같다.  
+
+<img width="622" alt="스크린샷 2024-06-25 오후 8 30 42" src="https://github.com/Jinseop-Sim/Jinseop-Sim.github.io/assets/71700079/2beab85a-29c6-4210-ba48-8eb8d7c82be7">  
+
+위와 같이 ```mariadb image```를 실행시킨 뒤, ```bash``` 명령어를 통해 접근할 수 있다.  
+```mariadb -u root -p``` 명령어를 통해 ```mariadb``` 콘솔에 접근해서 조작해보도록 하자.  
